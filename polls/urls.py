@@ -1,0 +1,12 @@
+from django.conf.urls import url
+
+from . import views
+
+# urlpatterns = [
+#     # url(r'^$', views.index, name='index'),
+#     url(r'^$', views.home, name='home'),
+# ]
+# We are adding a URL called /home
+urlpatterns = [
+    url(r'^$', views.home, name='home'),
+]

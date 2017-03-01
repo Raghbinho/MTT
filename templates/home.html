@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+<head>
+
+</head>
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="jumbotron">
+          <!--<h1>Hello</h1>-->
+          <!--<p>You are on your Dashboard</p>-->
+        <form name="classForm">
+            <table id="table_class" border="1px" >
+                <tr>
+                  <td width="300px" colspan="3">
+                      <center><label>Class_id:</label>
+                    <select name="class_id">
+                     <option value="1">1</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                   </select></center>
+                  </td>
+
+
+                  <td width="300px" colspan="3">
+                      <center> <label >Version:       </label>
+                    <input type="text" name="version" size="5" ></center><br>
+                  </td><br>
+
+                </tr>
+                <!--<form name="attributeForm">-->
+                <tr>
+                  <td width="300px">
+                      <label>Attributes</label>
+                      <input type = "submit" id = "submit" value = "+">
+                  </td>
+
+                    <td width="300px" >
+                        <!--<button id="add-another" name="button1" onclick="addTab()">+</button>-->
+
+
+                    </td>
+                    <td width="300px">
+                        <center><label>AttributeID</label></center>
+                    </td>
+
+                    <td width="300px">
+                        <center><label >AttributeName</label></center>
+                    </td>
+
+                    <td width="300px">
+                        <center><label >AttributeType</label></center>
+                    </td>
+                  <td width="300px">
+                      <center><label >AttributeSize</label></center>
+                  </td>
+                </tr>
+
+                 <tr>
+                  <td width="300px">
+
+                  </td>
+
+                    <td width="300px" >
+                        <!--<button id="add-another" name="button1" onclick="addTab()">+</button>-->
+
+                    </td>
+                    <td width="300px">
+                       <input type="text" name="AttributeID1" value="1">
+                    </td>
+
+                    <td width="300px">
+                       <input type="text" name="AttributeName1" value="logical_name">
+                    </td>
+
+                    <td width="300px">
+                        <input type="text" name="AttributeType1" value="">
+                    </td>
+                  <td width="300px">
+                    <input type="text" name="AttributeSize1" value="6">
+                  </td>
+
+
+                </tr>
+                <!--</form>-->
+
+        </table>
+<hr>
+              <table id="table_methode" border="1px" >
+
+                <!--<form name="attributeForm">-->
+                <tr>
+                  <td width="300px">
+                      <label>Methods</label>
+                      <input type = "submit" id = "methodsubmit" value = "+">
+
+                  </td>
+
+                    <!--<td width="300px" >-->
+                        <!--&lt;!&ndash;<button id="add-another" name="button1" onclick="addTab()">+</button>&ndash;&gt;-->
+
+                    <!--</td>-->
+                    <td width="300px">
+                        <label>MethodID</label>
+                    </td>
+
+                    <td width="300px">
+                        <label >MethodName</label>
+                    </td>
+
+                    <td width="300px" >
+                        <label >MethodType</label>
+                    </td>
+
+                </tr>
+
+
+                <!--</form>-->
+
+        </table>
+
+
+
+
+        </form>
+
+    </div>
+    </div>
+</div>
+<script src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/script.js"></script>
+<!--<script type="text/javascript">-->
+      <!--function addTab() {-->
+       <!--element = $('<input type="text"/>');-->
+       <!--$("#table_class").append(element);-->
+       <!--return false;-->
+        <!--}-->
+<!--</script>-->
+{% endblock %}
