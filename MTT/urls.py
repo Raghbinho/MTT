@@ -16,8 +16,8 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.contrib.auth import views
-
+from django.contrib.auth import views as views_django
+from polls import views, forms
 from MTT import settings
 from polls.forms import LoginForm
 
@@ -26,8 +26,11 @@ urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('polls.urls')),
-    url(r'^login/$', views.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name='login'),
-    url(r'^logout/$', views.logout, {'next_page': '/login'}),
+    url(r'^success/$', views.register_success, ),
+    url(r'^register/$', views.register, {'template_name': 'register.html'}),
+    url(r'^login/$', views_django.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name='login'),
+    url(r'^logout/$', views_django.logout, {'next_page': '/login'}),
     # url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
 
 ]
+

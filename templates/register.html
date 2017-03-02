@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}User Registration{% endblock %}
+{% block head %}User Registration{% endblock %}
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><center>Please Sign Up</center></h3>
+                    </div>
+                    <div class="panel-body">
+    <form method="post" action="">{% csrf_token %}
+        <p class="bs-component">
+            <table >
+                {{ form.as_table }}
+            </table>
+        </p>
+
+    <p class="bs-component">
+        <center><input class="btn btn-success btn-sm" type="submit" value="Register" /></center></p>
+        <p class="bs-component">
+        <center><a href="/login">Login</a></center>
+        </p>
+
+        </form>
+                    </div></div></div>
+</div>
+</div>
+    {% endblock %}
