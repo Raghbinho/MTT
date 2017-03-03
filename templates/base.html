@@ -1,65 +1,81 @@
+{% load staticfiles %}
 
-	{% load staticfiles %}
+<!DOCTYPE html>
+<html>
 
-	<!DOCTYPE html>
-	<html>
- 
-	<head>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Auth Demo</title>
+	<!-- Core CSS - Include with every page -->
+	<!--<link href="{% static 'css/design.css' %}" rel="stylesheet">-->
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/vertical_navbar.css' %}" rel="stylesheet">
+	<!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+	<!--<link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">-->
+</head>
+<body>
 
-	    <title>Auth Demo</title>
 
-	    <!-- Core CSS - Include with every page -->
-	    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-	</head>
+<nav class="navbar navbar-default">
+	{% if user.is_authenticated %}
+<div class="navbar navbar-inverse navbar-fixed-left">
+	{% endif %}
+	<div class="navbar-header"></div>
+	<a class="navbar-brand " href="#">MTT</a>
+	{% if user.is_authenticated %}
+	<ul class="nav navbar-nav">
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">Sub Menu1</a></li>
+				<li><a href="#">Sub Menu2</a></li>
+				<li><a href="#">Sub Menu3</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Sub Menu4</a></li>
+				<li><a href="#">Sub Menu5</a></li>
+			</ul>
+		</li>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link1 </span></a>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link2 </span></a>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link3 </span></a>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link4 </span></a>
+	</ul>
+{% endif %}
+{% if user.is_authenticated %}
+</div>
+	{% endif %}
+</nav>
 
-	<body>
 
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="#">Rocky Balbo</a>
-	    </div>
+	<div class="container-fluid">
+		<div class="navbar-wrapper">
+			<nav class="navbar navbar-fixed-top">
 
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right">
-	        
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
-	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="/home">home</a></li>
-	            <li><a href="#">Another action</a></li>
-	            <li><a href="#">Something else here</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
-	            <li class="divider"></li>
-	            <li><a href="/logout">Logout</a></li>
-	          </ul>
-	        </li>
 
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
+					{% if user.is_authenticated %}
+					<ul class="nav navbar-nav pull-right">
+						<li class=""><a href="/logout">Logout</a></li>
+					</ul>
 
-	            {% block content %}
-	            {% endblock %}
+					{% endif %}
 
-	    <!-- Core Scripts - Include with every page -->
-	    <script src = "{% static 'js/jquery.min.js' %}"></script>
+			</nav>
+		</div>
 
-	    <script src = "{% static 'js/bootstrap.min.js' %}"></script>
-	    {% block javascript %}
-	    {% endblock %}
+	</div>
 
-	</body>
 
-	</html>
+
+
+
+{% block content %}
+{%endblock%}
+<!-- Core Scripts - Include with every page -->
+<script src = "{% static 'js/jquery.min.js' %}"></script>
+
+<script src = "{% static 'js/bootstrap.min.js' %}"></script>
+{% block javascript %}
+{% endblock %}
+</body>
+</html>

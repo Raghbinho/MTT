@@ -1,0 +1,35 @@
+.navbar-fixed-left {
+  width: 200px;
+  position: fixed;
+  border-radius: 0;
+  height: 100%;
+}
+.navbar-fixed-left
+{
+   background-color:#2c3e50;
+   border-color:transparent
+}
+.navbar-fixed-left .navbar-nav > li {
+  float: none;  /* Cancel default li float: left */
+  width: 139px;
+
+}
+
+.navbar-nav>.active>a:focus{
+    color:#ffffff;
+    background-color:#000000
+    }
+
+.navbar-fixed-left + .container {
+  padding-left: 160px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+  margin-top: -50px;
+  margin-left: 140px;
+}
+navbar .navbar-brand{
+  margin-left: 15px;
+}
+.navbar-default .navbar-link:hover{color:#18bc9c}
