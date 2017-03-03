@@ -11,76 +11,70 @@
         <div class="jumbotron">
           <!--<h1>Hello</h1>-->
           <!--<p>You are on your Dashboard</p>-->
-        <form name="classForm">
-            <table id="table_class" border="1px" >
-                <tr>
-                  <td width="300px" colspan="3">
-                      <center><label>Class_id:</label>
-                    <select name="class_id">
+        <form name="classForm" id="form1">
+            <table class="table"  border="0px" >
+            <tr>
+            <td width="300px" colspan="3">
+                      <label>Class_id:</label>
+                    <select class="form-control" name="class_id">
                      <option value="1">1</option>
                      <option value="3">3</option>
                      <option value="4">4</option>
                      <option value="5">5</option>
-                   </select></center>
-                  </td>
+                   </select>
+            </td>
 
 
-                  <td width="300px" colspan="3">
-                      <center> <label >Version:       </label>
-                    <input type="text" name="version" size="5" ></center><br>
-                  </td><br>
+            <td width="300px" colspan="3">
+                      <label >Version:</label>
+                    <input class="form-control" type="text" name="version" size="5" >
+            </td>
+            </tr>
+            </table>
 
+           <table class="table"  id="table_class1" border="1px" >
+               <tr>
+                    <td> <center><input class="btn btn-info" type = "submit" id = "submit" value = "Add attribute"></center></td>
                 </tr>
+            <tr>
+                <td>
+                <table class="table"  id="table_class" border="0px" >
+
                 <!--<form name="attributeForm">-->
                 <tr>
-                  <td width="300px">
-                      <label>Attributes</label>
-                      <input type = "submit" id = "submit" value = "+">
-                  </td>
 
-                    <td width="300px" >
-                        <!--<button id="add-another" name="button1" onclick="addTab()">+</button>-->
-
-
-                    </td>
-                    <td width="300px">
-                        <center><label>AttributeID</label></center>
+                    <td >
+                        <label>AttributeID</label>
                     </td>
 
-                    <td width="300px">
-                        <center><label >AttributeName</label></center>
+                    <td >
+                        <label >AttributeName</label>
                     </td>
 
-                    <td width="300px">
-                        <center><label >AttributeType</label></center>
+                    <td >
+                        <label >AttributeType</label>
                     </td>
-                  <td width="300px">
-                      <center><label >AttributeSize</label></center>
+                  <td >
+                      <label >AttributeSize</label>
                   </td>
                 </tr>
 
                  <tr>
-                  <td width="300px">
 
-                  </td>
 
-                    <td width="300px" >
-                        <!--<button id="add-another" name="button1" onclick="addTab()">+</button>-->
-
-                    </td>
                     <td width="300px">
-                       <input type="text" name="AttributeID1" value="1">
+                       <input class="form-control" type="text" name="AttributeID1" value="1">
                     </td>
 
                     <td width="300px">
-                       <input type="text" name="AttributeName1" value="logical_name">
+                       <input class="form-control" type="text" name="AttributeName1" value="logical_name">
                     </td>
 
                     <td width="300px">
-                        <input type="text" name="AttributeType1" value="">
+                        <input class="form-control" type="text" name="AttributeType1" value="">
                     </td>
                   <td width="300px">
-                    <input type="text" name="AttributeSize1" value="6">
+                    <input class="form-control" type="text" name="AttributeSize1" value="6">
                   </td>
 
 
@@ -88,30 +82,37 @@
                 <!--</form>-->
 
         </table>
-<hr>
-              <table id="table_methode" border="1px" >
+                </td>
+</tr>
+           </table>
+
+     <table class="table"  id="table_class3" border="1px" >
+         <tr>
+
+             <td> <center> <input class="btn btn-info"type ="submit" id = "methodsubmit" value = "Add method"></center></td>
+         </tr>
+<br>
+
+<tr>
+    <td>
+
+              <table class="table" id="table_methode" border="0px" >
 
                 <!--<form name="attributeForm">-->
                 <tr>
-                  <td width="300px">
-                      <label>Methods</label>
-                      <input type = "submit" id = "methodsubmit" value = "+">
-
-                  </td>
-
                     <!--<td width="300px" >-->
                         <!--&lt;!&ndash;<button id="add-another" name="button1" onclick="addTab()">+</button>&ndash;&gt;-->
 
                     <!--</td>-->
-                    <td width="300px">
+                    <td >
                         <label>MethodID</label>
                     </td>
 
-                    <td width="300px">
+                    <td >
                         <label >MethodName</label>
                     </td>
 
-                    <td width="300px" >
+                    <td  >
                         <label >MethodType</label>
                     </td>
 
@@ -120,9 +121,16 @@
 
                 <!--</form>-->
 
-        </table>
+                </table>
+    </td>
+</tr>
+     </table>
 
-
+    <center>
+    <input class="btn btn-primary" type="submit" value="Generate" onclick="test()">
+        </center>
+            <!--<input type="file" id="fiad" onchange="selectFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple />-->
+            <!--<input   type="file" value="YourDefaultPathAndFilename.AndExtension">-->
 
 
         </form>
