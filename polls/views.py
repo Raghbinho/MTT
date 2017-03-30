@@ -272,7 +272,7 @@ def createTemporary(request, template_name="list.html"):
         f.write(pretty_xml_as_string.encode('UTF-8'))
     return listtree(request, template_name)
 
-def generate(request):
+def generateXML(request):
     """add associates to attributes in XML file and generate final dictionary"""
     context = {'error': ''}
     if request.method == "POST" and request.is_ajax():
