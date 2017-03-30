@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2015-08-15T14:30:00">
+	<object api="DLMS" name="Clock">
+		<dlmsObject logicalName="0;0;1;0;0;255" classId="8" classVersion="0"/>
+		<description>Clock
+		</description>
+		<attribute id="1" name="logical_name" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="logical_name" size="6" default="0;0;1;0;0;255;" editable="false"/>
+		</attribute>
+		<attribute id="2" name="time" shortname="16776" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="time" size="12" editable="true"/>
+		</attribute>
+		<attribute id="3" name="time_zone" shortname="16784" type="integer16">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<integer16 name="time_zone" size="0" default="-60" editable="false"/>
+		</attribute>
+		<attribute id="4" name="status" type="unsigned8">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned8 name="status" editable="false"/>
+		</attribute>
+		<attribute id="5" name="daylights_savings_begin" shortname="24752" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="daylights_savings_begin" size="12" default="255;255;3;254;7;2;0;0;0;128;0;0;" editable="true"/>
+		</attribute>
+		<attribute id="6" name="daylights_savings_end" shortname="24760" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="daylights_savings_end" size="12" default="255;255;10;254;7;3;0;0;0;128;0;128;" editable="true"/>
+		</attribute>
+		<attribute id="7" name="daylights_savings_deviation" type="integer8">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<integer8 name="daylights_savings_deviation" size="0" default="60" editable="true"/>
+		</attribute>
+		<attribute id="8" name="daylights_savings_enabled" type="boolean">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<boolean name="daylights_savings_enabled" size="0" default="1" editable="true" min="0" max="1"/>
+		</attribute>
+		<attribute id="9" name="clock_base" type="enumerated">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<enumerated name="clock_base" size="0" default="1" editable="false"/>
+		</attribute>
+	</object>
+</dictionnary>

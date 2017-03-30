@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2015-08-15T14:30:00">
+	<object api="DLMS" name="ActiveEnergyExport">
+		<dlmsObject logicalName="1;0;2;8;0;255" classId="3" classVersion="0"/>
+		<description>Active energy export (−A)
+		</description>
+		<attribute id="1" name="logical_name" shortname="5992" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="logical_name" size="6" default="1;0;2;8;0;255;" editable="false"/>
+		</attribute>
+		<attribute id="2" name="value" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned32 name="value" editable="false"/>
+		</attribute>
+		<attribute id="3" name="scaler_unit" type="struct">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<struct name="scaler_unit" size="2" editable="false">
+				<integer8 name="scaler" size="0" default="0" editable="false"/>
+				<enumerated name="unit" size="0" default="30" editable="false"/>
+			</struct>
+		</attribute>
+		<method id="1" name="reset" type="integer8">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="Public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Preestablished" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Management" id="1" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Management" id="2" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Reading" id="3" operations="-" unicast="true" broadcast="false" multicast="false"/>
+				<association name="Local Pairing" id="4" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<integer8 name="reset" size="0" default="0" editable="false"/>
+		</method>
+	</object>
+</dictionnary>

@@ -16,38 +16,32 @@
 	<!--<link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">-->
 </head>
 <body>
-
-
 <nav class="navbar navbar-default">
 	{% if user.is_authenticated %}
 <div class="navbar navbar-inverse navbar-fixed-left">
 	{% endif %}
-	<div class="navbar-header"></div>
-	<a class="navbar-brand " href="#">MTT</a>
+	<a class="navbar-brand" href=".">MTT</a>
 	{% if user.is_authenticated %}
 	<ul class="nav navbar-nav">
-		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">DMTT <span class="caret"></span></a>
 			<ul class="dropdown-menu" role="menu">
-				<li><a href="#">Sub Menu1</a></li>
-				<li><a href="#">Sub Menu2</a></li>
-				<li><a href="#">Sub Menu3</a></li>
+				<li><a href="#">Product</a></li>
 				<li class="divider"></li>
-				<li><a href="#">Sub Menu4</a></li>
-				<li><a href="#">Sub Menu5</a></li>
+				<li><a href="/list">Dictionnary</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Class</a></li>
 			</ul>
 		</li>
-		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link1 </span></a>
-		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link2 </span></a>
-		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link3 </span></a>
-		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link4 </span></a>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">FTT </span></a>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Viewer </span></a>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Robustness </span></a>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Retrofit </span></a>
 	</ul>
 {% endif %}
 {% if user.is_authenticated %}
 </div>
 	{% endif %}
 </nav>
-
-
 	<div class="container-fluid">
 		<div class="navbar-wrapper">
 			<nav class="navbar navbar-fixed-top">
@@ -55,7 +49,7 @@
 
 					{% if user.is_authenticated %}
 					<ul class="nav navbar-nav pull-right">
-						<li class=""><a href="/logout">Logout</a></li>
+						<li ><a href="/logout">Logout</a></li>
 					</ul>
 
 					{% endif %}
@@ -64,11 +58,6 @@
 		</div>
 
 	</div>
-
-
-
-
-
 {% block content %}
 {%endblock%}
 <!-- Core Scripts - Include with every page -->
