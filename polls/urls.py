@@ -10,4 +10,5 @@ from . import views,forms
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     # url(r'^$', views.register_success, name='success'),
+    # url(r'^list$', views.filetree, name="list"),
 ]

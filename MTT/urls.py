@@ -20,7 +20,7 @@ from django.contrib.auth import views as views_django
 from polls import views, forms
 from MTT import settings
 from polls.forms import LoginForm
-
+import os
 urlpatterns = [
     # url(r'^polls/', include('polls.urls')),
     # url(r'^admin/', admin.site.urls),
@@ -30,7 +30,16 @@ urlpatterns = [
     url(r'^register/$', views.register, {'template_name': 'register.html'}),
     url(r'^login/$', views_django.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name='login'),
     url(r'^logout/$', views_django.logout, {'next_page': '/login'}),
+    url(r'^list$', views.listtree, {'template_name': 'list.html'},),
+    url(r'^create$', views.create, {'template_name': 'list.html'}),
+    url(r'^folder/$', views.getName, ),
+    url(r'^parseXML/$', views.parseXML, ),
+    url(r'^createTemporary/$', views.createTemporary, {'template_name': 'list.html'}),
+    url(r'^generate/$', views.generate, ),
+    # url(r'^edit_favorites/$', views.edit_favorites,{'template_name': 'index.html'}, ),
+    # url(r'^index/(?P<flag>[0-9]+)/$', views.affiche,{'template_name': 'index.html'}, ),
+    # url(r'^list/(?P<file>\d+)$', views.current_file,{'template_name': 'list.html'}, name='current_file'),
     # url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-
+#
 ]
 
