@@ -1,0 +1,21 @@
+<class id="" version="">
+    <methodes>
+        <method id="" name="None" size="" type="float32" />
+        <method id="" name="None" size="" type="array">
+            <array size="2">
+                <date-time size="" />
+                <structure size="">
+                    <long64 size="" />
+                </structure>
+            </array>
+        </method>
+        <method id="" name="None" size="" type="array">
+            <array size="1">
+                <structure size="">
+                    <long-unsigned size="" />
+                    <unsigned size="" />
+                </structure>
+            </array>
+        </method>
+    </methodes>
+</class>

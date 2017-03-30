@@ -1,0 +1,2 @@
+<class id="1" version=""><description>clock</description><attributes><attribute id="1" name="logical_name" size="6" type="octet-string" /><attribute id="" name="" size="" type="structure"><structure size="1">
+    <array size="" /></structure><array size="2" /></attribute></attributes><methodes /></class>
