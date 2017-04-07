@@ -1,0 +1,825 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<head xmlns:border="http://www.w3.org/1999/xhtml">
+
+</head>
+{% block content %}
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/easyTree.min.js"></script>
+    <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+</head>
+
+<div class="container">
+      <div class="row">
+
+            <!--******************************************************-->
+<div class="col-lg-3">
+            <div class="panel panel-primary">
+                <center>
+                    <h3 class="text-success">Product list</h3>
+                </center>
+                <div class="easy-tree">
+                    <form id="listP" method="post">
+                        {% csrf_token %}
+                        <ul>
+                            {% for item in tree.children %}
+                            <li>
+                                {{ item.name }}
+                                {% if item.children %}
+                                {% endif %}
+                                <ul id="myid">
+
+                                    {% for d in item.children %}
+                                    <li>
+                                        {% if d.children %}
+                                        {% endif %}
+                                      <a id="{{item.name}}\\{{d.name}}" class="text-muted"
+                                                   data-toggle="collapse"
+                                                   onclick="m(this.id);href='#display';">{{ d.name }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-lg-9">
+
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="#menu" class="btn btn-sm btn-primary pull-right" data-toggle="collapse"
+                               role="menu" aria-expanded="false" onclick="Visible();">Add Product</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             <div class="col-md-9" id="divDisplay">
+            <div class=" panel-default">
+                <div class="panel-body">
+                    <div class="collapse menu" id="display" tabindex="-1" role="dialog" aria-labelledby="">
+                        <div class="modal-content modal-lg" role="document">
+                            <div class="modal-content" id="textareaContent">
+                                <textarea style='auto'
+                                          resize="none"
+                                          class="form-control animated"
+                                          rows="34" cols="100"
+                                          readonly="readonly"
+                                          maxlength='1000'>
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="col-md-9" id="addProduct" width="75%">
+            <div class=" panel-default">
+                <div class="panel-body">
+                    <div class="collapse menu" id="menu" tabindex="-1" role="dialog" aria-labelledby="" width="75%">
+                        <div class="modal-content modal-smll" role="document" >
+                            <div class="modal-content" >
+
+                                <div class="modal-header" >
+                                    <button type='button' class='close'
+                                            onclick='$(this).parent().parent().parent().parent().parent().parent().parent().hide();'>
+                                        ×
+                                    </button>
+                                    <center>
+
+                                    </center>
+     <form name="productForm" id="formP" action="/generateProduct" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                    <table class="table"  border="1px" >
+                    <tr>
+                       <h3> General Settings</h3>
+                    </tr>
+
+                        <td >
+                           <center><label>
+                           Device Type
+                           </label></center>
+
+                        </td>
+                        <td>
+                            <select  class="form-control"  name="deviceType" >
+                                <option value="Select Device Type" selected="selected">Select type</option>
+                                <option value="E-Meter">E-Meter</option>
+                                <option value="G-Meter">G-Meter</option>
+
+                            </select>
+                        </td>
+
+
+                         <td>
+                            <center><label>
+                            Firmware
+                            </label></center>
+                         </td>
+                        <td>
+                             <input class="form-control" type="text" required  name="filename" id="filename">
+                              <span class="btn btn-default btn-file"><span></span><input type="file"  name="firmware"/></span>
+                         </td>
+
+                        <tr>
+                            <td>
+                            <center><label>
+                            Product Name
+                            </label></center>
+
+                            </td>
+
+
+                         <td>
+                              <input class="form-control" type="text" name="productName" id="productName">
+
+
+                         </td>
+
+
+
+
+                            <td >
+                            <center><label>
+                            TCP Timeout
+                            </label></center>
+                            </td>
+
+                            <td>
+                              <input class="form-control" type="text" name="tcpTimeout">
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                            <center><label>
+                            Serial Number
+                            </label></center>
+
+                        </td>
+
+
+                            <td>
+
+                               <input class="form-control" type="text" name="serialNumber">
+
+                            </td>
+
+
+
+                            <td>
+                           <center><label>
+                           HDLC Timeout
+                           </label></center></td>
+                            <td>
+                            <input class="form-control" type="text" name="hdlcTimeout">
+                            </td>
+
+                    </tr>
+
+                       <tr>
+                           <td>
+                           <center><label>
+                           Equipement Identifier
+                           </label></center></td>
+                        <td>
+                            <input class="form-control" type="text" name="softwareVersion">
+                        </td>
+
+
+
+                           <td>
+                           <center><label>
+                           Software version
+                           </label></center>
+
+
+                           </td>
+                           <td>
+                               <input class="form-control" type="text" name="equipementIdentifier">
+
+                           </td>
+
+
+
+
+                       </tr>
+
+
+                        <tr>
+
+                            <td>
+                            <center><label>
+                            Manufacturer
+                            </label></center></td>
+
+                            <td>
+                                <input class="form-control" type="text" name="Manufacturer">
+                        </td>
+
+                            <td>
+                            <center><label>
+                            HDLC MaxReceive
+                            </label></center></td>
+                            <td>
+                            <input class="form-control" type="text" name="hdlcMaxReceive">
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                            <center><label>
+                            Description
+                            </label></center></td>
+                            <td>
+                            <input class="form-control" type="text" name="description">
+
+                            </td>
+
+
+                            <td>
+                            <center><label>
+                            Baudrate
+                            </label></center></td>
+                            <td>
+                            <input class="form-control" type="text" name="baudrate">
+                             </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                           <center><label>
+                           Meter IP
+                           </label></center></td>
+
+                            <td>
+                            <input class="form-control" type="text" name="meterIP">
+                            </td>
+
+                             <td >
+                             <center><label>
+                            HDLC Adress
+                             </label></center></td>
+                            <td>
+                            <input class="form-control" type="text" name="hdlcAdress">
+                         </td>
+                        </tr>
+
+                        <tr>
+
+                           <td>
+                            <center><label>
+                            Server Adress
+                            </label></center></td><td>
+                            <input class="form-control" type="text" name="serverAdress">
+                        </td>
+
+
+                            <td >
+                           <center><label>
+                           ModeE Adress
+                           </label>
+                           </center>
+
+
+                                <center><label class="checkbox-inline"><input type="checkbox" value="modeEchecked"></label></center>
+                            </td>
+                         <td>
+                              <input class="form-control" type="text" name="modeEadress">
+                         </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                            <center><label>
+                            Meter Port
+                            </label></center></td><td>
+                            <input class="form-control" type="text" name="meterPort">
+                        </td>
+
+                             <td>
+                            <center><label>
+                            HDLC MaxTransmit
+                            </label></center></td>
+                           <td>
+                            <input class="form-control" type="text" name="hdlcMaxTransmit">
+                        </td>
+
+
+
+                        </tr>
+                    </table>
+
+            <table class="table"  border="1px" id="TableClient">
+
+
+                    <tr>
+
+                        <h3>Client Adress <input  type="button" class="btn btn-info" value="+" onclick="addClient();" id="addClient">
+                        </h3>
+
+                    </tr>
+
+
+
+
+                     <tr>
+                       <td>
+                           <center><label>
+                          Client Adress
+                           </label>
+                           </center>
+
+                       </td>
+
+                       <td>
+                            <center><label>
+                          Association Name
+                           </label>
+                           </center>
+                       </td>
+
+                    </tr>
+            </table>
+
+
+                    <table class="table"  border="1px" id="SecurityTable">
+                         <tr>
+
+                        <h3>Security Settings
+                        </h3>
+
+                    </tr>
+
+
+
+                     <tr>
+                       <td>
+                           <center><label>
+                            Master Key
+                           </label>
+                           </center>
+                       </td>
+                       <td>
+                            <center><label>
+                           <input class="form-control" type="text" name="masterKey">
+                           </label>
+                           </center>
+                       </td>
+
+                       <td>
+                           <center><label>
+                            Global Encryption Key
+                           </label>
+                           </center>
+                       </td>
+                       <td>
+                            <center><label>
+                           <input class="form-control" type="text" name="globalKey">
+                           </label>
+                           </center>
+                       </td>
+
+
+                       <td>
+                           <center><label>
+                            Authentification Key
+                           </label>
+                           </center>
+                       </td>
+                       <td>
+                            <center><label>
+                           <input class="form-control" type="text" name="authentificationKey">
+                           </label>
+                           </center>
+                       </td>
+                     </tr>
+                        <tr>
+
+
+
+                       <td>
+                           <center><label>
+                           HLS Secret
+                           </label>
+                           </center>
+                       </td>
+                       <td>
+                            <center><label>
+                           <input class="form-control" type="text" name="hlsSecret">
+                           </label>
+                           </center>
+                       </td>
+
+
+
+                       <td>
+                           <center><label>
+                           LLS Authentification Value
+                           </label>
+                           </center>
+                       </td>
+                       <td>
+                            <center><label>
+                           <input class="form-control" type="text" name="llsAuth">
+                           </label>
+                           </center>
+                       </td>
+                     </tr>
+                    </table>
+
+
+
+
+
+
+                    <tr><center> <input class="btn btn-success" type = "submit" id = "generateProduct" value = "Generate"></center></tr>
+
+
+
+
+      </form>
+
+                                    <!--********************-->
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <!--*************************************************************-->
+
+        </div>
+    </div>
+</div>
+
+
+
+<!--<script src="/static/js/jquery.min.js"></script>-->
+<script type="text/javascript" src="/static/js/scriptProduct.js"></script>
+<script>
+function Visible() {
+
+            if (document.getElementById('addProduct')) {
+                    document.getElementById('addProduct').style.display = 'block';
+                    document.getElementById('divDisplay').style.display = 'none';
+            }
+}
+
+<!--*****************************************-->
+ function m(valueSent) {
+  if (document.getElementById('addProduct')) {
+                    document.getElementById('addProduct').style.display = 'none';
+                    document.getElementById('divDisplay').style.display = 'block';
+            }
+  $('#addProduct').modal('hide')
+     var element = $(this);
+     $.post(element.attr('href'), { flag: element.data(valueSent)});
+    function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function nbChar(chaine,lettre) {
+  var nb = 0;
+
+  for(var i in chaine)
+    nb += chaine[i] == lettre;
+  return nb;
+}
+
+
+
+
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+
+
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
+var tabClient=[]
+var tabAsso=[]
+
+
+      $.ajax({
+          type: "POST",
+          cache: true,
+          url: "/folder1/",
+          data:  { id : valueSent },
+            success: function(result) {
+            var tableSizeClient=0;
+            var nbclient=0;
+
+
+
+            if(result.deviceType=="E-Meter")
+            {
+            value="G-Meter";
+            }
+            else
+            {value="E-Meter";}
+
+
+            i=0
+            ch=result.stat;
+            chaine="";
+            clientAdd="";
+            assoc_name="";
+            while(ch!= "" ){
+
+                   chaine=ch.substr(0,ch.indexOf("/"));
+                   <!--alert(chaine.split(','));-->
+                   index=chaine.indexOf(',')
+                   clientAdd=clientAdd+chaine.substr(0,index)+'.';
+
+                   assoc_name=assoc_name+chaine.substr(index+1,chaine.length)+'.';
+
+                    ch=ch.substr(ch.indexOf("/")+1) ;
+                    }
+                    <!--alert(clientAdd)-->
+                    <!--alert(assoc_name)-->
+                    client=clientAdd.toString();
+                    assoc=assoc_name.toString();
+
+
+
+
+<!--*******************************&lt;!&ndash;client function&ndash;&gt;**************************-->
+                    i=0;
+
+                    tableSizeClient=(nbChar(client,'.'))
+
+
+
+                    for (x = 0; x < tableSizeClient; x++) {
+                        tabClient[x]="";
+                        tabAsso[x]="";
+                     nbclient=tableSizeClient;
+
+                            }
+                    <!--ch="";-->
+                    <!--j=0;-->
+                    <!--while(i<client.length)-->
+                    <!--{-->
+                    <!--alert(i);-->
+                    <!--index=client.indexOf('.')-->
+                    <!--ch=client.substr(i,index);-->
+                    <!--tabClient[j]=ch;-->
+                    <!--alert(tabClient[j]);-->
+                    <!--i=i+index+1;-->
+                    <!--client=client.substr(index,client.length);-->
+                    <!--j++;-->
+                    <!--}-->
+                    tabClient=client.split('.');
+                    <!--alert(tab[0]+' /'+ tab[1]);-->
+<!--*******************************&lt;!&ndash;association function&ndash;&gt;**************************-->
+
+                    <!--ch2="";-->
+                    <!--j2=0;-->
+                    <!--i2=0;-->
+                    <!--while(i2<assoc.length)-->
+                    <!--{-->
+                    <!--index1=assoc.indexOf('.')-->
+                    <!--ch2=assoc.substr(i2,index1);-->
+
+                    <!--tabAsso[j]=ch2;-->
+                    <!--alert(tabAsso[j]);-->
+                    <!--i2=i2+index1+1;-->
+                    <!--j2++;-->
+                    <!--}-->
+                    tabAssoc=assoc.split('.');
+
+
+
+<!--*********************************************************-->
+
+elementc=''
+var nbclient=0;
+
+for(i=0,j=0;i<tabClient.length-1,j<tabAssoc.length-1;i++,j++)
+
+{
+
+
+elementc=elementc+'<tr><td><input class="form-control" type="text" name="clientAdress-' + nbclient + '" id="clientAdress-' + nbclient + '"  onchange="SetClientAdress(this.value)" value="'+tabClient[i]+'" ></td>'+
+          '<td><input class="form-control" type="text" name="associationName-' + nbclient + '" id="associationName-' + nbclient + '" onchange="SetAssociationName(this.value)" value="'+tabAssoc[j]+'"  >'+
+          '<input type="hidden" name="nbclient" id="nb" value='+nbclient+'></td>'+
+          '</tr>'
+
+          nbclient++;
+
+          }
+
+element='<form name="editFormProduct" id="EditFormProduct" action="/editProduct" method="post" enctype="multipart/form-data">'+
+'<table class="table"  border="1px" >'+
+'<tr><h3> General Settings</h3>'+
+'</tr>'+
+'<td >'+
+'<center><label>Device Type</label></center></td>'+
+'<td>'+
+'<select  class="form-control"  name="deviceType" >'+
+'<option value='+result.deviceType+' selected>'+result.deviceType+'</option>'+
+'<option value='+value+'>'+value+'</option>'+
+
+'</select>'+
+'</td>'+
+'<td>'+
+'<center><label>Firmware</label></center></td>'+
+ '<td>'+
+' <input class="form-control" type="text" required  name="filename" id="file"  value='+result.firmware+'>'+
+'<span class="btn btn-default btn-file"><span></span><input type="file"  name="firmware" onchange="get_filename(this);" /></span>'+
+'</td>'+
+'<tr>'+
+'<td><center><label>Product Name</label></center></td>'+
+' <td>'+
+' <input class="form-control" type="text" name="productName" id="productName" value='+result.productName+'>'+
+'</td>'+
+'<td ><center><label>TCP Timeout</label></center></td>'+
+'<td>'+
+'<input class="form-control" type="text" name="tcpTimeout" value='+result.tcpTimeOut+'>'+
+' </td>'+
+' </tr>'+
+'<tr><td><center><label>Serial Number</label></center></td>'+
+'<td>'+
+'<input class="form-control" type="text" name="serialNumber"  value='+result.serialNumber+'>'+
+'</td>'+
+'<td><center><label>HDLC Timeout</label></center></td>'+
+'<td><input class="form-control" type="text" name="hdlcTimeout" value='+result.hdlcTimeOut+'></td>'+
+'</tr>'+
+'<tr><td><center><label>Software Version</label></center></td><td><input value='+result.eqID+' class="form-control" type="text" name="equipement"></td>'+
+'<td><center><label>Equipement Identifier</label></center></td>'+
+'<td>'+
+' <input class="form-control" type="text" name="software" value='+result.software+'> '+
+'</td>'+
+'</tr>'+
+' <tr>'+
+' <td><center><label>Manufacturer</label></center></td><td><input value='+result.manu+' class="form-control" type="text" name="Manufacturer"></td>'+
+'<td><center><label>HDLC MaxReceive</label></center></td>'+
+'<td><input class="form-control" type="text" name="hdlcMaxReceive" value='+result.HDLC_maxR+'></td>'+
+'</tr>'+
+'<tr>'+
+'<td><center><label>Description</label></center></td><td><input class="form-control" type="text" name="description"  value='+result.desc+'></td>'+
+'<td><center><label>Baudrate</label></center></td><td><input class="form-control" type="text" name="baudrate" value='+result.bau+'></td></tr>'+
+'<tr>'+
+'<td><center><label>Meter IP</label></center></td>'+
+'<td><input class="form-control" type="text" name="meterIP" value='+result.meIDu+'></td>'+
+'<td ><center><label>HDLC Adress</label></center></td>'+
+'<td>'+
+'<input class="form-control" type="text" name="hdlcAdress" value='+result.HDLC_Adr+'>'+
+'</td>'+
+'</tr>'+
+'<tr>'+
+'<td><center><label>Server Adress</label></center></td><td><input class="form-control" type="text" name="serverAdress" value='+result.serverA+'></td>'+
+'<td ><center><label>ModeE Adress</label></center><center><label class="checkbox-inline"><input type="checkbox" value="modeEchecked"></label></center></td>'+
+' <td>'+
+' <input class="form-control" type="text" name="modeEadress"  value='+result.mode+'>'+
+'</td>'+
+'</tr>'+
+'<tr>'+
+'<td><center><label>Meter Port</label></center></td><td><input class="form-control" type="text" name="meterPort" value='+result.meterP+'></td>'+
+'<td><center><label>HDLC MaxTransmit</label></center></td>'+
+'<td><input class="form-control" type="text" name="hdlcMaxTransmit" value='+result.HDLC_maxT+' ></td>'+
+'</tr>'+
+'</table>'+
+'<table class="table"  border="1px" id="TableClient">'+
+' <tr>'+
+' <h3>Client Adress <input type="button" class="btn btn-info" value="+" id='+tableSizeClient+' onclick="addclientE(this);">'+
+'</h3>'+
+'</tr>'+
+'<tr>'+
+'<td><center><label>Client Adress</label></center></td>'+
+'<td><center><label>Association Name</label></center></td></tr>'+
+
+
+elementc+
+
+'</table>'+
+'<table class="table"  border="1px" id="SecurityTable">'+
+' <tr>'+
+' <h3>Security Settings'+
+'</h3>'+
+' </tr>'+
+'<tr>'+
+'<td>'+
+'<center><label>Master Key</label></center></td>'+
+'<td><center><label><input class="form-control" type="text" name="masterKey"  value='+result.Mas_key+'></label></center></td>'+
+'<td><center><label>Global Encryption Key</label></center></td>'+
+'<td><center><label><input value='+result.global_key+' class="form-control" type="text" name="globalKey"></label></center></td>'+
+'<td><center><label>Authentification Key</label></center></td><td><center><label><input value='+result.Authen_key+' class="form-control" type="text" name="authentificationKey"></label></center></td></tr>'+
+'<tr>'+
+'<td><center><label>HLS Secret</label></center></td>'+
+'<td><center><label><input class="form-control" type="text" name="hlsSecret" value='+result.H_key+'></label></center></td>'+
+'<td><center><label>LLS Authentification Value</label></center></td>'+
+ '<td><center><label><input class="form-control" type="text" name="llsAuth" value='+result.L_key+'></label></center></td></tr>'+
+'</table>'+
+ '<tr><center> <input class="btn btn-success" type = "submit" id = "EditProduct" value = "Edit" ></center></tr>'+
+' </form>'
+$("#textareaContent").html(element);
+            }
+
+
+
+        });
+
+}
+<!--*********************************************-->
+
+var nb=0;
+function addclientE(value){
+<!--alert($(value).prop('id'));-->
+nbclient++;
+
+            nb=eval($(value).prop('id'))+ nbclient;
+
+          element = $('<tr><td><input class="form-control" type="text" name="clientAdress-' + nb + '" id="clientAdress-' + nb + '"  onchange="GetClientAdress(this)"  ></td>'+
+          '<td><input class="form-control" type="text" name="associationName-' + nb + '" id="associationName-' + nb + '" onchange="GetAssociationName(this)" >'+
+          '<input type="hidden" name="nbclient" value='+nb+'></td>'+
+          '</tr>' );
+          $("#TableClient").append(element);
+          return false;
+
+
+}
+
+function get_filename(obj)
+{
+
+var file = obj.value;
+ document.getElementById("file").value=file;
+}
+
+function SetClientAdress(value)
+{
+
+alert(value);
+}
+function SetAssociationName(value)
+{
+alert(value);
+}
+
+function GetClientAdress(value)
+{
+alert('id '+ $(value).prop('id'))
+}
+
+(function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+                addable: false,
+                editable: false,
+                deletable: false
+            });
+        }
+        window.onload = init();
+    })(jQuery)
+    <!--**********************************************-->
+
+
+
+</script>
+
+
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+

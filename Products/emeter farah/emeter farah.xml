@@ -1,0 +1,29 @@
+<Product deviceType="E-Meter" name="emeter farah">
+    <SerialNumber value="000f" />
+    <softwareVersion value="Efff" />
+    <manufacturer value="sagemf" />
+    <description value="emeter farah created" />
+    <equipement_identifier value="1.1" />
+    <MeterIP value="127.0.0.1" />
+    <MeterPort value="8080" />
+    <ServerAdress adress="@server" />
+    <firmware value="signup.PNG" />
+    <TCP><TCP_timeout value="T9600" />
+    </TCP>
+    <HDLC>
+        <HDLC_timeout value="H9600T" />
+        <HDLC_maxTransmit value="H9600MaxT" />
+        <HDLC_maxReceive value="H9600MaxR" />
+        <HDLC_Adress adress="HDLC ADRESS" />
+        <Baudrate value="HBa9600" />
+    </HDLC><ModeE adress="modeEadress" />
+    <ClientAdress>
+        <client adress="client1" associationName="public" />
+        <client adress="client2" associationName="management" />
+    </ClientAdress>
+    <MasterKey value="masterKey1" />
+    <GlobalKey value="globalEkey1" />
+    <AuthentificationKey value="authe1" />
+    <LLSAuthentification value="LLs1" />
+    <HLS_Secret value="HLS 1" />
+</Product>

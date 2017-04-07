@@ -20,6 +20,7 @@ from xml.dom import minidom
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring, XML
 import xml.dom.minidom
 from django.views.decorators.csrf import csrf_protect
+from django.core.files.storage import FileSystemStorage
 
 logger = logging.getLogger(__name__)
 
@@ -678,11 +679,152 @@ def getName(request):
     global FileName
     if request.method == "POST" and request.is_ajax():
         FileName = request.POST['id']
+        logger.info(FileName)
         status = display(FileName)
         return HttpResponse(str(status['fileContent']))
     else:
         status= {'fileContent': 'Fail Loading Content'}
         return HttpResponse(status)
+
+#  added by farah***********************************************************************************
+FileName1 = ''
+tree1 = {}
+def getNameF(request):
+    """get file Name"""
+    global FileName1
+    if request.method == "POST" and request.is_ajax():
+        FileName1 = request.POST['id']
+        logger.info(FileName1)
+        # status = display(FileName1)
+        status=''
+
+        path="Products\\"+FileName1
+        doc = minidom.parse(path)
+        productFile = doc.getElementsByTagName('Product')
+        for pdt in productFile:
+            deviceType = pdt.getAttribute('deviceType')
+            productName = pdt.getAttribute('name')
+        print productName
+        soft = doc.getElementsByTagName('softwareVersion')
+        for so in soft:
+            software = so.getAttribute('value')
+
+        serial = doc.getElementsByTagName('SerialNumber')
+        for s in serial:
+            serialNumber = s.getAttribute('value')
+        manufacturer= doc.getElementsByTagName('manufacturer')
+        for m in manufacturer:
+            manu = m.getAttribute('value')
+        description = doc.getElementsByTagName('description')
+        for d in description:
+            desc = d.getAttribute('value')
+        equipementId=doc.getElementsByTagName('equipement_identifier')
+        for e in equipementId:
+            eqID = e.getAttribute('value')
+        MeterIP=doc.getElementsByTagName('MeterIP')
+        for meter in MeterIP:
+             meID= meter.getAttribute('value')
+        MeterPort = doc.getElementsByTagName('MeterPort')
+        for meterP in MeterPort:
+            meterP = meterP.getAttribute('value')
+        ServerAdress = doc.getElementsByTagName('ServerAdress')
+        for server in ServerAdress:
+            serverA = server.getAttribute('adress')
+        firmware= doc.getElementsByTagName('firmware')
+        for firm in firmware:
+            firmware = firm.getAttribute('value')
+        TCP=doc.getElementsByTagName('TCP')
+        for t in TCP:
+            TcpTime = t.getElementsByTagName('TCP_timeout')
+            for tt in TcpTime:
+                tcpTimeOut = tt.getAttribute('value')
+
+        HDLC = doc.getElementsByTagName('HDLC')
+        for h in HDLC:
+            HdlcTime = h.getElementsByTagName('HDLC_timeout')
+            for hh in HdlcTime:
+                hdlcTimeOut = hh.getAttribute('value')
+
+            HDLC_maxTransmit = h.getElementsByTagName('HDLC_maxTransmit')
+            for hmax in HDLC_maxTransmit:
+                HDLC_maxT = hmax.getAttribute('value')
+
+
+            HDLC_maxReceive = h.getElementsByTagName('HDLC_maxReceive')
+            for hmaxR in HDLC_maxReceive:
+                HDLC_maxR = hmaxR.getAttribute('value')
+
+
+            HDLC_Adress = h.getElementsByTagName('HDLC_Adress')
+            for hAdd in HDLC_Adress:
+                HDLC_Adr = hAdd.getAttribute('adress')
+
+
+            baudrate = h.getElementsByTagName('Baudrate')
+            for b in baudrate:
+                bau = b.getAttribute('value')
+
+
+
+
+        mode_e = doc.getElementsByTagName('ModeE')
+        for m in mode_e:
+            mode = m.getAttribute('adress')
+
+
+        ClientAdress = doc.getElementsByTagName('ClientAdress')
+        for c in ClientAdress:
+            ClientAdr = c.getElementsByTagName('client')
+            i=0;
+            for cc in ClientAdr:
+
+                client_adr = cc.getAttribute('adress')
+                association_name = cc.getAttribute('associationName')
+                status += client_adr+','+ association_name + "/"
+                i+=1
+
+
+
+
+
+        MasterKey = doc.getElementsByTagName('MasterKey')
+        for Mkey in MasterKey:
+            Mas_key = Mkey.getAttribute('value')
+
+        GlobalKey = doc.getElementsByTagName('GlobalKey')
+        for Gkey in GlobalKey:
+            global_key = Gkey.getAttribute('value')
+
+
+        AuthentificationKey = doc.getElementsByTagName('AuthentificationKey')
+        for Akey in AuthentificationKey:
+            Authen_key = Akey.getAttribute('value')
+
+
+        LLSAuthentification=doc.getElementsByTagName('LLSAuthentification')
+        for Lkey in LLSAuthentification:
+           L_key = Lkey.getAttribute('value')
+
+
+        HLS_Secret = doc.getElementsByTagName('HLS_Secret')
+        for Hkey in HLS_Secret:
+            H_key = Hkey.getAttribute('value')
+
+        logger.info(H_key)
+
+
+
+        return HttpResponse(simplejson.dumps({'stat': status,'software':software,'deviceType': deviceType,'productName':productName,'serialNumber':serialNumber,'manu':manu,
+                                              'desc':desc,'eqID':eqID,'meID':meID,'meterP':meterP,'serverA':serverA,'firmware':firmware,'tcpTimeOut':tcpTimeOut,
+                                              'hdlcTimeOut':hdlcTimeOut,'HDLC_maxT':HDLC_maxT,'HDLC_maxR':HDLC_maxR,'HDLC_Adr':HDLC_Adr,'bau':bau,'mode':mode,'Mas_key':Mas_key,
+                                              'global_key':global_key,'Authen_key':Authen_key,'L_key':L_key,'H_key':H_key,'serverA':serverA,'i':i}), content_type='application/json')
+
+
+
+    else:
+        status= {'fileContent': 'Fail Loading Content'}
+        return HttpResponse(status)
+
 
 
 @csrf_protect
@@ -708,6 +850,7 @@ def listtree(request, template_name="list.html", path=PRODUCTS):
         return tree
     global tree
     tree = listtreefunction(path)
+
     return render(request, template_name, {'tree': tree,})
 
 def create(request, template_name="list.html"):
@@ -937,3 +1080,142 @@ def generateXML(request):
             readFile1(context, name, filePath)
             textXML = context['fileContent']
     return HttpResponse(textXML)
+# **********************************************modif farah
+
+def addProduct(request, template_name="listProduct.html"):
+    print ""
+    return render(request, template_name)
+# ******************************************************
+
+def generateProduct(request,template_name="listProduct.html"):
+
+    nbclient=request.POST.get("nbclient",None)
+    print 'nbclient'+str(nbclient)
+
+    deviceType=request.POST.get("deviceType",None)
+
+    productName = request.POST.get("productName", None)
+
+
+    serialNumber = request.POST.get("serialNumber", None)
+
+
+    softwareVersion = request.POST.get("softwareVersion", None)
+
+    manufacturer = request.POST.get("Manufacturer", None)
+
+    description = request.POST.get("description", None)
+
+    equipementIdentifier = request.POST.get("equipementIdentifier", None)
+
+    meterIP = request.POST.get("meterIP", None)
+
+    serverAdress = request.POST.get("serverAdress", None)
+
+    meterPort = request.POST.get("meterPort", None)
+
+
+    firmwareFile = request.FILES['firmware']
+
+
+    tcpTimeout = request.POST.get("tcpTimeout", None)
+
+    hdlcTimeout = request.POST.get("hdlcTimeout", None)
+
+    hdlcMaxReceive = request.POST.get("hdlcMaxReceive", None)
+
+    hdlcMaxTransmit = request.POST.get("hdlcMaxTransmit", None)
+
+    hdlcAdress = request.POST.get("hdlcAdress", None)
+
+    baudrate = request.POST.get("baudrate", None)
+
+    modeEadress = request.POST.get("modeEadress", None)
+
+    masterKey = request.POST.get("masterKey", None)
+
+    globalKey = request.POST.get("globalKey", None)
+
+    authentificationKey = request.POST.get("authentificationKey", None)
+
+    hlsSecret = request.POST.get("hlsSecret", None)
+
+    llsAuth = request.POST.get("llsAuth", None)
+
+    # ***************************xml File*************************************
+    root = ET.Element("Product",name=unicode(productName),deviceType=unicode(deviceType))
+    serial = ET.SubElement(root, "SerialNumber",value=unicode(serialNumber))
+    software = ET.SubElement(root, "softwareVersion", value=unicode(softwareVersion))
+    manu = ET.SubElement(root, "manufacturer", value=unicode(manufacturer))
+    desc = ET.SubElement(root, "description", value=unicode(description))
+    equipement=ET.SubElement(root, "equipement_identifier", value=unicode(equipementIdentifier))
+    ip = ET.SubElement(root, "MeterIP", value=unicode(meterIP))
+    meter_port = ET.SubElement(root, "MeterPort", value=unicode(meterPort))
+    serverAdd = ET.SubElement(root, "ServerAdress", adress=unicode(serverAdress))
+    firmware = ET.SubElement(root, "firmware", value=unicode(firmwareFile))
+    tcp = ET.SubElement(root, "TCP")
+    tcpT=ET.SubElement(tcp, "TCP_timeout",value=unicode(tcpTimeout))
+    hdlc = ET.SubElement(root, "HDLC")
+    hdlcT = ET.SubElement(hdlc, "HDLC_timeout", value=unicode(hdlcTimeout))
+    hdlcMaxT = ET.SubElement(hdlc, "HDLC_maxTransmit", value=unicode(hdlcMaxTransmit))
+    hdlcMaxR = ET.SubElement(hdlc, "HDLC_maxReceive", value=unicode(hdlcMaxReceive))
+    hdlcAdd = ET.SubElement(hdlc, "HDLC_Adress", adress=unicode(hdlcAdress))
+    baud = ET.SubElement(hdlc, "Baudrate", value=unicode(baudrate))
+    modeE = ET.SubElement(root, "ModeE", adress=unicode(modeEadress))
+    clientA = ET.SubElement(root, "ClientAdress")
+    for i in range(1, (int(nbclient)) + 1):
+        clientAdress=request.POST.get("clientAdress-" + str(i), None)
+        associationName=request.POST.get("associationName-" + str(i), None)
+        client = ET.SubElement(clientA, "client", adress=unicode(clientAdress),associationName=unicode(associationName))
+    masterK = ET.SubElement(root, "MasterKey", value=unicode(masterKey))
+    globalK = ET.SubElement(root, "GlobalKey", value=unicode(globalKey))
+    authentificationK = ET.SubElement(root, "AuthentificationKey", value=unicode(authentificationKey))
+    lls = ET.SubElement(root, "LLSAuthentification", value=unicode(llsAuth))
+    hls = ET.SubElement(root, "HLS_Secret", value=unicode(hlsSecret))
+
+    newpath = r"C:/Users/g507888/PycharmProjects/GITHUB3/Products/" + str(productName)
+    if not os.path.exists(newpath):
+        os.makedirs(newpath)
+
+    tree = ET.ElementTree(root)
+    tree.write(newpath + "/"+ str(productName) + ".xml")
+    os.makedirs(newpath+ "/objects_dictionary ")
+
+
+    return treeListF(request)
+# *******************************************
+# @csrf_protect
+
+def editProduct(request,template_name="listProduct.html"):
+    # print("edit")
+    return treeListF(request)
+
+
+
+# *********************************************
+@csrf_protect
+
+def treeListF(request, template_name="listProduct.html", path=PRODUCTS):
+    """show tree of products """
+    def listtreeFfunction(path):
+        """Browse the tree"""
+        result = path.rpartition('\\')[2]
+        tree = dict(name=result, children=[])
+        try:
+            lst = os.listdir(path)
+        except OSError:
+            pass
+        else:
+            for name in lst:
+                fn = os.path.join(path, name)
+                recent = name
+                if os.path.isdir(fn):
+                    tree['children'].append(listtreeFfunction(fn))
+                else:
+                    tree['children'].append(dict(name=recent))
+        return tree
+    global tree
+    tree = listtreeFfunction(path)
+    return render(request, template_name, {'tree': tree,})
+
+

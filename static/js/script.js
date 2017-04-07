@@ -1633,7 +1633,7 @@ nb_btn_clicked=0;
            if (nb_btn_clicked <= attrSize ){
 
 
-             element = $('<tr style="border-bottom: 1px solid LightSteelBlue;"><td ></td><td  >' +
+             element = $('<tr style="border-bottom: 1px solid LightSteelBlue;"><td width="300px"></td><td width="300px" >' +
           '</td>'+
                     '<td width="300px">'+
                      '<select  class="form-control" name="attributeTypeArray-' + (idselect) +  "-" +nb_btn_clicked+ "-"+indice+ "-" +nbclicstructure+ '" id="attributeType-' + (idselect) +  "-" +nb_btn_clicked+ "-"+indice+ "-" +nbclicstructure+ '" >'+

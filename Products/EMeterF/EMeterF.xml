@@ -1,0 +1,30 @@
+<Product deviceType="G-Meter" name="EMeterF">
+    <SerialNumber value="000f" />
+    <softwareVersion value="1.1" />
+    <manufacturer value="SAGEM" />
+    <description value="meter farah " />
+    <equipement_identifier value="Elll" />
+    <MeterIP value="127.0.0.1" />
+    <MeterPort value="8080" />
+    <ServerAdress adress="@server" />
+    <firmware value="tree.PNG" />
+    <TCP>
+        <TCP_timeout value="T9600" />
+    </TCP>
+    <HDLC>
+        <HDLC_timeout value="H9600T" />
+        <HDLC_maxTransmit value="H9600MaxT" />
+        <HDLC_maxReceive value="H9600MaxR" />
+        <HDLC_Adress adress="HDLC ADRESS" />
+        <Baudrate value="HBa9600" />
+    </HDLC>
+    <ModeE adress="@ modeE" />
+    <ClientAdress>
+        <client adress="1010" associationName="public" /><client adress="1100" associationName="management" /><client adress="1111" associationName="public" />
+    </ClientAdress>
+    <MasterKey value="masterKey1" />
+    <GlobalKey value="globalEkey1" />
+    <AuthentificationKey value="authe1" />
+    <LLSAuthentification value="LLs1" />
+    <HLS_Secret value="HLS 1" />
+</Product>
