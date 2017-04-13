@@ -31,7 +31,7 @@ function GetAssociationName(value)
 //**********************************************
 $(":file").change(function(){
    filename=$(":file").val();
-   document.getElementById("filename").value=filename;
+   document.getElementById("filenameG").value=filename;
     });
 //    ***********************************************
 

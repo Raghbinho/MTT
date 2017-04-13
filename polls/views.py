@@ -98,6 +98,600 @@ def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+def generate(request):
+
+    global attribut
+    global arrayelt
+    global z
+    global test
+    global nbfich
+    global nbclic
+    global nbclics
+
+    context = {'error': ''}
+    a = request.POST.get('version');
+    select = request.POST.get("class_id", None)
+    nbligne = request.POST.get("nbligne", None)
+    nbclicstructure = request.POST.get("nbclicstructure", None)
+    # nbelement = request.POST.get("nbelement", None)
+    # nb = request.POST.get("nb", None)
+    nb = 0
+    compteur=0
+    nbs=0
+    n=0
+    print("file")
+
+    # nbfich += 1
+    while exists("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFiles/filename" + str(nbfich) + ".xml"):
+        print "nbfich++"
+        nbfich+=1
+    # z=0
+    # indice = request.POST.get("indice", None)
+    ind = 0
+    nbelement = request.POST.getlist("nbelement", False)
+    print ("nbelement" + str(nbelement))
+    # for i in range(len(nbelement)):
+    #     print nbelement[i]
+    # list = nbelement.split("-")
+    # print(list)
+    if (nbelement != False):
+        list = (max(nbelement, key=len))
+        print (list)
+        z = 0
+
+        listelt = list.split(",")
+        print((listelt))
+        if (len(listelt)) == 2:
+            arrayelt = listelt
+        else:
+
+            elt = ""
+            for y in (listelt):
+                if len(elt) >= len(y):
+                    arrayelt.append(elt)
+                    elt = y
+
+
+                else:
+                    elt = y
+            # if(listelt[len(listelt)-1]) not in arrayelt:
+            arrayelt.append(listelt[len(listelt) - 1])
+            print "arrayelt"
+            print arrayelt
+
+    # elt = (max(listelt, key=len))
+    # print elt
+
+    # att_elt=elt.split("-")
+    # print att_elt
+
+
+
+
+
+
+
+    # ************************************************
+    root = ET.Element("class", id=unicode(select), version=unicode(a))
+
+    doc = ET.SubElement(root, "description")
+    doc.text = "clock"
+    att = ET.SubElement(root, "attributes")
+
+    nbclicStruct = 0
+    at = ET.SubElement(att, "attribute", id="1", name="logical_name", type="octet-string", size="6")
+    for i in range(2, (int(nbligne)) + 1):
+
+        cpt = 0
+        nbclicStruct = 0
+        nbs+=1
+        compteur=0
+        nbclic=0
+        nbclics=0
+
+        print "n="+str(n)
+
+        print("indice for " + str(ind))
+        attID = request.POST.get("AttributeID-" + str(i), None)
+        attName = request.POST.get("AttributeName-" + str(i), None)
+        attType = request.POST.get("attributeType-" + str(i), None)
+        # attSize = request.POST.get("attributesize-" + str(i), None)
+        at = ET.SubElement(att, "attribute", id=unicode(attID), name=unicode(attName), type=unicode(attType),
+                           size="")
+        print("attribut" + unicode(attType))
+        print("nbligne" + str(nbligne))
+
+        # *************************************************array**************************************************************
+        if (unicode(attType) == "array"):
+            x = 0
+            ind += 1
+            nbclic += 1
+
+            print("indice" + str(ind))
+            # print("nbclicstructure"+ nbclicstructure)
+            attSize = request.POST.get("attributesize-" + str(i), None)
+
+            array = ET.SubElement(at, "array",size=unicode(attSize))
+            j = 1
+            if (int(attSize) == 0):
+                ind += 1
+
+            while (j < (int(attSize)) + 1):
+
+                attributeTypeArray = request.POST.get(
+                    "attributeTypeArray-" + str(i) + "-" + str(j) + "-" + str(ind) + "-" + str(nbclicStruct), None)
+                print ("attributeTypeArray" + str(i) + "-" + str(j) + "-" + str(ind) + "-" + str(nbclicStruct))
+                # print("indice" + str(ind))
+                # ind += 1
+
+
+
+                cell = ET.SubElement(array, unicode(attributeTypeArray), size="")
+
+                # **************************************************************************************************************
+                if (unicode(attributeTypeArray) == "structure"):
+                    n += 1
+                    print("longeur= " + str(len(arrayelt[z])))
+                    print("arrayelt[z]= " + str((arrayelt[z])))
+                    print ("cpt" + str(cpt))
+
+
+                    # if (len(arrayelt[z])<3) & (test==True) :
+                    #     print("z if = "  +str(z))
+                    #     # z=0-1
+                    #     print("len(arrayelt)=" + str(len(arrayelt)))
+                    #     if z < (len(arrayelt) -1):
+                    #         print("<")
+                    #         z += 1
+                    #         print "z < (len(arrayelt) -1)"+ str(z)
+                    # if(len(arrayelt[z])>2) & (test==True) & cpt != 0 :
+                    #     if z < (len(arrayelt) - 1):
+                    #         z += 1
+                    #         print "(len(arrayelt[z])>2) & (test==True)" + str(z)
+
+
+
+
+                    #
+                    # else:
+                    #     cpt=0
+                    # cpt+=1
+                    print ("cpt=" + str(cpt))
+
+                    nbe = 0
+                    compteur=0
+                    nbclicStruct += 1
+                    nb += 1
+                    print("nb= "+str(nb))
+                    # ind+=1
+                    print("struct")
+
+                    print(len(arrayelt))
+
+                    print("z" + str(z))
+                    if (len(arrayelt) == 1):
+
+                        attribut = arrayelt[len(arrayelt) - 1].split("-")
+
+                    else:
+
+                        print("arrayelt[z]" + str(arrayelt[z]))
+                        attribut = str(arrayelt[z]).split("-")
+                        count = 0
+
+
+
+                    # print(len(attribut))
+                    # while a in range(len((attribut))):
+                    nbe = 0
+                    print (attribut[cpt])
+
+                    if (attribut[cpt] != ''):
+
+                        while (nbe <= (int(attribut[cpt]) - 1)):
+                            # print("count"+str(count))
+                            test = False
+
+                            elementtype = request.POST.get(
+                                "elementtype-" + str(i) + "-" + str(attSize) + "-" + str(nbe) + "-" + str(nb), None)
+                            print("elementType" + str(i) + "-" + str(attSize) + "-" + str(nbe) + "-" + str(nb))
+                            structelement = ET.SubElement(cell, unicode(elementtype), size="")
+
+                            structuresize = request.POST.get("attributesize-" + str(i) + "-" + str(j) + "-" + str(nbe),
+                                                             None)
+
+                            # count += 1
+
+                            nbe += 1
+                        if nbe > int(attribut[cpt]) - 1:
+                            test = True
+
+                        nbclicStruct = 0
+
+                    ind += 1
+                elif (unicode(attributeTypeArray) != "structure"):
+
+                    nbclicStruct = 0
+                    # z += 1
+
+
+
+
+
+
+
+
+                    ind += 1
+                    x += 1
+                    if (len(attribut) > 2):
+                        cpt = cpt - 1
+                    print("elif indice=" + str(ind))
+                else:
+                    nbclicStruct = 0
+                    nbe = 0
+
+                    ind += 1
+                    x += 1
+                    print("else indice=" + str(ind))
+                if len(attribut) > 2:
+                    cpt += 1
+                j += 1
+
+                print("cpt j" + str(cpt))
+                # cpt= -1
+
+            ind -= 1
+            print("indice=" + str(ind))
+            # if(cpt==0) & z <=len(arrayelt):
+            #     z+=1
+            if z < len(arrayelt) - 1:
+                z += 1
+        nbelt = -1
+
+        if (unicode(attType) == "structure"):
+
+
+
+
+            nbelt += 1
+            nb+=1
+            n+=1
+
+            print "arrayelt[z] struct"
+            print arrayelt[z].split("-")
+            struct = arrayelt[z].split("-")
+            c=0
+            print struct[c]
+
+            structuresizes = request.POST.get("structuresize-" + str(i) + "-" + str(nbclics) + "-" + str(0), None)
+            print "structuresize-" + str(i) + "-" + str(nbclics) + "-" + str(0)
+            print structuresizes
+            structure = ET.SubElement(at, "structure", size=unicode(struct[0]))
+
+
+
+
+
+            while (compteur <= (int(struct[c]) - 1)):
+                # print("count"+str(count))
+                # test = False
+
+
+                elementtypes = request.POST.get(
+                    "elementtype-" + str(i) + "-" + str(nbclics) + "-" + str(compteur) + "-" + str(n), None)
+                print("elementType" + str(i) + "-" + str(nbclics) + "-" + str(compteur) + "-" + str(n))
+
+                eltsize = request.POST.get(
+                    "elementsize-" + str(i) + "-" + str(nbclics) + "-" + str(compteur) + "-" + str(n), None)
+
+                print  "elementsize-" + str(i) + "-" + str(nbclics) + "-" + str(compteur) + "-" + str(n)
+                structelement = ET.SubElement(structure, unicode(elementtypes), size=unicode(eltsize))
+                print (eltsize)
+
+
+
+                if (unicode(elementtypes)=="array"):
+                    nbclics=0
+
+
+                    j2 = 1
+
+
+                    while (j2 < (int(eltsize)) + 1):
+                        ind += 1
+                        print("z="+str(z))
+
+                        elementTypeArray = request.POST.get(
+                            "attributeTypeArray-" + str(i) + "-" + str(j2) + "-" + str(ind) + "-" + str(nbclicStruct),
+                            None)
+                        print ("attributeTypeArray" + str(i) + "-" + str(j2) + "-" + str(ind) + "-" + str(nbclicStruct))
+                        print("indice" + str(ind))
+                        cell = ET.SubElement(structelement, unicode(elementTypeArray), size="")
+                        if(unicode(elementTypeArray)=="structure"):
+
+                            cpt+=1
+                            nbes=0
+                            nb+=1
+                            print("z="+str(z))
+                            print "struct array struct"
+                            print("cpt="+str(cpt))
+                            attribut = str(arrayelt[z]).split("-")
+                            print attribut[cpt]
+                        #     *****************************
+                        if (attribut[cpt] != ''):
+
+                            while (nbes <= (int(attribut[cpt]) - 1)):
+                                # print("count"+str(count))
+                                test = False
+
+                                elementtype = request.POST.get(
+                                    "elementtype-" + str(i) + "-" + str(eltsize) + "-" + str(nbes) + "-" + str(nb), None)
+                                print("elementType" + str(i) + "-" + str(eltsize) + "-" + str(nbes) + "-" + str(nb))
+                                structelement = ET.SubElement(cell, unicode(elementtype), size="")
+
+                                # structuresize = request.POST.get(
+                                #     "attributesize-" + str(i) + "-" + str(j) + "-" + str(nbe),
+                                #     None)
+
+                                # count += 1
+
+                                nbes += 1
+                        z+=1
+                        # ************************************
+
+
+
+
+
+
+                        j2 += 1
+
+                compteur += 1
+
+
+
+
+
+            z+=1
+            nbclics += 1
+
+
+
+
+
+
+
+    tree = ET.ElementTree(root)
+
+    print("nbfich"+str(nbfich ))
+
+    tree.write("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFiles/filename"+str(nbfich)+".xml")
+
+
+    # **************************************************
+
+
+
+
+
+    return render(request, 'login.html', context)
+
+# ***********************************************************************
+#  added by farah***********************************************************************************
+FileName1 = ''
+tree1 = {}
+def getNameF(request):
+    """get file Name"""
+    logger.info("information")
+    global FileName1
+    if request.method == "POST" and request.is_ajax():
+        FileName1 = request.POST['id']
+        logger.info(FileName1)
+        # status = display(FileName1)
+        status=''
+
+        path="Products\\"+FileName1
+        doc = minidom.parse(path)
+        productFile = doc.getElementsByTagName('Product')
+        for pdt in productFile:
+            deviceType = pdt.getAttribute('deviceType')
+            productName = pdt.getAttribute('name')
+        print productName
+        soft = doc.getElementsByTagName('softwareVersion')
+        for so in soft:
+            software = so.getAttribute('value')
+
+        serial = doc.getElementsByTagName('SerialNumber')
+        for s in serial:
+            serialNumber = s.getAttribute('value')
+        manufacturer= doc.getElementsByTagName('manufacturer')
+        for m in manufacturer:
+            manu = m.getAttribute('value')
+        description = doc.getElementsByTagName('description')
+        for d in description:
+            desc = d.getAttribute('value')
+        equipementId=doc.getElementsByTagName('equipement_identifier')
+        for e in equipementId:
+            eqID = e.getAttribute('value')
+        MeterIP=doc.getElementsByTagName('MeterIP')
+        for meter in MeterIP:
+             meID= meter.getAttribute('value')
+        MeterPort = doc.getElementsByTagName('MeterPort')
+        for meterP in MeterPort:
+            meterP = meterP.getAttribute('value')
+        ServerAdress = doc.getElementsByTagName('ServerAdress')
+        for server in ServerAdress:
+            serverA = server.getAttribute('adress')
+        firmware= doc.getElementsByTagName('firmware')
+        for firm in firmware:
+            firmware = firm.getAttribute('value')
+        TCP=doc.getElementsByTagName('TCP')
+        for t in TCP:
+            TcpTime = t.getElementsByTagName('TCP_timeout')
+            for tt in TcpTime:
+                tcpTimeOut = tt.getAttribute('value')
+
+        HDLC = doc.getElementsByTagName('HDLC')
+        for h in HDLC:
+            HdlcTime = h.getElementsByTagName('HDLC_timeout')
+            for hh in HdlcTime:
+                hdlcTimeOut = hh.getAttribute('value')
+
+            HDLC_maxTransmit = h.getElementsByTagName('HDLC_maxTransmit')
+            for hmax in HDLC_maxTransmit:
+                HDLC_maxT = hmax.getAttribute('value')
+
+
+            HDLC_maxReceive = h.getElementsByTagName('HDLC_maxReceive')
+            for hmaxR in HDLC_maxReceive:
+                HDLC_maxR = hmaxR.getAttribute('value')
+
+
+            HDLC_Adress = h.getElementsByTagName('HDLC_Adress')
+            for hAdd in HDLC_Adress:
+                HDLC_Adr = hAdd.getAttribute('adress')
+
+
+            baudrate = h.getElementsByTagName('Baudrate')
+            for b in baudrate:
+                bau = b.getAttribute('value')
+
+
+
+
+        mode_e = doc.getElementsByTagName('ModeE')
+        for m in mode_e:
+            mode = m.getAttribute('adress')
+
+
+        ClientAdress = doc.getElementsByTagName('ClientAdress')
+        for c in ClientAdress:
+            ClientAdr = c.getElementsByTagName('client')
+            i=0;
+            for cc in ClientAdr:
+
+                client_adr = cc.getAttribute('adress')
+                association_name = cc.getAttribute('associationName')
+                status += client_adr+','+ association_name + "/"
+                i+=1
+
+
+
+
+
+        MasterKey = doc.getElementsByTagName('MasterKey')
+        for Mkey in MasterKey:
+            Mas_key = Mkey.getAttribute('value')
+
+        GlobalKey = doc.getElementsByTagName('GlobalKey')
+        for Gkey in GlobalKey:
+            global_key = Gkey.getAttribute('value')
+
+
+        AuthentificationKey = doc.getElementsByTagName('AuthentificationKey')
+        for Akey in AuthentificationKey:
+            Authen_key = Akey.getAttribute('value')
+
+
+        LLSAuthentification=doc.getElementsByTagName('LLSAuthentification')
+        for Lkey in LLSAuthentification:
+           L_key = Lkey.getAttribute('value')
+
+
+        HLS_Secret = doc.getElementsByTagName('HLS_Secret')
+        for Hkey in HLS_Secret:
+            H_key = Hkey.getAttribute('value')
+
+        logger.info(H_key)
+
+
+
+        return HttpResponse(simplejson.dumps({'stat': status,'software':software,'deviceType': deviceType,'productName':productName,'serialNumber':serialNumber,'manu':manu,
+                                              'desc':desc,'eqID':eqID,'meID':meID,'meterP':meterP,'serverA':serverA,'firmware':firmware,'tcpTimeOut':tcpTimeOut,
+                                              'hdlcTimeOut':hdlcTimeOut,'HDLC_maxT':HDLC_maxT,'HDLC_maxR':HDLC_maxR,'HDLC_Adr':HDLC_Adr,'bau':bau,'mode':mode,'Mas_key':Mas_key,
+                                              'global_key':global_key,'Authen_key':Authen_key,'L_key':L_key,'H_key':H_key,'serverA':serverA,'i':i}), content_type='application/json')
+
+
+
+    else:
+        status= {'fileContent': 'Fail Loading Content'}
+        return HttpResponse(status)
+# ****
+def generateMethod(request):
+    global nbfich2
+    global arrayeltM
+    global attributM
+    global z2
+    context = {'error': ''}
+    print "method"
+    nbligne2 = request.POST.get("nbligne2", None)
+    nbelementM = request.POST.getlist("nbelementM", False)
+    print ("nbelementM" + str(nbelementM))
+    root = ET.Element("class", id="", version="")
+
+    meth = ET.SubElement(root, "methodes")
+    nM=0
+    nbM=0
+
+
+
+    while exists("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml"):
+        print "nbfich++"
+        nbfich2 += 1
+        indM=1
+
+    if (nbelementM != False):
+        listM = (max(nbelementM, key=len))
+        print (listM)
+        z2 = 0
+
+        listeltM = listM.split(",")
+        print((listeltM))
+        if (len(listeltM)) == 2:
+            arrayeltM = listeltM
+        else:
+
+            eltM = ""
+            for y in (listeltM):
+                if len(eltM) >= len(y):
+                    arrayeltM.append(eltM)
+                    eltM = y
+
+
+                else:
+                    eltM = y
+            # if(listelt[len(listelt)-1]) not in arrayelt:
+            arrayeltM.append(listeltM[len(listeltM) - 1])
+            print "arrayeltM"
+            print arrayeltM
+    nbclicStructM=-1
+    clics = 1
+    for i in range(1, (int(nbligne2))+1):
+
+        indM=1
+        cptM=0
+
+        nba=0
+
+
+        methID = request.POST.get("MethodeID-" + str(i), None)
+        methName = request.POST.get("methodName-" + str(i), None)
+        methType = request.POST.get("methodType-" + str(i), None)
+
+        methSize = request.POST.get("methodsize-" + str(i), None)
+        method = ET.SubElement(meth, "method", id=unicode(methID), name=unicode(methName), type=unicode(methType),
+                               size=unicode(methSize))
+
+
+
+
+        if (unicode(methType) == "array"):
+            array = ET.SubElement(method, "array", size=unicode(methSize))
+            nbclicStructM+=1
+
+
+
+
 
             j = 1
             if (int(methSize) == 0):
@@ -229,8 +823,7 @@ def logout_page(request):
 
 
     return render(request, 'login.html', context)
-
-# ***********************************************************************
+# **
 FileName = ''
 tree = {}
 def getName(request):
@@ -616,7 +1209,7 @@ def generateProduct(request,template_name="listProduct.html"):
     lls = ET.SubElement(root, "LLSAuthentification", value=unicode(llsAuth))
     hls = ET.SubElement(root, "HLS_Secret", value=unicode(hlsSecret))
 
-    newpath = r"C:/Users/g507888/PycharmProjects/GITHUB3/Products/" + str(productName)
+    newpath = r"C:/Users/g507888/PycharmProjects/MTT/Products/" + str(productName)
     if not os.path.exists(newpath):
         os.makedirs(newpath)
 
@@ -627,16 +1220,11 @@ def generateProduct(request,template_name="listProduct.html"):
 
     return treeListF(request)
 # *******************************************
-
-
-
-
 pathXml=""
 filePDt=""
 @csrf_protect
 
 def editProduct(request,template_name="listProduct.html"):
-
     global pathXml
     global filePDt
     NewclientAdress=[]
@@ -867,22 +1455,6 @@ def editProduct(request,template_name="listProduct.html"):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     manufacturer = request.POST.get("Manufacturer", None)
 
 
@@ -1012,22 +1584,7 @@ def update(request):
                         assoc = item.findall(k)
                         for element in assoc:
                             element.set(attribute, value)
-        # else:
-        #     tag1 = root.find(k)
-        #     if tag1 is not None:
-        #         tag1.set(attribute, value)
-        #     else:
-        #         occur1 = tag[2]
-        #         l = 'attribute[' + occur1 + ']'
-        #         for item in root.findall(l):
-        #             k = tag[tag.find(occur1) + 1:] + '[' + occur + ']'
-        #             logger.info(k)
-        #             for assocs in item.findall('dlmsAttribute[0]'):
-        #                 assoc = assocs.find(k)
-        #                 assoc.set(attribute, value)
-        #             else:
-        #                 assoc = item.find(k)
-        #                 assoc.set(attribute, value)
+
         with open(path, 'w') as f:
             f.write(tostring(root))
     return HttpResponse(0);

@@ -23,9 +23,9 @@
     </HDLC>
     <ModeE adress="modeEadress1" />
     <ClientAdress>
-        <client adress="1010" associationName="public1" /><client adress="10111" associationName="public2" /></ClientAdress>
+        <client adress="10111" associationName="public2" /><client adress="1020" associationName="public3-1" /></ClientAdress>
     <MasterKey value="masterKey3" />
-    <GlobalKey value="globalEkey3                                                                            " />
+    <GlobalKey value="globalEkey3                                                                              " />
     <AuthentificationKey value="authe2" />
     <LLSAuthentification value="LLs2" />
     <HLS_Secret value="HLS 2" />
