@@ -8,7 +8,7 @@ from . import views,forms
 # ]
 # We are adding a URL called /home
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
+    url(r'^$', views.welcome, name='welcome'),
     # url(r'^$', views.register_success, name='success'),
     # url(r'^list$', views.filetree, name="list"),
 ]

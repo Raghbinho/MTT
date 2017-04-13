@@ -1,25 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dictionnary version="1.1" creationDate="2011-12-12T14:30:00">
-<!--5.11-->
+<dictionnary creationDate="2011-12-12T14:30:00" version="1.1">
+
   <object api="DLMS" name="ActiveAPPFirmware">
-    <dlmsObject logicalName="1;1;0;2;0;255" classId="1" classVersion="0"/>
+    <dlmsObject classId="1" classVersion="0" logicalName="1;1;0;2;0;255" />
     <description>App Firmware version</description>
-	<attribute id="1" name="logical_name" type="octetstring">
+	<attribute id="1" name="logical_name" type="">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="Get" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="1;1;0;2;0;255;"/>
+      <octetstring default="1;1;0;2;0;255;" editable="false" edition="asciiText" name="logical_name" size="6" type-of-codage="Decoded as ASCII" />
     </attribute>
     <attribute id="2" name="value" type="octetstring">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="Get" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-      <octetstring name="value" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="32" default="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;"/>
+      <octetstring default="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;" editable="false" edition="asciiText" name="value" size="32" type-of-codage="Decoded as ASCII" />
    </attribute>
   </object>
 </dictionnary>
-<!--  END OF FILE -->

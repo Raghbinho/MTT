@@ -1,6 +1,0 @@
-<class id="" version="">
-    <methodes>
-        <method id="" name="None" size="" type="float32" />
-        <method id="" name="None" size="" type="array">
-            <array size="3">
-                <None size="" /><structure size=""><float32 size="" /></structure><structure size=""><octet-string size="" /><float32 size="" /></structure></array></method><method id="" name="None" size="" type="array"><array size="2"><structure size=""><long64 size="" /><float32 size="" /><long64-unsigned size="" /></structure><structure size=""><bcd size="" /></structure></array></method><method id="" name="None" size="" type="array"><array size="1"><structure size=""><float32 size="" /></structure></array></method></methodes></class>

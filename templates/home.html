@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-<head xmlns:border="http://www.w3.org/1999/xhtml">
+<head>
 
 </head>
 {% block content %}
@@ -11,68 +11,37 @@
         <div class="jumbotron">
           <!--<h1>Hello</h1>-->
           <!--<p>You are on your Dashboard</p>-->
-            <form >{% csrf_token %}</form>
-        <form name="classForm" id="form1"action="/generate" method="post" id="submitform" >
-            {% csrf_token %}
+        <form name="classForm" id="form1">
             <table class="table"  border="0px" >
-            <tr >
+            <tr>
             <td width="300px" colspan="3">
                       <label>Class_id:</label>
-                    <select class="form-control" name="class_id" id="classid">
+                    <select class="form-control" name="class_id">
                      <option value="1">1</option>
                      <option value="3">3</option>
                      <option value="4">4</option>
                      <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="26">26</option>
-                        <option value="61">61</option>
-                        <option value="62">62</option>
-                        <option value="63">63</option>
-                        <option value="12">12</option>
-                        <option value="15">15</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="64">64</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="65">65</option>
-                        <option value="67">67</option>
-                        <option value="68">68</option>
-                        <option value="70">70</option>
-                        <option value="71">71</option>
-                        <option value="111">111</option>
-                        <option value="112">112</option>
-                        <option value="113">113</option>
-                        <option value="115">115</option>
                    </select>
             </td>
 
 
             <td width="300px" colspan="3">
                       <label >Version:</label>
-                    <input class="form-control" type="text" name="version" size="5" id="version" >
+                    <input class="form-control" type="text" name="version" size="5" >
             </td>
             </tr>
             </table>
 
            <table class="table"  id="table_class1" border="1px" >
-               <tr  >
+               <tr>
                     <td> <center><input class="btn btn-info" type = "submit" id = "submit" value = "Add attribute"></center></td>
                 </tr>
-            <tr >
+            <tr>
                 <td>
-                <table class="table"  id="table_class" border="1px" >
+                <table class="table"  id="table_class" border="0px" >
 
                 <!--<form name="attributeForm">-->
-                <tr >
+                <tr>
 
                     <td >
                         <label>AttributeID</label>
@@ -90,37 +59,33 @@
                   </td>
                 </tr>
 
-                 <tr style="border-bottom: 1px solid LightSteelBlue    ;">
+                 <tr>
 
 
                     <td width="300px">
-                       <input class="form-control" type="text" name="AttributeID1" value="1" disabled="true">
+                       <input class="form-control" type="text" name="AttributeID1" value="1">
                     </td>
 
                     <td width="300px">
-                       <input class="form-control" type="text" name="AttributeName1" value="logical_name" disabled="true">
+                       <input class="form-control" type="text" name="AttributeName1" value="logical_name">
                     </td>
 
                     <td width="300px">
-                        <input class="form-control" type="text" name="AttributeType1" value="octet-string" disabled="true">
+                        <input class="form-control" type="text" name="AttributeType1" value="">
                     </td>
                   <td width="300px">
-                    <input class="form-control" type="text" name="AttributeSize1" value="6" disabled="true">
+                    <input class="form-control" type="text" name="AttributeSize1" value="6">
                   </td>
 
 
                 </tr>
-
                 <!--</form>-->
 
         </table>
                 </td>
-                 <input class="btn btn-success" type="submit" value="Generate"  >
 </tr>
            </table>
-        </form>
-             <form name="MethodForm" id="form2" action="/generateMethod" method="post">
-                 {% csrf_token %}
+
      <table class="table"  id="table_class3" border="1px" >
          <tr>
 
@@ -131,7 +96,7 @@
 <tr>
     <td>
 
-              <table class="table" id="table_methode" border="1px" >
+              <table class="table" id="table_methode" border="0px" >
 
                 <!--<form name="attributeForm">-->
                 <tr>
@@ -151,10 +116,6 @@
                         <label >MethodType</label>
                     </td>
 
-                    <td  >
-                        <label >MethodSize</label>
-                    </td>
-
                 </tr>
 
 
@@ -162,24 +123,21 @@
 
                 </table>
     </td>
-    <input class="btn btn-success" type="submit" value="Generate"  >
 </tr>
      </table>
-             </form>
+
     <center>
-
-
+    <input class="btn btn-primary" type="submit" value="Generate" onclick="test()">
         </center>
             <!--<input type="file" id="fiad" onchange="selectFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple />-->
             <!--<input   type="file" value="YourDefaultPathAndFilename.AndExtension">-->
 
 
-
+        </form>
 
     </div>
     </div>
 </div>
-
 <script src="/static/js/jquery.min.js"></script>
 <script type="text/javascript" src="/static/js/script.js"></script>
 <!--<script type="text/javascript">-->

@@ -1,95 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-<dictionnary version="1.1" creationDate="10:22 04/04/2016">
-<!-- 5.3 -->
+<dictionnary creationDate="10:22 04/04/2016" version="1.1">
+
   <object api="DLMS" name="Clock">
-    <dlmsObject logicalName="0;0;1;0;0;255" classId="8" classVersion="0"/>
+    <dlmsObject classId="8" classVersion="0" logicalName="0;0;1;0;0;255" />
     <description>This IC models the device clock, managing all information related to date and time, including deviations of the local time to a generalized time reference (Greenwich Mean Time, GMT), due to time zones and daylight saving time schemes.</description>
     <attribute id="1" name="logical_name" type="octetstring">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="Get/Set" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;1;0;0;255;"/>
+      <octetstring default="0;0;1;0;0;255;" editable="false" edition="asciiText" name="logical_name" size="6" type-of-codage="Decoded as ASCII" />
     </attribute>
-	<attribute id="2" name="time" type="octetstring" description="This data contains the meters local date and time, its deviation to GMT and the status">
+	<attribute description="This data contains the meters local date and time, its deviation to GMT and the status" id="2" name="time" type="octetstring">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get/Set" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="Get" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-<!-- datetime format as specified in EN 62056-62 section 4.4 -->
-      <octetstring name="time" editable="true" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="7;224;8;24;3;3;9;27;255;255;136;128;"/>
+
+      <octetstring default="7;224;8;24;3;3;9;27;255;255;136;128;" editable="true" edition="datetime" name="time" size="12" type-of-codage="Decoded as Decimal" />
     </attribute>
-    <attribute id="3" name="time_zone" type="integer16" description="This data contains the meters local date and time, its deviation to GMT and the status">
+    <attribute description="This data contains the meters local date and time, its deviation to GMT and the status" id="3" name="time_zone" type="integer16">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get/Set" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="-" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-      <integer16 name="time_zone" editable="true" min="-32768" max="32767" default="-60"/>
+      <integer16 default="-60" editable="true" max="32767" min="-32768" name="time_zone" />
     </attribute>
-    <attribute id="4" name="status" type="unsigned8" description="This data contains the meters local date and time, its deviation to GMT and the status">
+    <attribute description="This data contains the meters local date and time, its deviation to GMT and the status" id="4" name="status" type="unsigned8">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="-" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-      <unsigned8 name="status" editable="true" min="0" max="255" default="0"/>
+      <unsigned8 default="0" editable="true" max="255" min="0" name="status" />
     </attribute>
-    <attribute id="5" name="daylight_savings_begin" type="octetstring" description="This data contains the summer season begin">
+    <attribute description="This data contains the summer season begin" id="5" name="daylight_savings_begin" type="octetstring">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get/Set" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="-" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-<!-- datetime format as specified in EN 62056-62 section 4.4 -->
-      <octetstring name="daylight_savings_begin" editable="true" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;3;254;7;2;0;0;0;255;196;0;"/>
+
+      <octetstring default="255;255;3;254;7;2;0;0;0;255;196;0;" editable="true" edition="datetime" name="daylight_savings_begin" size="12" type-of-codage="Decoded as Decimal" />
     </attribute>
-    <attribute id="6" name="daylight_savings_end" type="octetstring" description="This data contains the summer season end.">
+    <attribute description="This data contains the summer season end." id="6" name="daylight_savings_end" type="octetstring">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get/Set" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="-" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-<!-- datetime format as specified in EN 62056-62 section 4.4 -->
-      <octetstring name="daylight_savings_end" editable="true" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;10;254;7;3;0;0;0;255;136;128;"/>
+
+      <octetstring default="255;255;10;254;7;3;0;0;0;255;136;128;" editable="true" edition="datetime" name="daylight_savings_end" size="12" type-of-codage="Decoded as Decimal" />
     </attribute>
-    <attribute id="7" name="daylights_savings_deviation" type="integer8" description="This data contains the summer season end.">
+    <attribute description="This data contains the summer season end." id="7" name="daylights_savings_deviation" type="integer8">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="-" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-<!-- datetime format as specified in EN 62056-62 section 4.4 -->
-      <integer8 name="daylights_savings_deviation" editable="true" min="-128" max="127" default="60"/>
+
+      <integer8 default="60" editable="true" max="127" min="-128" name="daylights_savings_deviation" />
     </attribute>
-    <attribute id="8" name="daylight_savings_enabled" type="boolean" description="This data specifies if the daylight savings function is used or not.">
+    <attribute description="This data specifies if the daylight savings function is used or not." id="8" name="daylight_savings_enabled" type="boolean">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get/Set" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="-" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="-" unicast="true" />
       </dlmsAttribute>
-      <boolean name="daylight_savings_enabled" editable="true" min="0" max="1" default="1"/>
+      <boolean default="1" editable="true" max="1" min="0" name="daylight_savings_enabled" />
     </attribute>
     <attribute id="9" name="clock_base" type="enumerated">
       <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association broadcast="false" id="1" multicast="false" name="MNGT" operations="Get" unicast="true" />
+        <association broadcast="false" id="16" multicast="false" name="public" operations="-" unicast="true" />
+        <association broadcast="false" id="102" multicast="false" name="pre" operations="None" unicast="true" />
       </dlmsAttribute>
-      <enumerated name="clock_base" editable="true" min="0" max="50" default="1"/>
+      <enumerated default="1" editable="true" max="50" min="0" name="clock_base" />
     </attribute>
-	<!--execute
-    <method id="6" name="shift_time" type="integer16">
-      <dlmsAttribute allowMultipleReferences="false">
-        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>
-        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
-        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
-      </dlmsAttribute>
-      <integer16 name="shift_time" editable="true" min="-900" max="900" default="0"/>
-    </method>
-    -->
+	
   </object>
 </dictionnary>
-<!--  END OF FILE -->

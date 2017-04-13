@@ -1,16 +1,24 @@
+
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
 
 <head>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+    <style>
+         .col-md-9 {
+    width: 73%;
+    .classInput{
+           width: 50%;
+          }
+    </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/easyTree.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+    <!--<script src="../static/js/bootstrap.min.js"></script>-->
     <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
+<body>
 {% csrf_token %}
 <p class="bs-component">
 <div class="row">
@@ -34,7 +42,6 @@
                                     {% for d in item.children %}
                                     <li>
                                         {% if d.children %}
-                                        {% endif %}
                                         {{ d.name }}
                                         <ul>
                                             {% for f in d.children %}
@@ -45,7 +52,11 @@
                                             </li>
                                             {% endfor %}
                                         </ul>
-
+                                        {% else %}
+                                                <a id="{{item.name}}\\{{d.name}}" class="text-muted"
+                                                   data-toggle="collapse"
+                                                   onclick="m(this.id);href='#display';">{{d.name}}</a>
+                                    {% endif %}
                                     </li>
                                     {% endfor %}
                                 </ul>
@@ -62,7 +73,8 @@
                             </h6>
                         </div>
                         <div class="col-lg-3">
-                            <a href="#menu" class="btn btn-sm btn-primary pull-right" data-toggle="collapse"
+                            <a id="addDict" href="#menu" class="btn btn-sm btn-primary pull-right"
+                               data-toggle="collapse"
                                role="menu" aria-expanded="false" onclick="switchVisible();">Add Dictionary</a>
                         </div>
                     </div>
@@ -76,13 +88,29 @@
                     <div class="collapse menu" id="display" tabindex="-1" role="dialog" aria-labelledby="">
                         <div class="modal-content modal-smll" role="document">
                             <div class="modal-content" id="textareaContent">
-                                <textarea style='auto'
-                                          resize="none"
-                                          class="form-control animated"
-                                          rows="34" cols="50"
-                                          readonly="readonly"
-                                          maxlength='100'>
-                                </textarea>
+                                <div class="modal-header">
+                                    <button type='button' class='close'
+                                            onclick='$(this).parent().parent().parent().parent().parent().parent().parent().hide();'>
+                                        ×
+                                    </button>
+                                    <center>
+                                        <h6>Update Dictionary</h6>
+                                    </center>
+                                </div>
+                                <div class="modal-body" id="update1">
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <div class="row">
+                                        <center>
+                                            <button id="button" class="btn btn-primary "
+                                                    data-toggle="modal" onclick="validate();">
+                                                Update
+                                            </button>
+                                        </center>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,7 +118,11 @@
             </div>
         </div>
         <!---->
-        <div class="col-md-9" id="addDictionary" width="75%">
+        <!---->
+        <!---->
+
+        <!---->
+        <div class="col-md-9" id="addDictionary">
             <div class=" panel-default">
                 <div class="panel-body">
                     <div class="collapse menu" id="menu" tabindex="-1" role="dialog" aria-labelledby="" width="75%">
@@ -107,15 +139,6 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <!--<form id="DictionaryName" action='' method="post">-->
-                                    <!--<div class="col-xs-6 col-md-6">-->
-                                    <!--<label for="roll-input">Dictionary Name</label>-->
-                                    <!--<input class="form-control"-->
-                                    <!--id="roll-input"-->
-                                    <!--name="DictionaryType"-->
-                                    <!--type="text" required/>-->
-                                    <!--</div>-->
-                                    <!--</form>-->
                                     <table>
                                         <tr>
                                             <div class="col-xs-3 col-md-3">
@@ -142,24 +165,28 @@
                                     <div class="row">
                                         <center>
                                             <button id="DownloadButton" class="btn btn-primary "
-                                                    data-toggle="modal" data-target="#myModal" onclick="u();">
+                                                    data-toggle="modal" onclick="u(this);">
                                                 Generate
                                             </button>
                                         </center>
                                         <div class="modal fade" id="myModal" role="dialog">
                                             <div class="modal-dialog" width="900px">
                                                 <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close"
-                                                                data-dismiss="modal">&times;</button>
-                                                        <center>
-                                                            <h1>Dictionary Name</h1>
-                                                        </center>
-                                                    </div>
                                                     <div class="modal-body">
                                                         <form method="post" action="/create">
                                                             {% csrf_token %}
-                                                            <div id="generated">
+                                                            <div class="modal-header">
+                                                                <center>
+                                                                    <label style="font-size: 0.70em">Add Dictionary
+                                                                        Name</label>
+                                                                    <input class="form-control input-lg classInput" type='text'
+                                                                           placeholder="Add Dictionary Name" name='nameFile'/>
+                                                                     <input class="form-control input-lg classInput" type='hidden' name='pathFile' id='pathFile'/>
+                                                                </center>
+
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div id="generated">
                                                                     <textarea class="form-control"
                                                                               resize="none"
                                                                               name='content'
@@ -168,6 +195,7 @@
                                                                               maxlength='100'>
 
                                                                     </textarea>
+                                                                </div>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <div class="row">
@@ -201,23 +229,17 @@
 </p>
 <script src="../static/js/generateDictionary.js"></script>
 <script>
+$(document).ready(
 
-/************************display addDictionary block and hide others***********************/
-function switchVisible() {
-            if (document.getElementById('addDictionary')) {
-                    document.getElementById('addDictionary').style.display = 'block';
-                    document.getElementById('divDisplay').style.display = 'none';
-            }
-}
-/*************************** send file name to view.py****************/
-  function m(valueSent) {
-  if (document.getElementById('addDictionary')) {
-                    document.getElementById('addDictionary').style.display = 'none';
-                    document.getElementById('divDisplay').style.display = 'block';
-            }
-  $('#addDictionary').modal('hide')
-     var element = $(this);
-     $.post(element.attr('href'), { flag: element.data(valueSent)});
+function upload() {
+    $("#uploadVideoLink").click(
+
+    function uploadTog() {
+        $("#divDisplay *:not(#btn)").toggle();
+    });
+});
+/*****************************************/
+function f(){
     function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
@@ -242,18 +264,89 @@ $.ajaxSetup({
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
         }
     }
-});
-      $.ajax({
+});}
+/******************************************************************************************/
+function switchVisible1() {
+                    document.getElementById('divDisplay').style.display = 'none';
+                    document.getElementById('addDictionary').style.display = 'none';
+
+}
+/************************display addDictionary block and hide others***********************/
+function switchVisible() {
+            if (document.getElementById('divDisplay')) {
+                    document.getElementById('addDictionary').style.display = 'block';
+                    document.getElementById('divDisplay').style.display = 'none';
+            }
+}
+/*************************** send file name to view.py *********************************/
+var tagId = [];
+function myFunction(x, y) {
+<!--alert( x+'\n'+y);-->
+tagId.push({
+          val :   x+'\n'+y
+        });
+}
+function validate(){
+var json = JSON.stringify(tagId)
+alert(json);
+    f();
+     $.ajax({
           type: "POST",
           cache: true,
-          url: "/folder1/",
-          data:  { id : valueSent },
+          url: "/update/",
+          data:  { 'parameter[]' : json , csrfmiddlewaretoken:'{{csrf_token}}' },
             success: function(result) {
-            $("#textareaContent textarea").text(result);
+            alert('success');
             }
         });
 }
-/*************************************/
+/****/
+  function m(valueSent) {
+  if (document.getElementById('addDictionary')) {
+                    document.getElementById('divDisplay').style.display = 'block';
+                    document.getElementById('addDictionary').style.display = 'none';
+            }
+  $('#addDictionary').modal('hide')
+     var element = $(this);
+     $.post(element.attr('href'), { flag: element.data(valueSent)});
+    f();
+      $.ajax({
+          type: "POST",
+          cache: true,
+          url: "/folder/",
+          data:  { id : valueSent },
+                success: function(result) {
+                    $("#textareaContent textarea").html(result.stat);
+                    var html='<table><tr>';
+                    var k=0,n=0,j=0;
+                        for(var key in result.dict){
+                            value = result.dict[key];
+                            html +='</tr><tr><th><label >'+value[0]+':<label/></th>';
+                            var array = Object.keys(value[1]).map(function(e) {
+                              return [e, value[1][e]];
+                            });
+                            var x;
+                            if( value[0] == "attribute")
+                            {
+                                k++;
+                                j=0;
+                            }
+                            else if (value[0] == "association" ){
+                                j++;
+                            }
+                            for(i=0;i<array.length;i++)
+                            {
+                                x = valueSent + '#' + key + '@' + j +'&'+k+value[0]+'\t' + array[i][0];
+                                html += '<td><label style="font-size: 0.70em">&nbsp;&nbsp;&nbsp;&nbsp;'+array[i][0]+':&nbsp;&nbsp;&nbsp;&nbsp;</label></td>';
+                                html += '<td><input align="center" id="'+x+'" class="form-control input-lg" type="text" value="'+array[i][1]+'" onchange="myFunction(this.id, this.value);"/></td>';
+                            }
+                            }
+                    document.getElementById('update1').innerHTML = '<form>'+html+'</tr></table></form>';
+                }
+        });
+}
+
+/************************************************easy-tree**********************************************/
     (function ($) {
         function init() {
             $('.easy-tree').EasyTree({
@@ -264,9 +357,16 @@ $.ajaxSetup({
         }
         window.onload = init();
     })(jQuery)
-/********************** generate xml file *********************************/
+/******************************************* generate xml file ***********************************************/
 
-function u() {
+function u(x) {
+document.getElementById('primaryButton').click();
+<!--if(window.location.pathname != '/list#' && window.location.href != '/create#')-->
+<!--{-->
+<!--alert(window.location.pathname);-->
+<!--return 0;-->
+<!--}-->
+
 product = document.getElementById("DictionaryClass").options[document.getElementById("DictionaryClass").selectedIndex].text;
 classNum = document.getElementById("DictionaryClassNum").options[document.getElementById("DictionaryClassNum").selectedIndex].text;
 obisCode = document.getElementById("obisCode").value;
@@ -274,60 +374,28 @@ Description = document.getElementById("Descrip").value;
 version = document.getElementById("dictVersion").value;
 textareaContent2  = $("#textareaContent2").text();
 textareaContent3  = $("#textareaContent3").text();
-<!--window.alert(product);-->
-<!--window.alert(classNum);-->
-<!--window.alert(obisCode);-->
-<!--window.alert(Description);-->
-<!--window.alert(version);-->
-<!--window.alert(textareaContent2);-->
-<!--window.alert(textareaContent3);-->
   var variables = {
     'DictionaryClass': $('#DictionaryClass').val()
   };
+f();
 
-    function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie != '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-var csrftoken = getCookie('csrftoken');
-function csrfSafeMethod(method) {
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }
-    }
-});
+$("#DownloadButton").attr('data-target', '#myModal');
   $.ajax({
           type: "POST",
           cache: true,
           url: "/generateXML/",
           data:  { product : product, classNum : classNum, obisCode: obisCode, Description: Description, version: version, textareaContent2: textareaContent2, textareaContent3: textareaContent3 },
             success: function(result) {
+
             $("#generated textarea").html(result);
-            window.alert('success');
+            document.getElementById("pathFile").value = product;
             }
         });
 }
 
 
-
-
 </script>
+</body>
 {% endblock %}
-
 {% block javascript %}
-
 {% endblock %}

@@ -20,6 +20,7 @@
     background-color:#000000
     }
 
+
 .navbar-fixed-left + .container {
   padding-left: 160px;
 }
@@ -32,4 +33,4 @@
 navbar .navbar-brand{
   margin-left: 15px;
 }
-.navbar-default .navbar-link:hover{color:#18bc9c}
+.navbar-fixed-top .navbar-link:hover{color:#18bc9c}

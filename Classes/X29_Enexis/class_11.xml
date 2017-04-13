@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<class id="8" version="0">
+<class id="11" version="0">
 	<description>Clock</description>
     <attributes>
         <attribute id="1" name="logical_name" 				type="octetstring" size="6"></attribute>
@@ -12,7 +12,4 @@
         <attribute id="8" name="daylight_savings_enabled"   type="boolean" size="6"></attribute>
         <attribute id="9" name="clock_base" 				type="enumerated" size="6"></attribute>
     </attributes>
-    <methods>
-        <method id="1" name="Reset"></method>
-    </methods>
 </class>

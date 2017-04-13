@@ -131,19 +131,25 @@
 .modal-body {
     position: relative;
     padding-top: 10px;
-    padding-right: 30px;
+    padding-right: 5px;
     padding-bottom: 80px;
-    padding-left: 80px;
+    padding-left: 5px;
 }
 /******************************************/
 #attr{
-    height: 17px;
     position: relative;
-    left:620px;
-    top: -300px;
+    left:1000px;
+    top: 0px;
 }
 /********************************/
 .modal-dialog {
     width: 900px;
     margin: 50px auto;
+}
+.input-lg {
+    height: 30px;
+    padding: 0px 0px;
+    font-size: 12px;
+    line-height: 1.3333333;
+    border-radius: 6px;
 }
