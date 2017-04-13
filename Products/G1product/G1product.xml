@@ -1,0 +1,27 @@
+<Product deviceType="E-Meter" name="G1product"><SerialNumber value="Gserial" />
+    <softwareVersion value="softG" />
+    <manufacturer value="sagemG" />
+    <description value="GproductGmeter" />
+    <equipement_identifier value="identifiantG" />
+    <MeterIP value="127.0.0.1" />
+    <MeterPort value="8080" />
+    <ServerAdress adress="@G" />
+    <firmware value="association.PNG" />
+    <TCP><TCP_timeout value="TcpTO" />
+    </TCP><HDLC>
+        <HDLC_timeout value="HDLCTO" />
+        <HDLC_maxTransmit value="HDLCmaxT" />
+        <HDLC_maxReceive value="HDLCmaxR" />
+        <HDLC_Adress adress="HDLCAdress" />
+        <Baudrate value="baudrate" />
+    </HDLC><ModeE adress="modeG" />
+    <ClientAdress>
+        <client adress="client1" associationName="public1-g" />
+        <client adress="client2" associationName="public2-g" />
+    </ClientAdress>
+    <MasterKey value="Mg1" />
+    <GlobalKey value="    g1            " />
+    <AuthentificationKey value="aukey" />
+    <LLSAuthentification value="llsa" />
+    <HLS_Secret value="hls1" />
+</Product>

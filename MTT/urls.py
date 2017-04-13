@@ -37,5 +37,10 @@ urlpatterns = [
     url(r'^parseXML/$', views.parseXML, ),
     url(r'^createTemporary/$', views.createTemporary, {'template_name': 'list.html'}),
     url(r'^generateXML/$', views.generateXML, ),
+    url(r'^generate$', views.generate),
+    url(r'^generateMethod$', views.generateMethod),
+    url(r'^generateProduct$', views.generateProduct,{'template_name': 'listProduct.html'}),
+    url(r'^editProduct$', views.editProduct, {'template_name': 'listProduct.html'}),
+    url(r'^treeListF$', views.treeListF, {'template_name': 'listProduct.html'}, ),
     url(r'^update/$', views.update, ),
 ]
