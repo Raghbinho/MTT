@@ -80,6 +80,7 @@ document.getElementById('mydivtag').innerHTML =html;
                     }
                 }
             /**************************************/
+//             $("#textareaContent3 ").html('<table class="table table-bordred table-striped">'+res1+'</td></tr></table>');
             $("#Description").find(".form-control").val(result.dictDescription);
             $("#Version").find(".form-control").val(result.dictVersion);
             var text= '<label for="mytable">Attributes</label><tr><td>'+result.stat;

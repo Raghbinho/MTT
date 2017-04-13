@@ -4,14 +4,11 @@
 {% block content %}
 
 <head>
-    <style>
-         .col-md-9 {
-    width: 73%;
-    .classInput{
-           width: 50%;
-          }
-    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/easyTree.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
     <!--<script src="../static/js/bootstrap.min.js"></script>-->
@@ -42,6 +39,7 @@
                                     {% for d in item.children %}
                                     <li>
                                         {% if d.children %}
+                                       
                                         {{ d.name }}
                                         <ul>
                                             {% for f in d.children %}
@@ -139,6 +137,7 @@
                                 </div>
 
                                 <div class="modal-body">
+                                   
                                     <table>
                                         <tr>
                                             <div class="col-xs-3 col-md-3">
@@ -172,6 +171,13 @@
                                         <div class="modal fade" id="myModal" role="dialog">
                                             <div class="modal-dialog" width="900px">
                                                 <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                                data-dismiss="modal">&times;</button>
+                                                        <center>
+                                                            <h1>Dictionary Name</h1>
+                                                        </center>
+                                                    </div>
                                                     <div class="modal-body">
                                                         <form method="post" action="/create">
                                                             {% csrf_token %}
@@ -394,8 +400,12 @@ $("#DownloadButton").attr('data-target', '#myModal');
 }
 
 
+
+
 </script>
 </body>
 {% endblock %}
+
 {% block javascript %}
+
 {% endblock %}

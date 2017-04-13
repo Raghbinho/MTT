@@ -32,8 +32,13 @@ urlpatterns = [
     url(r'^login/$', views_django.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name='login'),
     url(r'^logout/$', views_django.logout, {'next_page': '/login'}),
     url(r'^list$', views.listtree, {'template_name': 'list.html'},),
+
+    url(r'^addProduct$', views.addProduct, {'template_name': 'listProduct.html'},),
     url(r'^create$', views.create, {'template_name': 'list.html'}),
     url(r'^folder/$', views.getName, ),
+    url(r'^folder1/$', views.getNameF, ),
+
+
     url(r'^parseXML/$', views.parseXML, ),
     url(r'^createTemporary/$', views.createTemporary, {'template_name': 'list.html'}),
     url(r'^generateXML/$', views.generateXML, ),
@@ -42,5 +47,8 @@ urlpatterns = [
     url(r'^generateProduct$', views.generateProduct,{'template_name': 'listProduct.html'}),
     url(r'^editProduct$', views.editProduct, {'template_name': 'listProduct.html'}),
     url(r'^treeListF$', views.treeListF, {'template_name': 'listProduct.html'}, ),
-    url(r'^update/$', views.update, ),
+
+
+
 ]
+
