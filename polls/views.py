@@ -1,3 +1,5 @@
+
+from lib2to3.fixer_util import p1
 from os.path import exists
 import logging
 import os
@@ -9,9 +11,11 @@ from django.shortcuts import render
 from django.template.context_processors import csrf
 from polls.forms import *
 from django.contrib.auth import logout
+from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect
 from xml.dom import minidom
 import json as simplejson
+import xml.etree.cElementTree as ET
 import re
 from xml.etree import ElementTree
 from xml.dom import minidom
@@ -20,6 +24,7 @@ import xml.dom.minidom
 from django.views.decorators.csrf import csrf_protect
 import os, stat
 import xml.etree.cElementTree as ET
+import shutil
 from stat import S_IWUSR  # Need to add this import to the ones above
 
 from django.core.files.storage import FileSystemStorage
@@ -32,9 +37,12 @@ logger = logging.getLogger(__name__)
 PRODUCTS = 'Products\\'
 CLASSES = 'Classes\\'
 TEMPORARY = 'TEMPORARYFILE'
+methods8 = 'Reset\n'
 methods11 = 'Reset\n'
 methods15 = 'Reset\n'
 association=''
+
+
 arrayelt = []
 arrayeltM=[]
 attribut = ""
@@ -111,7 +119,7 @@ def generate(request):
     print("file")
 
     # nbfich += 1
-    while exists("polls/XMLFiles/filename" + str(nbfich) + ".xml"):
+    while exists("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFiles/filename" + str(nbfich) + ".xml"):
         print "nbfich++"
         nbfich+=1
     # z=0
@@ -160,7 +168,7 @@ def generate(request):
 
 
 
-    # ##########################################
+    # ************************************************
     root = ET.Element("class", id=unicode(select), version=unicode(a))
 
     doc = ET.SubElement(root, "description")
@@ -454,7 +462,7 @@ def generate(request):
 
     print("nbfich"+str(nbfich ))
 
-    tree.write("polls/XMLFiles/filename"+str(nbfich)+".xml")
+    tree.write("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFiles/filename"+str(nbfich)+".xml")
 
 
     # **************************************************
@@ -464,15 +472,17 @@ def generate(request):
 
 
     return render(request, 'login.html', context)
-
-
+# ***********************************************************************
+#  added by farah***********************************************************************************
 FileName1 = ''
 tree1 = {}
 def getNameF(request):
-
+    """get file Name"""
+    logger.info("information")
     global FileName1
     if request.method == "POST" and request.is_ajax():
         FileName1 = request.POST['id']
+        logger.info(FileName1)
         # status = display(FileName1)
         status=''
 
@@ -588,6 +598,8 @@ def getNameF(request):
         for Hkey in HLS_Secret:
             H_key = Hkey.getAttribute('value')
 
+        logger.info(H_key)
+
 
 
         return HttpResponse(simplejson.dumps({'stat': status,'software':software,'deviceType': deviceType,'productName':productName,'serialNumber':serialNumber,'manu':manu,
@@ -606,9 +618,12 @@ def generateMethod(request):
     global arrayeltM
     global attributM
     global z2
+    # generate(request)
+
     context = {'error': ''}
     print "method"
     nbligne2 = request.POST.get("nbligne2", None)
+
     nbelementM = request.POST.getlist("nbelementM", False)
     print ("nbelementM" + str(nbelementM))
     root = ET.Element("class", id="", version="")
@@ -619,8 +634,8 @@ def generateMethod(request):
 
 
 
-    while exists("polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml"):
-        print "nbfich++"
+    while exists("C:/Users/g507888/PycharmProjects/MTT/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml"):
+        print "nbfich2 ++"
         nbfich2 += 1
         indM=1
 
@@ -663,6 +678,7 @@ def generateMethod(request):
         methType = request.POST.get("methodType-" + str(i), None)
 
         methSize = request.POST.get("methodsize-" + str(i), None)
+        print ("methodSIze"+str(methSize))
         method = ET.SubElement(meth, "method", id=unicode(methID), name=unicode(methName), type=unicode(methType),
                                size=unicode(methSize))
 
@@ -803,10 +819,20 @@ def generateMethod(request):
 
 
     tree = ET.ElementTree(root)
-    tree.write("polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml")
+
+    tree.write("C:/Users/g507888/PycharmProjects/MTT/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml")
+
+
+
+
+
+
 
 
     return render(request, 'login.html', context)
+
+
+
 # **
 FileName = ''
 tree = {}
@@ -877,6 +903,7 @@ def create(request, template_name="list.html"):
                 writeFile(request.POST['content'], fileName, context)
                 pretty_print = lambda f: '\n'.join( [line for line in xml.dom.minidom.parse(open(f)).toprettyxml(indent=' ' * 2).split('\n') if line.strip()])
                 str1 = pretty_print(fileName)
+       
                 with open(fileName, 'w') as f:
                     f.write(str1)
         else:
@@ -968,6 +995,7 @@ def parseXML(request):
         ###########
         classId = classId1 + "\\class_" + classsubItem
         dictionatyName = classId+'.xml'
+      
         filePath = os.path.join('Classes', dictionatyName)
         doc = minidom.parse(filePath)
         dictClass = doc.getElementsByTagName('class')
@@ -1121,6 +1149,7 @@ def generateXML(request):
         name = 'class_' + str(classNum) + '.xml'
         filePath ='Classes\\'+product
         filename = filePath + '\\' + name
+      
         readFile1(context, name, filePath)
         classAfter = context['fileContent']
         if z != '':
@@ -1262,7 +1291,7 @@ def generateProduct(request,template_name="listProduct.html"):
     lls = ET.SubElement(root, "LLSAuthentification", value=unicode(llsAuth))
     hls = ET.SubElement(root, "HLS_Secret", value=unicode(hlsSecret))
 
-    newpath = r"Products/" + str(productName)
+    newpath = r"C:/Users/g507888/PycharmProjects/MTT/Products/" + str(productName)
     if not os.path.exists(newpath):
         os.makedirs(newpath)
 
@@ -1622,6 +1651,7 @@ def update(request):
         tree = ET.parse(path)
         root = tree.getroot()
         k = tag[tag.find(occur1)+1:] + '[' + occur1 + ']'
+     
         for attrs in root.findall('attributes'):
                 tag1 = attrs.find(k)
                 if occur == '0':
@@ -1629,8 +1659,10 @@ def update(request):
                 else:
                     occur1 = tag[2]
                     l = 'attribute[' + occur1 + ']'
+                  
                     for item in attrs.findall(l):
                         k = tag[tag.find(occur1)+1:] + '[' + occur + ']'
+                       
                         assoc = item.findall(k)
                         for element in assoc:
                             element.set(attribute, value)

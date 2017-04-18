@@ -32,6 +32,7 @@ document.getElementById('mydivtag').innerHTML =html;
           data:  { id : x, name: valueSent },
             success: function(result, textStatus, jqXHR)
             {
+         
             s = result.dictId;
             switch (parseInt(s)) {
               case 8:
@@ -134,6 +135,7 @@ alert(idAttr);
 function fonc1(x) {
     var choices = '';
     var els = document.getElementsByClassName('checkthis');
+    
     for (var i=0;i<els.length;i++){
       if ( els[i].checked ) {
         choices+="@"+ els[i].name+":"+els[i].value;

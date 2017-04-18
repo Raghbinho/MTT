@@ -1,3 +1,0 @@
-<class id="1" version=""><description>clock</description><attributes>
-    <attribute id="1" name="logical_name" size="6" type="octet-string" />
-    <attribute id="" name="" size="" type="array"><array size="1"><date size="" /></array></attribute></attributes><methodes /></class>

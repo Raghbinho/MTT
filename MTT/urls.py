@@ -38,6 +38,7 @@ urlpatterns = [
     url(r'^folder/$', views.getName, ),
     url(r'^folder1/$', views.getNameF, ),
 
+
     url(r'^parseXML/$', views.parseXML, ),
     # url(r'^createTemporary/$', views.createTemporary, {'template_name': 'list.html'}),
     url(r'^generateXML/$', views.generateXML, ),
@@ -48,3 +49,4 @@ urlpatterns = [
     url(r'^treeListF$', views.treeListF, {'template_name': 'listProduct.html'}, ),
     url(r'^update/$', views.update, ),
 ]
+

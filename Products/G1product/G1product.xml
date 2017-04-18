@@ -1,4 +1,4 @@
-<Product deviceType="G-Meter" name="G1product"><SerialNumber value="Gserial" />
+<Product deviceType="E-Meter" name="G1product"><SerialNumber value="Gserial" />
     <softwareVersion value="softG" />
     <manufacturer value="sagemG" />
     <description value="GproductGmeter" />
@@ -16,10 +16,9 @@
         <Baudrate value="baudrate" />
     </HDLC><ModeE adress="modeG" />
     <ClientAdress>
-        <client adress="client2" associationName="public2-g" />
-    </ClientAdress>
+        <client adress="ghg" associationName="gg" /></ClientAdress>
     <MasterKey value="Mg1" />
-    <GlobalKey value="    g1             " />
+    <GlobalKey value="    g1              " />
     <AuthentificationKey value="aukey" />
     <LLSAuthentification value="llsa" />
     <HLS_Secret value="hls1" />

@@ -88,7 +88,7 @@
                         <div class="modal-content modal-smll" role="document" >
                             <div class="modal-content" >
 
-                                <div class="modal-header" >
+                                <div class="modal-header" id="content">
                                     <button type='button' class='close'
                                             onclick='$(this).parent().parent().parent().parent().parent().parent().parent().hide();'>
                                         ×
@@ -483,8 +483,10 @@ var newPdt="";
 function Visible() {
 
             if (document.getElementById('addProduct')) {
+
                     document.getElementById('addProduct').style.display = 'block';
                     document.getElementById('divDisplay').style.display = 'none';
+
             }
 }
 
