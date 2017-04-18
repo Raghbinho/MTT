@@ -1,5 +1,3 @@
-
-from lib2to3.fixer_util import p1
 from os.path import exists
 import logging
 import os
@@ -11,11 +9,9 @@ from django.shortcuts import render
 from django.template.context_processors import csrf
 from polls.forms import *
 from django.contrib.auth import logout
-from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect
 from xml.dom import minidom
 import json as simplejson
-import xml.etree.cElementTree as ET
 import re
 from xml.etree import ElementTree
 from xml.dom import minidom
@@ -32,20 +28,13 @@ logger = logging.getLogger(__name__)
 
 
 
-##############GLOBAL VARIABLES ################################################
+####################### GLOBAL VARIABLES ################################################
 PRODUCTS = 'Products\\'
 CLASSES = 'Classes\\'
 TEMPORARY = 'TEMPORARYFILE'
-methods8 = 'Reset\n'
 methods11 = 'Reset\n'
 methods15 = 'Reset\n'
 association=''
-# associationMethods8 = 'MNGT\npublic\npre'
-association8 = 'Public\nPreestablished\nManagement\nLocal Management\nLocal Reading\nLocal Pairing'
-associationMethods8 = 'MNGT\npublic\npre'
-association11 = 'Public\nPreestablished\nManagement\nLocal Management'
-association15 = 'Public\nPreestablished\nManagement\nLocal Management\nLocal Reading\Local Pairing'
-
 arrayelt = []
 arrayeltM=[]
 attribut = ""
@@ -122,7 +111,7 @@ def generate(request):
     print("file")
 
     # nbfich += 1
-    while exists("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFiles/filename" + str(nbfich) + ".xml"):
+    while exists("polls/XMLFiles/filename" + str(nbfich) + ".xml"):
         print "nbfich++"
         nbfich+=1
     # z=0
@@ -171,7 +160,7 @@ def generate(request):
 
 
 
-    # ************************************************
+    # ##########################################
     root = ET.Element("class", id=unicode(select), version=unicode(a))
 
     doc = ET.SubElement(root, "description")
@@ -465,7 +454,7 @@ def generate(request):
 
     print("nbfich"+str(nbfich ))
 
-    tree.write("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFiles/filename"+str(nbfich)+".xml")
+    tree.write("polls/XMLFiles/filename"+str(nbfich)+".xml")
 
 
     # **************************************************
@@ -476,17 +465,14 @@ def generate(request):
 
     return render(request, 'login.html', context)
 
-# ***********************************************************************
-#  added by farah***********************************************************************************
+
 FileName1 = ''
 tree1 = {}
 def getNameF(request):
-    """get file Name"""
-    logger.info("information")
+
     global FileName1
     if request.method == "POST" and request.is_ajax():
         FileName1 = request.POST['id']
-        logger.info(FileName1)
         # status = display(FileName1)
         status=''
 
@@ -602,8 +588,6 @@ def getNameF(request):
         for Hkey in HLS_Secret:
             H_key = Hkey.getAttribute('value')
 
-        logger.info(H_key)
-
 
 
         return HttpResponse(simplejson.dumps({'stat': status,'software':software,'deviceType': deviceType,'productName':productName,'serialNumber':serialNumber,'manu':manu,
@@ -635,7 +619,7 @@ def generateMethod(request):
 
 
 
-    while exists("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml"):
+    while exists("polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml"):
         print "nbfich++"
         nbfich2 += 1
         indM=1
@@ -819,7 +803,7 @@ def generateMethod(request):
 
 
     tree = ET.ElementTree(root)
-    tree.write("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml")
+    tree.write("polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml")
 
 
     return render(request, 'login.html', context)
@@ -893,7 +877,6 @@ def create(request, template_name="list.html"):
                 writeFile(request.POST['content'], fileName, context)
                 pretty_print = lambda f: '\n'.join( [line for line in xml.dom.minidom.parse(open(f)).toprettyxml(indent=' ' * 2).split('\n') if line.strip()])
                 str1 = pretty_print(fileName)
-                logger.info(str1)
                 with open(fileName, 'w') as f:
                     f.write(str1)
         else:
@@ -980,18 +963,11 @@ def parseXML(request):
             for assoc1 in assoc:
                 sid = assoc1.getAttribute('adress')
                 name = assoc1.getAttribute('associationName')
-                association += "{}-{}".format(sid, name)+"\n"
+                association += "{}".format(name)+"\n"
             association = association[:-1]
         ###########
         classId = classId1 + "\\class_" + classsubItem
         dictionatyName = classId+'.xml'
-        # if (str(classsubItem) == '8'):
-        #     # association = association8
-        #     associationMethods = associationMethods8
-        # elif (str(classsubItem) == '11'):
-        #     association = association11
-        # elif (str(classsubItem) == '15'):
-        #     association = association15
         filePath = os.path.join('Classes', dictionatyName)
         doc = minidom.parse(filePath)
         dictClass = doc.getElementsByTagName('class')
@@ -1020,43 +996,118 @@ def parseXML(request):
         return HttpResponse(simplejson.dumps({'stat': status, 'dictDescription': description, 'dictId': dictId, 'dictVersion': dictVersion, 'methods': methods, 'association': association, 'associationMethods': association}), content_type='application/json')
 
 
-def createTemporary(request, template_name="list.html"):
+def createTemporary(choices, methods):
     """create temporary files"""
+    rough_string = ''
+    rough_string1 =''
+    sep0 = '@'
+    # sep1 = ':'
+    sep2 = '&'
     global idAttr
-    associationList = association.split('\n')
-    if request.method == "POST" and request.is_ajax():
-        idAttr = request.POST['idAttr']
-        content = request.POST['checks']
-        content = content.split('@')
+    if choices != '':
+        content = {}
+        i = 0
+        chaine = str(choices)
+        chaine = chaine[chaine.find(sep0) + 1:]
+        associationList = association.split('\n')
+        while(chaine.find('@') != -1):
+            content[i] = chaine[:chaine.find(sep0)]
+            chaine = chaine[chaine.find(sep0)+1:]
+            i += 1
+        content[i] = chaine
+        i = 0
         l = []
-        for item in content:
-            subl = []
-            for subItem in item.split(':'):
-                subl.append(subItem)
-            l.append(subl)
-        l.pop(0)
+        while (i< len(content)):
+            element = content[i].split('#')
+            temp = element[1]
+            temp2 = element[0]
+            element.pop(1)
+            element.pop(0)
+            element.append(temp2[1])
+            element.append(temp.split(':'))
+            i +=1
+            l.append(element)
+        newResult = l
+        for itemL in l:
+            for itemN in newResult:
+                if (itemL[0] == itemN[0]):
+                    s = itemL[1]
+                    t = itemN[1]
+                    if(s[0] == t[0])and (s[1] != t[1]):
+                        s[1] += '/' + t[1]
+                        newResult.remove(itemL)
+                        newResult.remove(itemN)
+                        newResult.append(s)
+        l = newResult
 
-    top = Element('delimit')
-    for item in associationList:
-        ops = []
-        for element in l:
-            if item in element:
-                ops.append(element[1])
-        if  not ops:
-            child = SubElement(top, 'association', name=item[2:], operations='_')
-        else:
-            ops = '\\'.join(ops)
-            child = SubElement(top, 'association', name=item[2:], operations=ops)
-    with open(TEMPORARY+'\\'+idAttr+'.xml', 'w') as f:
-        el = xml.dom.minidom.parseString(tostring(top))
-        pretty_xml_as_string = el.toprettyxml()
-        f.write(pretty_xml_as_string.encode('UTF-8'))
-    return listtree(request, template_name)
+
+
+        top = Element('delimit')
+        for component in l:
+            child1 = SubElement(top, 'attribute', id=component[0])
+            for item in associationList:
+                ops = []
+                if item in component[1]:
+                    x= component[1]
+                    ops.append(x[1])
+                if  not ops:
+                    child = SubElement(child1, 'association', name=item, operations='_')
+                else:
+                    ops = '\\'.join(ops)
+                    child = SubElement(child1, 'association', name=item, operations=ops)
+        rough_string = re.sub(r'<delimit?>', '', tostring(top))
+        rough_string = re.sub(r'</delimit?>', '', rough_string)
+    ##################################
+    if methods != '':
+        content = {}
+        i = 0
+        logger.info(methods)
+        chaine = str(methods)
+        chaine = chaine[chaine.find(sep0) + 1:]
+        associationList = association.split('\n')
+        while(chaine.find('@') != -1):
+            content[i] = chaine[:chaine.find(sep0)]
+            chaine = chaine[chaine.find(sep0)+1:]
+            i += 1
+        content[i] = chaine
+        logger.info(content)
+        i = 0
+        l = []
+        while (i< len(content)):
+            element = content[i].split('#')
+            temp = element[1]
+            temp2 = element[0]
+            element.pop(1)
+            element.pop(0)
+            element.append(temp2[1])
+            element.append(temp.split(':'))
+            i +=1
+            l.append(element)
+
+
+        top = Element('delimit')
+        for component in l:
+            child1 = SubElement(top, 'method', id=component[0])
+            for item in associationList:
+                ops = []
+                if item in component[1]:
+                    x= component[1]
+                    ops.append(x[1])
+                if  not ops:
+                    child = SubElement(child1, 'association', name=item, operations='_')
+                else:
+                    ops = '\\'.join(ops)
+                    child = SubElement(child1, 'association', name=item, operations=ops)
+        rough_string1 = re.sub(r'<delimit?>', '', tostring(top))
+        rough_string1 = re.sub(r'</delimit?>', '', rough_string1)
+    return (rough_string, rough_string1)
 
 def generateXML(request):
     """add associates to attributes in XML file and generate final dictionary"""
     context = {'error': ''}
     if request.method == "POST" and request.is_ajax():
+        choices = request.POST['checks']
+        methods = request.POST['methods1']
         product = request.POST['product']
         classNum = request.POST['classNum']
         # obisCode = request.POST['obisCode']
@@ -1065,55 +1116,57 @@ def generateXML(request):
         # textareaContent2 = request.POST['textareaContent2']
         # textareaContent3 = request.POST['textareaContent3']
         #
+        logger.info(methods)
+        z, y= createTemporary(choices, methods)
         name = 'class_' + str(classNum) + '.xml'
         filePath ='Classes\\'+product
         filename = filePath + '\\' + name
-        l = os.listdir(TEMPORARY)
         readFile1(context, name, filePath)
         classAfter = context['fileContent']
-        if l != []:
-            for file in l:
-                filename = filePath + '\\' + name
-                context1 = {'error': ''}
-                readFile1(context1, str(file), TEMPORARY)
-                classBefore = context1['fileContent']
-                res = ET.fromstring(classAfter)
-                if (file[0]=='a'):
-                    for attrs in res.findall('attributes'):
-                        for attr in attrs.findall('attribute'):
-                            idAttr = int(attr.get('id'))
-                            f = file[1:-4]
-                            f = int(f)
-                            if idAttr == f :
-                                for association in attr.findall('association'):
-                                    attr.remove(association)
-                                attr.append((ET.fromstring(classBefore)))
-                                classAfter = tostring(res)
-                                os.remove(TEMPORARY + '\\' + file)
-                if (file[0]=='m'):
-                    for meths in res.findall('methods'):
-                        for meth in meths.findall('method'):
-                            idMerth = int(meth.get('id'))
-                            f = file[1:-4]
-                            f = int(f)
-                            if idMerth == f:
-                                for association in meth.findall('association'):
-                                    meth.remove(association)
-                                meth.append((ET.fromstring(classBefore)))
-                                classAfter = tostring(res)
-                                os.remove(TEMPORARY + '\\' + file)
+        if z != '':
+            filename = filePath + '\\' + name
+            classBefore = z.split('</attribute>')
+            res = ET.fromstring(classAfter)
+            for attrs in res.findall('attributes'):
+                for attr in attrs.findall('attribute'):
+                    idAttr = attr.get('id')
+                    for item in classBefore:
+                        if (item.find(idAttr) != -1):
+                            addElement = item[item.find('>')+1:]
+                            addElement = '<delimit>\n'+addElement+'\n</delimit>'
+                            for association in attr.findall('association'):
+                                attr.remove(association)
+                            attr.append((ET.fromstring(addElement)))
+                            classAfter = tostring(res)
+        if y != '':
+            filename = filePath + '\\' + name
+            classBefore = y.split('</method>')
+            res = ET.fromstring(classAfter)
+            for attrs in res.findall('methods'):
+                for attr in attrs.findall('method'):
+                    idAttr = attr.get('id')
+                    for item in classBefore:
+                        if (item.find(idAttr) != -1):
+                            addElement = item[item.find('>') + 1:]
+                            addElement = '<delimit>\n' + addElement + '\n</delimit>'
+                            for association in attr.findall('association'):
+                                attr.remove(association)
+                            attr.append((ET.fromstring(addElement)))
+                            classAfter = tostring(res)
 
-                first_res = ElementTree.tostring(res, 'utf-8')
-                rough_string = re.sub(r'<delimit?>', '', first_res)
-                rough_string = re.sub(r'</delimit?>', '', rough_string)
-                rough_string = re.sub('\n+', '', rough_string)
-                reparsed = minidom.parseString(rough_string)
-                textXML = reparsed.toprettyxml(indent="\t")
-                textXML = re.sub('\n+', '\n', textXML)
+            first_res = ElementTree.tostring(res, 'utf-8')
+            rough_string = re.sub(r'<delimit?>', '', first_res)
+            rough_string = re.sub(r'</delimit?>', '', rough_string)
+            rough_string = re.sub('\n+', '', rough_string)
+            reparsed = minidom.parseString(rough_string)
+            textXML = reparsed.toprettyxml(indent="\t")
+            textXML = re.sub('\n+', '\n', textXML)
         else:
             readFile1(context, name, filePath)
             textXML = context['fileContent']
     return HttpResponse(textXML)
+
+
 # **********************************************modif farah
 
 def addProduct(request, template_name="listProduct.html"):
@@ -1209,7 +1262,7 @@ def generateProduct(request,template_name="listProduct.html"):
     lls = ET.SubElement(root, "LLSAuthentification", value=unicode(llsAuth))
     hls = ET.SubElement(root, "HLS_Secret", value=unicode(hlsSecret))
 
-    newpath = r"C:/Users/g507888/PycharmProjects/MTT/Products/" + str(productName)
+    newpath = r"Products/" + str(productName)
     if not os.path.exists(newpath):
         os.makedirs(newpath)
 
@@ -1569,7 +1622,6 @@ def update(request):
         tree = ET.parse(path)
         root = tree.getroot()
         k = tag[tag.find(occur1)+1:] + '[' + occur1 + ']'
-        logger.info(k)
         for attrs in root.findall('attributes'):
                 tag1 = attrs.find(k)
                 if occur == '0':
@@ -1577,10 +1629,8 @@ def update(request):
                 else:
                     occur1 = tag[2]
                     l = 'attribute[' + occur1 + ']'
-                    logger.info(l)
                     for item in attrs.findall(l):
                         k = tag[tag.find(occur1)+1:] + '[' + occur + ']'
-                        logger.info(k)
                         assoc = item.findall(k)
                         for element in assoc:
                             element.set(attribute, value)

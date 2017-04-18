@@ -4,16 +4,25 @@
 {% block content %}
 
 <head>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <style>
+         .col-md-9 {
+    width: 73%;
+    .classInput{
+           width: 50%;
+          }
+          .classCheckbox{
+          text-align: center;
+          }
+          .classCheckbox1{
+          text-align: center;
+          }
+    </style>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <!--<script src="../static/js/jquery.min.js"></script>-->
     <script src="../static/js/easyTree.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
     <!--<script src="../static/js/bootstrap.min.js"></script>-->
     <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
 <body>
 {% csrf_token %}
@@ -67,7 +76,7 @@
                     <div class="row">
                         <div class="col-lg-9">
                             <h6>
-                                Total Dictionaries <span class="label label-info">{{ tree.children|length }}</span>
+                                Total Products <span class="label label-info">{{ tree.children|length }}</span>
                             </h6>
                         </div>
                         <div class="col-lg-3">
@@ -115,10 +124,6 @@
                 </div>
             </div>
         </div>
-        <!---->
-        <!---->
-        <!---->
-
         <!---->
         <div class="col-md-9" id="addDictionary">
             <div class=" panel-default">
@@ -306,7 +311,7 @@ alert(json);
             }
         });
 }
-/****/
+
   function m(valueSent) {
   if (document.getElementById('addDictionary')) {
                     document.getElementById('divDisplay').style.display = 'block';
@@ -366,13 +371,36 @@ alert(json);
 /******************************************* generate xml file ***********************************************/
 
 function u(x) {
+/***************/
+var choices = '';
+    var els = document.getElementsByClassName('classCheckbox');
+    alert(els.length);
+    for (var i=0;i<els.length;i++){
+      if ( els[i].checked ) {
+        choices+= "@"+els[i].id + "#" + els[i].name+":"+els[i].value;
+        alert(choices);
+        }
+        }
+/******************/
+var methods = '';
+    var els = document.getElementsByClassName('classCheckbox1');
+    alert(els.length);
+    for (var i=0;i<els.length;i++){
+      if ( els[i].checked ) {
+        methods+= "@"+els[i].id + "#" + els[i].name+":"+els[i].value;
+        }
+        }
+/***************/
 document.getElementById('primaryButton').click();
-<!--if(window.location.pathname != '/list#' && window.location.href != '/create#')-->
+<!--var t=document.getElementById('primaryButton').value;-->
+<!--alert('t='+t);-->
+<!--if(t==1)-->
 <!--{-->
-<!--alert(window.location.pathname);-->
-<!--return 0;-->
+<!--alert('t='+t);-->
+    <!--document.getElementById('primaryButton').value = 0;-->
+    <!--return false;-->
 <!--}-->
-
+<!--t=0;-->
 product = document.getElementById("DictionaryClass").options[document.getElementById("DictionaryClass").selectedIndex].text;
 classNum = document.getElementById("DictionaryClassNum").options[document.getElementById("DictionaryClassNum").selectedIndex].text;
 obisCode = document.getElementById("obisCode").value;
@@ -384,13 +412,12 @@ textareaContent3  = $("#textareaContent3").text();
     'DictionaryClass': $('#DictionaryClass').val()
   };
 f();
-
 $("#DownloadButton").attr('data-target', '#myModal');
   $.ajax({
           type: "POST",
           cache: true,
           url: "/generateXML/",
-          data:  { product : product, classNum : classNum, obisCode: obisCode, Description: Description, version: version, textareaContent2: textareaContent2, textareaContent3: textareaContent3 },
+          data:  { methods1 : methods, checks : choices, product : product, classNum : classNum, textareaContent3: textareaContent3 },
             success: function(result) {
 
             $("#generated textarea").html(result);
