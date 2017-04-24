@@ -11,7 +11,7 @@ from django.shortcuts import render
 from django.template.context_processors import csrf
 from polls.forms import *
 from django.contrib.auth import logout
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.http import HttpResponseRedirect
 from xml.dom import minidom
 import json as simplejson
@@ -24,6 +24,7 @@ import xml.dom.minidom
 from django.views.decorators.csrf import csrf_protect
 import os, stat
 import xml.etree.cElementTree as ET
+from bs4 import BeautifulSoup
 import shutil
 from stat import S_IWUSR  # Need to add this import to the ones above
 
@@ -35,6 +36,7 @@ logger = logging.getLogger(__name__)
 
 ####################### GLOBAL VARIABLES ################################################
 PRODUCTS = 'Products\\'
+TESTCASES= 'TestCases\\'
 CLASSES = 'Classes\\'
 TEMPORARY = 'TEMPORARYFILE'
 methods8 = 'Reset\n'
@@ -104,6 +106,7 @@ def generate(request):
     global nbfich
     global nbclic
     global nbclics
+    print ("attribut")
 
     context = {'error': ''}
     a = request.POST.get('version');
@@ -119,7 +122,7 @@ def generate(request):
     print("file")
 
     # nbfich += 1
-    while exists("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFiles/filename" + str(nbfich) + ".xml"):
+    while exists("C:/Users/g507888/PycharmProjects/MTTv2.0/polls/XMLFile/filename" + str(nbfich) + ".xml"):
         print "nbfich++"
         nbfich+=1
     # z=0
@@ -462,7 +465,7 @@ def generate(request):
 
     print("nbfich"+str(nbfich ))
 
-    tree.write("C:/Users/g507888/PycharmProjects/PFE/polls/XMLFiles/filename"+str(nbfich)+".xml")
+    tree.write("C:/Users/g507888/PycharmProjects/MTTv2.0/polls/XMLFile/filename"+str(nbfich)+".xml")
 
 
     # **************************************************
@@ -634,7 +637,7 @@ def generateMethod(request):
 
 
 
-    while exists("C:/Users/g507888/PycharmProjects/MTT/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml"):
+    while exists("C:/Users/g507888/PycharmProjects/MTTv2.0/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml"):
         print "nbfich2 ++"
         nbfich2 += 1
         indM=1
@@ -820,7 +823,7 @@ def generateMethod(request):
 
     tree = ET.ElementTree(root)
 
-    tree.write("C:/Users/g507888/PycharmProjects/MTT/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml")
+    tree.write("C:/Users/g507888/PycharmProjects/MTTv2.0/polls/XMLFilesMethod/filenameM" + str(nbfich2) + ".xml")
 
 
 
@@ -1204,7 +1207,7 @@ def addProduct(request, template_name="listProduct.html"):
 # ******************************************************
 
 def generateProduct(request,template_name="listProduct.html"):
-
+    print "generateP"
     nbclient=request.POST.get("nbclient",None)
 
 
@@ -1291,7 +1294,7 @@ def generateProduct(request,template_name="listProduct.html"):
     lls = ET.SubElement(root, "LLSAuthentification", value=unicode(llsAuth))
     hls = ET.SubElement(root, "HLS_Secret", value=unicode(hlsSecret))
 
-    newpath = r"C:/Users/g507888/PycharmProjects/MTT/Products/" + str(productName)
+    newpath = "Products\\" + str(productName)
     if not os.path.exists(newpath):
         os.makedirs(newpath)
 
@@ -1670,3 +1673,350 @@ def update(request):
         with open(path, 'w') as f:
             f.write(tostring(root))
     return HttpResponse(0);
+# **************************************Test Cases****
+@csrf_protect
+
+def TestCasesTree(request, template_name="listTestCases.html", path=TESTCASES):
+    # productName=request.POST.get('pr')
+    # print ('product'+str(productName))
+    """show tree of testcases """
+    def listtreeFfunction(path):
+        """Browse the tree"""
+        result = path.rpartition('\\')[2]
+        tree = dict(name=result, children=[])
+        try:
+            lst = os.listdir(path)
+        except OSError:
+            pass
+        else:
+            for name in lst:
+                fn = os.path.join(path, name)
+                recent = name
+                if os.path.isdir(fn):
+                    tree['children'].append(listtreeFfunction(fn))
+                else:
+                    tree['children'].append(dict(name=recent))
+        return tree
+
+    def listtreeFfunction2(path):
+        """Browse the tree"""
+        result = path.rpartition('\\')[2]
+        treeP = dict(name=result, children=[])
+        try:
+            lst = os.listdir(path)
+        except OSError:
+            pass
+        else:
+            for name in lst:
+                fn = os.path.join(path, name)
+                recent = name
+                if os.path.isdir(fn):
+                    treeP['children'].append(listtreeFfunction2(fn))
+                else:
+                    treeP['children'].append(dict(name=recent))
+        return treeP
+
+
+    global tree
+    global treeP
+    tree = listtreeFfunction(path)
+    treeP = listtreeFfunction2(PRODUCTS)
+
+
+    return render(request, template_name, {'tree': tree,'treeP': treeP})
+# **************************************************************************
+def getNameTest(request):
+    """get file Name"""
+    logger.info("information")
+    global FileName1
+    if request.method == "POST" and request.is_ajax():
+        FileName1 = request.POST['id']
+        logger.info(FileName1)
+        # status = display(FileName1)
+        status=''
+
+        path="Products\\G1product\\objects_dictionary"+FileName1
+        doc = minidom.parse(path)
+        File = doc.getElementsByTagName('class')
+        for pdt in File:
+            id = pdt.getAttribute('id')
+
+        print File
+
+        return HttpResponse(simplejson.dumps({'stat': status,'id':id}), content_type='application/json')
+
+
+
+    else:
+        status= {'fileContent': 'Fail Loading Content'}
+
+        return HttpResponse(status)
+#     *************************************************************
+def generateTest(request,template_name="DictionnaryObject.html"):
+    product=request.POST.get("ProductList")
+    print('here')
+    action = request.POST.get("action")
+    print product
+    print action
+    pathO="Products\\"+str(product)
+
+    def listtreeFfunction(pathO):
+        """Browse the tree"""
+        result = pathO.rpartition('\\')[2]
+        tree = dict(name=result, children=[])
+        try:
+            lst = os.listdir(pathO)
+        except OSError:
+            pass
+        else:
+            for name in lst:
+                fn = os.path.join(pathO, name)
+                recent = name
+                if os.path.isdir(fn):
+                    tree['children'].append(listtreeFfunction(fn))
+                else:
+                    tree['children'].append(dict(name=recent))
+        return tree
+
+
+    global tree
+
+    tree = listtreeFfunction(pathO)
+
+
+    return render(request,template_name,{'tree': tree,'action' :action,'product':product})
+# *******************************************************************************************
+@csrf_exempt
+def getAttributes (request,template_name="DictionnaryObject.html"):
+    action = request.POST.get("action")
+    path = request.POST.get("path")
+    print ("path" + str(path))
+    pdt = request.POST.get("pdt")
+
+    print ("pdt" + str(pdt))
+    ObjectFile = request.POST.get("ObjectList")
+    logger.info("information")
+    global FileName1
+    if request.method == "POST" and request.is_ajax():
+        FileName1 = request.POST['id']
+        logger.info(FileName1)
+        # status = display(FileName1)
+        status = ''
+        statusM = ''
+        idAtt=''
+        type=''
+        idMeth=''
+
+        path = "Products\\" + FileName1
+        doc = minidom.parse(path)
+        File = doc.getElementsByTagName('class')
+        attributes = doc.getElementsByTagName('attributes')
+        methods = doc.getElementsByTagName('methods')
+        for a in attributes:
+            attr = doc.getElementsByTagName('attribute')
+            method = doc.getElementsByTagName('method')
+
+            for name in attr:
+                attName = name.getAttribute('name')
+                attId=name.getAttribute('id')
+                attType=name.getAttribute('type')
+
+
+                status += attName + "/"
+                idAtt+= attId +"/"
+                type+= attType +"/"
+
+            for methodName in method:
+                methName = methodName.getAttribute('name')
+                methId=methodName.getAttribute('id')
+
+                statusM += methName + "/"
+                idMeth+=  methId + "/"
+
+
+
+
+        return HttpResponse(
+            simplejson.dumps({'stat': status, 'statM': statusM,'ident':idAtt,'idMeth':idMeth,'type':type, 'path': path, 'pdt': pdt, 'action': action,"file":FileName1}),
+            content_type='application/json')
+
+
+    else:
+        status = {'fileContent': 'Fail Loading Content'}
+
+        return HttpResponse(status)
+# **********************************************
+
+nbTest=0
+def getXML(request,template_name="DictionnaryObject.html"):
+    global nbTest
+    newpath = "TestCases\\"
+
+
+
+    while exists(newpath +"test_"+str(nbTest) + ".xml"):
+
+        nbTest+=1
+
+
+    logger.info ("generatexml")
+    action = request.POST.get("action")
+    file = request.POST.get("filename")
+    print "filename"+file
+    chainefile=file.split('\\')
+    fileSelected=chainefile[len(chainefile)-1]
+
+    FileO=fileSelected.split('.')
+    ObjectSelected =FileO[0]
+
+
+
+    # *****getting values*********************
+
+    stepId = request.POST.get("stepId")
+    exValue=request.POST.get("exValue")
+    purpose=request.POST.get("purpose")
+    desc = request.POST.get("desc")
+
+    # ******************************setting values**
+    stepId = request.POST.get("stepId")
+    inValue = request.POST.get("inValue")
+    purpose = request.POST.get("purpose")
+    desc = request.POST.get("desc")
+    expected = request.POST.get("expected")
+
+    # ************************************Action values******
+
+    stepId = request.POST.get("stepId")
+
+    purpose = request.POST.get("purpose")
+    desc = request.POST.get("desc")
+    expected = request.POST.get("expected")
+    # ******************************************wait values
+
+    stepId = request.POST.get("stepId")
+    inValue = request.POST.get("inValue")
+    purpose = request.POST.get("purpose")
+    desc = request.POST.get("desc")
+
+    # ******************************************
+    if action=="GET":
+        attributSelectedId = request.POST.get("attName")
+        AttributChar = attributSelectedId.split(':')
+        actionName="ReadRequest"
+        root = ET.Element("action", id=unicode(stepId + '_' + desc))
+        data_link = ET.SubElement(root, "data_link", name="DLMS_ANY1")
+        funct = ET.SubElement(root, "function")
+        paramAsXMl = ET.SubElement(root, "paramAsXml")
+        result = ET.SubElement(root, "result")
+        ok = ET.SubElement(result, "ok", ret="ok")
+        default = ET.SubElement(result, "default", ret="nok")
+
+        funct.text = actionName
+        service = ET.SubElement(paramAsXMl, unicode(actionName))
+        purposee = ET.SubElement(service, "purpose")
+        purposee.text=purpose
+
+        object = ET.SubElement(service, "object")
+        objectName = ET.SubElement(object, "objectName")
+        objectName.text = ObjectSelected
+        attributId = ET.SubElement(object, "AttributID")
+        attributId.text=AttributChar[1]
+        checks = ET.SubElement(service, "checks")
+        check = ET.SubElement(checks, "checks1", type="execute_result")
+        typeVar= ET.SubElement(check, unicode(AttributChar[0]), name=unicode(AttributChar[2]),value=unicode(exValue))
+
+
+    elif action=="SET":
+        attributSelectedId = request.POST.get("attName")
+        AttributChar = attributSelectedId.split(':')
+        actionName = "WriteRequest"
+        root = ET.Element("action", id=unicode(stepId + '_' + desc))
+        data_link = ET.SubElement(root, "data_link", name="DLMS_ANY1")
+        funct = ET.SubElement(root, "function")
+        funct.text = actionName
+        print actionName
+
+
+        paramAsXMl = ET.SubElement(root, "paramAsXml")
+        result = ET.SubElement(root, "result")
+        ok = ET.SubElement(result, "ok", ret="ok")
+        default = ET.SubElement(result, "default", ret="nok")
+
+        service = ET.SubElement(paramAsXMl, unicode(actionName))
+        purposee = ET.SubElement(service, "purpose")
+        purposee.text = purpose
+
+        object = ET.SubElement(service, "object")
+        objectName = ET.SubElement(object, "objectName")
+        objectName.text = ObjectSelected
+        attributId = ET.SubElement(object, "AttributID")
+        attributId.text = AttributChar[1]
+        checks = ET.SubElement(service, "checks")
+        check = ET.SubElement(checks, "checks1", type="execute_result")
+        check.text=unicode(expected)
+
+        values=ET.SubElement(service, "values")
+        value1=ET.SubElement(values, "value1", Description="DLMS structure")
+        typeValue=ET.SubElement(value1, unicode(AttributChar[0]), name=unicode(AttributChar[2]), value=unicode(inValue))
+
+    elif action == "ACTION":
+        methodselected = request.POST.get("methName")
+
+        MethodChar = methodselected.split(':')
+        actionName = "ActionRequest"
+        root = ET.Element("action", id=unicode(stepId + '_' + desc))
+        data_link = ET.SubElement(root, "data_link", name="DLMS_ANY1")
+        funct = ET.SubElement(root, "function")
+        funct.text = actionName
+        paramAsXMl = ET.SubElement(root, "paramAsXml")
+        result = ET.SubElement(root, "result")
+        ok = ET.SubElement(result, "ok", ret="ok")
+        default = ET.SubElement(result, "default", ret="nok")
+        service = ET.SubElement(paramAsXMl, unicode(actionName))
+        purposee = ET.SubElement(service, "purpose")
+        purposee.text = purpose
+        object = ET.SubElement(service, "object")
+        objectName = ET.SubElement(object, "objectName")
+        objectName.text = ObjectSelected
+        methodId = ET.SubElement(object, "methodID")
+        methodId.text=MethodChar[0]
+        checks = ET.SubElement(service, "checks")
+        check = ET.SubElement(checks, "checks1", type="execute_result")
+        check.text = unicode(expected)
+    else:
+        actionName = "TimeSleep"
+        root = ET.Element("action", id=unicode(stepId + '_' + desc))
+        data_link = ET.SubElement(root, "data_link", name="DLMS_ANY1")
+        funct = ET.SubElement(root, "function")
+        funct.text = actionName
+        paramAsXMl = ET.SubElement(root, "paramAsXml")
+        result = ET.SubElement(root, "result")
+        ok = ET.SubElement(result, "ok", ret="ok")
+        default = ET.SubElement(result, "default", ret="nok")
+        service = ET.SubElement(paramAsXMl, unicode(actionName))
+        purposee = ET.SubElement(service, "purpose")
+        purposee.text = purpose
+        values = ET.SubElement(service, "values")
+        value1 = ET.SubElement(values, "value1", Description="time_to_wait")
+        value1.text=inValue
+
+
+
+
+
+
+
+
+
+
+
+    newpath = "TestCases\\"
+    tree = ET.ElementTree(root)
+
+
+
+    tree.write(newpath +"test_"+str(nbTest) + ".xml")
+
+    return TestCasesTree(request)
+

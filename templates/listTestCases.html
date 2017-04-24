@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<head xmlns:border="http://www.w3.org/1999/xhtml">
+
+</head>
+{% block content %}
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/easyTree.min.js"></script>
+    <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+</head>
+
+<div class="container">
+      <div class="row">
+
+            <!--******************************************************-->
+<div class="col-lg-3">
+            <div class="panel panel-primary">
+                <center>
+                    <h3 class="text-success">TestCase list</h3>
+                </center>
+                <div class="easy-tree">
+                    <form id="listTest" method="post">
+                        {% csrf_token %}
+                        <ul>
+                            {% for item in tree.children %}
+                            <li>
+                                {{ item.name }}
+                                {% if item.children %}
+                                {% endif %}
+                                <ul id="myid">
+
+                                    {% for d in item.children %}
+                                    <li>
+                                        {% if d.children %}
+                                        {% endif %}
+                                      <a id="{{item.name}}\\{{d.name}}" class="text-muted"
+                                                   data-toggle="collapse"
+                                                   onclick="m(this.id);href='#display';">{{ d.name }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-lg-9">
+
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="#menu" class="btn btn-sm btn-primary pull-right" data-toggle="collapse"
+                               role="menu" aria-expanded="false" onclick="VisibleTest();">Add Test</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             <div class="col-md-9" id="divDisplay">
+            <div class=" panel-default">
+                <div class="panel-body">
+                    <div class="collapse menu" id="display" tabindex="-1" role="dialog" aria-labelledby="">
+                        <div class="modal-content modal-lg" role="document">
+                            <div class="modal-content" id="textareaContent">
+
+                                    <!--<form name="editFormProduct" id="EditFormProduct" action="/editProduct" method="post" enctype="multipart/form-data">{% csrf_token %}-->
+                                        <!--<div id="f">-->
+                                        <!--</div>-->
+                                    <!--</form>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="col-md-9" id="addTest" width="75%">
+            <div class=" panel-default">
+                <div class="panel-body">
+                    <div class="collapse menu" id="menu" tabindex="-1" role="dialog" aria-labelledby="" width="75%">
+                        <div class="modal-content modal-smll" role="document" >
+                            <div class="modal-content" >
+
+                                <div class="modal-header" id="content">
+                                    <button type='button' class='close'
+                                            onclick='$(this).parent().parent().parent().parent().parent().parent().parent().hide();'>
+                                        ×
+                                    </button>
+                                    <center>
+
+                                    </center>
+     <form name="testForm" id="formT" action="/generateTest" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+         <div class="col-xs-3 col-md-3">
+
+                <select name="ProductList" id="ProductList" class="form-control" onchange="displayProduct(this.value)">
+                   <option selected>Select Product</option>
+                                                    {% for item in treeP.children %}
+                                  <option type="{{ item.name }}">{{ item.name }}
+                                                    </option>
+                                                    {% endfor %}
+               </select>
+
+         </div>
+
+
+         <input type="submit" value="GetObjectDictionnary" class="btn btn-success">
+         <!--<input type="submit" value="save product" >-->
+
+                 <div id="action" class="col-xs-3 col-md-3"></div>
+
+         <!--<div id="objectDiv" class="col-xs-3 col-md-3">-->
+            <!--<select name="ObjectList" id="ObjectList" class="form-control" onchange="();" disabled="true">-->
+                   <!--<option selected>Select Object</option>-->
+                                                    <!--{% for item in treeP.children %}-->
+                                                             <!--{% if item.name == 'G1product'%}-->
+
+                                                                <!--{% for f in item.children %}-->
+                                                                <!--{% for d in f.children%}-->
+
+
+
+                                  <!--<option type="{{ d.name }}">{{ d.name }}-->
+                                                    <!--</option>-->
+                                                    <!--{% endfor %}{% endfor %}-->
+                <!--{% endif %}-->
+
+                <!--{% endfor %}-->
+               <!--</select>-->
+
+         <!--</div>-->
+
+
+
+      </form>
+
+                                    <!--********************-->
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <!--*************************************************************-->
+
+        </div>
+    </div>
+</div>
+
+
+
+<!--<script src="/static/js/jquery.min.js"></script>-->
+<script type="text/javascript" src="/static/js/scriptTest.js"></script>
+<script>
+
+
+<!--**********************-->***************************
+
+var ProductName='';
+function displayProduct(value)
+{
+
+ProductName=value;
+<!--alert("ProductName"+ProductName)-->
+var html = [
+    '<select name="action" id="action" class="form-control" size="4" onchange="GetObjectDictionnary();">',
+           '<option value="GET">GET</option>',
+           '<option value="SET">SET</option>',
+           '<option value="ACTION">ACTION</option>',
+           '<option value="WAIT">WAIT</option>',
+               '</select><input type="hidden"  value="'+ProductName+'" id="pr" name="pr">',
+].join('');
+document.getElementById('action').innerHTML =html;
+<!--document.getElementById('t').value=ProductName;-->
+
+}
+
+<!--********************************************-->
+function VisibleTest() {
+
+            if (document.getElementById('addTest')) {
+
+                    document.getElementById('addTest').style.display = 'block';
+                    document.getElementById('divDisplay').style.display = 'none';
+
+            }
+}
+<!--*****************************************-->
+ function m(valueSent) {
+  if (document.getElementById('addTest')) {
+                    document.getElementById('addTest').style.display = 'none';
+                    document.getElementById('divDisplay').style.display = 'block';
+            }
+  $('#addTest').modal('hide')
+     var element = $(this);
+     $.post(element.attr('href'), { flag: element.data(valueSent)});
+    function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
+
+
+
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+
+
+
+$.ajaxSetup({
+
+    beforeSend: function(xhr, settings) {
+
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
+      <!--$.ajax({-->
+          <!--type: "POST",-->
+          <!--cache: true,-->
+          <!--url: "/foldertest/",-->
+          <!--data:  { id : valueSent,'csrfmiddlewaretoken': window.CSRF_TOKEN },-->
+
+
+          <!--success: function(result) {-->
+
+
+
+            <!--}-->
+
+
+
+        <!--});-->
+
+}
+<!--*********************************************-->
+
+
+function check()
+{
+$(".checkboxContainer").hover(
+    function() {
+        $(this).find(".infoCheckbox:first").show();
+    },
+    function() {
+        $(this).find(".infoCheckbox:first").hide();
+    }
+);}
+(function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+                addable: false,
+                editable: false,
+                deletable: false
+            });
+        }
+        window.onload = init();
+    })(jQuery)
+    <!--**********************************************-->
+
+</script>
+
+
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+

@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<head xmlns:border="http://www.w3.org/1999/xhtml">
+
+</head>
+{% block content %}
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/easyTree.min.js"></script>
+    <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+</head>
+
+<div class="container">
+    <div class="row">
+
+        <!--******************************************************-->
+        <div class="col-lg-3">
+            <div class="panel panel-primary">
+                <center>
+                    <h3 class="text-success">Choosen Object</h3>
+                </center>
+                <div class="easy-tree">
+                    <form id="fileO" method="post">
+                        {% csrf_token %}
+                        <ul>
+                            {% for item in tree.children %}
+                            <li>
+                                {{ item.name }}
+                                {% if item.children %}
+                                {% endif %}
+                                <ul id="myid">
+
+                                    {% for d in item.children %}
+                                    <li>
+                                        {% if d.children %}
+                                        {% endif %}
+
+                                        <a id="{{tree.name}}\{{item.name}}\{{d.name}}" class="text-muted"
+                                           data-toggle="collapse"
+                                           onclick="m(this.id);href='#display';">{{ d.name }}</a>
+                                        <!--<input type="text" name="action" id="action" value="{{action}}"><input type="text" name="path" id="path" value="{{path}}">-->
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-lg-9">
+
+                        </div>
+                        <div class="col-lg-3">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9" id="divDisplay">
+            <div class=" panel-default">
+                <div class="panel-body">
+                    <div class="collapse menu" id="display" tabindex="-1" role="dialog" aria-labelledby="">
+                        <div class="modal-content modal-lg" role="document">
+                            <div class="modal-content" id="textareaContent">
+
+                                <form name="generateTestF" id="generateTestF" action="/" method="post"
+                                      enctype="multipart/form-data">{% csrf_token %}
+                                    <div id="f" class="form-group">
+
+                                        <table class="table">
+
+                                       <tr><td> <center><h2><span class="label label-success"> AttributeName List</span></h2></center>
+
+                                        <select name="attName" id="attName" class="form-control"
+                                                onchange="getForm(this.value)" disabled>
+                                        </select></td>
+
+                                         <td> <center><h2><span class="label label-success"> MethodName List</span></h2></center>
+
+                                        <select name="methName" id="methName" class="form-control"
+                                                onchange="getFormMethod(this.value)" disabled>
+                                        </select></td></tr>
+
+
+                                        </table>
+                                    </div>
+                                    <div>
+                                        <div id ="table">
+
+                                        </div>
+
+                                        <div id="wait"></div>
+
+
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="col-md-9" id="listAttributes" width="75%">
+            <div class=" panel-default">
+                <div class="panel-body">
+                    <div class="collapse menu" id="menu" tabindex="-1" role="dialog" aria-labelledby="" width="75%">
+                        <div class="modal-content modal-smll" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header" id="content">
+                                    <button type='button' class='close'
+                                            onclick='$(this).parent().parent().parent().parent().parent().parent().parent().hide();'>
+                                        ×
+                                    </button>
+                                    <center>
+
+                                    </center>
+                                    <form name="attributeForm" id="formP" action="/" method="post"
+                                          enctype="multipart/form-data">
+                                        {% csrf_token %}
+
+
+                                    </form>
+
+                                    <!--********************-->
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--*************************************************************-->
+
+    </div>
+</div>
+</div>
+
+
+<!--<script src="/static/js/jquery.min.js"></script>-->
+<script type="text/javascript" src="/static/js/scriptProduct.js"></script>
+<script>
+
+  window.CSRF_TOKEN = "{{ csrf_token }}";
+var newPdt="";
+
+function Visible() {
+
+            if (document.getElementById('listAttributes')) {
+
+                    document.getElementById('listAttributes').style.display = 'block';
+                    document.getElementById('divDisplay').style.display = 'none';
+
+            }
+}
+
+<!--*****************************************-->
+ function m(valueSent) {
+  if (document.getElementById('listAttributes')) {
+                    document.getElementById('listAttributes').style.display = 'none';
+                    document.getElementById('divDisplay').style.display = 'block';
+            }
+  $('#listAttributes').modal('hide')
+     var element = $(this);
+     $.post(element.attr('href'), { flag: element.data(valueSent)});
+    function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function nbChar(chaine,lettre) {
+  var nb = 0;
+
+  for(var i in chaine)
+    nb += chaine[i] == lettre;
+  return nb;
+}
+
+
+
+
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+
+
+
+$.ajaxSetup({
+
+    beforeSend: function(xhr, settings) {
+
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
+
+
+
+
+
+      $.ajax({
+          type: "POST",
+          cache: true,
+          url: "/listattribute/",
+          data:  { id : valueSent,'csrfmiddlewaretoken': window.CSRF_TOKEN },
+
+
+          success: function(result) {
+
+
+
+          var tableSizeName=0;
+            var nbName=0;
+
+            var tab=new Array();
+             for(i=0;i<10000000;i++)
+
+             {
+             tab[i]="";
+             }
+
+            ch=result.stat;
+            chaine="";
+           AttNAme="";
+            i=0;
+            while(ch!= "" ){
+
+                   chaine=ch.substr(0,ch.indexOf("/"));
+                   <!--alert(chaine.split(','));-->
+                   tab[i]=chaine.split(',')
+                   <!--alert(tab[i])-->
+                   index=chaine.indexOf(',')
+                   AttNAme=AttNAme+chaine.substr(0,index)+'.';
+
+
+
+                    ch=ch.substr(ch.indexOf("/")+1) ;
+                    i++;
+                    }
+                    taille=i;
+
+ attName = document.getElementById('attName');
+ attName.size = taille;
+ for(i=0;i<taille;i++)
+ {
+ attName.options[attName.options.length] = new Option(tab[i], tab[i]);
+}
+
+
+<!--**************methods-->
+
+        var tableSizeMethod=0;
+            var nbMethod=0;
+
+            var tabM=new Array();
+             for(i=0;i<10000000;i++)
+
+             {
+             tabM[i]="";
+             }
+
+            ch=result.statM;
+            chaine="";
+            methName="";
+            i=0;
+            while(ch!= "" ){
+
+                   chaine=ch.substr(0,ch.indexOf("/"));
+
+                   tabM[i]=chaine.split(',')
+                   <!--alert(tabM[i])-->
+                   <!--alert(tab[i])-->
+                   index=chaine.indexOf(',')
+                   methName=methName+chaine.substr(0,index)+'.';
+
+
+
+                    ch=ch.substr(ch.indexOf("/")+1) ;
+                    i++;
+                    }
+                    taille=i;
+
+ methName = document.getElementById('methName');
+ methName.size = taille;
+ for(i=0;i<taille;i++)
+ {
+ methName.options[methName.options.length] = new Option(tabM[i], tabM[i]);
+}
+
+
+
+<!--************************-->
+
+          }
+
+
+      });
+
+}
+<!--*********************************************-->
+(function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+                addable: false,
+                editable: false,
+                deletable: false
+            });
+        }
+        window.onload = init();
+    })(jQuery)
+    <!--**********************************************-->
+
+if (document.getElementById('action').value=="ACTION")
+{
+document.getElementById("methName").disabled = false;
+}
+else if (document.getElementById('action').value=="SET" | document.getElementById('action').value=="GET")
+
+{
+document.getElementById("attName").disabled = false;
+}
+function getForm(value)
+{
+
+document.getElementById("methName").disabled = true;
+action=document.getElementById('action').value
+if (action=="GET")
+{
+var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success"> GET Settings</span></h2>',
+'</tr><tr><td><center><label> Step Id </label></center></td> <td><input class="form-control" type="text" name="stepId" id="stepId"></td>',
+' <td><center><label>Expected value</label></center></td><td><input class="form-control" type="text" name="exValue" id="exValue"></td>',
+' <td><center><label> Purpose</label></center></td>',
+' <td> <input class="form-control" type="text" name="purpose" id="purpose"></td>',
+'<td><center><label>Decription</label></center></td>',
+'<td><input class="form-control" type="text" name="desc" id="desc"></td></tr> </table></center>'].join('');
+
+<!--document.getElementById('table').innerHTML =html;-->
+}
+else if (action=="SET")
+{
+var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success"> SET Settings</span></h2>',
+'</tr><tr><td><center><label> Step Id </label></center></td> <td><input class="form-control" type="text" name="stepId" id="stepId"></td>',
+' <td><center><label>Input value</label></center></td><td><input class="form-control" type="text" name="inValue" id="inValue"></td>',
+' <td><center><label> Purpose</label></center></td>',
+' <td> <input class="form-control" type="text" name="purpose" id="purpose"></td>',
+'<td><center><label>Decription</label></center></td>',
+'<td><input class="form-control" type="text" name="desc" id="desc"></td>',
+' <td><center><label>Expected Value</label></center></td><td width="100px"><select name="expected" class="form-control">',
+'<option value="True">True</option>',
+'<option value="False">False</option>',
+'</select>',
+'</td>',
+'</tr></table></center>',
+].join('');
+}
+
+document.getElementById('table').innerHTML =html
+}
+
+
+
+
+function getFormMethod()
+{
+document.getElementById("attName").disabled = true;
+
+var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success"> ACTION Settings</span></h2>',
+'</tr><tr><td><center><label> Step Id </label></center></td> <td><input class="form-control" type="text" name="stepId" id="stepId"></td>',
+
+' <td><center><label> Purpose</label></center></td>',
+' <td> <input class="form-control" type="text" name="purpose" id="purpose"></td>',
+'<td><center><label>Decription</label></center></td>',
+'<td><input class="form-control" type="text" name="desc" id="desc"></td>',
+' <td><center><label>Expected Value</label></center></td><td width="100px"><select name="expected" class="form-control">',
+'<option value="True">True</option>',
+'<option value="False">False</option>',
+'</select>',
+'</td>',
+'</tr></table></center>',
+].join('');
+
+document.getElementById('table').innerHTML =html
+}
+if (document.getElementById('action').value=="WAIT"){
+var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success"> TimeSleep Settings</span></h2>',
+'</tr><tr><td><center><label> Step Id </label></center></td> <td><input class="form-control" type="text" name="stepId" id="stepId"></td>',
+' <td><center><label>Input value</label></center></td><td><input class="form-control" type="text" name="inValue" id="inValue"></td>',
+' <td><center><label> Purpose</label></center></td>',
+' <td> <input class="form-control" type="text" name="purpose" id="purpose"></td>',
+'<td><center><label>Decription</label></center></td>',
+'<td><input class="form-control" type="text" name="desc" id="desc"></td>',
+' <td><center><label>Input Value(s)</label></center></td><td width="100px"><input class="form-control" type="text" name="Input" id="Input">',
+'</td>',
+'</tr></table></center>',
+].join('');
+document.getElementById('wait').innerHTML =html
+
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+

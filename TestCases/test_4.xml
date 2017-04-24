@@ -1,0 +1,20 @@
+<action id="step_description">
+    <data_link name="DLMS_ANY1"/>
+    <function>ActionRequest</function>
+    <paramAsXml>
+        <ActionRequest>
+            <purpose>purpose</purpose>
+            <object>
+                <objectName>file1.xml</objectName>
+                <methodID>3</methodID>
+            </object>
+            <checks>
+                <checks1 type="execute_result">True</checks1>
+            </checks>
+        </ActionRequest>
+    </paramAsXml>
+    <result>
+        <ok ret="ok"/>
+        <default ret="nok"/>
+    </result>
+</action>

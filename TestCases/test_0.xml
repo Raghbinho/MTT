@@ -1,0 +1,25 @@
+<action id="stepId_description">
+    <data_link name="DLMS_ANY1"/>
+    <function>WriteRequest</function>
+    <paramAsXml>
+        <WriteRequest>
+            <purpose>purpose</purpose>
+            <object>
+                <objectName>file1.xml</objectName>
+                <AttributID>6</AttributID>
+            </object>
+            <checks>
+                <checks1 type="execute_result">False</checks1>
+            </checks>
+            <values>
+                <value1 Description="DLMS structure">
+                    <octetstring name="daylight_savings_end" value="input"/>
+                </value1>
+            </values>
+        </WriteRequest>
+    </paramAsXml>
+    <result>
+        <ok ret="ok"/>
+        <default ret="nok"/>
+    </result>
+</action>

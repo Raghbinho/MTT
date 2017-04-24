@@ -25,7 +25,7 @@
     <ClientAdress>
         <client adress="10111" associationName="public2" /><client adress="1020" associationName="public3-1" /></ClientAdress>
     <MasterKey value="masterKey3" />
-    <GlobalKey value="globalEkey3                                                                              " />
+    <GlobalKey value="globalEkey3                                                                               " />
     <AuthentificationKey value="authe2" />
     <LLSAuthentification value="LLs2" />
     <HLS_Secret value="HLS 2" />

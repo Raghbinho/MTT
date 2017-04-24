@@ -12,7 +12,7 @@
           <!--<h1>Hello</h1>-->
           <!--<p>You are on your Dashboard</p>-->
             <form >{% csrf_token %}</form>
-        <form name="classForm" id="form1"action="/generate" method="post" id="submitform" >
+        <form name="classForm" id="form1" method="post" id="submitform" >
             {% csrf_token %}
             <table class="table"  border="0px" >
             <tr >
@@ -115,7 +115,7 @@
 
         </table>
                 </td>
-                 <input class="btn btn-success" type="submit" value="Generate"  >
+                 <input class="btn btn-success" type="button" value="Generate" onclick="document.forms['classForm'].action='/generate';document.forms['classForm'].submit();" >
 </tr>
            </table>
 
