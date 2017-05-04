@@ -14,5 +14,6 @@
     </attributes>
     <methods>
         <method id="1" name="Reset"></method>
+        <method id="2" name="Any"></method>
     </methods>
 </class>

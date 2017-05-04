@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<head>
+    <link href="{% static 'css/dmtt.css' %}" rel="stylesheet">
+    <script src="../static/js/dmtt.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+</head>
+<div class="container">
+    <div class="row form-group">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <center>DMTT</center>
+                </div>
+            </div>
+            <form role="form" id="myform" action="javascript:myFunction();">
+                <table id="tab_logic" width="100%" style="table-layout:fixed;">
+                    <tr>
+                        <td data-name="desc">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label" for="productName">Product</label>
+                                    <select id="productName" class="form-control" style="height:40;">
+                                        <option selected>Select Product</option>
+                                        {% for item in tree1.tree.children %}
+                                        <option>{{ item.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                        <td rowspan="4" valign="top">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table width="100%" id="associationTable" class="">
+
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-name="desc">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label" for="Interface">Inetrface</label>
+                                    <select id="Interface" name="Interface" class="form-control" onchange="javascript: interfaceChoice();">
+                                        <option value="1">Select Interface</option>
+                                        <option value="1">HDLC</option>
+                                        <option value="1">VALID_DC</option>
+                                        <!-- add IP adress, port and serial number -->
+                                        <option value="1">TCP/IP</option>
+                                        <!-- add IP adress-->
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-name="desc">
+                            <div class="col-md-8">
+                                <div class="form-group" id="idChoice">
+                                    <label class="control-label" for="PortInvisible" style="display:none">Port</label><!--style="display:none"-->
+                                    <select id="PortInvisible" name="Port" class="form-control" style="display:none">
+                                        <option selected>Select Port</option>
+                                        {% for x in tree1.port %}
+                                        <option>{{ x }}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label" for="Interface">Baudrate</label>
+                                    <select id="Baudrate" name="Baudrate" class="form-control">
+                                        <option value="75">75</option>
+                                        <option value="110">110</option>
+                                        <option value="134">134</option>
+                                        <option value="150">150</option>
+                                        <option value="300">300</option>
+                                        <option value="600">600</option>
+                                        <option value="1200">1200</option>
+                                        <option value="1800">1800</option>
+                                        <option value="2400">2400</option>
+                                        <option value="4800">4800</option>
+                                        <option value="7200">7200</option>
+                                        <option value="9600" selected>9600</option>
+                                        <option value="14400">14400</option>
+                                        <option value="19200">19200</option>
+                                        <option value="38400">38400</option>
+                                        <option value="57600">57600</option>
+                                        <option value="115200">115200</option>
+                                        <option value="128000">128000</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="col-md-8">
+                                <label class="control-label" for="tester">Tester <span
+                                        style="color:red;">*</span></label>
+                                <input id="tester" class="form-control" name="tester" type="text" placeholder="Tester"
+                                       pattern="[Gg][0-9]{5}"
+                                       required="required"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="col-md-8">
+                                <label class="control-label" for="Interface">Test Plan</label>
+                                <div class="input-group image-preview">
+                                    <input type="text" class="form-control image-preview-filename"
+                                           disabled="disabled">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default image-preview-clear"
+                                                style="display:none;">
+                                            <span class="glyphicon glyphicon-remove"></span> Clear
+                                            </button>
+                                            <div class="btn btn-default image-preview-input">
+                                                <span class="glyphicon glyphicon-folder-open"></span>
+                                                <span class="image-preview-input-title">Browse</span>
+                                                <input type="file" accept="text/xml"
+                                                       name="input-file-preview"/>
+                                            </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td align="left">
+                            <div class="col-md-8">
+                                <p style="color:red;">Note:<br>1.Ensure the meter in "defaut" state</p>
+                                <div class="input-group image-preview">
+                                    <!--<button href="#" type="button" id="run" class="btn btn-sm btn-primary" data-dismiss="modal">-->
+                                    <!--Run-->
+                                    <!--</button>-->
+                                    <input class="btn btn-sm btn-primary" type='submit' value='Run' id="run"/>
+                                    <!--<button href="#" id="run" class="btn btn-sm btn-primary" >Run</button>-->
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input class="btn btn-sm btn-primary" type='reset' value='Stop' id="stop"/>
+                                    <!--<button href="#" id="stop" class="btn btn-sm btn-primary">Stop</button>-->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label class="control-label">&nbsp;</label>
+                            <!--<div class="col-md-12">-->
+                                <!--<div class="progress" width="20">-->
+                                    <!--<div class="progress-bar progress-bar-striped active" role="progressbar"-->
+                                         <!--aria-valuenow="45"-->
+                                         <!--aria-valuemin="0" aria-valuemax="100" style="width: 100%">-->
+                                        <!--<h4 class="modal-title" id="myModalLabel"><p id="demo"></p>%</h4>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <br>
+                            <h4>
+                                <div class="thisClass">Double click on result window to lock or unlock output</div>
+                            </h4>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <textarea id="textarea" class="form-control animated" placeholder="Execution Log" rows="8" cols="50" readonly="readonly"></textarea>
+    </div>
+</div>
+<script>
+      function f(){
+    function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});}
+$(document).on('change','#productName',function(){
+        x = document.getElementById('productName').value;
+           f();
+      $.ajax({
+          type: "POST",
+          cache: true,
+          url: "/productName/",
+          data:  { productName : x},
+                success: function(result, textStatus, jqXHR)
+                {
+                var htm = [
+                        '<thead>',
+                        '<tr>',
+                            '<th width="60%">Association</th>',
+                            '<th width="40%">Password</th>',
+                        '</tr>',
+                        '</thead>',
+                        '<tbody>',
+                ].join('');
+                text = "<td>" + result;
+                var res = [
+                 text.replace(/(\r\n|\n|\r)/gm,'</td><td><input class="form-control" name="password" type="password" placeholder="password"/></td></tr><tr><td>'),
+                ].join('');
+                $("#associationTable").html(htm + '<tr>'+res+'</td></tr></tbody>');
+                }
+            });
+});
+
+<!--var input = document.getElementById('tester');-->
+<!--input.oninvalid = function(event) {-->
+    <!--event.target.setCustomValidity('Name tester should be six-letter word begin with letter "g"');-->
+<!--}-->
+
+</script>
+{% endblock %}

@@ -37,12 +37,6 @@ urlpatterns = [
     url(r'^create$', views.create, {'template_name': 'list.html'}),
     url(r'^folder/$', views.getName, ),
     url(r'^folder1/$', views.getNameF, ),
-    url(r'^foldertest/$', views.getNameTest, ),
-    # url(r'^listattribute/$', views.showAttributes, ),
-
-
-    url(r'^getAttributes/$', views.getAttributes, ),
-
 
     url(r'^parseXML/$', views.parseXML, ),
     # url(r'^createTemporary/$', views.createTemporary, {'template_name': 'list.html'}),
@@ -50,13 +44,10 @@ urlpatterns = [
     url(r'^generate$', views.generate),
     url(r'^generateMethod$', views.generateMethod),
     url(r'^generateProduct$', views.generateProduct,{'template_name': 'listProduct.html'}),
-    url(r'^generateTest', views.generateTest, {'template_name': 'DictionnaryObject.html'}),
-    url(r'^getXML$', views.getXML, {'template_name': 'DictionnaryObject.html'},),
     url(r'^editProduct$', views.editProduct, {'template_name': 'listProduct.html'}),
     url(r'^treeListF$', views.treeListF, {'template_name': 'listProduct.html'}, ),
-    url(r'^TestCasesTree$', views.TestCasesTree, {'template_name': 'listTestCases.html'}, ),
     url(r'^update/$', views.update, ),
-
-
+    url(r'^dmtt/$', views.dmtt),
+    url(r'^productName/$', views.productName, ),
+    url(r'^DMTTExecution/$', views.DMTTExecution, ),
 ]
-

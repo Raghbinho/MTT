@@ -636,6 +636,7 @@ if(nbremove==myArray[nbappel-2])
 //                    '</td>'+
 //                    '<td><input class="btn btn-danger"type="button" value="Remove" ></td>'+
 //
+//                  '</td>'+
 //
 //
 //                '</tr>');
@@ -887,7 +888,7 @@ nbclicstructure=0;
     alert('id'+cpt)
 //    ids=idsi.attr('id');
 
-// alert("this is att modif"+textsize.value);
+
 
   att=document.getElementById("attributesize-"+idselect).value;
 
@@ -1437,10 +1438,12 @@ $("#cellSize-"+afterComma).prop("disabled",true);
 $("#elementsize-"+(afterComma)).prop("disabled",true);
 $("#attributesize-"+afterComma).prop("disabled",true);
 
+                         '</center>'+
 
 nb++;
 //document.getElementById("cellSize").disabled = true;
 
+                 '<td><input class="btn btn-danger"type="button" value="Remove" ></td>'+
 
                      element = $('<tr   style="border-bottom: 1px solid LightSteelBlue;" id="'+nb+'">'+
                     '<td></td><td></td>'+
@@ -1453,6 +1456,7 @@ nb++;
                     '</td>'+
                     '<td><input class="btn btn-danger"type="button" value="Remove" onclick="remove(this)" ></td>'+
 
+//                  '<td></td>'+
 
 
                 '</tr>');
@@ -1460,7 +1464,14 @@ nb++;
 
 //index++;
 
+//******************************************delete line********************************************
 
+$('#table_class').on('click', 'input[type="button"]', function () {
+    $(this).closest('tr').remove();
+})
+$('#table_methode').on('click', 'input[type="button"]', function () {
+    $(this).closest('tr').remove();
+})
 
 }
 
@@ -1470,6 +1481,8 @@ nb++;
 //$('#table_class').on('click', 'input[type="button"]', function () {
 //    alert("button size");
 //
+//        var foo = xmlDoc.createElement('foo');
+//        foo.textContent = 'bar';
 //
 //    var nbElement=""
 //
@@ -1553,13 +1566,27 @@ nb++;
 //}
 //
 //})
+//            }
+//            else {
+//                alert ("Your browser does not support this example");
+//            }
 
+function generateXML(){
+    // Simple helper function creates a new element from a name, so you don't have to add the brackets etc.
+    $.createElement = function(name)
+    {
+        return $('<'+name+' />');
+    };
 
         function addCell(value)
 
         {
         indice++;
 
+    /* xml root element - because html() does not include the root element and we want to
+        * include <report /> in the output. There may be a better way to do this.
+        */
+    var $root = $('<XMLDocument />');
 
 //s=document.getElementById("cellSize").value;
 //alert("s"+s);
@@ -1569,6 +1596,11 @@ nb++;
 //      t(i)=nbappel;
 //      }
 
+)
+)
+)
+)
+);
 
 
             alert("attr clicked");
@@ -1609,7 +1641,12 @@ nb_btn_clicked=0;
 
 
 }
+$('#form1').on('change', ' select', function(){
+//    $(this).closest('tr').find('input[name="dbFlag"]').val('U');
 
+ var selected = $(this).find("option:selected").val();
+  if (selected=="array")
+  {
 
 
             alert("nb_btn_clicked avant"+nb_btn_clicked);

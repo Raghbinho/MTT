@@ -299,7 +299,6 @@ tagId.push({
 }
 function validate(){
 var json = JSON.stringify(tagId)
-alert(json);
     f();
      $.ajax({
           type: "POST",
@@ -374,17 +373,14 @@ function u(x) {
 /***************/
 var choices = '';
     var els = document.getElementsByClassName('classCheckbox');
-    alert(els.length);
     for (var i=0;i<els.length;i++){
       if ( els[i].checked ) {
         choices+= "@"+els[i].id + "#" + els[i].name+":"+els[i].value;
-        alert(choices);
         }
         }
 /******************/
 var methods = '';
     var els = document.getElementsByClassName('classCheckbox1');
-    alert(els.length);
     for (var i=0;i<els.length;i++){
       if ( els[i].checked ) {
         methods+= "@"+els[i].id + "#" + els[i].name+":"+els[i].value;
