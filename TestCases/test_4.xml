@@ -1,20 +1,22 @@
-<action id="step_description">
-    <data_link name="DLMS_ANY1"/>
-    <function>ActionRequest</function>
+<action description="descriptionr" id="stqep1f" product="G1product">
+    <data_link name="DLMS_ANY1" />
+    <function>ReadRequest</function>
     <paramAsXml>
-        <ActionRequest>
+        <ReadRequest>
             <purpose>purpose</purpose>
             <object>
-                <objectName>file1.xml</objectName>
-                <methodID>3</methodID>
+                <objectName>file1</objectName>
+                <AttributID>4</AttributID>
             </object>
             <checks>
-                <checks1 type="execute_result">True</checks1>
+                <checks1 type="execute_result">
+                    <unsigned8 name="status" value="expd" />
+                </checks1>
             </checks>
-        </ActionRequest>
+        </ReadRequest>
     </paramAsXml>
     <result>
-        <ok ret="ok"/>
-        <default ret="nok"/>
+        <ok ret="ok" />
+        <default ret="nok" />
     </result>
 </action>

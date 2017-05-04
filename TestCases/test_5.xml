@@ -1,16 +1,20 @@
-<action id="stepwait_descri">
-    <data_link name="DLMS_ANY1"/>
-    <function>TimeSleep</function>
+<action description="description1" id="step1" product="G1product">
+    <data_link name="DLMS_ANY1" />
+    <function>ActionRequest</function>
     <paramAsXml>
-        <TimeSleep>
-            <purpose>purpose</purpose>
-            <values>
-                <value1 Description="time_to_wait">input wait</value1>
-            </values>
-        </TimeSleep>
+        <ActionRequest>
+            <purpose>purposeaction1</purpose>
+            <object>
+                <objectName>file1</objectName>
+                <methodID>2</methodID>
+            </object>
+            <checks>
+                <checks1 type="execute_result">False</checks1>
+            </checks>
+        </ActionRequest>
     </paramAsXml>
     <result>
-        <ok ret="ok"/>
-        <default ret="nok"/>
+        <ok ret="ok" />
+        <default ret="nok" />
     </result>
 </action>

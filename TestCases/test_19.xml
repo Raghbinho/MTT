@@ -1,0 +1,16 @@
+<action description="description0" id="step1d" product="G1product">
+    <data_link name="DLMS_ANY1" />
+    <function>TimeSleep</function>
+    <paramAsXml>
+        <TimeSleep>
+            <purpose>purposewait1</purpose>
+            <values>
+                <value1 Description="time_to_wait">7s</value1>
+            </values>
+        </TimeSleep>
+    </paramAsXml>
+    <result>
+        <ok ret="ok" />
+        <default ret="nok" />
+    </result>
+</action>

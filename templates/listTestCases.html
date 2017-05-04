@@ -69,10 +69,17 @@
                         <div class="modal-content modal-lg" role="document">
                             <div class="modal-content" id="textareaContent">
 
-                                    <!--<form name="editFormProduct" id="EditFormProduct" action="/editProduct" method="post" enctype="multipart/form-data">{% csrf_token %}-->
-                                        <!--<div id="f">-->
-                                        <!--</div>-->
-                                    <!--</form>-->
+                                    <form name="editFormTest" id="EditFormTest" action="/editTest" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                        <input type="hidden" name="prdt" id="prdt" value="{{product}}">
+
+               </select>
+
+
+
+                                        <div id="editTestDiv">
+
+                                        </div>
+                                    </form>
 
                             </div>
                         </div>
@@ -243,22 +250,103 @@ $.ajaxSetup({
     }
 });
 
-      <!--$.ajax({-->
-          <!--type: "POST",-->
-          <!--cache: true,-->
-          <!--url: "/foldertest/",-->
-          <!--data:  { id : valueSent,'csrfmiddlewaretoken': window.CSRF_TOKEN },-->
+      $.ajax({
+          type: "POST",
+          cache: true,
+          url: "/editTestCase/",
+          data:  { id : valueSent,'csrfmiddlewaretoken': window.CSRF_TOKEN },
 
 
-          <!--success: function(result) {-->
+          success: function(result) {
+
+          <!--document.getElementById('listOb').style.visibility="visible";-->
+
+if(result.checkRes=="True")
+            {
+            value="False";
+            }
+            else
+            {value="True";}
+
+if (result.function=="ActionRequest"){
+var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success">Edit ACTION Settings</span></h2>',
+'<input type="hidden" name="test" id="nb" value='+ valueSent +'></tr>',
+'<tr><td><label> Step Id </label></center></td> <td><input class="form-control" type="text" name="stepId" id="stepId" value="'+result.identifiant+'">',
+'<input class="form-control" type="hidden" name="OldstepId" id="stepId" value="'+result.identifiant+'"></td></tr>',
+'<tr> <td><label> Purpose</label></center></td>',
+' <td> <input class="form-control" type="text" name="purpose" id="purpose" value="'+result.purpose+'">',
+'<input class="form-control" type="hidden" name="Oldpurpose" id="purpose" value="'+result.purpose+'"></td></tr><tr>',
+'<td><label>Decription</label></center></td>',
+'<td><input class="form-control" type="text" name="desc" id="desc" value="'+result.descr+'">',
+'<input class="form-control" type="hidden" name="Olddesc" id="desc" value="'+result.descr+'"></td></tr>',
+' <tr><td><label>Expected Value</label></center></td><td><select name="expected" class="form-control">',
+'<option value="'+result.checkRes+'" selected>'+result.checkRes+'</option>',
+'<option value="'+value+'">'+value+'</option>',
+'</select>',
+'<input type="hidden" name="OldExp" id="nb" value='+ result.checkRes +'>',
+'<input type="hidden" name="object" id="nb" value='+ result.objectName +'>',
+'</td>',
+'</tr></table></center><center><input type="submit" value="EditXML" class="btn btn-success"></center>',
+].join('');
+}
+else if (result.function=="WriteRequest")
+{
+
+var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success"> EDIT SET Settings</span></h2>',
+'<input type="hidden" name="action" id="nb" value= "WriteRequest" ><input type="hidden" name="test" id="nb" value='+ valueSent +'></tr>',
+'</tr><tr><td><label> Step Id </label></td> <td><input class="form-control" type="text" name="stepId" id="stepId" value="'+result.identifiant+'">',
+'<input class="form-control" type="hidden" name="OldstepId" id="stepId" value="'+result.identifiant+'"></td></tr>',
+'<tr><td><label>Input value</label></td><td><input class="form-control" type="text" name="inValue" id="inValue" value="'+result.valV+'"><input class="form-control" type="hidden" name="OldinValue" id="inValue" value="'+result.valV+'"></td></tr>',
+'<tr> <td><label> Purpose</label></td>',
+' <td> <input class="form-control" type="text" name="purpose" id="purpose" value="'+result.purpose+'" ><input class="form-control" type="hidden" name="Oldpurpose" id="purpose" value="'+result.purpose+'"></td></tr>',
+'<tr><td><label>Decription</label></td>',
+'<td><input class="form-control" type="text" name="desc" id="desc" value="'+result.descr+'"><input class="form-control" type="hidden" name="Olddesc" id="desc" value="'+result.descr+'"></td></tr>',
+' <tr><td><label>Expected Value</label></td><td><select name="expected" class="form-control">',
+'<option value="'+result.checkRes+'" selected>'+result.checkRes+'</option>',
+'<option value="'+value+'">'+value+'</option>',
+'</select>',
+'<input type="hidden" name="OldExp" id="nb" value='+ result.checkRes +'>',
+'</td>',
+'</tr></table></center><center><input type="submit" value="EditXML" class="btn btn-success"></center>',
+].join('');
+}
+else if (result.function=="ReadRequest")
+{
+var html = [' <center> <table class="table" id="values"><tr><input type="hidden" name="test" id="nb" value='+ valueSent +'> <h2><span class="label label-success">EDIT GET Settings</span></h2>',
+'</tr><tr><input type="hidden" name="action" id="nb" value= "ReadRequest" ><td><center><label> Step Id </label></center></td> <td><input class="form-control" type="hidden" name="OldstepId" id="stepId" value="'+result.identifiant+'"><input class="form-control" type="text" name="stepId" id="stepId" value="'+result.identifiant+'"></td>',
+' <td><center><label>Expected value</label></center></td><td><input class="form-control" type="text" name="exValue" id="exValue" value="'+result.valV+'"><input class="form-control" type="hidden" name="OldexValue" id="exValue" value="'+result.valV+'"></td>',
+' <td><center><label> Purpose</label></center></td>',
+' <td> <input class="form-control" type="text" name="purpose" id="purpose" value="'+result.purpose+'"><input class="form-control" type="hidden" name="Oldpurpose" id="purpose" value="'+result.purpose+'"></td>',
+'<td><center><label>Decription</label></center></td>',
+'<td><input class="form-control" type="text" name="desc" id="desc" value="'+result.descr+'"><input class="form-control" type="hidden" name="Olddesc" id="desc" value="'+result.descr+'"></td></tr> </table></center> <center><input type="submit" value="EditXML" class="btn btn-success"></center>'].join('');
+
+}
+else if (result.function=="TimeSleep")
+{
+var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success">Edit TimeSleep Settings</span></h2><input type="hidden" name="test" id="nb" value='+ valueSent +'>',
+'</tr><tr><input type="hidden" name="action" id="nb" value= "TimeSleep" ><td><center><label> Step Id </label></center></td> <td><input class="form-control" type="text" name="stepId" id="stepId" value="'+result.identifiant+'"></td></tr>',
+' <tr><td><center><label>Input value</label></center></td><td><input class="form-control" type="text" name="inValue" id="inValue" value="'+result.valueT+'"><input class="form-control" type="hidden" name="OldinValue" id="inValue" value="'+result.valueT+'"></td></tr>',
+'<tr> <td><center><label> Purpose</label></center></td>',
+' <td> <input class="form-control" type="text" name="purpose" id="purpose" value="'+result.purpose+'"></td></tr>',
+'<tr><td><center><label>Decription</label></center></td>',
+'<td><input class="form-control" type="text" name="desc" id="desc" value="'+result.descr+'"></td>',
+
+'</tr></table></center><center><input type="submit" value="EditXML" class="btn btn-success"></center>',
+].join('');
+}
 
 
 
-            <!--}-->
+document.getElementById('editTestDiv').innerHTML =html;
 
 
 
-        <!--});-->
+
+            }
+
+
+
+        });
 
 }
 <!--*********************************************-->

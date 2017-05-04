@@ -19,7 +19,7 @@ var html = [
      '<td><div id="textareaContent2" class="table-responsive"></div></td>',
      '<td><div id="textareaContent3" class="table-responsive"></div></td> ',
 ].join('');
-document.getElementById('mydivtag').innerHTML = html;
+document.getElementById('mydivtag').innerHTML =html;
 }
 /***********************************************************/
   function registerName(valueSent) {
@@ -32,20 +32,7 @@ document.getElementById('mydivtag').innerHTML = html;
           data:  { id : x, name: valueSent },
             success: function(result, textStatus, jqXHR)
             {
-            var test_str = result.stat;
-            var start_pos = 0;
-            var end_pos = 0;
-            var longest = '';
-            var second_longest = '';
-            while(end_pos != -1){
-                end_pos = test_str.indexOf('\n', start_pos)
-                len = test_str.substring(start_pos, end_pos);
-                start_pos  = end_pos+1;
-                if(longest.length < len.length){
-                second_longest  = longest;
-                longest = len;
-                }
-            }
+         
             s = result.dictId;
             switch (parseInt(s)) {
               case 8:
@@ -63,19 +50,15 @@ document.getElementById('mydivtag').innerHTML = html;
                     break;
               }
               var j=0;
-            var meth='<label for="textareaContent3">Methods</label><tr><td>&nbsp;</td><td>';
-              var elementAction1 = '';
-              var elementAction2 = '';
+            var meth='<label for="textareaContent3">Methods</label><tr><td width="63%">&nbsp;</td><td>';
+              var elementAction1='';
             for(j=0;j<table8.length;j++){
-                    meth += '<b>'+table8[j]+'</b><br><i>Get Set Action</i></td><td>';
-                    elementAction2 +='</td><td style="display:none;"><table><tr><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis classCheckbox1" value="Get"/>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis  classCheckbox1" value="Set"/>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis classCheckbox1" value="Action"/>&nbsp;</td></tr></table></td>'
-                    elementAction1 += '</td><td><table><tr><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis classCheckbox1" value="Get"/>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis  classCheckbox1" value="Set"/>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis classCheckbox1" value="Action"/>&nbsp;</td></tr></table></td>'
+                    meth += table8[j]+'<br>Get Set Action</td><td>';
+                    elementAction1 += '</td><td width="37%"><table><tr><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis classCheckbox1" value="Get"/>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis  classCheckbox1" value="Set"/>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="checkbox" name ="'+table8[j]+'" class="checkthis classCheckbox1" value="Action"/>&nbsp;</td></tr></table></td>'
                      }
-                     elementAction2 += '</tr><tr><td>';
-                    elementAction1 += '</tr><tr><td>';
-                    meth += '</td></tr><tr><td>';
-            var methods1= result.methods;
-            methods1  = meth + methods1 + '<span style="color:white;">' + second_longest +  '</span>' + elementAction2;
+                    elementAction1 += '</tr><tr><td>'
+                    meth += '</td></tr><tr><td>'
+            var methods1= meth+result.methods;
             var res1 = [
              methods1.replace(/(\r\n|\n|\r)/gm,elementAction1),
             ].join('');
@@ -103,7 +86,7 @@ document.getElementById('mydivtag').innerHTML = html;
             var txt2='<label for="mytable">Attributes</label><tr><td>&nbsp;</td><td>';
             var elementAction = '';
             for(i=0;i<table8.length;i++){
-                    txt2 += '<b>'+table8[i]+'</b><br><i>Get Set Action</i></td><td>';
+                    txt2 += table8[i]+'<br>Get Set Action</td><td>';
                     elementAction += '</td><td><table><tr><td><input type="checkbox" name ="'+table8[i]+'" class="checkthis classCheckbox" value="Get"/>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="checkbox" name ="'+table8[i]+'" class="checkthis classCheckbox" value="Set"/>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="checkbox" name ="'+table8[i]+'" class="checkthis classCheckbox" value="Action"/>&nbsp;</td></tr></table></td>'
                      }
                     elementAction += '</tr><tr><td>'
@@ -147,10 +130,12 @@ document.getElementById('mydivtag').innerHTML = html;
 var idAttr;
 function fonc2(c){
 idAttr = c;
+alert(idAttr);
 }
 function fonc1(x) {
     var choices = '';
     var els = document.getElementsByClassName('checkthis');
+    
     for (var i=0;i<els.length;i++){
       if ( els[i].checked ) {
         choices+="@"+ els[i].name+":"+els[i].value;
@@ -165,6 +150,7 @@ function fonc1(x) {
           url: "/createTemporary/",
           data:  { checks : choices, idAttr: idAttr },
             success: function(result) {
+//            window.alert('m');
             }
         });
         return;

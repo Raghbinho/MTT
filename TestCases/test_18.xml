@@ -1,0 +1,1 @@
+<action description="" id=""><data_link name="DLMS_ANY1" /><function>ActionRequest</function><paramAsXml><ActionRequest><purpose /><object><objectName>file1</objectName><methodID>2</methodID></object><checks><checks1 type="execute_result">True</checks1></checks></ActionRequest></paramAsXml><result><ok ret="ok" /><default ret="nok" /></result></action>

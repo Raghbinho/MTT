@@ -1,11 +1,11 @@
-<action id="stepId_description">
-    <data_link name="DLMS_ANY1"/>
+<action description="description0" id="step12" product="G1product">
+    <data_link name="DLMS_ANY1" />
     <function>WriteRequest</function>
     <paramAsXml>
         <WriteRequest>
-            <purpose>purpose</purpose>
+            <purpose>purpose0</purpose>
             <object>
-                <objectName>file1.xml</objectName>
+                <objectName>file1</objectName>
                 <AttributID>6</AttributID>
             </object>
             <checks>
@@ -13,13 +13,13 @@
             </checks>
             <values>
                 <value1 Description="DLMS structure">
-                    <octetstring name="daylight_savings_end" value="input"/>
+                    <octetstring name="daylight_savings_end" value="input1" />
                 </value1>
             </values>
         </WriteRequest>
     </paramAsXml>
     <result>
-        <ok ret="ok"/>
-        <default ret="nok"/>
+        <ok ret="ok" />
+        <default ret="nok" />
     </result>
 </action>

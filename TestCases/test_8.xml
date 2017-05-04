@@ -1,16 +1,1 @@
-<action id="stepwait_desc">
-    <data_link name="DLMS_ANY1"/>
-    <function>TimeSleep</function>
-    <paramAsXml>
-        <TimeSleep>
-            <purpose>purposewait</purpose>
-            <values>
-                <value1 Description="time_to_wait">input1</value1>
-            </values>
-        </TimeSleep>
-    </paramAsXml>
-    <result>
-        <ok ret="ok"/>
-        <default ret="nok"/>
-    </result>
-</action>
+<action description="" id=""><data_link name="DLMS_ANY1" /><function>ReadRequest</function><paramAsXml><ReadRequest><purpose /><object><objectName>file1</objectName><AttributID>5</AttributID></object><checks><checks1 type="execute_result"><octetstring name="daylight_savings_begin" value="" /></checks1></checks></ReadRequest></paramAsXml><result><ok ret="ok" /><default ret="nok" /></result></action>
