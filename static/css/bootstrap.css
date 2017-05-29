@@ -4960,6 +4960,7 @@ a.badge:focus {
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
+   text-align: left;
   background-color: #eee;
 }
 .jumbotron h1,
@@ -4985,8 +4986,8 @@ a.badge:focus {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
   .container .jumbotron,
   .container-fluid .jumbotron {

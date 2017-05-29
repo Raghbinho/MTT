@@ -1,21 +1,20 @@
-<?xml version="1.0" ?>
 <class id="8" version="0">
   <description>Clock</description>
   <attributes>
-    <attribute id="1" name="logical_name" size="6" type="octetstring"/>
-    <attribute id="2" name="time" size="6" type="octetstring"/>
+    <attribute id="1" name="logical_name" size="6" type="octetstring" />
+    <attribute id="2" name="time" size="6" type="octetstring" />
     <attribute id="3" name="time_zone" size="6" type="integer16">
-      <association name="Public" operations="Get\Set\Action"/>
-      <association name="Preestablished" operations="Get\Set\Action"/>
+      <association name="Public" operations="Get\Set\Action" />
+      <association name="Preestablished" operations="Get\Set\Action" />
     </attribute>
-    <attribute id="4" name="status" size="6" type="unsigned8"/>
-    <attribute id="5" name="daylight_savings_begin" size="6" type="octetstring"/>
-    <attribute id="6" name="daylight_savings_end" size="6" type="octetstring"/>
-    <attribute id="7" name="daylight_savings_deviation" size="6" type="unsigned8"/>
-    <attribute id="8" name="daylight_savings_enabled" size="6" type="boolean"/>
-    <attribute id="9" name="clock_base" size="6" type="enumerated"/>
+    <attribute id="4" name="status" size="6" type="unsigned8" />
+    <attribute id="5" name="daylight_savings_begin" size="6" type="octetstring" />
+    <attribute id="6" name="daylight_savings_end" size="6" type="octetstring" />
+    <attribute id="7" name="daylight_savings_deviation" size="12" type="unsigned8" />
+    <attribute id="8" name="daylight_savings_enabled" size="6" type="boolean" />
+    <attribute id="9" name="clock_base" size="6" type="enumerated" />
   </attributes>
   <methods>
-    <method id="1" name="Reset"/>
+    <method id="1" name="Reset" />
   </methods>
 </class>

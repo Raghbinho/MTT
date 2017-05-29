@@ -1,19 +1,50 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 <head>
-
 </head>
 {% block content %}
+<style>
+    body {
+    background-image: url("static/images/csm_WEB-RADD_1264b86623.jpg");
+    background-repeat: no-repeat;
+    background-size: 1660px 1110px;
+    background-position: right;
+    margin-top: 5px;
+}
+</style>
 
+<body>
 <div class="container">
     <div class="row">
+        <style>
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 
+        </style>
+        <link rel="stylesheet" type="text/css" href="static/css/infinite_rotator.css">
+        <script type="text/javascript"
+                src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=3.0.1"></script>
+        <script type="text/javascript" src="static/js/infinite-rotator.js"></script>
+        </pre>
         <div class="jumbotron">
-            <h3>Welcome to MTT</h3>
+        <center>
+            <h4>Welcome '{{ request.user.username }}'</h4>
+        </center>
+            <h6>Profile : {%if request.user.is_superuser %} <i>Project Manager</i> {% else %} <i>Tester</i>  {% endif %}</h6>
+            <h6>Last login : <i>{{ request.user.last_login }}</i></h6>
+        </div>
+        <div id="rotating-item-wrapper">
 
-    </div>
+            <img class="rotating-item" src="static/images/meter_cropped_web.jpg" alt="photo of building across from our office"
+                 width="1180" height="700"/>
+            <img class="rotating-item" src="static/images/7.jpg" alt="a person entering a building"
+                 width="1180" height="700"/>
+            <img class="rotating-item" src="static/images/smart_meter.jpg.size.custom.crop.1086x722.jpg" alt="building entrance with neon backlit walls" width="1180" height="700" />
+        </div>
     </div>
 </div>
-<script src="/static/js/jquery.min.js"></script>
-<script type="text/javascript" src="/static/js/script.js"></script>
+</body>
 {% endblock %}

@@ -223,7 +223,7 @@ $(document).on('change','#productName',function(){
                 ].join('');
                 text = "<td>" + result;
                 var res = [
-                 text.replace(/(\r\n|\n|\r)/gm,'</td><td><input class="form-control" name="password" type="password" placeholder="password"/></td></tr><tr><td>'),
+                 text.replace(/(\r\n|\n|\r)/gm,'</td><td><input class="form-control" name="password" type="text" placeholder="password"/></td></tr><tr><td>'),
                 ].join('');
                 $("#associationTable").html(htm + '<tr>'+res+'</td></tr></tbody>');
                 }

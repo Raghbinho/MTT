@@ -120,15 +120,15 @@ function interfaceChoice(){
                         document.getElementById('idChoice').innerHTML = htm3 + options + '</select';
                 }else if(choice == 'VALID_DC'){
                         var htm1 = [
-                                   '<label class="control-label" for="Port">IP adress</label>',
+                                   '<label class="control-label" for="Port">IP adress<span style="color:red;">*</span></label>',
                                    '<input class="form-control" type="text" placeholder="IP adress"/>',
-                                   '<label class="control-label" for="Port">Serial Number</label>',
+                                   '<label class="control-label" for="Port">Serial Number<span style="color:red;">*</span></label>',
                                    '<input class="form-control" type="text" placeholder="Serial Number"/>',
                         ].join('');
                         document.getElementById('idChoice').innerHTML = htm1;
                 }else if(choice == 'TCP/IP'){
                         var htm2 = [
-                                   '<label class="control-label" for="Port">IP adress</label>',
+                                   '<label class="control-label" for="Port">IP adress<span style="color:red;">*</span></label>',
                                    '<input class="form-control" type="text" placeholder="IP adress"/>',
                         ].join('');
                         document.getElementById('idChoice').innerHTML = htm2;

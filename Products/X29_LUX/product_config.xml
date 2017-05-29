@@ -21,8 +21,12 @@
     </HDLC>
     <ModeE adress="1"/>
     <clientAdress>
-        <client adress="1" associationName="Public"/>
-        <client adress="2" associationName="Preestablished"/>
+        <client adress="16" associationName="Public"/>
+        <client adress="102" associationName="Preestablished"/>
+        <client adress="1" associationName="Management"/>
+        <client adress="2" associationName="Local Management"/>
+        <client adress="3" associationName="Local Reading"/>
+        <client adress="4" associationName="Local Pairing"/>
     </clientAdress>
     <masterKey value=""/>
     <globalEncryptionKey value="000000000000000000000000000000"/>

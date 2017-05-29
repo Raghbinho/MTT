@@ -1,0 +1,22 @@
+<action description="p" id="1">
+    <data_link name="DLMS_ANY1"/>
+    <function>ReadRequest</function>
+    <paramAsXml>
+        <ReadRequest>
+            <purpose>p</purpose>
+            <object>
+                <objectName>file1</objectName>
+                <AttributID>2</AttributID>
+            </object>
+            <checks>
+                <checks1 type="execute_result">
+                    <octetstring name="time" value="6"/>
+                </checks1>
+            </checks>
+        </ReadRequest>
+    </paramAsXml>
+    <result>
+        <ok ret="ok"/>
+        <default ret="nok"/>
+    </result>
+</action>

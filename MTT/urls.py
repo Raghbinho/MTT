@@ -23,8 +23,9 @@ from polls.forms import LoginForm
 import os
 urlpatterns = [
     # url(r'^polls/', include('polls.urls')),
-    # url(r'^admin/', admin.site.urls),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
+    # url(r'^adm$', views.admin, name='admin'),
+    # url(r'^admin/', include(admin.site.urls)),
     url(r'', include('polls.urls')),
     url(r'^home/$', views.home),
     url(r'^success/$', views.register_success, ),

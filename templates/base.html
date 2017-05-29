@@ -13,13 +13,21 @@
 	<!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
 	<!--<link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">-->
 	<style>
+	 body {
+    background-image: url("static/images/csm_WEB-RADD_1264b86623.jpg");
+    background-repeat: no-repeat;
+    background-size: 1660px 1110px;
+    background-position: right;
+     background-attachment: fixed;
+    margin-top: 0px;
+}
 		.container {
     margin-right: auto;
     margin-left: auto;
     padding-top: 70px;
     padding-right: 15px;
-}
-	</style>
+	}
+</style>
 
 
 </head>
@@ -28,9 +36,10 @@
 	{% if user.is_authenticated %}
 <div class="navbar navbar-inverse navbar-fixed-left">
 	{% endif %}
-	<a class="navbar-brand" href="/">MTT</a>
+	<!--<a class="navbar-brand" href="/">MTT</a>-->
 	{% if user.is_authenticated %}
 	<ul class="nav navbar-nav">
+		<li class=" navbar-nav navbar-brand"><a href="/" > </a>
 		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">DMTT <span class="caret"></span></a>
 			<ul class="dropdown-menu" role="menu">
 				<li><a href="/treeListF">Product</a></li>
@@ -39,7 +48,7 @@
 				<li class="divider"></li>
 				<li><a href="/home">Class</a></li>
 				<li class="divider"></li>
-				<li><a href="/dmtt">DMTT</a></li>
+				<li><a href="/dmtt">DMTT Execution</a></li>
 			</ul>
 		</li>
 		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">FTT </span></a>
@@ -49,6 +58,9 @@
 		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Viewer </span></a>
 		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Robustness </span></a>
 		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Retrofit </span></a>
+		{% if request.user.is_superuser %}
+		<li class="dropdown"><a href="/admin" class="dropdown-toggle" >Administration </a>
+		{% endif %}
 	</ul>
 {% endif %}
 {% if user.is_authenticated %}
@@ -59,12 +71,16 @@
 		<div class="navbar-wrapper">
 			<nav class="navbar navbar-fixed-top">
 
-
+					<ul class="nav navbar-nav">
+						<li ><a href="/"><h4>Meter Test Tool</h4></a></li>
+					</ul>
 					{% if user.is_authenticated %}
 					<ul class="nav navbar-nav pull-right">
+						<!--<button type="reset" title="In some browsers, this appears as a tooltip">-->
+    					<!--<span>Cancel</span></button>-->
+						<!--<li><input class="logout" type="image" src="static/images/6.ico" onclick="javascript:location.href='/logout';" height="60" width="60" style="MARGIN-RIGHT: 25px"/></li>-->
 						<li ><a href="/logout">Logout</a></li>
 					</ul>
-
 					{% endif %}
 
 			</nav>

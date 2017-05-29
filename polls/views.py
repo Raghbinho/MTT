@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 from django.contrib.auth.decorators import login_required
 from django.core.files import File
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from polls.forms import *
 from django.contrib.auth import logout
@@ -24,7 +24,6 @@ import xml.dom.minidom
 from django.views.decorators.csrf import csrf_protect
 import os, stat
 import xml.etree.cElementTree as ET
-from bs4 import BeautifulSoup
 import shutil
 from stat import S_IWUSR  # Need to add this import to the ones above
 
@@ -38,7 +37,7 @@ logger = logging.getLogger(__name__)
 
 ####################### GLOBAL VARIABLES ################################################
 PRODUCTS = 'Products\\'
-TESTCASES= 'C:\Users\g507888\PycharmProjects\MTT_Yaakoub'
+TESTCASES= 'D:\Users\G507919\Desktop\PFE-version6.1'
 CLASSES = 'Classes\\'
 TEMPORARY = 'TEMPORARYFILE'
 methods8 = 'Reset\n'
@@ -53,11 +52,11 @@ attribut = ""
 attributM=""
 z = 0 - 1
 test = False
-nbfich=0
-nbfich2=0
-nbclic=0
-nbclics=0
-z2=0-1
+nbfich = 0
+nbfich2 = 0
+nbclic = 0
+nbclics = 0
+z2 = 0-1
 
 
 ################FUNCTIONS ROUTINES############################################
@@ -87,12 +86,16 @@ def register(request, template_name="register.html"):
     return render(request, template_name, {'form': c['RegistrationForm']}, c)
 
 def register_success(request):
-    return render(request, "home.html")
-
+    return render(request, "welcome.html")
+from django.conf.urls import include
 @login_required(login_url="login/")
 def welcome(request):
     """Welcome page"""
     return render(request, "welcome.html")
+
+# @login_required(login_url="login/")
+# def admin(request):
+#     return redirect('/admin/')
 
 
 def logout_page(request):
@@ -857,6 +860,8 @@ def getName(request):
             count += 1
             dict1[count] = [elem.tag, elem.attrib, elem.text ]
 
+        logger.info(dict1)
+
         return HttpResponse(simplejson.dumps({'stat': str(status['fileContent']), 'dict': dict1, 'length': len(dict1)}), content_type='application/json')
     else:
         status= {'fileContent': 'Fail Loading Content'}
@@ -986,7 +991,8 @@ def parseXML(request):
     if request.method == "POST" and request.is_ajax():
         classId1 = request.POST['id']
         classsubItem = request.POST['name']
-        pathAssociation = os.path.join(PRODUCTS, classId1, 'EMeterF.xml')
+        pathAssociation = os.path.join(PRODUCTS, classId1, 'product_config.xml')
+        logger.info(pathAssociation)
         docAss = minidom.parse(pathAssociation)
         assocs = docAss.getElementsByTagName('clientAdress')
         for assocs1 in assocs:
@@ -1018,6 +1024,7 @@ def parseXML(request):
                 type = attr1.getAttribute('type')
                 size = attr1.getAttribute('size')
                 status += "{}- {}, {}, {}".format(sid, name, type, size)+"\n"
+                logger.info(status)
         methods= ''
         for meths1 in meths:
             meth = meths1.getElementsByTagName('method')
@@ -1028,14 +1035,13 @@ def parseXML(request):
                 methods += "{}-{}".format(sid, name)+"\n"
         return HttpResponse(simplejson.dumps({'stat': status, 'dictDescription': description, 'dictId': dictId, 'dictVersion': dictVersion, 'methods': methods, 'association': association, 'associationMethods': association}), content_type='application/json')
 
-
 def createTemporary(choices, methods):
     """create temporary files"""
     rough_string = ''
-    rough_string1 =''
+    rough_string1 = ''
     sep0 = '@'
     # sep1 = ':'
-    sep2 = '&'
+    # sep2 = '&'
     global idAttr
     if choices != '':
         content = {}
@@ -1058,37 +1064,52 @@ def createTemporary(choices, methods):
             element.pop(0)
             element.append(temp2[1])
             element.append(temp.split(':'))
-            i +=1
+            i += 1
             l.append(element)
-        newResult = l
+        newResult = []
+        x = []
+
+        oldResult = l
         for itemL in l:
-            for itemN in newResult:
+
+            element = []
+            x=[]
+            for itemN in oldResult:
                 if (itemL[0] == itemN[0]):
                     s = itemL[1]
                     t = itemN[1]
-                    if(s[0] == t[0])and (s[1] != t[1]):
+                    if (s[0] == t[0]) and (s[1] != t[1]):
+                        x.append(itemN)
                         s[1] += '/' + t[1]
-                        newResult.remove(itemL)
-                        newResult.remove(itemN)
-                        newResult.append(s)
+                        element = [itemL[0], s]
+            if element == []:
+                element = itemL
+            if element not in newResult:
+                newResult.append(element)
+            for elem in x:
+                l.remove(elem)
+
         l = newResult
-
-
 
         top = Element('delimit')
         sid  = -1
         for component in l:
-            child1 = SubElement(top, 'attribute', id=component[0])
+            if component[0] != sid:
+                child1 = SubElement(top, 'attribute', id=component[0])
+                for item in associationList:
+                    child = SubElement(child1, 'association', name=item, operations='_')
+
             for item in associationList:
                 ops = []
                 if item in component[1]:
                     x= component[1]
                     ops.append(x[1])
-                if  not ops:
-                    child = SubElement(child1, 'association', name=item, operations='_')
-                else:
+                if ops:
                     ops = '\\'.join(ops)
-                    child = SubElement(child1, 'association', name=item, operations=ops)
+                    for a in child1.iter('association'):
+                        if a.get('name', ops) == item:
+                            a.set('operations', ops)
+            sid = component[0]
         rough_string = re.sub(r'<delimit?>', '', tostring(top))
         rough_string = re.sub(r'</delimit?>', '', rough_string)
         logger.info(rough_string)
@@ -1096,7 +1117,6 @@ def createTemporary(choices, methods):
     if methods != '':
         content = {}
         i = 0
-        logger.info(methods)
         chaine = str(methods)
         chaine = chaine[chaine.find(sep0) + 1:]
         associationList = association.split('\n')
@@ -1105,7 +1125,6 @@ def createTemporary(choices, methods):
             chaine = chaine[chaine.find(sep0)+1:]
             i += 1
         content[i] = chaine
-        logger.info(content)
         i = 0
         l = []
         while (i< len(content)):
@@ -1146,20 +1165,32 @@ def createTemporary(choices, methods):
         top = Element('delimit')
         sid  = -1
         for component in l:
-            child1 = SubElement(top, 'method', id=component[0])
+            if component[0] != sid:
+                child1 = SubElement(top, 'attribute', id=component[0])
+                for item in associationList:
+                    child = SubElement(child1, 'association', name=item, operations='_')
+
             for item in associationList:
                 ops = []
                 if item in component[1]:
                     x= component[1]
                     ops.append(x[1])
-                if  not ops:
-                    child = SubElement(child1, 'association', name=item, operations='_')
-                else:
+                if ops:
                     ops = '\\'.join(ops)
-                    child = SubElement(child1, 'association', name=item, operations=ops)
+                    for a in child1.iter('association'):
+                        if a.get('name', ops) == item:
+                            a.set('operations', ops)
+            sid = component[0]
         rough_string1 = re.sub(r'<delimit?>', '', tostring(top))
         rough_string1 = re.sub(r'</delimit?>', '', rough_string1)
-    return (rough_string, rough_string1)
+    forEmpty = Element('delimit')
+    child1 = SubElement(forEmpty, 'attribute')
+    for item in associationList:
+        child = SubElement(child1, 'association', name=item, operations='_')
+    rough_string2 = re.sub(r'<delimit?>', '', tostring(forEmpty))
+    rough_string2 = re.sub(r'</delimit?>', '', rough_string2)
+
+    return (rough_string, rough_string1, rough_string2)
 
 def generateXML(request):
     """add associates to attributes in XML file and generate final dictionary"""
@@ -1175,12 +1206,11 @@ def generateXML(request):
         # textareaContent2 = request.POST['textareaContent2']
         # textareaContent3 = request.POST['textareaContent3']
         #
-        logger.info(methods)
-        z, y= createTemporary(choices, methods)
+        z, y, x= createTemporary(choices, methods)
+        logger.info(y)
         name = 'class_' + str(classNum) + '.xml'
         filePath ='Classes\\'+product
         filename = filePath + '\\' + name
-      
         readFile1(context, name, filePath)
         classAfter = context['fileContent']
         classAfter1 = ''
@@ -1196,12 +1226,21 @@ def generateXML(request):
                 for attrs in res.findall('attributes'):
                     for attr in attrs.findall('attribute'):
                         idAttr = attr.get('id')
+                        exist = False
                         for item in classBefore:
                             if (item.find(idAttr) != -1):
+                                exist = True
                                 addElement = item[item.find('>')+1:]
                                 addElement = '<delimit>\n'+addElement+'\n</delimit>'
                                 logger.info(addElement)
                                 attr.append((ET.fromstring(addElement)))
+
+                        if not exist:
+                            logger.info(x)
+                            addElement = x[x.find('>') + 1:]
+                            addElement = re.sub(r'</attribute?>', '', addElement)
+                            addElement = '<delimit>\n' + addElement + '\n</delimit>'
+                            attr.append(ET.fromstring(addElement))
                 classAfter1 = tostring(res)
 
             if y != '':
@@ -1214,13 +1253,19 @@ def generateXML(request):
                 for attrs in res.findall('methods'):
                     for attr in attrs.findall('method'):
                         idAttr = attr.get('id')
+                        exist = False
                         for item in classBefore:
                             if (item.find(idAttr) != -1):
+                                exist = True
                                 addElement = item[item.find('>') + 1:]
                                 addElement = re.sub(r'</attribute?>', '', addElement)
                                 addElement = '<delimit>\n' + addElement + '\n</delimit>'
-                                logger.info(addElement)
                                 attr.append(ET.fromstring(addElement))
+                        if not exist:
+                            addElement = x[x.find('>') + 1:]
+                            addElement = re.sub(r'</attribute?>', '', addElement)
+                            addElement = '<delimit>\n' + addElement + '\n</delimit>'
+                            attr.append(ET.fromstring(addElement))
                 classAfter2 = tostring(res)
 
             if classAfter1 != '' and classAfter2 !='':
@@ -1749,7 +1794,7 @@ def TestCasesTree(request, template_name="listTestCases.html", path=TESTCASES):
                     # tree['children'].append(dict(name=recent))
                 else:
 
-                    if (os.path.isdir(fn)==False) and path=="C:\Users\g507888\PycharmProjects\MTT_Yaakoub\TestCases":
+                    if (os.path.isdir(fn)==False) and path=="D:\Users\G507919\Desktop\PFE-version6.1\TestCases":
 
                         tree['children'].append(dict(name=recent))
 
@@ -2151,8 +2196,6 @@ def editTestCase(request):
 
                         for typeVal in v:
                             typeval=typeVal.tag
-
-
                         for valName in v.findall(typeval):
                             valN=valName.get('name')
                             valV=valName.get('value')
@@ -2324,10 +2367,6 @@ def editTest(request,template_name="listTestCases.html"):
                     filePDt=open(pathXml,'w+')
                     filePDt.write(tostring(root))
                     filePDt.close()
-
-
-
-
     return TestCasesTree(request)
 def serial_ports():
     """ Lists serial port names
@@ -2402,7 +2441,7 @@ def productName(request):
     association = ''
     if request.method == "POST" and request.is_ajax():
         productName = request.POST['productName']
-        pathAssociation = os.path.join(PRODUCTS, productName, 'EMeterF.xml')
+        pathAssociation = os.path.join(PRODUCTS, productName, 'product_config.xml')
         docAss = minidom.parse(pathAssociation)
         assocs = docAss.getElementsByTagName('clientAdress')
         for assocs1 in assocs:

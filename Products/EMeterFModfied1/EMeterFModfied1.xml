@@ -7,7 +7,7 @@
     <MeterIP value="127.0.0.2" />
     <MeterPort value="8081" />
     <ServerAdress adress="@server1" />
-    <firmware value="fich" />
+    <firmware value="C:\fakepath\file.xml" />
 
 
     <TCP>
@@ -25,7 +25,7 @@
     <ClientAdress>
         </ClientAdress>
     <MasterKey value="masterKey3" />
-    <GlobalKey value="globalEkey3                                                                                  " />
+    <GlobalKey value="globalEkey3                                                                                   " />
     <AuthentificationKey value="authe2" />
     <LLSAuthentification value="LLs2" />
     <HLS_Secret value="HLS 2" />
