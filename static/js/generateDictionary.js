@@ -149,10 +149,12 @@ document.getElementById('mydivtag').innerHTML = html;
 var idAttr;
 function fonc2(c){
 idAttr = c;
+alert(idAttr);
 }
 function fonc1(x) {
     var choices = '';
     var els = document.getElementsByClassName('checkthis');
+    
     for (var i=0;i<els.length;i++){
       if ( els[i].checked ) {
         choices+="@"+ els[i].name+":"+els[i].value;
@@ -167,6 +169,7 @@ function fonc1(x) {
           url: "/createTemporary/",
           data:  { checks : choices, idAttr: idAttr },
             success: function(result) {
+//         
             }
         });
         return;

@@ -1,1 +1,16 @@
-<action description="" id=""><data_link name="DLMS_ANY1" /><function>ReadRequest</function><paramAsXml><ReadRequest><purpose /><object><objectName>file1</objectName><AttributID>9</AttributID></object><checks><checks1 type="execute_result"><enumerated name="clock_base" value="" /></checks1></checks></ReadRequest></paramAsXml><result><ok ret="ok" /><default ret="nok" /></result></action>
+<action description="" id="d">
+    <data_link name="DLMS_ANY1"/>
+    <function>TimeSleep</function>
+    <paramAsXml>
+        <TimeSleep>
+            <purpose>d</purpose>
+            <values>
+                <value1 Description="time_to_wait">d</value1>
+            </values>
+        </TimeSleep>
+    </paramAsXml>
+    <result>
+        <ok ret="ok"/>
+        <default ret="nok"/>
+    </result>
+</action>

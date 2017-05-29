@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="16:02 01/04/2016">
+<!-- 5.2 -->
+  <object api="DLMS" name="Daily_load_profile_status_G_meter3">
+    <dlmsObject logicalName="0;3;96;10;5;255" classId="1" classVersion="0"/>
+    <description>Daily_load_profile_status_G_meter3</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;3;96;10;5;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned8 name="value" editable="false" min="0" max="255" default="0">
+        <unsigned8 code="0" description="Critical error"/>
+      </unsigned8>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

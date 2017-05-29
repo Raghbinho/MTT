@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="09:55 04/04/2016">
+<!-- 5.7 -->
+  <object api="DLMS" name="InvocationCounter">
+    <dlmsObject logicalName="0;0;43;1;0;255" classId="1" classVersion="0"/>
+    <description>Invocation Counter</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="-" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;43;1;0;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="-" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="value" editable="false" min="0" max="4294967295" default="0"/>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="15:22 04/04/2016">
+	<object api="DLMS" name="PowerFailureEventLog">
+		<dlmsObject logicalName="1;0;99;97;0;255" classId="7" classVersion="1"/>
+		<description>Power Failure Event Log</description>
+		<attribute id="1" name="logical_name" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="1;0;99;97;0;255;"/>
+		</attribute>
+		<attribute id="2" name="buffer" type="array">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<array name="buffer" size-min="0" size-max="100" editable="false">
+				<struct name="entry" size="2" editable="false">
+					<octetstring name="capture_time" size="12" editable="false"/>
+					<enumerated name="event_code" editable="false"/>
+				</struct>
+			</array>
+		</attribute>
+		<attribute id="3" name="capture_objects" type="array">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<array name="capture_objects" size-min="2" size-max="3" size="2" editable="true">
+				<struct name="capture_object" size="4" editable="true">
+					<unsigned16 name="Class_id" size="0" default="8" editable="true"/>
+					<octetstring name="Obis_code" size="6" default="0;0;1;0;0;255;" editable="true"/>
+					<integer8 name="Attribute_index" size="0" default="2" editable="true"/>
+					<unsigned16 name="Data_index" size="0" default="0" editable="true"/>
+				</struct>
+				<struct name="capture_object" size="4" editable="true">
+					<unsigned16 name="Class_id" size="0" default="3" editable="true"/>
+					<octetstring name="Obis_code" size="6" default="0;0;96;7;19;255;" editable="true"/>
+					<integer8 name="Attribute_index" size="0" default="2" editable="true"/>
+					<unsigned16 name="Data_index" size="0" default="0" editable="true"/>
+				</struct>
+			</array>
+		</attribute>
+		<attribute id="4" name="capture_period" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned32 name="capture_period" size="0" default="0" editable="false"/>
+		</attribute>
+		<attribute id="5" name="sort_method" type="enumerated">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<enumerated name="sort_method" size="0" default="1" editable="false"/>
+		</attribute>
+		<attribute id="6" name="sort_object" type="enumerated">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<enumerated name="sort_object" editable="false"/>
+		</attribute>
+		<attribute id="7" name="entries_in_use" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned32 name="entries_in_use" editable="false"/>
+		</attribute>
+		<attribute id="8" name="profile_entries" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned32 name="profile_entries" size="0" default="10" editable="false"/>
+		</attribute>
+		<method id="1" name="reset" type="integer8">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<integer8 name="reset" size="0" default="0" editable="false"/>
+		</method>
+	</object>
+</dictionnary>

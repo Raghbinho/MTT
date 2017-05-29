@@ -5,13 +5,14 @@
 </head>
 {% block content %}
 <head>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-    <script src="../static/js/jquery.min.js"></script>
-    <!--<script src="../static/js/bootstrap.min.js"></script>-->
-    <script src="../static/js/easyTree.min.js"></script>
-    <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<script src="../static/js/jquery.min.js"></script>
+<!--<script src="../static/js/bootstrap.min.js"></script>-->
+<script src="../static/js/easyTree.min.js"></script>
+<link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+
 </head>
 
 <div class="container">
@@ -99,15 +100,15 @@
      <form name="productForm" id="formP" action="/generateProduct" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
-                   <center> <table class="table"  border="1px" >
+                    <table class="table"  border="1px" >
                     <tr>
                         <h3> <span class="label label-primary">General Settings</span></h3>
                     </tr>
 
                         <td >
-                           <center><label>
+                           <label>
                            Device Type
-                           </label></center>
+                           </label>
 
                         </td>
                         <td>
@@ -121,9 +122,9 @@
 
 
                          <td>
-                            <center><label>
+                            <label>
                             Firmware
-                            </label></center>
+                            </label>
                          </td>
                         <td>
                              <input class="form-control" type="text" required  name="filenameG" id="filenameG">
@@ -135,9 +136,9 @@
 
                         <tr>
                             <td>
-                            <center><label>
+                            <label>
                             Product Name
-                            </label></center>
+                            </label>
 
                             </td>
 
@@ -152,9 +153,9 @@
 
 
                             <td >
-                            <center><label>
+                            <label>
                             TCP Timeout
-                            </label></center>
+                            </label>
                             </td>
 
                             <td>
@@ -165,9 +166,9 @@
 
                         <tr>
                         <td>
-                            <center><label>
+                            <label>
                             Serial Number
-                            </label></center>
+                            </label>
 
                         </td>
 
@@ -181,9 +182,9 @@
 
 
                             <td>
-                           <center><label>
+                           <label>
                            HDLC Timeout
-                           </label></center></td>
+                           </label></td>
                             <td>
                             <input class="form-control" type="text" name="hdlcTimeout">
                             </td>
@@ -192,9 +193,9 @@
 
                        <tr>
                            <td>
-                           <center><label>
+                           <label>
                            Equipement Identifier
-                           </label></center></td>
+                           </label></td>
                         <td>
                             <input class="form-control" type="text" name="softwareVersion">
                         </td>
@@ -202,9 +203,9 @@
 
 
                            <td>
-                           <center><label>
+                           <label>
                            Software version
-                           </label></center>
+                           </label>
 
 
                            </td>
@@ -222,18 +223,18 @@
                         <tr>
 
                             <td>
-                            <center><label>
+                            <label>
                             Manufacturer
-                            </label></center></td>
+                            </label></td>
 
                             <td>
                                 <input class="form-control" type="text" name="Manufacturer">
                         </td>
 
                             <td>
-                            <center><label>
+                            <label>
                             HDLC MaxReceive
-                            </label></center></td>
+                            </label></td>
                             <td>
                             <input class="form-control" type="text" name="hdlcMaxReceive">
                             </td>
@@ -242,9 +243,9 @@
                         <tr>
 
                             <td>
-                            <center><label>
+                            <label>
                             Description
-                            </label></center></td>
+                            </label></td>
                             <td>
                             <input class="form-control" type="text" name="description">
 
@@ -252,9 +253,9 @@
 
 
                             <td>
-                            <center><label>
+                            <label>
                             Baudrate
-                            </label></center></td>
+                            </label></td>
                             <td>
                             <input class="form-control" type="text" name="baudrate">
                              </td>
@@ -262,18 +263,18 @@
 
                         <tr>
                             <td>
-                           <center><label>
+                          <label>
                            Meter IP
-                           </label></center></td>
+                           </label></td>
 
                             <td>
                             <input class="form-control" type="text" name="meterIP">
                             </td>
 
                              <td >
-                             <center><label>
+                             <label>
                             HDLC Adress
-                             </label></center></td>
+                             </label></td>
                             <td>
                             <input class="form-control" type="text" name="hdlcAdress">
                          </td>
@@ -282,21 +283,21 @@
                         <tr>
 
                            <td>
-                            <center><label>
+                            <label>
                             Server Adress
-                            </label></center></td><td>
+                            </label></td><td>
                             <input class="form-control" type="text" name="serverAdress">
                         </td>
 
 
                             <td >
-                           <center><label>
+                           <label>
                            ModeE Adress
                            </label>
-                           </center>
 
 
-                                <center><label class="checkbox-inline"><input type="checkbox" value="modeEchecked"></label></center>
+
+                                <label class="checkbox-inline"><input type="checkbox" value="modeEchecked"></label>
                             </td>
                          <td>
                               <input class="form-control" type="text" name="modeEadress">
@@ -306,16 +307,16 @@
 
                         <tr>
                             <td>
-                            <center><label>
+                            <label>
                             Meter Port
-                            </label></center></td><td>
+                            </label></td><td>
                             <input class="form-control" type="text" name="meterPort">
                         </td>
 
                              <td>
-                            <center><label>
+                           <label>
                             HDLC MaxTransmit
-                            </label></center></td>
+                            </label></td>
                            <td>
                             <input class="form-control" type="text" name="hdlcMaxTransmit">
                         </td>
@@ -359,7 +360,7 @@
                     </tr>
             </table></center>
 
-<center>
+
                     <table class="table"  border="1px" id="SecurityTable">
                          <tr>
 
@@ -452,7 +453,7 @@
                     <tr><center> <input class="btn btn-success" type = "submit" id = "generateProduct" value = "Generate"></center></tr>
 
 
-</center>
+
 
       </form>
 
@@ -662,7 +663,7 @@ element='<center><table class="table"  border="1px" >'+
 '<tr><h3><span class="label label-primary"> General Settings</span></h3>'+
 '</tr>'+
 '<td >'+
-'<center><label>Device Type</label></center></td>'+
+'<label>Device Type</label></td>'+
 '<td>'+
 '<select  class="form-control"  name="deviceType"  onchange="EditDeviceType(this.value)">'+
 '<option value='+result.deviceType+' selected>'+result.deviceType+'</option>'+
@@ -671,76 +672,76 @@ element='<center><table class="table"  border="1px" >'+
 '<input type="hidden" name="OldDeviceType" id="nb" value='+ result.deviceType +'>'+
 '</td>'+
 '<td>'+
-'<center><label>Firmware</label></center></td>'+
+'<label>Firmware</label></td>'+
  '<td>'+
 ' <input class="form-control" type="text" required  name="filename" id="file"  value='+result.firmware+'><input type="hidden" name="OldFirmware" id="nb" value='+ result.firmware +'>'+
 '<span class="btn btn-default btn-file"><span></span><input type="file"  name="firmware" onchange="get_filename(this);" /></span>'+
 '</td>'+
 '<tr>'+
-'<td><center><label>Product Name</label></center></td>'+
+'<td><label>Product Name</label></td>'+
 ' <td>'+
 ' <input class="form-control" type="text" name="productName" id="productName" value='+result.productName+' onchange="SetPrdtName(this.value)">'+
   '<input type="hidden" name="OldproductName" id="nb" value='+ result.productName +'>'+
 '</td>'+
-'<td ><center><label>TCP Timeout</label></center></td>'+
+'<td ><label>TCP Timeout</label></td>'+
 '<td>'+
 '<input class="form-control" type="text" name="tcpTimeout" value='+result.tcpTimeOut+'><input type="hidden" name="OldTcpTime" id="nb" value='+ result.tcpTimeOut +'>'+
 ' </td>'+
 ' </tr>'+
-'<tr><td><center><label>Serial Number</label></center></td>'+
+'<tr><td><label>Serial Number</label></td>'+
 '<td>'+
 '<input class="form-control" type="text" name="serialNumber"  value='+result.serialNumber+'>'+
  '<input type="hidden" name="OldSerialNumber" id="nb" value='+ result.serialNumber +'>'+
 '</td>'+
-'<td><center><label>HDLC Timeout</label></center></td>'+
+'<td><label>HDLC Timeout</label></td>'+
 '<td><input class="form-control" type="text" name="hdlcTimeout" value='+result.hdlcTimeOut+'><input type="hidden" name="OldHdlcTime" id="nb" value='+ result.hdlcTimeOut +'></td>'+
 '</tr>'+
-'<tr><td><center><label>Equipement Identifier</label></center></td><td><input value="'+result.eqID+'" class="form-control" type="text" name="equipement">'+
+'<tr><td><label>Equipement Identifier</label></td><td><input value="'+result.eqID+'" class="form-control" type="text" name="equipement">'+
 '<input type="hidden" name="OldEquipement" id="nb" value='+ result.eqID +'>'+
 '</td>'+
-'<td><center><label>Software version</label></center></td>'+
+'<td><label>Software version</label></td>'+
 '<td>'+
 ' <input class="form-control" type="text" name="softwarevesrion" value="'+result.software+'"> '+
 '<input type="hidden" name="OldSoft" id="nb" value='+ result.software +'>'+
 '</td>'+
 '</tr>'+
 ' <tr>'+
-' <td><center><label>Manufacturer</label></center></td><td><input value="'+result.manu+'" class="form-control" type="text" name="Manufacturer"><input type="hidden" name="Oldmanu" id="nb" value='+ result.manu +'></td>'+
-'<td><center><label>HDLC MaxReceive</label></center></td>'+
+' <td><label>Manufacturer</label></td><td><input value="'+result.manu+'" class="form-control" type="text" name="Manufacturer"><input type="hidden" name="Oldmanu" id="nb" value='+ result.manu +'></td>'+
+'<td><label>HDLC MaxReceive</label></td>'+
 '<td><input class="form-control" type="text" name="hdlcMaxReceive" value="'+result.HDLC_maxR+'"><input type="hidden" name="OldHdlcMaxR" id="nb" value='+ result.HDLC_maxR +'></td>'+
 '</tr>'+
 '<tr>'+
-'<td><center><label>Description</label></center></td><td><input class="form-control" type="text" name="description"  value='+result.desc+'><input type="hidden" name="Olddesc" id="nb" value='+ result.desc +'></td>'+
-'<td><center><label>Baudrate</label></center></td><td><input class="form-control" type="text" name="baudrate" value='+result.bau+'><input type="hidden" name="Oldbaudrate" id="nb" value='+ result.bau +'></td></tr>'+
+'<td><label>Description</label></center></td><td><input class="form-control" type="text" name="description"  value='+result.desc+'><input type="hidden" name="Olddesc" id="nb" value='+ result.desc +'></td>'+
+'<td><label>Baudrate</label></center></td><td><input class="form-control" type="text" name="baudrate" value='+result.bau+'><input type="hidden" name="Oldbaudrate" id="nb" value='+ result.bau +'></td></tr>'+
 '<tr>'+
-'<td><center><label>Meter IP</label></center></td>'+
+'<td><label>Meter IP</label></center></td>'+
 '<td><input class="form-control" type="text" name="meterIP" value='+result.meID+'><input type="hidden" name="OldMeterIp" id="nb" value='+ result.meID +'></td>'+
-'<td ><center><label>HDLC Adress</label></center></td>'+
+'<td ><label>HDLC Adress</label></center></td>'+
 '<td>'+
 '<input class="form-control" type="text" name="hdlcAdress" value='+result.HDLC_Adr+'><input type="hidden" name="OldHdlcAddr" id="nb" value='+ result.HDLC_Adr +'>'+
 '</td>'+
 '</tr>'+
 '<tr>'+
-'<td><center><label>Server Adress</label></center></td><td><input class="form-control" type="text" name="serverAdress" value='+result.serverA+'><input type="hidden" name="OldServerAdd" id="nb" value='+ result.serverA +'></td>'+
-'<td ><center><label>ModeE Adress</label></center><center><label class="checkbox-inline"><input type="checkbox" value="modeEchecked"></label></center></td>'+
+'<td><label>Server Adress</label></center></td><td><input class="form-control" type="text" name="serverAdress" value='+result.serverA+'><input type="hidden" name="OldServerAdd" id="nb" value='+ result.serverA +'></td>'+
+'<td ><label>ModeE Adress</label></center><center><label class="checkbox-inline"><input type="checkbox" value="modeEchecked"></label></center></td>'+
 ' <td>'+
 ' <input class="form-control" type="text" name="modeEadress"  value='+result.mode+'><input type="hidden" name="Oldmode" id="nb" value='+ result.mode +'>'+
 '</td>'+
 '</tr>'+
 '<tr>'+
-'<td><center><label>Meter Port</label></center></td><td><input class="form-control" type="text" name="meterPort" value='+result.meterP+'><input type="hidden" name="OldMeterPort" id="nb" value='+ result.meterP +'></td>'+
+'<td><label>Meter Port</label></center></td><td><input class="form-control" type="text" name="meterPort" value='+result.meterP+'><input type="hidden" name="OldMeterPort" id="nb" value='+ result.meterP +'></td>'+
 '<td><center><label>HDLC MaxTransmit</label></center></td>'+
 '<td><input class="form-control" type="text" name="hdlcMaxTransmit" value='+result.HDLC_maxT+' ><input type="hidden" name="OldHdlcMaxTransmit" id="nb" value='+ result.HDLC_maxT +'></td>'+
 '</tr>'+
 '</table>'+
-'<center><table style="width:400px"  border="0px" id="TableClient">'+
+'<table style="width:400px"  border="0px" id="TableClient">'+
 ' <tr>'+
 ' <h3><span class="label label-primary">Client Adress </span><input type="button" class="btn btn-info" value="+" id='+tableSizeClient+' onclick="addclientE(this);">'+
 '</h3>'+
 '</tr>'+
 '<tr>'+
-'<td ><center><label>Client Adress</label></center></td>'+
-'<td><center><label>Association Name</label></center></td><td></td></tr>'+
+'<td ><label>Client Adress</label></td>'+
+'<td><label>Association Name</label></td><td></td></tr>'+
 
 
 elementc+

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="14:06 01/04/2016">
+<!-- 5.2 -->
+  <object api="DLMS" name="StandardEventLogCodeGeneral">
+    <dlmsObject logicalName="0;0;96;11;0;255" classId="1" classVersion="0"/>
+    <description>This object contains the last event code for the general logbook. When this code changes, it is automatically captured in the corresponding profile if the corresponding bit in the GeneralEventLogFilter object is set</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;96;11;0;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+	  <unsigned8 name="event code" editable="false" min="0" max="255" default="0">
+          <unsigned8 code="1" description="Power Down"/>
+          <unsigned8 code="2" description="Power Up"/>
+          <unsigned8 code="3" description="Daylight saving time enabled or disabled"/>
+    	  <unsigned8 code="4" description="Clock adjusted old date/time"/>
+    	  <unsigned8 code="5" description="Clock adjusted new date/time"/>
+          <unsigned8 code="6" description="Clock invalid"/>
+    	  <unsigned8 code="7" description="Replace Battery"/>
+          <unsigned8 code="8" description="Battery voltage low"/>
+          <unsigned8 code="9" description="tariff shift times (TOU) activated"/>
+          <unsigned8 code="10" description="Error register cleared"/>
+          <unsigned8 code="11" description="Alarm register cleared"/>
+          <unsigned8 code="12" description="Program memory error"/>
+          <unsigned8 code="13" description="RAM error"/>
+          <unsigned8 code="14" description="NV memory error"/>
+          <unsigned8 code="15" description="Watchdog errorr"/>
+          <unsigned8 code="16" description="Measurement system error"/>
+          <unsigned8 code="17" description="Firmware ready for activation"/>
+          <unsigned8 code="18" description="Firmware activated"/>
+          <unsigned8 code="19" description="Tariff Shift Time"/>
+          <unsigned8 code="20" description="Succesfull selfcheck after Firmwareupdate"/>
+          <unsigned8 code="21" description="Succesfull FW upgrade LTE modem"/>
+          <unsigned8 code="22" description="reserved for future use"/>
+          <unsigned8 code="23" description="reserved for future use"/>
+          <unsigned8 code="24" description="reserved for future use"/>
+          <unsigned8 code="25" description="reserved for future use"/>
+          <unsigned8 code="26" description="reserved for future use"/>
+          <unsigned8 code="27" description="reserved for future use"/>
+          <unsigned8 code="28" description="reserved for future use"/>
+          <unsigned8 code="29" description="reserved for future use"/>
+          <unsigned8 code="30" description="reserved for future use"/>
+          <unsigned8 code="31" description="reserved for future use"/>
+          <unsigned8 code="32" description="reserved for future use"/>
+          <unsigned8 code="33" description="reserved for future use"/>
+          <unsigned8 code="34" description="reserved for future use"/>
+          <unsigned8 code="35" description="reserved for future use"/>
+          <unsigned8 code="36" description="reserved for future use"/>
+          <unsigned8 code="37" description="reserved for future use"/>
+          <unsigned8 code="38" description="reserved for future use"/>
+          <unsigned8 code="39" description="reserved for future use"/>
+          <unsigned8 code="40" description="Unknown event code: 40"/>
+          <unsigned8 code="41" description="Unknown event code: 41"/>
+          <unsigned8 code="42" description="Unknown event code: 42"/>
+          <unsigned8 code="43" description="Unknown event code: 43"/>
+          <unsigned8 code="44" description="Unknown event code: 44"/>
+          <unsigned8 code="45" description="Unknown event code: 45"/>
+          <unsigned8 code="46" description="Unknown event code: 46"/>
+          <unsigned8 code="47" description="Unknown event code: 47"/>
+          <unsigned8 code="48" description="Unknown event code: 48"/>
+          <unsigned8 code="49" description="Unknown event code: 49"/>
+          <unsigned8 code="50" description="Unknown event code: 50"/>
+          <unsigned8 code="51" description="Unknown event code: 51"/>
+          <unsigned8 code="52" description="Unknown event code: 52"/>
+          <unsigned8 code="53" description="Unknown event code: 53"/>
+          <unsigned8 code="54" description="Unknown event code: 54"/>
+          <unsigned8 code="55" description="Unknown event code: 55"/>
+          <unsigned8 code="56" description="Unknown event code: 56"/>
+          <unsigned8 code="57" description="Unknown event code: 57"/>
+          <unsigned8 code="58" description="Unknown event code: 58"/>
+          <unsigned8 code="59" description="Unknown event code: 59"/>
+          <unsigned8 code="61" description="Unknown event code: 61"/>
+          <unsigned8 code="62" description="Unknown event code: 62"/>
+          <unsigned8 code="63" description="Unknown event code: 63"/>
+          <unsigned8 code="64" description="Unknown event code: 64"/>
+          <unsigned8 code="65" description="Unknown event code: 65"/>
+          <unsigned8 code="66" description="Unknown event code: 66"/>
+          <unsigned8 code="67" description="Unknown event code: 67"/>
+          <unsigned8 code="68" description="Unknown event code: 68"/>
+          <unsigned8 code="69" description="Unknown event code: 69"/>
+          <unsigned8 code="70" description="Unknown event code: 70"/>
+          <unsigned8 code="72" description="Unknown event code: 72"/>
+          <unsigned8 code="73" description="Unknown event code: 73"/>
+          <unsigned8 code="74" description="Unknown event code: 74"/>
+          <unsigned8 code="75" description="Unknown event code: 75"/>
+          <unsigned8 code="76" description="Unknown event code: 76"/>
+          <unsigned8 code="77" description="Unknown event code: 77"/>
+          <unsigned8 code="78" description="Unknown event code: 78"/>
+          <unsigned8 code="79" description="Unknown event code: 79"/>
+          <unsigned8 code="80" description="Unknown event code: 80"/>
+          <unsigned8 code="81" description="Unknown event code: 81"/>
+          <unsigned8 code="82" description="Unknown event code: 82"/>
+          <unsigned8 code="83" description="Unknown event code: 83"/>
+          <unsigned8 code="84" description="Unknown event code: 84"/>
+          <unsigned8 code="85" description="Unknown event code: 85"/>
+          <unsigned8 code="86" description="Unknown event code: 86"/>
+          <unsigned8 code="87" description="Unknown event code: 87"/>
+          <unsigned8 code="88" description="Unknown event code: 88"/>
+          <unsigned8 code="89" description="Unknown event code: 89"/>
+          <unsigned8 code="90" description="Unknown event code: 90"/>
+          <unsigned8 code="91" description="Unknown event code: 91"/>
+          <unsigned8 code="92" description="Unknown event code: 92"/>
+          <unsigned8 code="93" description="Unknown event code: 93"/>
+          <unsigned8 code="94" description="Unknown event code: 94"/>
+          <unsigned8 code="95" description="Unknown event code: 95"/>
+          <unsigned8 code="96" description="Unknown event code: 96"/>
+          <unsigned8 code="97" description="Unknown event code: 97"/>
+          <unsigned8 code="98" description="Unknown event code: 98"/>
+          <unsigned8 code="99" description="Unknown event code: 99"/>
+          <unsigned8 code="100" description="Unknown event code: 100"/>
+          <unsigned8 code="101" description="Unknown event code: 101"/>
+          <unsigned8 code="102" description="Unknown event code: 102"/>
+          <unsigned8 code="103" description="Unknown event code: 103"/>
+          <unsigned8 code="104" description="Unknown event code: 104"/>
+          <unsigned8 code="105" description="Unknown event code: 105"/>
+          <unsigned8 code="106" description="Unknown event code: 106"/>
+          <unsigned8 code="107" description="Unknown event code: 107"/>
+          <unsigned8 code="108" description="Unknown event code: 108"/>
+          <unsigned8 code="109" description="Unknown event code: 109"/>
+          <unsigned8 code="110" description="Unknown event code: 110"/>
+          <unsigned8 code="111" description="Unknown event code: 111"/>
+          <unsigned8 code="112" description="Unknown event code: 112"/>
+          <unsigned8 code="113" description="Unknown event code: 113"/>
+          <unsigned8 code="114" description="Unknown event code: 114"/>
+          <unsigned8 code="115" description="Unknown event code: 115"/>
+          <unsigned8 code="116" description="Unknown event code: 116"/>
+          <unsigned8 code="117" description="Unknown event code: 117"/>
+          <unsigned8 code="118" description="Unknown event code: 118"/>
+          <unsigned8 code="119" description="Unknown event code: 119"/>
+          <unsigned8 code="120" description="Unknown event code: 120"/>
+          <unsigned8 code="121" description="Unknown event code: 121"/>
+          <unsigned8 code="122" description="Unknown event code: 122"/>
+          <unsigned8 code="123" description="Unknown event code: 123"/>
+          <unsigned8 code="124" description="Unknown event code: 124"/>
+          <unsigned8 code="125" description="Unknown event code: 125"/>
+          <unsigned8 code="126" description="Unknown event code: 126"/>
+          <unsigned8 code="127" description="Unknown event code: 127"/>
+          <unsigned8 code="128" description="Unknown event code: 128"/>
+          <unsigned8 code="129" description="Unknown event code: 129"/>
+          <unsigned8 code="130" description="Unknown event code: 130"/>
+          <unsigned8 code="131" description="Unknown event code: 131"/>
+          <unsigned8 code="132" description="Unknown event code: 132"/>
+          <unsigned8 code="133" description="Unknown event code: 133"/>
+          <unsigned8 code="134" description="Unknown event code: 134"/>
+          <unsigned8 code="135" description="Unknown event code: 135"/>
+          <unsigned8 code="136" description="Unknown event code: 136"/>
+          <unsigned8 code="137" description="Unknown event code: 137"/>
+          <unsigned8 code="138" description="Unknown event code: 138"/>
+          <unsigned8 code="139" description="Unknown event code: 139"/>
+          <unsigned8 code="140" description="Unknown event code: 140"/>
+          <unsigned8 code="141" description="Unknown event code: 141"/>
+          <unsigned8 code="142" description="Unknown event code: 142"/>
+          <unsigned8 code="143" description="Unknown event code: 143"/>
+          <unsigned8 code="144" description="Unknown event code: 144"/>
+          <unsigned8 code="145" description="Unknown event code: 145"/>
+          <unsigned8 code="146" description="Unknown event code: 146"/>
+          <unsigned8 code="147" description="Unknown event code: 147"/>
+          <unsigned8 code="148" description="Unknown event code: 148"/>
+          <unsigned8 code="149" description="Unknown event code: 149"/>
+          <unsigned8 code="150" description="Unknown event code: 150"/>
+          <unsigned8 code="151" description="Unknown event code: 151"/>
+          <unsigned8 code="152" description="Unknown event code: 152"/>
+          <unsigned8 code="153" description="Unknown event code: 153"/>
+          <unsigned8 code="154" description="Unknown event code: 154"/>
+          <unsigned8 code="155" description="Unknown event code: 155"/>
+          <unsigned8 code="156" description="Unknown event code: 156"/>
+          <unsigned8 code="157" description="Unknown event code: 157"/>
+          <unsigned8 code="158" description="Unknown event code: 158"/>
+          <unsigned8 code="159" description="Unknown event code: 159"/>
+          <unsigned8 code="160" description="Unknown event code: 160"/>
+          <unsigned8 code="161" description="Unknown event code: 161"/>
+          <unsigned8 code="162" description="Unknown event code: 162"/>
+          <unsigned8 code="163" description="Unknown event code: 163"/>
+          <unsigned8 code="164" description="Unknown event code: 164"/>
+          <unsigned8 code="165" description="Unknown event code: 165"/>
+          <unsigned8 code="166" description="Unknown event code: 166"/>
+          <unsigned8 code="167" description="Unknown event code: 167"/>
+          <unsigned8 code="168" description="Unknown event code: 168"/>
+          <unsigned8 code="169" description="Unknown event code: 169"/>
+          <unsigned8 code="170" description="Unknown event code: 170"/>
+          <unsigned8 code="171" description="Unknown event code: 171"/>
+          <unsigned8 code="172" description="Unknown event code: 172"/>
+          <unsigned8 code="173" description="Unknown event code: 173"/>
+          <unsigned8 code="174" description="Unknown event code: 174"/>
+          <unsigned8 code="175" description="Unknown event code: 175"/>
+          <unsigned8 code="176" description="Unknown event code: 176"/>
+          <unsigned8 code="177" description="Unknown event code: 177"/>
+          <unsigned8 code="178" description="Unknown event code: 178"/>
+          <unsigned8 code="179" description="Unknown event code: 179"/>
+          <unsigned8 code="180" description="Unknown event code: 180"/>
+          <unsigned8 code="181" description="Unknown event code: 181"/>
+          <unsigned8 code="182" description="Unknown event code: 182"/>
+          <unsigned8 code="183" description="Unknown event code: 183"/>
+          <unsigned8 code="184" description="Unknown event code: 184"/>
+          <unsigned8 code="185" description="Unknown event code: 185"/>
+          <unsigned8 code="186" description="Unknown event code: 186"/>
+          <unsigned8 code="187" description="Unknown event code: 187"/>
+          <unsigned8 code="188" description="Unknown event code: 188"/>
+          <unsigned8 code="189" description="Unknown event code: 189"/>
+          <unsigned8 code="190" description="Unknown event code: 190"/>
+          <unsigned8 code="191" description="Unknown event code: 191"/>
+          <unsigned8 code="192" description="Unknown event code: 192"/>
+          <unsigned8 code="193" description="Unknown event code: 193"/>
+          <unsigned8 code="194" description="Unknown event code: 194"/>
+          <unsigned8 code="195" description="Unknown event code: 195"/>
+          <unsigned8 code="196" description="Unknown event code: 196"/>
+          <unsigned8 code="197" description="Unknown event code: 197"/>
+          <unsigned8 code="198" description="Unknown event code: 198"/>
+          <unsigned8 code="199" description="Unknown event code: 199"/>
+          <unsigned8 code="200" description="Unknown event code: 200"/>
+          <unsigned8 code="201" description="Unknown event code: 201"/>
+          <unsigned8 code="202" description="Unknown event code: 202"/>
+          <unsigned8 code="203" description="Unknown event code: 203"/>
+          <unsigned8 code="204" description="Unknown event code: 204"/>
+          <unsigned8 code="205" description="Unknown event code: 205"/>
+          <unsigned8 code="206" description="Unknown event code: 206"/>
+          <unsigned8 code="207" description="Unknown event code: 207"/>
+          <unsigned8 code="208" description="Unknown event code: 208"/>
+          <unsigned8 code="209" description="Unknown event code: 209"/>
+          <unsigned8 code="210" description="Unknown event code: 210"/>
+          <unsigned8 code="211" description="Unknown event code: 211"/>
+          <unsigned8 code="212" description="Unknown event code: 212"/>
+          <unsigned8 code="213" description="Unknown event code: 213"/>
+          <unsigned8 code="214" description="Unknown event code: 214"/>
+          <unsigned8 code="215" description="Unknown event code: 215"/>
+          <unsigned8 code="216" description="Unknown event code: 216"/>
+          <unsigned8 code="217" description="Unknown event code: 217"/>
+          <unsigned8 code="218" description="Unknown event code: 218"/>
+          <unsigned8 code="219" description="Unknown event code: 219"/>
+          <unsigned8 code="220" description="Unknown event code: 220"/>
+          <unsigned8 code="221" description="Unknown event code: 221"/>
+          <unsigned8 code="222" description="Unknown event code: 222"/>
+          <unsigned8 code="223" description="Unknown event code: 223"/>
+          <unsigned8 code="224" description="Unknown event code: 224"/>
+          <unsigned8 code="225" description="Unknown event code: 225"/>
+          <unsigned8 code="226" description="Unknown event code: 226"/>
+          <unsigned8 code="227" description="Unknown event code: 227"/>
+          <unsigned8 code="228" description="Unknown event code: 228"/>
+          <unsigned8 code="229" description="Unknown event code: 229"/>
+          <unsigned8 code="230" description="Unknown event code: 230"/>
+          <unsigned8 code="231" description="Unknown event code: 231"/>
+          <unsigned8 code="232" description="Unknown event code: 232"/>
+          <unsigned8 code="233" description="Unknown event code: 233"/>
+          <unsigned8 code="234" description="Unknown event code: 234"/>
+          <unsigned8 code="235" description="Unknown event code: 235"/>
+          <unsigned8 code="236" description="Unknown event code: 236"/>
+          <unsigned8 code="237" description="Unknown event code: 237"/>
+          <unsigned8 code="238" description="Unknown event code: 238"/>
+          <unsigned8 code="239" description="Unknown event code: 239"/>
+          <unsigned8 code="240" description="Unknown event code: 240"/>
+          <unsigned8 code="241" description="Unknown event code: 241"/>
+          <unsigned8 code="242" description="Unknown event code: 242"/>
+          <unsigned8 code="243" description="Unknown event code: 243"/>
+          <unsigned8 code="244" description="Unknown event code: 244"/>
+          <unsigned8 code="245" description="Unknown event code: 245"/>
+          <unsigned8 code="246" description="Unknown event code: 246"/>
+          <unsigned8 code="247" description="Unknown event code: 247"/>
+          <unsigned8 code="248" description="Unknown event code: 248"/>
+          <unsigned8 code="249" description="Unknown event code: 249"/>
+          <unsigned8 code="250" description="Unknown event code: 250"/>
+          <unsigned8 code="251" description="Unknown event code: 251"/>
+          <unsigned8 code="252" description="Unknown event code: 252"/>
+          <unsigned8 code="253" description="Unknown event code: 253"/>
+          <unsigned8 code="254" description="Unknown event code: 254"/>
+          <unsigned8 code="255" description="Event log cleared"/>
+        </unsigned8>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

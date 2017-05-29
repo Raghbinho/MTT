@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2011-12-12T14:30:00">
+<!-- 5.8 -->
+  <object api="DLMS" name="RegisterMonitor">
+    <dlmsObject logicalName="0;0;16;1;0;255" classId="21" classVersion="0"/>
+    <description>This object contains the Register Monitor</description>
+	  <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;16;1;0;255;"/>
+    </attribute>
+    <attribute id="2" name="thresholds" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <array name="thresholds" min="1" size="1">
+         <unsigned64 name="value" editable="false" min="0" max="18446744073709551616" default="0"/>
+      </array>
+    </attribute>
+    <attribute id="3" name="value_definition" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <struct name="value_definition" min="1" size="3">
+          <unsigned16 name="class_id" min="0" max="65535" default="1"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="00;00;97;98;00;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+      </struct>
+    </attribute>
+    <attribute id="4" name="actions" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="action_set" min="1" max="64" size="1" editable="false">
+        <struct name="action_set" size="2">
+          <struct name="action_up" size="2" editable="true">
+            <octetstring name="script_logical_name" editable="true" type-of-codage="Decoded as Decimal" size="0" default=""/>
+            <unsigned16 name="script_selector" editable="true" min="0" max="255" default="0"/>
+          </struct>	
+          <struct name="action_Down" size="2" editable="true">
+            <octetstring name="script_logical_name" editable="true" type-of-codage="Decoded as Decimal" size="0" default=""/>
+            <unsigned16 name="script_selector" editable="true" min="0" max="255" default="0"/>
+          </struct>	
+        </struct>	      
+      </array>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

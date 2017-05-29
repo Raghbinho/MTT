@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="15:19 04/04/2016">
+  <object api="DLMS" name="LongPowerFailureCounterAnyPhase">
+    <dlmsObject logicalName="0;0;96;7;9;255" classId="1" classVersion="0"/>
+    <description>Number of long power failure at any phase</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;96;7;9;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned16 name="value" editable="true" min="0" max="65535" default="0"/>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

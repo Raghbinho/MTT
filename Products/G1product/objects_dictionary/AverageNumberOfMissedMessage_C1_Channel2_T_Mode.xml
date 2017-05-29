@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="10:28 05/04/2016">
+  <object api="DLMS" name="AverageNumberOfMissedMessageC1">
+    <dlmsObject logicalName="0;2;129;2;0;255" classId="5" classVersion="0"/>
+    <description>Average Number Of Missed Message C1</description>
+	  <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>    
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;2;129;2;0;255;"/>
+    </attribute>
+    <attribute id="2" name="current_average_value" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>  
+      </dlmsAttribute>
+      <unsigned16 name="current_average_value" editable="false" min="0" max="65535" default="0"/>
+    </attribute>
+    <attribute id="3" name="last_average_value" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>  
+      </dlmsAttribute>
+      <unsigned16 name="last_average_value" editable="false" min="0" max="65535" default="0"/>
+    </attribute>
+    <attribute id="4" name="scaler_unit" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+      </dlmsAttribute>
+      <struct name="scaler_unit" size="2">
+        <integer8 name="scaler" editable="false" min="0" max="0" default="0"/>
+        <enumerated name="unit" editable="false" min="0" max="255" default="255">
+        </enumerated>
+      </struct>
+    </attribute>
+    <attribute id="5" name="status" type="boolean" description="This data specifies if the daylight savings function is used or not.">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/> 
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <boolean name="status" editable="true" min="0" max="1" default="0"/>
+    </attribute>
+    <attribute id="6" name="capture_time" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+      </dlmsAttribute>
+      <octetstring name="capture_time" editable="false" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;255;255;255;255;255;255;255;128;00;255;"/>
+    </attribute>
+    <attribute id="7" name="start_time_current" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+      </dlmsAttribute>
+      <octetstring name="start_time_current" editable="false" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;255;255;255;255;255;255;255;128;00;255;"/>
+    </attribute>
+    <attribute id="8" name="period" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="period" min="1" max="4294967295" default="10"/>
+    </attribute>
+	<attribute id="9" name="Number_period" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/-" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned16 name="period" min="1" max="4294967295" default="1"/>
+    </attribute>
+    <method id="1" name="reset" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <integer8 name="reset" editable="true" min="0" max="0" default="0"/>
+    </method>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="11:06 04/04/2016">
+<!-- 5.9 -->
+  <object api="DLMS" name="TariffScriptTable">
+    <dlmsObject logicalName="0;0;10;0;100;255" classId="9" classVersion="0"/>
+    <description>This object is a script table that defines the actions to be performed to tariff</description>
+	  <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;10;0;100;255;"/>
+    </attribute>
+<!--scripts-->
+    <attribute id="2" name="scripts" type="array" >
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/> 
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="scripts"  min="1" max="10" size="2">
+        <struct name="entry" size="2">
+          <unsigned16 name="script_identifier" min="1" max="4" default="1"/>
+          <array name="actions" min="1" max="1" size="1" >
+            <struct name="action_specification" size="5">
+              <enumerated name="service_id" editable="false" min="1" max="2" default="1">
+                <enum code="1" description="Write attribute"/>
+                <enum code="2" description="Execute specific method"/>
+              </enumerated>
+              <unsigned16 name="class_id" editable="false" min="0" max="255" default="6"/>
+              <octetstring name="logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;14;0;0;255;"/>
+              <integer8 name="index" editable="false" min="0" max="255" default="4"/>
+              <octetstring name="parameter" editable="false" type-of-codage="Decoded as Decimal" size="4" default="0;1;"/>
+            </struct>
+          </array>
+        </struct>
+        <struct name="entry" size="2">
+          <unsigned16 name="script_identifier" min="1" max="4" default="2"/>
+          <array name="actions" min="1" max="1" size="1" >
+            <struct name="action_specification" size="5">
+              <enumerated name="service_id" editable="false" min="1" max="2" default="1">
+                <enum code="1" description="Write attribute"/>
+                <enum code="2" description="Execute specific method"/>
+              </enumerated>
+              <unsigned16 name="class_id" editable="false" min="0" max="255" default="6"/>
+              <octetstring name="logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;14;0;0;255;"/>
+              <integer8 name="index" editable="false" min="0" max="255" default="4"/>
+              <octetstring name="parameter" editable="false" type-of-codage="Decoded as Decimal" size="2" default="0;2;"/>
+            </struct>
+          </array>
+        </struct>
+      </array>
+    </attribute>
+
+<!--execute-->
+    <method id="1" name="execute" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned16 name="execute" editable="false" min="1" max="1" default="1"/>
+    </method>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="09:48 04/04/2016">
+	<object api="DLMS" name="SecuritySetupMangementClient">
+		<dlmsObject logicalName="0;0;43;0;0;255" classId="64" classVersion="0"/>
+		<description>Defines the security policy, set of security keys of the reading client.</description>
+		<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;43;0;0;255;"/>
+    </attribute>
+    <attribute id="2" name="security_policy" type="enumerated">
+			<dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      		</dlmsAttribute>
+			<enumerated name="security_policy" size="0" default="0" editable="false">
+				<enum code="0" description="ID_NOTHING"/>
+				<enum code="1" description="ID_ALL_MESSAGES_TO_BE_AUTHENTICATED"/>
+				<enum code="2" description="ID_ALL_MESSAGES_TO_BE_ENCRYPTED"/>
+				<enum code="3" description="ID_ALL_MESSAGES_TO_BE_AUTHENTICATED_AND_ENCRYPTED"/>
+			</enumerated>
+		</attribute>
+		<attribute id="3" name="security_suite" type="enumerated">
+			<dlmsAttribute allowMultipleReferences="false">
+        		<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        		<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+            <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      		</dlmsAttribute>
+			<enumerated name="security_suite" size="0" default="0" editable="false"/>
+		</attribute>
+		<attribute id="4" name="client_system_title" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>     
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="client_system_title" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default=""/>
+    </attribute>
+    <attribute id="5" name="server_system_title" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="server_system_title" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default=""/>
+    </attribute>    
+		<method id="1" name="security_activate" type="enumerated">
+			<dlmsAttribute allowMultipleReferences="false">
+        		<association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>  
+        		<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        	  <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      		</dlmsAttribute>
+			<enumerated name="security_activate" default="0" editable="false">
+				<enum code="0" description="ID_NOTHING"/>
+				<enum code="1" description="ID_ALL_MESSAGES_TO_BE_AUTHENTICATED"/>
+				<enum code="2" description="ID_ALL_MESSAGES_TO_BE_ENCRYPTED"/>
+				<enum code="3" description="ID_ALL_MESSAGES_TO_BE_AUTHENTICATED_AND_ENCRYPTED"/>
+			</enumerated>
+		</method>
+		<method id="2" name="global_key_transfer" type="array">
+			<dlmsAttribute allowMultipleReferences="false">
+        		<association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/> 
+        		<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        	  <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+			<array name="global_key_transfer" size="1">
+				<struct name="global_key_transfer" size="2">
+					<enumerated name="key_id" default="2" editable="false">
+            <enum code="0" description="ID_GLOBAL_UNICAST8ENCRYPTION_KEY"/>
+				    <enum code="1" description="ID_GLOBAL_BROADCAST_ENCRYPTION_KEY"/>
+				    <enum code="2" description="ID_AUTHENTICATION_KEY"/>
+          </enumerated>
+					<octetstring name="key_wrapped" size="16" default="255;255;255;255;255;255;255;255;255;255;255;255;255;255;255;255;" type-of-codage="Decoded as Decimal"/>
+				</struct>
+			</array>
+		</method>
+	</object>
+</dictionnary>

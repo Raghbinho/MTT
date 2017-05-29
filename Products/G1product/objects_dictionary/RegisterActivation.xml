@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="11:14 04/04/2016">
+<!-- 5.8 -->
+  <object api="DLMS" name="RegisterActivation">
+    <dlmsObject logicalName="0;0;14;0;0;255" classId="6" classVersion="0"/>
+    <description>This object contains the data for the load profiles 1</description>
+	  <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;14;0;0;255;"/>
+    </attribute>
+    <attribute id="2" name="Register_assignment" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <!-- <getOptions dateSelectionSupport="true"/> -->
+      <array name="Register_assignment" size-max="20" size="4">      
+         <struct name="entry" size="2">
+			     <unsigned16 name="class_id" editable="true" min="0" max="65535" default="3"/>
+			     <octetstring name="logical_name" editable="true" type-of-codage="Decoded as Decimal" size="6" default="1;0;1;8;1;255;"/>
+		     </struct>
+		     <struct name="entry" size="2">
+            <unsigned16 name="class_id" editable="true" min="0" max="65535" default="3"/>
+			      <octetstring name="logical_name" editable="true" type-of-codage="Decoded as Decimal" size="6" default="1;0;1;8;2;255;"/>
+		     </struct>
+		     <struct name="entry" size="2">
+            <unsigned16 name="class_id" editable="true" min="0" max="65535" default="3"/>
+			      <octetstring name="logical_name" editable="true" type-of-codage="Decoded as Decimal" size="6" default="1;0;2;8;1;255;"/>
+		      </struct>
+		      <struct name="entry" size="2">
+            <unsigned16 name="class_id" editable="true" min="0" max="65535" default="3"/>
+			      <octetstring name="logical_name" editable="true" type-of-codage="Decoded as Decimal" size="6" default="1;0;2;8;2;255;"/>
+          </struct>
+      </array>
+    </attribute>
+    <attribute id="3" name="Mask List" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="Mask List" min="1" max="20" size="2">
+        <struct name="register_act_mask" size="2">
+          <octetstring name="mask_name" editable="true" type-of-codage="Decoded as Decimal" size="2" default="0;1;"/>
+          <array name="index_list" min="1" max="10" size="2">
+          	<unsigned8 name="array" editable="true" min="0" max="255" default="1"/>
+			      <unsigned8 name="array" editable="true" min="0" max="255" default="3"/>
+          </array>	
+        </struct>
+        <struct name="register_act_mask" size="2">
+          <octetstring name="mask_name" editable="true" type-of-codage="Decoded as Decimal" size="2" default="0;2;"/>
+          <array name="index_list" min="1" max="20" size="2">
+          	<unsigned8 name="array" editable="true" min="0" max="255" default="2"/>
+			      <unsigned8 name="array" editable="true" min="0" max="255" default="4"/>
+          </array>	
+        </struct>		
+      </array>
+    </attribute>
+    <attribute id="4" name="Active_mask" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="Active_mask" editable="true" edition="asciiText" type-of-codage="Decoded as ASCII" size="2" default="0;1;"/>
+    </attribute>
+    <method id="1" name="add_register" type="array">
+		<dlmsAttribute allowMultipleReferences="false">
+		    <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>
+			  <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+		</dlmsAttribute>
+		<array name="add_register" min="1" max="64" size="1">
+            <struct name="add_register" size="2">
+        	    <unsigned16 name="class" min="1" max="255" default="8" />
+              <octetstring name="obis_name" editable="true" type-of-codage="Decoded as Decimal" size="6" default="0;0;1;0;0;255;"/>          
+            </struct>	
+      </array>
+		</method>
+		<method id="2" name="add_mask" type="struct">
+			<dlmsAttribute allowMultipleReferences="false">
+			   <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>
+			   <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+         <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<struct name="register_act_mask" size="2">
+        <octetstring name="mask_name" editable="true" type-of-codage="Decoded as Decimal" size="2" default="0;2;"/>
+        <array name="index_list" min="1" max="20" size="2">
+          <unsigned8 name="array" editable="true" min="0" max="255" default="2"/>
+			    <unsigned8 name="array" editable="true" min="0" max="255" default="4"/>
+        </array>	
+      </struct>
+		</method>
+    <method id="3" name="delete_mask" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="delete_mask" editable="true" type-of-codage="Decoded as Decimal" size="2" default="0;1;"/>          
+    </method>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

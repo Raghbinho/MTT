@@ -6,12 +6,13 @@
 {% block content %}
 <head>
     <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-    <script src="../static/js/jquery.min.js"></script>
-    <!--<script src="../static/js/bootstrap.min.js"></script>-->
-    <script src="../static/js/easyTree.min.js"></script>
-    <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<script src="../static/js/jquery.min.js"></script>
+<!--<script src="../static/js/bootstrap.min.js"></script>-->
+<script src="../static/js/easyTree.min.js"></script>
+<link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+
 </head>
 
 <div class="container">
@@ -107,7 +108,8 @@
                 {% csrf_token %}
          <div class="col-xs-3 col-md-3">
 
-                <select name="ProductList" id="ProductList" class="form-control" onchange="displayProduct(this.value)">
+
+    <select name="ProductList" id="ProductList" class="form-control" onchange="displayProduct(this.value)">
                    <option selected>Select Product</option>
                                                     {% for item in treeP.children %}
                                   <option type="{{ item.name }}">{{ item.name }}
@@ -115,10 +117,32 @@
                                                     {% endfor %}
                </select>
 
-         </div>
+<hr>
 
 
-         <input type="submit" value="GetObjectDictionnary" class="btn btn-success">
+
+        <select name="AssociationName" id="AssociationName" class="form-control" onchange="displayAssociation(this.value)">
+                   <option selected>Select AssociationName</option>
+                    <option >Public</option>
+                    <option >MNGT</option>
+                    <option >pre</option>
+
+        </select>
+<hr>
+          <div class="checkbox">
+    <label><input type="checkbox" value="1" id="1" name="access" onclick="getcheck1(this.value)"><b>check Access right</b></label>
+</div>
+             <div class="checkbox">
+                 <label><input type="checkbox" value="2" id="2" name="firm" onclick="getcheck2(this.value)"><b>Firmware upgrade</b></label>
+</div>
+             <div id="c"></div>
+ <input type="submit" value="GetObjectDictionnary" class="btn btn-success">
+            </div>
+
+
+
+
+
          <!--<input type="submit" value="save product" >-->
 
                  <div id="action" class="col-xs-3 col-md-3"></div>
@@ -174,23 +198,42 @@
 
 
 <!--**********************-->***************************
+check=""
+function getcheck1(value)
+{
+check=value;
+
+var html = [
+   '<input type="hidden"  value="'+check+'" id="check" name="check">',
+].join('');
+document.getElementById('c').innerHTML =html;
+}
+function getcheck2(value)
+{
+check=value;
+
+var html = [
+   '<input type="hidden"  value="'+check+'" id="check" name="check">',
+].join('');
+document.getElementById('c').innerHTML =html;
+}
 
 var ProductName='';
 function displayProduct(value)
 {
 
-ProductName=value;
-<!--alert("ProductName"+ProductName)-->
-var html = [
-    '<select name="action" id="action" class="form-control" size="4" onchange="GetObjectDictionnary();">',
-           '<option value="GET">GET</option>',
-           '<option value="SET">SET</option>',
-           '<option value="ACTION">ACTION</option>',
-           '<option value="WAIT">WAIT</option>',
-               '</select><input type="hidden"  value="'+ProductName+'" id="pr" name="pr">',
-].join('');
-document.getElementById('action').innerHTML =html;
-<!--document.getElementById('t').value=ProductName;-->
+<!--ProductName=value;-->
+<!--&lt;!&ndash;alert("ProductName"+ProductName)&ndash;&gt;-->
+<!--var html = [-->
+    <!--'<select name="action" id="action" class="form-control" size="4" onchange="GetObjectDictionnary();">',-->
+           <!--'<option value="GET">GET</option>',-->
+           <!--'<option value="SET">SET</option>',-->
+           <!--'<option value="ACTION">ACTION</option>',-->
+           <!--'<option value="WAIT">WAIT</option>',-->
+               <!--'</select><input type="hidden"  value="'+ProductName+'" id="pr" name="pr">',-->
+<!--].join('');-->
+<!--document.getElementById('action').innerHTML =html;-->
+<!--&lt;!&ndash;document.getElementById('t').value=ProductName;&ndash;&gt;-->
 
 }
 

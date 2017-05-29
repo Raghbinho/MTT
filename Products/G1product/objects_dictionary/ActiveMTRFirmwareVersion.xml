@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2015-08-15T14:30:00">
+	<object api="DLMS" name="ActiveMTRFirmwareVersion">
+		<dlmsObject logicalName="1;0;0;2;0;255" classId="1" classVersion="0"/>
+		<description>ActiveMTRFirmwareVersion</description>
+		<attribute id="1" name="logical_name" shortname="9728" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="1;0;0;2;0;255;"/>
+		</attribute>
+		<attribute id="2" name="value" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/> 
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="value" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="32" default="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;"/>
+    </attribute>
+  </object>
+</dictionnary>

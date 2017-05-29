@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="13:39 04/04/2016">
+  <!-- 5.8 -->
+  <object api="DLMS" name="StandardEventLog">
+    <dlmsObject logicalName="0;0;99;98;0;255" classId="7" classVersion="1"/>
+    <description>This object contains the general event logbook</description>
+    <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;99;98;0;255;"/>
+    </attribute>
+	  <attribute id="2" name="buffer" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <getOptions dateSelectionSupport="true"/>
+      <array name="buffer" min="0" size="0">
+        <struct name="entry" size="2">
+          <octetstring name="clock" editable="false" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;255;255;255;255;255;255;0;128;0;255;"/>
+          <unsigned8 name="EventCode" editable="false" min="0" max="255" default="0">
+              <unsigned8 code="1" description="Power Down"/>
+              <unsigned8 code="2" description="Power Up"/>
+              <unsigned8 code="3" description="Daylight saving time enabled or disabled"/>
+        	  <unsigned8 code="4" description="Clock adjusted (old date/time)"/>
+        	  <unsigned8 code="5" description="Clock adjusted (new date/time)"/>
+              <unsigned8 code="6" description="Clock invalid"/>
+        	  <unsigned8 code="7" description="Replace Battery"/>
+              <unsigned8 code="8" description="Battery voltage low"/>
+              <unsigned8 code="9" description="tariff shift times (TOU) activated"/>
+              <unsigned8 code="10" description="Error register cleared"/>
+              <unsigned8 code="11" description="Alarm register cleared"/>
+              <unsigned8 code="12" description="Program memory error"/>
+              <unsigned8 code="13" description="RAM error"/>
+              <unsigned8 code="14" description="NV memory error"/>
+              <unsigned8 code="15" description="Watchdog error"/>
+              <unsigned8 code="16" description="Measurement system error"/>
+              <unsigned8 code="17" description="Firmware ready for activation"/>
+              <unsigned8 code="18" description="Firmware activated"/>
+              <unsigned8 code="19" description="Tariff Shift Time (TOU)"/>
+              <unsigned8 code="20" description="Succesfull selfcheck after Firmwareupdate"/>
+              <unsigned8 code="21" description="Succesfull FW upgrade LTE modem"/>
+              <unsigned8 code="22" description="Unknown event code"/>
+              <unsigned8 code="23" description="Unknown event code"/>
+              <unsigned8 code="24" description="Unknown event code"/>
+              <unsigned8 code="25" description="Unknown event code"/>
+              <unsigned8 code="26" description="Unknown event code"/>
+              <unsigned8 code="27" description="Unknown event code"/>
+              <unsigned8 code="28" description="Unknown event code"/>
+              <unsigned8 code="29" description="Unknown event code"/>
+              <unsigned8 code="40" description="Unknown event code"/>
+              <unsigned8 code="90" description="Unknown event code"/>
+              <unsigned8 code="91" description="Unknown event code"/>
+              <unsigned8 code="92" description="Unknown event code"/>
+              <unsigned8 code="93" description="Unknown event code"/>
+              <unsigned8 code="94" description="Unknown event code"/>
+              <unsigned8 code="95" description="Unknown event code"/>
+              <unsigned8 code="96" description="Unknown event code"/>
+              <unsigned8 code="97" description="Unknown event code"/>
+              <unsigned8 code="101" description="Unknown event code"/>
+              <unsigned8 code="102" description="Unknown event code"/>
+              <unsigned8 code="103" description="Unknown event code"/>
+              <unsigned8 code="104" description="Unknown event code"/>
+              <unsigned8 code="105" description="Unknown event code"/>
+              <unsigned8 code="106" description="Unknown event code"/>
+              <unsigned8 code="107" description="Unknown event code"/>
+              <unsigned8 code="108" description="Unknown event code"/>
+              <unsigned8 code="109" description="Unknown event code"/>
+              <unsigned8 code="110" description="Unknown event code"/>
+              <unsigned8 code="111" description="Unknown event code"/>
+              <unsigned8 code="112" description="Unknown event code"/>
+              <unsigned8 code="113" description="Unknown event code"/>
+              <unsigned8 code="114" description="Unknown event code"/>
+              <unsigned8 code="115" description="Unknown event code"/>
+              <unsigned8 code="116" description="Unknown event code"/>
+              <unsigned8 code="117" description="Unknown event code"/>
+              <unsigned8 code="118" description="Unknown event code"/>
+              <unsigned8 code="119" description="Unknown event code"/>
+              <unsigned8 code="120" description="Unknown event code"/>
+              <unsigned8 code="121" description="Unknown event code"/>
+              <unsigned8 code="122" description="Unknown event code"/>
+              <unsigned8 code="123" description="Unknown event code"/>
+              <unsigned8 code="124" description="Unknown event code"/>
+              <unsigned8 code="125" description="Unknown event code"/>
+              <unsigned8 code="126" description="Unknown event code"/>
+              <unsigned8 code="127" description="Unknown event code"/>
+              <unsigned8 code="128" description="Unknown event code"/>
+              <unsigned8 code="129" description="Unknown event code"/>
+              <unsigned8 code="130" description="Unknown event code"/>
+              <unsigned8 code="131" description="Unknown event code"/>
+              <unsigned8 code="132" description="Unknown event code"/>
+              <unsigned8 code="133" description="Unknown event code"/>
+              <unsigned8 code="134" description="Unknown event code"/>
+              <unsigned8 code="135" description="Unknown event code"/>
+              <unsigned8 code="136" description="Unknown event code"/>
+              <unsigned8 code="137" description="Unknown event code"/>
+              <unsigned8 code="138" description="Unknown event code"/>
+              <unsigned8 code="139" description="Unknown event code"/>
+              <unsigned8 code="140" description="Unknown event code"/>
+              <unsigned8 code="141" description="Unknown event code"/>
+              <unsigned8 code="142" description="Unknown event code"/>
+              <unsigned8 code="143" description="Unknown event code"/>
+              <unsigned8 code="144" description="Unknown event code"/>
+              <unsigned8 code="145" description="Unknown event code"/>
+              <unsigned8 code="146" description="Unknown event code"/>
+              <unsigned8 code="147" description="Unknown event code"/>
+              <unsigned8 code="148" description="Unknown event code"/>
+              <unsigned8 code="149" description="Unknown event code"/>
+              <unsigned8 code="150" description="Unknown event code"/>
+              <unsigned8 code="151" description="Unknown event code"/>
+              <unsigned8 code="152" description="Unknown event code"/>
+              <unsigned8 code="153" description="Unknown event code"/>
+              <unsigned8 code="154" description="Unknown event code"/>
+              <unsigned8 code="155" description="Unknown event code"/>
+              <unsigned8 code="156" description="Unknown event code"/>
+              <unsigned8 code="157" description="Unknown event code"/>
+              <unsigned8 code="158" description="Unknown event code"/>
+              <unsigned8 code="159" description="Unknown event code"/>
+              <unsigned8 code="160" description="Unknown event code"/>
+              <unsigned8 code="161" description="Unknown event code"/>
+              <unsigned8 code="162" description="Unknown event code"/>
+              <unsigned8 code="163" description="Unknown event code"/>
+              <unsigned8 code="164" description="Unknown event code"/>
+              <unsigned8 code="165" description="Unknown event code"/>
+              <unsigned8 code="166" description="Unknown event code"/>
+              <unsigned8 code="167" description="Unknown event code"/>
+              <unsigned8 code="168" description="Unknown event code"/>
+              <unsigned8 code="169" description="Unknown event code"/>
+              <unsigned8 code="170" description="Unknown event code"/>
+              <unsigned8 code="171" description="Unknown event code"/>
+              <unsigned8 code="172" description="Unknown event code"/>
+              <unsigned8 code="173" description="Unknown event code"/>
+              <unsigned8 code="174" description="Unknown event code"/>
+              <unsigned8 code="175" description="Unknown event code"/>
+              <unsigned8 code="176" description="Unknown event code"/>
+              <unsigned8 code="177" description="Unknown event code"/>
+              <unsigned8 code="178" description="Unknown event code"/>
+              <unsigned8 code="179" description="Unknown event code"/>
+              <unsigned8 code="180" description="Unknown event code"/>
+              <unsigned8 code="181" description="Unknown event code"/>
+              <unsigned8 code="182" description="Unknown event code"/>
+              <unsigned8 code="183" description="Unknown event code"/>
+              <unsigned8 code="184" description="Unknown event code"/>
+              <unsigned8 code="185" description="Unknown event code"/>
+              <unsigned8 code="186" description="Unknown event code"/>
+              <unsigned8 code="187" description="Unknown event code"/>
+              <unsigned8 code="188" description="Unknown event code"/>
+              <unsigned8 code="189" description="Unknown event code"/>
+              <unsigned8 code="190" description="Unknown event code"/>
+              <unsigned8 code="191" description="Unknown event code"/>
+              <unsigned8 code="192" description="Unknown event code"/>
+              <unsigned8 code="193" description="Unknown event code"/>
+              <unsigned8 code="194" description="Unknown event code"/>
+              <unsigned8 code="195" description="Unknown event code"/>
+              <unsigned8 code="196" description="Unknown event code"/>
+              <unsigned8 code="197" description="Unknown event code"/>
+              <unsigned8 code="198" description="Unknown event code"/>
+              <unsigned8 code="199" description="Unknown event code"/>
+              <unsigned8 code="200" description="Unknown event code"/>
+              <unsigned8 code="201" description="Unknown event code"/>
+              <unsigned8 code="202" description="Unknown event code"/>
+              <unsigned8 code="203" description="Unknown event code"/>
+              <unsigned8 code="204" description="Unknown event code"/>
+              <unsigned8 code="205" description="Unknown event code"/>
+              <unsigned8 code="206" description="Unknown event code"/>
+              <unsigned8 code="207" description="Unknown event code"/>
+              <unsigned8 code="208" description="Unknown event code"/>
+              <unsigned8 code="209" description="Unknown event code"/>
+              <unsigned8 code="210" description="Unknown event code"/>
+              <unsigned8 code="211" description="Unknown event code"/>
+              <unsigned8 code="212" description="Unknown event code"/>
+              <unsigned8 code="213" description="Unknown event code"/>
+              <unsigned8 code="214" description="Unknown event code"/>
+              <unsigned8 code="215" description="Unknown event code"/>
+              <unsigned8 code="216" description="Unknown event code"/>
+              <unsigned8 code="217" description="Unknown event code"/>
+              <unsigned8 code="218" description="Unknown event code"/>
+              <unsigned8 code="219" description="Unknown event code"/>
+              <unsigned8 code="220" description="Unknown event code"/>
+              <unsigned8 code="221" description="Unknown event code"/>
+              <unsigned8 code="222" description="Unknown event code"/>
+              <unsigned8 code="223" description="Unknown event code"/>
+              <unsigned8 code="224" description="Unknown event code"/>
+              <unsigned8 code="225" description="Unknown event code"/>
+              <unsigned8 code="226" description="Unknown event code"/>
+              <unsigned8 code="227" description="Unknown event code"/>
+              <unsigned8 code="228" description="Unknown event code"/>
+              <unsigned8 code="229" description="Unknown event code"/>
+              <unsigned8 code="230" description="Unknown event code"/>
+              <unsigned8 code="231" description="Unknown event code"/>
+              <unsigned8 code="232" description="Unknown event code"/>
+              <unsigned8 code="233" description="Unknown event code"/>
+              <unsigned8 code="234" description="Unknown event code"/>
+              <unsigned8 code="235" description="Unknown event code"/>
+              <unsigned8 code="236" description="Unknown event code"/>
+              <unsigned8 code="237" description="Unknown event code"/>
+              <unsigned8 code="238" description="Unknown event code"/>
+              <unsigned8 code="239" description="Unknown event code"/>
+              <unsigned8 code="240" description="Unknown event code"/>
+              <unsigned8 code="241" description="Unknown event code"/>
+              <unsigned8 code="242" description="Unknown event code"/>
+              <unsigned8 code="243" description="Unknown event code"/>
+              <unsigned8 code="244" description="Unknown event code"/>
+              <unsigned8 code="245" description="Unknown event code"/>
+              <unsigned8 code="246" description="Unknown event code"/>
+              <unsigned8 code="247" description="Unknown event code"/>
+              <unsigned8 code="248" description="Unknown event code"/>
+              <unsigned8 code="249" description="Unknown event code"/>
+              <unsigned8 code="250" description="Unknown event code"/>
+              <unsigned8 code="251" description="Unknown event code"/>
+              <unsigned8 code="252" description="Unknown event code"/>
+              <unsigned8 code="253" description="Unknown event code"/>
+              <unsigned8 code="254" description="Unknown event code"/>
+              <unsigned8 code="255" description="Event log cleared"/>
+          </unsigned8>
+<!--          
+		  <unsigned32 name="total_active_imported_energy" editable="false" min="0" max="999999999" default="0"/>
+		  <unsigned32 name="total_active_exported_energy" editable="false" min="0" max="999999999" default="0"/>
+		  <unsigned32 name="total_reactive_Q1_energy" editable="false" min="0" max="999999999" default="0"/>
+		  <unsigned32 name="total_reactive_Q2_energy" editable="false" min="0" max="999999999" default="0"/>
+		  <unsigned32 name="total_reactive_Q3_energy" editable="false" min="0" max="999999999" default="0"/>
+		  <unsigned32 name="total_reactive_Q4_energy" editable="false" min="0" max="999999999" default="0"/>
+-->		  
+		  
+        </struct>
+      </array>
+    </attribute>
+   
+    <attribute id="3" name="capture_objects" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+- <!--      
+      <array name="capture_objects" min="8" max="8" size="8">   
+  --> 
+      <array name="objects" min="2" max="2" size="2">      
+        <struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="8"/>
+          <octetstring name="logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;1;0;0;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+        <struct name="objects" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="1"/>
+          <octetstring name="logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;96;11;0;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+        
+      </array>
+    </attribute>
+    <attribute id="4" name="capture_period" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="capture_period" min="0" max="4294967295" default="0"/>
+    </attribute>
+    <attribute id="5" name="sort_method" type="enumerated">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <enumerated name="sort_method" editable="false" min="1" max="6" default="1">
+            <enum code="1" description="fifo (first in first out)"/>
+            <enum code="2" description="lifo (last in first out)"/>
+            <enum code="3" description="largest"/>
+            <enum code="4" description="smallest"/>
+            <enum code="5" description="nearest_to_zero"/>
+            <enum code="6" description="farest_from_zero"/>
+      </enumerated> 
+    </attribute>
+    <attribute id="6" name="sort_object" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <struct name="sort_object" size="0"/>
+    </attribute>
+    <attribute id="7" name="entries_in_use" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="entries_in_use" min="0" max="4294967295" default="0"/>
+    </attribute>
+    <attribute id="8" name="profile_entries" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="profile_entries" min="0" max="120" default="100"/>
+    </attribute>
+
+	<method id="1" name="reset" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <integer8 name="reset" editable="true" min="0" max="0" default="0"/>
+    </method>
+    <!--    
+	<method id="2" name="capture" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <integer8 name="capture" editable="true" min="0" max="0" default="0"/>
+    </method>
+    -->
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

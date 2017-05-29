@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="14:21 01/04/2016">
+<!-- 5.2 -->
+  <object api="DLMS" name="MBusEventLogCode4">
+    <dlmsObject logicalName="0;4;96;11;3;255" classId="1" classVersion="0"/>
+    <description>MBusEventLogCode4</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;4;96;11;3;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned8 name="value" editable="false" min="0" max="255" default="0">
+        <unsigned8 code="100" description="Communication error M-Bus channel 1"/>
+        <unsigned8 code="101" description="Communication ok M-Bus channel 1"/>
+        <unsigned8 code="102" description="Replace Battery M-Bus channel 1"/>
+        <unsigned8 code="103" description="Fraud attempt M-Bus channel 1"/>
+        <unsigned8 code="104" description="Clock adjusted M-Bus channel 1"/>
+        <unsigned8 code="105" description="New M-Bus device discovered channel 1"/>
+        <unsigned8 code="106" description="Permanent error from M-Bus device channel 1"/>
+        <unsigned8 code="107" description="Non-Permanent error from M-Bus device channel 1"/>
+        <unsigned8 code="110" description="Communication error M-Bus channel 2"/>
+        <unsigned8 code="111" description="Communication ok M-Bus channel 2"/>
+        <unsigned8 code="112" description="Replace Battery M-Bus channel 2"/>
+        <unsigned8 code="113" description="Fraud attempt M-Bus channel 2"/>
+        <unsigned8 code="114" description="Clock adjusted M-Bus channel 2"/>
+        <unsigned8 code="115" description="New M-Bus device discovered channel 2"/>
+        <unsigned8 code="116" description="Permanent error from M-Bus device channel 2"/>
+        <unsigned8 code="117" description="Non-Permanent error from M-Bus device channel 2"/>
+        <unsigned8 code="120" description="Communication error M-Bus channel 3"/>
+        <unsigned8 code="121" description="Communication ok M-Bus channel 3"/>
+        <unsigned8 code="122" description="Replace Battery M-Bus channel 3"/>
+        <unsigned8 code="123" description="Fraud attempt M-Bus channel 3"/>
+        <unsigned8 code="124" description="Clock adjusted M-Bus channel 3"/>
+        <unsigned8 code="125" description="New M-Bus device discovered channel 3"/>
+        <unsigned8 code="126" description="Permanent error from M-Bus device channel 3"/>
+        <unsigned8 code="127" description="Non-Permanent error from M-Bus device channel 3"/>
+        <unsigned8 code="130" description="Communication error M-Bus channel 4"/>
+        <unsigned8 code="131" description="Communication ok M-Bus channel 4"/>
+        <unsigned8 code="132" description="Replace Battery M-Bus channel 4"/>
+        <unsigned8 code="133" description="Fraud attempt M-Bus channel 4"/>
+        <unsigned8 code="134" description="Clock adjusted M-Bus channel 4"/>
+        <unsigned8 code="135" description="New M-Bus device discovered channel 4"/>
+        <unsigned8 code="136" description="Permanent error from M-Bus device channel 4"/>
+        <unsigned8 code="137" description="Non-Permanent error from M-Bus device channel 4"/>
+        <unsigned8 code="255" description="Event log cleared"/>
+      </unsigned8>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

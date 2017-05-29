@@ -64,7 +64,7 @@ urlpatterns = [
     url(r'^dmtt/$', views.dmtt),
     url(r'^productName/$', views.productName, ),
     url(r'^DMTTExecution/$', views.DMTTExecution, ),
-
+    url(r'^Tc_Firmware$', views.Tc_Firmware,{'template_name': 'welcome.html'}),
 
 
 ]

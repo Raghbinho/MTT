@@ -1,9 +1,18 @@
-
-from lib2to3.fixer_util import p1
-from os.path import exists
+import json as simplejson
 import logging
 import os
+import re
+import sys
+import xml.dom.minidom
 import xml.etree.ElementTree as ET
+import xml.etree.cElementTree as ET
+from os.path import exists
+from xml.dom import minidom
+from xml.dom import minidom
+from xml.etree.ElementTree import Element, SubElement, tostring
+
+import serial
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.core.files import File
 from django.http import HttpResponse
@@ -27,6 +36,8 @@ import xml.etree.cElementTree as ET
 import shutil
 from stat import S_IWUSR  # Need to add this import to the ones above
 
+from polls.forms import *
+import easygui
 from django.core.files.storage import FileSystemStorage
 import sys
 import serial
@@ -37,7 +48,7 @@ logger = logging.getLogger(__name__)
 
 ####################### GLOBAL VARIABLES ################################################
 PRODUCTS = 'Products\\'
-TESTCASES= 'D:\Users\G507919\Desktop\PFE-version6.1'
+TESTCASES= 'C:\\Users\\g507888\\PycharmProjects\\MTT_Background\\'
 CLASSES = 'Classes\\'
 TEMPORARY = 'TEMPORARYFILE'
 methods8 = 'Reset\n'
@@ -50,13 +61,13 @@ arrayelt = []
 arrayeltM=[]
 attribut = ""
 attributM=""
-z = 0 - 1
+z = - 1
 test = False
-nbfich = 0
-nbfich2 = 0
-nbclic = 0
-nbclics = 0
-z2 = 0-1
+nbfich=0
+nbfich2=0
+nbclic=0
+nbclics=0
+z2=-1
 
 
 ################FUNCTIONS ROUTINES############################################
@@ -1035,6 +1046,7 @@ def parseXML(request):
                 methods += "{}-{}".format(sid, name)+"\n"
         return HttpResponse(simplejson.dumps({'stat': status, 'dictDescription': description, 'dictId': dictId, 'dictVersion': dictVersion, 'methods': methods, 'association': association, 'associationMethods': association}), content_type='application/json')
 
+
 def createTemporary(choices, methods):
     """create temporary files"""
     rough_string = ''
@@ -1091,6 +1103,8 @@ def createTemporary(choices, methods):
 
         l = newResult
 
+
+
         top = Element('delimit')
         sid  = -1
         for component in l:
@@ -1117,6 +1131,7 @@ def createTemporary(choices, methods):
     if methods != '':
         content = {}
         i = 0
+       
         chaine = str(methods)
         chaine = chaine[chaine.find(sep0) + 1:]
         associationList = association.split('\n')
@@ -1125,6 +1140,7 @@ def createTemporary(choices, methods):
             chaine = chaine[chaine.find(sep0)+1:]
             i += 1
         content[i] = chaine
+       
         i = 0
         l = []
         while (i< len(content)):
@@ -1211,6 +1227,7 @@ def generateXML(request):
         name = 'class_' + str(classNum) + '.xml'
         filePath ='Classes\\'+product
         filename = filePath + '\\' + name
+      
         readFile1(context, name, filePath)
         classAfter = context['fileContent']
         classAfter1 = ''
@@ -1684,9 +1701,7 @@ def editProduct(request,template_name="listProduct.html"):
 
     llsAuth = request.POST.get("llsAuth", None)
 
-
-
-
+    easygui.msgbox("YourProductFile has been modified successfully!", title="information")
     return treeListF(request)
 
 
@@ -1709,7 +1724,8 @@ def treeListF(request, template_name="listProduct.html", path=PRODUCTS):
                 fn = os.path.join(path, name)
                 recent = name
                 if os.path.isdir(fn):
-                    tree['children'].append(listtreeFfunction(fn))
+                    if recent != 'objects_dictionary':
+                        tree['children'].append(listtreeFfunction(fn))
                 else:
                     tree['children'].append(dict(name=recent))
         return tree
@@ -1783,6 +1799,8 @@ def TestCasesTree(request, template_name="listTestCases.html", path=TESTCASES):
                 fn = os.path.join(path, name)
 
                 recent = name
+                print recent
+
                 if( os.path.isdir(fn) )& (recent=='TestCases'):
 
 
@@ -1794,7 +1812,7 @@ def TestCasesTree(request, template_name="listTestCases.html", path=TESTCASES):
                     # tree['children'].append(dict(name=recent))
                 else:
 
-                    if (os.path.isdir(fn)==False) and path=="D:\Users\G507919\Desktop\PFE-version6.1\TestCases":
+                    if (os.path.isdir(fn)==False) and path=='C:\Users\g507888\PycharmProjects\MTT_Background\TestCases':
 
                         tree['children'].append(dict(name=recent))
 
@@ -1856,8 +1874,14 @@ def getNameTest(request):
 #     *************************************************************
 def generateTest(request,template_name="DictionnaryObject.html"):
     product=request.POST.get("ProductList")
-    print('here')
+    AssociationName=request.POST.get("AssociationName")
+
+
     action = request.POST.get("action")
+    access = request.POST.get("access")
+    firm=request.POST.get("firm")
+    check = request.POST.get("check")
+
     print product
     print action
     pathO="Products\\"+str(product)
@@ -1874,6 +1898,10 @@ def generateTest(request,template_name="DictionnaryObject.html"):
             for name in lst:
                 fn = os.path.join(pathO, name)
                 recent = name
+                recent=recent.split('.')
+                recent=recent[0]
+
+
                 if os.path.isdir(fn):
                     tree['children'].append(listtreeFfunction(fn))
                 else:
@@ -1886,14 +1914,17 @@ def generateTest(request,template_name="DictionnaryObject.html"):
     tree = listtreeFfunction(pathO)
 
 
-    return render(request,template_name,{'tree': tree,'action' :action,'product':product})
+    return render(request,template_name,{'tree': tree,'action' :action,'product':product,'access':access,'firm':firm,'AssociationName':AssociationName,'check':check})
 # *******************************************************************************************
 @csrf_exempt
 def getAttributes (request,template_name="DictionnaryObject.html"):
     action = request.POST.get("action")
+
     path = request.POST.get("path")
     print ("path" + str(path))
     pdt = request.POST.get("pdt")
+
+
 
     print ("pdt" + str(pdt))
     ObjectFile = request.POST.get("ObjectList")
@@ -1901,6 +1932,7 @@ def getAttributes (request,template_name="DictionnaryObject.html"):
     global FileName1
     if request.method == "POST" and request.is_ajax():
         FileName1 = request.POST['id']
+        FileName1=FileName1+'.xml'
         logger.info(FileName1)
         # status = display(FileName1)
         status = ''
@@ -1908,38 +1940,187 @@ def getAttributes (request,template_name="DictionnaryObject.html"):
         idAtt=''
         type=''
         idMeth=''
+        associationNameMNG=''
+        associationNamePublic=''
+        associationNamePre=''
+        asName=''
+        operation=''
+        operationN=''
+        asso=''
+
+        res1=''
+        res2=''
+        res3=''
+        res=''
+        MNGT=''
+        public=''
+        pre=''
+        getAssocM=''
+        getAssocPu = ''
+        getAssocPr = ''
+        ch1=''
+        ch2=''
+        att=''
+        meth=''
+        nb=0
+        assoM=''
+        method_id = ''
 
         path = "Products\\" + FileName1
         doc = minidom.parse(path)
-        File = doc.getElementsByTagName('class')
-        attributes = doc.getElementsByTagName('attributes')
-        methods = doc.getElementsByTagName('methods')
-        for a in attributes:
+        File = doc.getElementsByTagName('dictionnary')
+        object = doc.getElementsByTagName('object')
+
+
+
+        for a in object:
             attr = doc.getElementsByTagName('attribute')
             method = doc.getElementsByTagName('method')
+            ch1=''
+            nbatt=0
+            for name in attr:
+                att += name.getAttribute('name')+','
+                type+=name.getAttribute('type')+','
+                idAtt += name.getAttribute('id')+','
+                nbatt+=1
+
+
+            nb=att.count(',')
+
+
 
             for name in attr:
+
+                dlmsAttribute = doc.getElementsByTagName('dlmsAttribute')
                 attName = name.getAttribute('name')
-                attId=name.getAttribute('id')
+
                 attType=name.getAttribute('type')
 
+                j=-1
+                for assoc in dlmsAttribute:
 
-                status += attName + "/"
+                    res=''
+
+                    association = assoc.getElementsByTagName('association')
+
+
+
+                    for i in association:
+
+
+
+
+                        assoName = i.getAttribute('name')
+                        operationName=i.getAttribute('operations')
+
+
+                        res+= assoName + ':' + operationName + "|"
+
+
+
+
+
+                    if j<nbatt-1:
+                        j+=1
+                        ch1+=(att.split(','))[j]+':'+(type.split(','))[j]+':'+(idAtt.split(','))[j]+"="+res+"\n"
+                    # print (att.split(','))[j]
+                break
+
+
+
+                status += attName + "\n"
+
                 idAtt+= attId +"/"
                 type+= attType +"/"
 
+        nbmeth=0
+
+        for b in object:
+
+            method = doc.getElementsByTagName('method')
+            for name in method:
+                meth += name.getAttribute('name') + ','
+                method_id += name.getAttribute('id') + ','
+                print method_id
+
+                nbmeth+=1
+            methAtt=att+meth
+            nba = methAtt.count(',')
+
+
+            ch2 = ''
             for methodName in method:
+                dlmsAttributeM = doc.getElementsByTagName('dlmsAttribute')
                 methName = methodName.getAttribute('name')
-                methId=methodName.getAttribute('id')
+               
 
-                statusM += methName + "/"
-                idMeth+=  methId + "/"
+                z = -1
+                for assoc in dlmsAttributeM:
 
+
+                    res2 = ''
+
+                    association = assoc.getElementsByTagName('association')
+
+                    for i in association:
+                        assoM = i.getAttribute('name')
+
+                        operationN = i.getAttribute('operations')
+
+                        res2 += assoM + ':' + operationN + "|"
+
+
+
+
+                    if z<nba-1:
+                        z+=1
+                        ch2 += (methAtt.split(','))[z] +"=" + res2 + "\n"
+
+
+
+                break
+
+
+
+
+
+
+
+
+
+        list=res.split("|||")
+
+
+
+
+
+        for i in list:
+            i=str(i)
+            # print i
+            if i!='':
+                index=i.index(':')
+
+                action=i[0:index]
+
+                if action=="MNGT":
+                    MNGT+=i[index+1:len(i)]+"&"
+
+                elif action=="pre":
+                    pre+=i[index+1:len(i)]+"&"
+                else:
+                    public+=i[index+1:len(i)]+"&"
+
+        # print res1
+        # print "getAssoc"
+        # print getAssocM
+
+        print ch2
 
 
 
         return HttpResponse(
-            simplejson.dumps({'stat': status, 'statM': statusM,'ident':idAtt,'idMeth':idMeth,'type':type, 'path': path, 'pdt': pdt, 'action': action,"file":FileName1}),
+            simplejson.dumps({'att': att, 'meth': meth,'ident':idAtt,'idMeth':idMeth,'type':type, 'path': path, 'pdt': pdt, 'action': action,"file":FileName1,'method_id':method_id,
+                            'operation':operation,'MNGT':MNGT,'pre':pre,'public':public,'getAssocM':getAssocM,'getAssocPu':getAssocPu,'getAssocPr':getAssocPr,'ch1':ch1,'ch2':ch2,'nbatt':nbatt,'nbmeth':nbmeth }),
             content_type='application/json')
 
 
@@ -1950,10 +2131,11 @@ def getAttributes (request,template_name="DictionnaryObject.html"):
 # **********************************************
 
 nbTest=0
-def getXML(request,template_name="DictionnaryObject.html"):
+def getXML(request,template_name="welcome.html"):
     global nbTest
     newpath = "TestCases\\"
-
+    firm = request.POST.get("firm")
+    print ("firm"+str(firm))
 
 
     while exists(newpath +"test_"+str(nbTest) + ".xml"):
@@ -1962,7 +2144,8 @@ def getXML(request,template_name="DictionnaryObject.html"):
 
 
     logger.info ("generatexml")
-    action = request.POST.get("action")
+    action = request.POST.get("operationS")
+    print action
     file = request.POST.get("filename")
     print "filename"+file
     chainefile=file.split('\\')
@@ -1980,7 +2163,7 @@ def getXML(request,template_name="DictionnaryObject.html"):
     purpose=request.POST.get("purpose")
     desc = request.POST.get("desc")
     product=request.POST.get('prdt')
-    print product
+    
 
     # ******************************setting values**
     stepId = request.POST.get("stepId")
@@ -2004,9 +2187,12 @@ def getXML(request,template_name="DictionnaryObject.html"):
     desc = request.POST.get("desc")
 
     # ******************************************
-    if action=="GET":
+    if action=="Get":
         attributSelectedId = request.POST.get("attName")
+
+
         AttributChar = attributSelectedId.split(':')
+
         actionName="ReadRequest"
         root = ET.Element("action", id=unicode(stepId ),description=unicode(desc))
         data_link = ET.SubElement(root, "data_link", name="DLMS_ANY1")
@@ -2025,13 +2211,14 @@ def getXML(request,template_name="DictionnaryObject.html"):
         objectName = ET.SubElement(object, "objectName")
         objectName.text = ObjectSelected
         attributId = ET.SubElement(object, "AttributID")
-        attributId.text=AttributChar[1]
+
+        attributId.text=AttributChar[2]
         checks = ET.SubElement(service, "checks")
         check = ET.SubElement(checks, "checks1", type="execute_result")
-        typeVar= ET.SubElement(check, unicode(AttributChar[0]), name=unicode(AttributChar[2]),value=unicode(exValue))
+        typeVar= ET.SubElement(check, unicode(AttributChar[1]), name=unicode(AttributChar[0]),value=unicode(exValue))
 
 
-    elif action=="SET":
+    elif action=="Set":
         attributSelectedId = request.POST.get("attName")
         AttributChar = attributSelectedId.split(':')
         actionName = "WriteRequest"
@@ -2039,7 +2226,7 @@ def getXML(request,template_name="DictionnaryObject.html"):
         data_link = ET.SubElement(root, "data_link", name="DLMS_ANY1")
         funct = ET.SubElement(root, "function")
         funct.text = actionName
-        print actionName
+
 
 
         paramAsXMl = ET.SubElement(root, "paramAsXml")
@@ -2055,16 +2242,16 @@ def getXML(request,template_name="DictionnaryObject.html"):
         objectName = ET.SubElement(object, "objectName")
         objectName.text = ObjectSelected
         attributId = ET.SubElement(object, "AttributID")
-        attributId.text = AttributChar[1]
+        attributId.text = AttributChar[2]
         checks = ET.SubElement(service, "checks")
         check = ET.SubElement(checks, "checks1", type="execute_result")
         check.text=unicode(expected)
 
         values=ET.SubElement(service, "values")
         value1=ET.SubElement(values, "value1", Description="DLMS structure")
-        typeValue=ET.SubElement(value1, unicode(AttributChar[0]), name=unicode(AttributChar[2]), value=unicode(inValue))
+        typeValue=ET.SubElement(value1, unicode(AttributChar[1]), name=unicode(AttributChar[0]), value=unicode(inValue))
 
-    elif action == "ACTION":
+    elif action == "Action":
         methodselected = request.POST.get("methName")
 
         MethodChar = methodselected.split(':')
@@ -2084,7 +2271,7 @@ def getXML(request,template_name="DictionnaryObject.html"):
         objectName = ET.SubElement(object, "objectName")
         objectName.text = ObjectSelected
         methodId = ET.SubElement(object, "methodID")
-        methodId.text=MethodChar[0]
+        methodId.text=MethodChar[1]
         checks = ET.SubElement(service, "checks")
         check = ET.SubElement(checks, "checks1", type="execute_result")
         check.text = unicode(expected)
@@ -2111,6 +2298,8 @@ def getXML(request,template_name="DictionnaryObject.html"):
 
 
     tree.write(newpath +"test_"+str(nbTest) + ".xml")
+    easygui.msgbox("your file has been created successfully!", title="information")
+
 
     return TestCasesTree(request)
 
@@ -2196,6 +2385,8 @@ def editTestCase(request):
 
                         for typeVal in v:
                             typeval=typeVal.tag
+
+
                         for valName in v.findall(typeval):
                             valN=valName.get('name')
                             valV=valName.get('value')
@@ -2367,7 +2558,11 @@ def editTest(request,template_name="listTestCases.html"):
                     filePDt=open(pathXml,'w+')
                     filePDt.write(tostring(root))
                     filePDt.close()
+
+    easygui.msgbox("Your TestCase FIle has been modified successfully!", title="information")
     return TestCasesTree(request)
+
+
 def serial_ports():
     """ Lists serial port names
         :raises EnvironmentError:
@@ -2452,3 +2647,179 @@ def productName(request):
                 association += "{}.{}".format(sid, name)+"\n"
             association = association
     return HttpResponse(association)
+# *************************************tc firmware
+nb=0
+def Tc_Firmware(request,template_name="welcome.html"):
+    # *******getting post values*****
+    imageT=request.POST.get('imageT')
+    global nb
+
+    Upfile = request.FILES['Upfile']
+    activeF=request.POST.get('activeF')
+    version=request.POST.get('version')
+    firmwareV=request.POST.get('firmwareV')
+    crc=request.POST.get('crc')
+    HEX=""
+    chaine=""
+    for c in crc:
+        HEX = hex(ord(c))
+        x=HEX.index('x')
+        chaine+=HEX[x+1:len(HEX)]+';'
+
+
+
+
+
+    # i = int(crc, 16)
+    # i=str(crc).decode("hex")
+    # print i
+
+
+
+    # ********************************
+    script = ET.Element("script")
+    root = ET.SubElement(script,"Action", id="Step3.1_init_firmware_transfer")
+    data = ET.SubElement(root, "data_link", name="DLMS_ANY1")
+    function=ET.SubElement(root, "function")
+    function.text = "InitFirmwareUpgrade"
+    param=ET.SubElement(root, "ParamAsXml")
+    InitFirmwareUpgrade = ET.SubElement(param, "InitFirmwareUpgrade")
+    purpose = ET.SubElement(InitFirmwareUpgrade, "purpose")
+    purpose.text="Initial APP firmware transferring"
+    values=ET.SubElement(InitFirmwareUpgrade, "values")
+    value1=ET.SubElement(values, "value1",description="obj_name")
+    value1.text=imageT
+    value2 = ET.SubElement(values, "value2", description="dest_dat")
+    value2.text = str(Upfile)
+    checks = ET.SubElement(InitFirmwareUpgrade, "checks")
+    checks1 = ET.SubElement(checks, "checks1", type="execute_result")
+    checks1.text = "True"
+    result= ET.SubElement(root, "result")
+    ok = ET.SubElement(result, "ok", ret="ok")
+    default = ET.SubElement(result, "default", ret="nok")
+    # *****************************part 2
+    root2 = ET.SubElement(script, "Action", id="Step3.2_check_image_transfer_status")
+    data2 = ET.SubElement(root2, "data_link", name="DLMS_ANY1")
+    function2 = ET.SubElement(root2, "function")
+    function2.text = "ReadRequest"
+    param2 = ET.SubElement(root2, "ParamAsXml")
+    ReadRequest = ET.SubElement(param2, "ReadRequest")
+    purpose = ET.SubElement(ReadRequest, "purpose")
+    purpose.text = "Get status of image transfer"
+    object = ET.SubElement(ReadRequest, "Object")
+    objectN= ET.SubElement(object, "ObjectName")
+    objectN.text=imageT
+    attribute = ET.SubElement(object, "AttributeId")
+    attribute.text = "6"
+    chekcs2 = ET.SubElement(ReadRequest, "Checks")
+    checks21=ET.SubElement(chekcs2, "Checks1",type="getting_result")
+    enum=ET.SubElement(checks21, "enumerated",value="1")
+    result = ET.SubElement(root2, "result")
+    ok = ET.SubElement(result, "ok", ret="ok")
+    default = ET.SubElement(result, "default", ret="nok")
+
+    # *************************************part3***************
+    root3 = ET.SubElement(script, "Action", id="Step3.3_download_APP_firmware")
+    data3 = ET.SubElement(root3, "data_link", name="DLMS_ANY1")
+    function3 = ET.SubElement(root3, "function")
+    function3.text = "FirmwareUpgrade"
+    param3 = ET.SubElement(root3, "ParamAsXml")
+    FirmwareUpgrade = ET.SubElement(param3, "FirmwareUpgrade")
+    purpose = ET.SubElement(FirmwareUpgrade, "purpose")
+    purpose.text = "Download APP firmware"
+    values = ET.SubElement(FirmwareUpgrade, "values")
+    value1=ET.SubElement(values, "value1",description="obj_name")
+    value1.text=imageT
+    value2 = ET.SubElement(values, "value2", description="dest_dat")
+    value2.text = str(Upfile)
+    value3 = ET.SubElement(values, "value3", description="pos_start")
+    value3.text = "0"
+    value4 = ET.SubElement(values, "value4", description="pos_end")
+    value4.text = "0"
+    chekcs3 = ET.SubElement(FirmwareUpgrade, "Checks")
+    checck31 = ET.SubElement(chekcs3, "Checks1", type="execute_result")
+    checck31.text="True"
+
+    result = ET.SubElement(root3, "result")
+    ok = ET.SubElement(result, "ok", ret="ok")
+    default = ET.SubElement(result, "default", ret="nok")
+
+    # **************************************part4
+    root4 = ET.SubElement(script, "Action", id="Step3.4_active_APP_firmware")
+    data4 = ET.SubElement(root4, "data_link", name="DLMS_ANY1")
+    function4 = ET.SubElement(root3, "function")
+    function4.text = "FirmwareActive"
+    param4 = ET.SubElement(root4, "ParamAsXml")
+    FirmwareActive = ET.SubElement(param4, "FirmwareActive")
+    purpose = ET.SubElement(FirmwareActive, "purpose")
+    purpose.text = "Active the destination firmware version"
+    values = ET.SubElement(FirmwareActive, "values")
+    value1 = ET.SubElement(values, "value1", description="obj_name")
+    value1.text = imageT
+
+    chekcs3 = ET.SubElement(FirmwareActive, "Checks")
+    checck31 = ET.SubElement(chekcs3, "Checks1", type="execute_result")
+    checck31.text = "True"
+
+    result = ET.SubElement(root4, "result")
+    ok = ET.SubElement(result, "ok", ret="ok")
+    default = ET.SubElement(result, "default", ret="nok")
+
+    # *************************************part 5
+    root5 = ET.SubElement(script, "Action", id="Step3.5_get_current_APP_firmware")
+    data5 = ET.SubElement(root5, "data_link", name="DLMS_ANY1")
+    function2 = ET.SubElement(root5, "function")
+    function2.text = "ReadRequest"
+    param2 = ET.SubElement(root5, "ParamAsXml")
+    ReadRequest = ET.SubElement(param2, "ReadRequest")
+    purpose = ET.SubElement(ReadRequest, "purpose")
+    purpose.text = "get current APP firmware version"
+    object = ET.SubElement(ReadRequest, "Object")
+    objectN = ET.SubElement(object, "ObjectName")
+    objectN.text =unicode(activeF)
+    attribute = ET.SubElement(object, "AttributeId")
+    attribute.text = "2"
+    chekcs2 = ET.SubElement(ReadRequest, "Checks")
+    checks21 = ET.SubElement(chekcs2, "Checks1", type="getting_result",test_key_value="key_visiblestring")
+    checks21.text=version
+
+    result = ET.SubElement(root5, "result")
+    ok = ET.SubElement(result, "ok", ret="ok")
+    default = ET.SubElement(result, "default", ret="nok")
+
+    # ******************************************part6
+    root6 = ET.SubElement(script, "Action", id="Step3.6_GetFirmwareVersionSignature1")
+    data6 = ET.SubElement(root6, "data_link", name="DLMS_ANY1")
+    function2 = ET.SubElement(root6, "function")
+    function2.text = "ReadRequest"
+    param2 = ET.SubElement(root6, "ParamAsXml")
+    ReadRequest = ET.SubElement(param2, "ReadRequest")
+    purpose = ET.SubElement(ReadRequest, "purpose")
+    purpose.text = "get Firmware Version Signature1"
+    object = ET.SubElement(ReadRequest, "Object")
+    objectN = ET.SubElement(object, "ObjectName")
+    objectN.text = unicode(firmwareV)
+    attribute = ET.SubElement(object, "AttributeId")
+    attribute.text = "2"
+    chekcs2 = ET.SubElement(ReadRequest, "Checks")
+    checks21 = ET.SubElement(chekcs2, "Checks1", type="getting_result")
+    octetS=ET.SubElement(checks21, "octetstring", name="value",size="8",value=unicode(chaine))
+
+    result = ET.SubElement(root6, "result")
+    ok = ET.SubElement(result, "ok", ret="ok")
+    default = ET.SubElement(result, "default", ret="nok")
+    # **********************************************
+
+    newpath = "TestCases\\"
+    tree = ET.ElementTree(script)
+    nb +=1
+
+    tree.write(newpath + "TC_Firmware"+str(nb)+".xml")
+    easygui.msgbox("Your TC_FirmwareFile has been created successfully!", title="information")
+
+
+
+    return render  (request,template_name)
+
+
+

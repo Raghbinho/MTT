@@ -5,25 +5,29 @@
 </head>
 {% block content %}
 <head>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/easyTree.min.js"></script>
-    <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+---------------------------------------------------
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/easyTree.min.js"></script>
+<link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+
 </head>
 
 <div class="container">
     <div class="row">
 
         <!--******************************************************-->
-        <div class="col-lg-3">
-            <div class="panel panel-primary">
+        <div class="col-lg-4" id="tree" >
+            <div class="panel panel-primary" id="panel">
                 <center>
                     <h3 class="text-success">Objects_dictionnary list</h3>
                 </center>
-                <div class="easy-tree">
+
+                <div class="easy-tree" >
                     <form id="listTest" method="post">
                         {% csrf_token %}
                         <ul>
@@ -38,7 +42,7 @@
                                     <li>
                                         {% if d.children %}
                                         {% endif %}
-                                        <a id="{{tree.name}}\\{{item.name}}\\{{d.name}}" class="text-muted"
+                                        <a id="{{tree.name}}\{{item.name}}\{{d.name}}" class="text-muted"
                                            data-toggle="collapse"
                                            onclick="m(this.id);href='#display';">{{ d.name }}</a>
 
@@ -60,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9" id="divDisplay">
+        <div class="col-md-5" id="divDisplay">
 
             <div class=" panel-default">
                 <div class="panel-body">
@@ -73,7 +77,9 @@
 
                                 <form name="generatexml" id="generatexml" action="/getXML" method="post"
                                       enctype="multipart/form-data">{% csrf_token %}
-                                    <div id="f" class="form-group">
+
+
+                                    <div id="f" class="form-group" style="visibility:hidden;">
                                         <button type='button' class='close'
                                                 onclick='$(this).parent().parent().parent().parent().parent().parent().parent().hide();'>
                                             ×
@@ -82,13 +88,27 @@
                                         <table class="table">
 
                                             <tr>
+                                                <td><h2><span
+                                                        class="label label-success"> Available Function</span></h2>
+
+                                                    <select name="operationS" id="operationS" class="form-control"
+                                                            onchange="getOperation(this.value)">
+                                                        <option> Select function</option>
+                                                        <option id="Get" disabled> Get</option>
+                                                        <option id="Set" disabled>Set</option>
+                                                        <option id="Action" disabled>Action</option>
+                                                        <option id="Wait">Wait</option>
+
+                                                    </select></td>
                                                 <td>
                                                     <center><h2><span
                                                             class="label label-success"> AttributeName List</span></h2>
                                                     </center>
 
                                                     <select name="attName" id="attName" class="form-control"
-                                                            onchange="getForm(this.value)" disabled>
+                                                            onchange="getForm(this.value)">
+                                                        <option selected> Select attribute</option>
+
                                                     </select></td>
 
                                                 <td>
@@ -98,6 +118,7 @@
 
                                                     <select name="methName" id="methName" class="form-control"
                                                             onchange="getFormMethod(this.value)" disabled>
+                                                        <option selected> Select method</option>
                                                     </select></td>
                                             </tr>
 
@@ -108,19 +129,32 @@
                                             </select></td>
                                         </table>
                                     </div>
+
+
                                     <div>
                                         <div id="table">
 
                                         </div>
 
-                                        <div id="wait">
+                                        <div id="waitt">
 
                                         </div>
 
 
                                     </div>
-                                    <input type="hidden" name="action" id="action" value="{{action}}">
+
+
+                                    <input type="hidden" name="action" id="action1" value="{{action}}">
                                     <input type="hidden" name="prdt" id="prdt" value="{{product}}">
+                                    <input type="hidden" name="firm" id="firm" value="{{firm}}">
+                                    <input type="hidden" name="access" id="access" value="{{access}}">
+                                    <input type="hidden" name="AssociationName" id="AssociationName"
+                                           value="{{AssociationName}}">
+                                    <input type="hidden" name="check" id="check" value="{{check}}">
+
+
+
+
                                     <div id="h">
 
 
@@ -138,14 +172,160 @@
 
 
         <!--*************************************************************-->
-        <div class="col-md-9" id="objectDict" width="75%">
+        <div class="col-md-5" id="objectDict" width="75%">
             <div class=" panel-default">
                 <div class="panel-body">
 
                     <div class="modal-content modal-smll" role="document">
                         <div class="modal-content">
+                             <table class="table"><tr><td>
+                             <form name="generateTestCaseFirmware" id="generateTestCaseFirmware" action="/Tc_Firmware" method="post" enctype="multipart/form-data">{% csrf_token %}
+                             <td id="a"  style="visibility:hidden;">
 
 
+
+                                          <div class="checkbox">
+                                              <label><input type="checkbox" onclick="getcheck()"><span class="label label-primary"> choose image transfer</span></label>
+                                             </div>
+                                        <select name="imageT" id="imageT" class="form-control"
+                                                            onchange="getImageTransfert(this.value)"  style="visibility:hidden;">
+                                                        <option selected> Select Image Transfer</option>
+
+                                             {% for item in tree.children %}
+
+
+                                {% if item.children %}
+                                {% endif %}
+
+
+                                    {% for d in item.children %}
+
+                                        {% if d.children %}
+                                        {% endif %}
+                                        <option id="{{item.name}}\\{{d.name}}">{{ d.name }}</option>
+
+
+                                    {% endfor %}
+
+                            {% endfor %}
+
+
+
+
+
+                                        </select></td>
+<hr>
+                                    <td>
+                                            <div id="file" style="visibility:hidden;"><span class="label label-primary">Choose File</span>
+                                                        <input id="input-1" type="file" class="file" name="Upfile" required="Choose file please" placeholder="Choose file please"></div>
+
+
+
+                                    </td></tr>
+                             </table>
+
+                            <hr>
+
+                                <div id="active" style="visibility:hidden;">
+
+                                    <table class="table"><tr><td><span class="label label-primary">Choose Active Firmware Version</span>
+
+
+
+                                        <select name="activeF" id="activeF" class="form-control"
+                                                            onchange="getActiveFirmware(this.value)" >
+                                                        <option selected> Select ActiveFirmwareVersion Object</option>
+
+                                             {% for item in tree.children %}
+
+
+                                {% if item.children %}
+                                {% endif %}
+
+
+                                    {% for d in item.children %}
+
+                                        {% if d.children %}
+                                        {% endif %}
+                                        <option >{{ d.name }}</option>
+
+
+                                    {% endfor %}
+
+                            {% endfor %}
+
+
+
+
+
+                                        </select></td>
+                                        <hr>
+                                     <td><span class="label label-primary" style="visibility:hidden;" id="spa">Introduce Firmware Version</span>
+                                                        <input name="version" id="version" type="text" class="form-control" style="visibility:hidden;" required="Introduce FirmwareVersion please" placeholder="Introduce FirmwareVersion please">
+
+
+
+                                    </td></tr></table>
+
+
+
+                            </div>
+                            <hr>
+                            <div id="firmwareVersion" style="visibility:hidden;">
+
+                                 <table class="table"><tr><td>
+                                     <span class="label label-primary"  style="visibility:hidden;" id="spaA">Choose Active Firmware Version</span>
+
+
+
+                                        <select name="firmwareV" id="firmwareV" class="form-control"
+                                                            onchange="getFirmwareVersionSignature(this.value)" >
+                                                        <option selected> Select FirmwareVersionSignature Object</option>
+
+                                             {% for item in tree.children %}
+
+
+                                {% if item.children %}
+                                {% endif %}
+
+
+                                    {% for d in item.children %}
+
+                                        {% if d.children %}
+                                        {% endif %}
+                                        <option >{{ d.name }}</option>
+
+
+                                    {% endfor %}
+
+                            {% endfor %}
+
+
+
+
+
+                                        </select></td>
+                                  <hr>
+                                    <td> <span class="label label-primary" style="visibility:hidden;" id="spaC">Introduce CRC</span>
+                                                        <input name="crc" id="crc" type="text" class="form-control" style="visibility:hidden;" onChange="Controle(this.value)" required="Introduce CRC please"  placeholder="Introduce CRC please">
+
+                                 </td></tr></table>
+
+<hr>
+                            </div>
+                            <div id="b" style="visibility:hidden;" >
+
+                            <table class="table"><tr><td>
+
+                                <input type="submit" value="TC_Firmware_Upgrade" class="btn btn-success">
+                            </td>
+                            </tr>
+                            </table>
+
+                            </div>
+
+                             </form>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -159,11 +339,26 @@
 <!--<script src="/static/js/jquery.min.js"></script>-->
 <script type="text/javascript" src="/static/js/scriptTest.js"></script>
 <script>
-
+method_id=""
 
 <!--**********************-->***************************
+function getcheck()
+{
+document.getElementById('imageT').style= 'visible';
+}
+
+check=document.getElementById('check').value;
 
 
+if(check=="2")
+{
+document.getElementById('a').style= 'visible';
+}
+  var ListMngt="";
+  var listAvailAttGet=''
+var  listAvailAttSet=''
+ var listAvailMethAction=''
+ var available=''
 <!--********************************************-->
 function VisibleTest() {
 
@@ -222,7 +417,9 @@ function nbChar(chaine,lettre) {
     nb += chaine[i] == lettre;
   return nb;
 }
+<!--**************************-->
 
+<!--********************************-->
 
 $.ajax({
           type: "POST",
@@ -233,165 +430,500 @@ $.ajax({
 
           success: function(result) {
 
+check=document.getElementById('check').value;
+method_id=result.method_id;
 
+ associationSelected =document.getElementById('AssociationName').value;
+if (check=="1")
+{
 
-          var tableSizeName=0;
-            var nbName=0;
-
-            var tab=new Array();
-            var tabid=new Array();
-            var tabtype=new Array();
-             for(i=0;i<10000000;i++)
-
-             {
-             tab[i]="";
-             tabid[i]="";
-             tabtype[i]="";
-             }
-
-            ch=result.stat;
-
-            chaine="";
-           AttNAme="";
-            i=0;
-            while(ch!= "" ){
-
-                   chaine=ch.substr(0,ch.indexOf("/"));
-                   <!--alert(chaine.split(','));-->
-                   tab[i]=chaine.split(',')
-                   <!--alert(tab[i])-->
-                   index=chaine.indexOf(',')
-                   AttNAme=AttNAme+chaine.substr(0,index)+'.';
-
-
-
-                    ch=ch.substr(ch.indexOf("/")+1) ;
-                    i++;
-                    }
-                    taille=i;
+document.getElementById("f").style.visibility="visible";
+document.getElementById("a").style.visibility="hidden"
+ch=result.stat;
 
  attName = document.getElementById('attName');
- attTypeSel=document.getElementById('attType');
- attName.size = taille;
-
-            chaineid="";
-           AttId="";
-            i=0;
-            ch=result.ident;
-
-            while(ch!= "" ){
-
-            chaine=ch.substr(0,ch.indexOf("/"));
-                   <!--alert(chaine.split(','));-->
-                   tabid[i]=chaine.split(',')
-                   <!--alert(tab[i])-->
-                   index=chaine.indexOf(',')
-                   AttId=AttId+chaine.substr(0,index)+'.';
-
-
-
-                    ch=ch.substr(ch.indexOf("/")+1) ;
-                    i++;
-                    }
- <!--*********************************************-->
-
-
-           chainetype="";
-           attType="";
-            i=0;
-            ch=result.type;
-
-            while(ch!= "" ){
-
-            chainetype=ch.substr(0,ch.indexOf("/"));
-                   <!--alert(chaine.split(','));-->
-                   tabtype[i]=chainetype.split(',')
-                   <!--alert(tab[i])-->
-                   index=chainetype.indexOf(',')
-                   attType=attType+chainetype.substr(0,index)+'.';
-
-
-
-                    ch=ch.substr(ch.indexOf("/")+1) ;
-                    i++;
-                    }
-
-<!--***********************************************************-->
- for(i=0;i<taille;i++)
- {
- attName.options[attName.options.length] = new Option(tabid[i]+":"+tab[i],tabtype[i]+":"+tabid[i]+":"+tab[i]);
-}
-
-
-<!--**************methods-->
-
-        var tableSizeMethod=0;
-            var nbMethod=0;
-
-            var tabM=new Array();
-            var tabIdM=new Array();
-             for(i=0;i<10000000;i++)
-
-             {
-             tabM[i]="";
-             tabIdM[i]="";
-             }
-
-            ch=result.statM;
-            chaine="";
-            methName="";
-            i=0;
-            while(ch!= "" ){
-
-                   chaine=ch.substr(0,ch.indexOf("/"));
-
-                   tabM[i]=chaine.split(',')
-                   <!--alert(tabM[i])-->
-                   <!--alert(tab[i])-->
-                   index=chaine.indexOf(',')
-                   methName=methName+chaine.substr(0,index)+'.';
-
-
-
-                    ch=ch.substr(ch.indexOf("/")+1) ;
-                    i++;
-                    }
-
-            ch=result.idMeth;
-
-            chaineIdM="";
-            methId="";
-            i=0;
-            while(ch!= "" ){
-
-                   chaineIdM=ch.substr(0,ch.indexOf("/"));
-
-                   tabIdM[i]=chaineIdM.split(',')
-                   <!--alert(tabM[i])-->
-                   <!--alert(tab[i])-->
-                   index=chaineIdM.indexOf(',')
-                   methId=methId+chaineIdM.substr(0,index)+'.';
-
-
-
-                    ch=ch.substr(ch.indexOf("/")+1) ;
-                    i++;
-                    }
-
-
-                    taille=i;
 
  methName = document.getElementById('methName');
- methName.size = taille;
- for(i=0;i<taille;i++)
- {
- methName.options[methName.options.length] = new Option(tabIdM[i]+":"+tabM[i], tabIdM[i]+":"+tabM[i]);
+
+MNGT=result.MNGT;
+pre=result.pre;
+public=result.public;
+operation = document.getElementById('operationS');
+
+
+if (associationSelected=="MNGT")
+{
+
+     <!--****pour afficher la liste des attributs adéquate-->
+
+    listAs=result.ch1
+    listMeth=result.ch2
+
+    nbatt=result.nbatt
+    nbmeth=result.nbmeth
+    listAssociation=listAs.split("\n")
+    nb=nbChar(listAs,"\n");
+
+    listAssociationM=listMeth.split("\n")
+    nba=parseInt(nbatt)
+    nbm=parseInt(nbmeth)
+    resM=nba+nbm
+    LesMethodes=''
+
+     for(var i =nba ,l =resM ; i<l;i++ )
+    {
+       LesMethodes=LesMethodes.concat(listAssociationM[i])
+        LesMethodes=LesMethodes.concat('\n')
+
+    }
+    methods=LesMethodes.split('\n')
+
+    for(var i = 0 ,l = nb; i<l;i++ )
+
+
+    {
+
+
+       index=listAssociation[i].indexOf("=")
+        <!--alert(listAssociation[i])-->
+
+       att_name=listAssociation[i].substr(0,index)
+
+       indexx=listAssociation[i].indexOf("|")
+       association_op=listAssociation[i].substr(index+1)
+       association=association_op.split("|")
+
+
+       op_avai=(association[0].split(':'))[1]
+
+
+
+
+
+
+       if ((op_avai.indexOf("Get"))!=-1)
+       {
+       listAvailAttGet=listAvailAttGet.concat(att_name);
+       listAvailAttGet=listAvailAttGet.concat(',');
+
+       }
+
+
+
+       if ((op_avai.indexOf("Set"))!=-1)
+       {
+
+
+       listAvailAttSet=listAvailAttSet.concat(att_name);
+       listAvailAttSet=listAvailAttSet.concat(',');
+
+       }
+
+       else if ((op_avai.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+       }
+       else {
+
+       }
+
+
+
+
+
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avai.indexOf(operation.options[z].value)!=-1)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+
+    }
+
+
+<!--****Les methods-->
+
+for(var i = 0 ,l = nbm; i<l;i++ )
+
+
+    {
+
+
+       index=methods[i].indexOf("=")
+
+
+       meth_name=methods[i].substr(0,index)
+
+       indexx=methods[i].indexOf("|")
+       association_op=methods[i].substr(index+1)
+       association=association_op.split("|")
+
+       op_avaiM=(association[0].split(':'))[1]
+
+      if ((op_avaiM.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+
+       }
+       else{}
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avaiM==operation.options[z].value)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
 }
 
 
 
 
-          }
+
+
+    <!--fin-->
+
+
+
+
+
+
+
+}
+
+    if (associationSelected=="pre")
+
+    {
+
+
+     <!--****pour afficher la liste des attributs adéquate-->
+
+    listAs=result.ch1
+    listMeth=result.ch2
+
+    nbatt=result.nbatt
+    nbmeth=result.nbmeth
+    listAssociation=listAs.split("\n")
+    nb=nbChar(listAs,"\n");
+
+    listAssociationM=listMeth.split("\n")
+    nba=parseInt(nbatt)
+    nbm=parseInt(nbmeth)
+    resM=nba+nbm
+    LesMethodes=''
+     for(var i =nba ,l =resM ; i<l;i++ )
+    {
+       LesMethodes=LesMethodes.concat(listAssociationM[i])
+        LesMethodes=LesMethodes.concat('\n')
+
+    }
+    methods=LesMethodes.split('\n')
+
+
+
+
+
+
+    for(var i = 0 ,l = nb; i<l;i++ )
+
+
+    {
+
+
+       index=listAssociation[i].indexOf("=")
+
+
+       att_name=listAssociation[i].substr(0,index)
+
+       indexx=listAssociation[i].indexOf("|")
+       association_op=listAssociation[i].substr(index+1)
+
+       association=association_op.split("|")
+
+       op_avai=(association[2].split(':'))[1]
+       alert(op_avai)
+
+
+
+
+
+       if ((op_avai.indexOf("Get"))!=-1)
+       {
+       listAvailAttGet=listAvailAttGet.concat(att_name);
+       listAvailAttGet=listAvailAttGet.concat(',');
+
+       }
+
+
+      if ((op_avai.indexOf("Set"))!=-1)
+       {
+
+       listAvailAttSet=listAvailAttSet.concat(att_name);
+       listAvailAttSet=listAvailAttSet.concat(',');
+
+       }
+
+
+       else {
+
+       }
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avai.indexOf(operation.options[z].value)!=-1)
+           {
+
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+
+    }
+<!--****Les methods-->
+
+for(var i = 0 ,l = nbm; i<l;i++ )
+
+
+    {
+
+
+       index=methods[i].indexOf("=")
+
+
+       meth_name=methods[i].substr(0,index)
+
+       indexx=methods[i].indexOf("|")
+       association_op=methods[i].substr(index+1)
+       association=association_op.split("|")
+
+       op_avaiM=(association[2].split(':'))[1]
+
+
+      if ((op_avaiM.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+
+       }
+       else{}
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avaiM.indexOf(operation.options[z].value)!=-1)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+}
+
+    <!--fin-->
+
+    }
+
+ if (associationSelected=="Public")
+
+        {
+          <!--****pour afficher la liste des attributs adéquate-->
+
+    listAs=result.ch1
+    listMeth=result.ch2
+
+    nbatt=result.nbatt
+    nbmeth=result.nbmeth
+    listAssociation=listAs.split("\n")
+    nb=nbChar(listAs,"\n");
+
+    listAssociationM=listMeth.split("\n")
+    nba=parseInt(nbatt)
+    nbm=parseInt(nbmeth)
+    resM=nba+nbm
+    LesMethodes=''
+
+     for(var i =nba ,l =resM ; i<l;i++ )
+    {
+       LesMethodes=LesMethodes.concat(listAssociationM[i])
+        LesMethodes=LesMethodes.concat('\n')
+
+    }
+    methods=LesMethodes.split('\n')
+
+
+    for(var i = 0 ,l = nb; i<l;i++ )
+
+
+    {
+
+
+       index=listAssociation[i].indexOf("=")
+
+
+       att_name=listAssociation[i].substr(0,index)
+
+       indexx=listAssociation[i].indexOf("|")
+       association_op=listAssociation[i].substr(index+1)
+       association=association_op.split("|")
+
+
+       op_avai=(association[1].split(':'))[1]
+
+
+
+
+       if ((op_avai.indexOf("Get"))!=-1)
+       {
+       listAvailAttGet=listAvailAttGet.concat(att_name);
+       listAvailAttGet=listAvailAttGet.concat(',');
+
+       }
+
+
+      if ((op_avai.indexOf("Set"))!=-1)
+       {
+
+       listAvailAttSet=listAvailAttSet.concat(att_name);
+       listAvailAttSet=listAvailAttSet.concat(',');
+
+       }
+
+
+       else {
+
+       }
+
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avai.indexOf(operation.options[z].value)!=-1)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+
+    }
+
+<!--****Les methods-->
+
+for(var i = 0 ,l = nbm; i<l;i++ )
+
+
+    {
+        <!--alert(methods[i])-->
+
+       index=methods[i].indexOf("=")
+
+
+       meth_name=methods[i].substr(0,index)
+
+       indexx=methods[i].indexOf("|")
+       association_op=methods[i].substr(index+1)
+       association=association_op.split("|")
+
+       op_avaiM=(association[1].split(':'))[1]
+
+
+      if ((op_avaiM.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+
+       }
+       else{}
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avaiM.indexOf(operation.options[z].value)!=-1)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+}
+
+
+
+
+}
+
+    <!--fin-->
+
+}
+
+
+else if (check=="2")
+
+{
+
+
+
+
+}
+else
+
+{
+alert(check)
+document.getElementById("f").style.visibility="visible";
+document.getElementById("a").style.visibility="hidden"
+<!--    sans droitdddddddddddddddddd -->
+ operation = document.getElementById('operationS');
+  for(var z = 1 ,a = operation.options.length; z<a;z++ )
+  {
+    document.getElementById(operation.options[z].value).disabled = false;
+   }
+attributes=result.att;
+methodesS=result.meth;
+
+
+
+
+
+
+
+<!--ssssssssssssssssssssfin-->
+}
+
+}
+
 
 
       });
@@ -410,12 +942,12 @@ $.ajax({
     })(jQuery)
     <!--**********************************************-->
 
-if (document.getElementById('action').value=="ACTION")
+if (document.getElementById('action1').value=="ACTION")
 {
 
 document.getElementById("methName").disabled = false;
 }
-else if (document.getElementById('action').value=="SET" | document.getElementById('action').value=="GET")
+else if (document.getElementById('action1').value=="SET" | document.getElementById('action1').value=="GET")
 
 {
 document.getElementById("attName").disabled = false;
@@ -423,9 +955,10 @@ document.getElementById("attName").disabled = false;
 function getForm(value)
 {
 
-document.getElementById("methName").disabled = true;
-action=document.getElementById('action').value
-if (action=="GET")
+<!--document.getElementById("methName").disabled = true;-->
+action1=document.getElementById('operationS').value
+
+if (action1=="Get")
 {
 
 var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success"> GET Settings</span></h2>',
@@ -438,7 +971,7 @@ var html = [' <center> <table class="table" id="values"><tr> <h2><span class="la
 
 <!--document.getElementById('table').innerHTML =html;-->
 }
-else if (action=="SET")
+else if (action1=="Set")
 {
 var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success"> SET Settings</span></h2>',
 '</tr><tr><td><center><label> Step Id </label></center></td> <td><input class="form-control" type="text" name="stepId" id="stepId"></td>',
@@ -454,10 +987,19 @@ var html = [' <center> <table class="table" id="values"><tr> <h2><span class="la
 '</td>',
 '</tr></table></center><center><input type="submit" value="GenerateXML" class="btn btn-success"></center>',
 ].join('');
+
+
 }
 
 document.getElementById('table').innerHTML =html
 }
+<!--/***-->
+<!--$("#attName").change(function() {-->
+  <!--var id = $(this).children(":selected").attr("id");-->
+<!--});-->
+
+<!--/****-->
+
 
 
 
@@ -483,7 +1025,21 @@ var html = [' <center> <table class="table" id="values"><tr> <h2><span class="la
 
 document.getElementById('table').innerHTML =html
 }
-if (document.getElementById('action').value=="WAIT"){
+
+    <!--**********************************************-->
+
+function getOperation(value)
+{
+
+attName = document.getElementById('attName');
+methName= document.getElementById('methName');
+check= document.getElementById('check').value;
+<!--wait-->
+
+if (value=="Wait")
+    {
+document.getElementById('attName').disabled=true;
+
 var html = [' <center> <table class="table" id="values"><tr> <h2><span class="label label-success"> TimeSleep Settings</span></h2>',
 '</tr><tr><td><center><label> Step Id </label></center></td> <td><input class="form-control" type="text" name="stepId" id="stepId"></td>',
 ' <td><center><label>Input value</label></center></td><td><input class="form-control" type="text" name="inValue" id="inValue"></td>',
@@ -494,13 +1050,213 @@ var html = [' <center> <table class="table" id="values"><tr> <h2><span class="la
 
 '</tr></table></center><center><input type="submit" value="GenerateXML" class="btn btn-success"></center>',
 ].join('');
-document.getElementById('wait').innerHTML =html
+document.getElementById('waitt').innerHTML =html
+
+
+
+    }
+<!---->
+
+
+
+if (check=="1")
+{
+
+
+
+    if (value=="Get")
+    {
+
+    longeur=listAvailAttGet.length;
+    available=listAvailAttGet;
+    for(var i = 0 ,l =(available.split(',')).length-1; i< l;i++ ){
+        val=available.split(',')[i]
+        valName=val.split(':')[0]
+        valtype=val.split(':')[1]
+        valId=val.split(':')[2]
+
+        attName.options[attName.options.length] = new Option(valName,valName+":"+valtype+":"+valId);
+
+
+
+
+    }
+    }
+    else if (value=="Set")
+    {
+
+    longeur=listAvailAttSet.length;
+    available=listAvailAttSet;
+
+    for(var i = 0 ,l =(available.split(',')).length-1; i< l;i++ ){
+        val=available.split(',')[i]
+        valName=val.split(':')[0]
+        valtype=val.split(':')[1]
+        valId=val.split(':')[2]
+        attName.options[attName.options.length] = new Option(valName,valName+":"+valtype+":"+valId);
+
+
+
+
+    }
+    }
+    else if (value=="Action")
+    {
+
+     document.getElementById('attName').disabled=true;
+     document.getElementById('methName').disabled=false;
+    longeur=listAvailMethAction.length;
+    id=method_id.split(',')
+    available=listAvailMethAction;
+    for(var i = 0 ,l =(available.split(',')).length-1; i< l;i++ ){
+        methName.options[methName.options.length] = new Option(available.split(',')[i],available.split(',')[i]+":"+id[i]);
+
+
+
+
+    }
+
+
+    }
 
 }
 
-    <!--**********************************************-->
+else if(check=="2")
+{
+
+}
+else
+
+{
+
+     if (value=="Get")
+        {
+
+        longeur=attributes.length;
+        available=attributes;
+        for(var i = 0 ,l =(available.split(',')).length-1; i< l;i++ ){
+        val=available.split(',')[i]
+        valName=val.split(':')[0]
+        valtype=val.split(':')[1]
+        valId=val.split(':')[2]
+            attName.options[attName.options.length] = new Option(valName,valName+":"+valtype+":"+valId);
+
+        }
+
+}
+else if (value=="Set")
+    {
+
+    longeur=attributes.length;
+    available=attributes;
+
+    for(var i = 0 ,l =(available.split(',')).length-1; i< l;i++ ){
+        val=available.split(',')[i]
+        valName=val.split(':')[0]
+        valtype=val.split(':')[1]
+        valId=val.split(':')[2]
+        attName.options[attName.options.length] = new Option(valName,valName+":"+valtype+":"+valId);
 
 
+    }
+    }
+else if (value=="Action")
+    {
+     document.getElementById('attName').disabled=true;
+     document.getElementById('methName').disabled=false;
+    longeur=methodesS.length;
+    available=methodesS;
+    id=method_id.split(',')
+
+    for(var i = 0 ,l =(available.split(',')).length-1; i< l;i++ ){
+        methName.options[methName.options.length] = new Option(available.split(',')[i],available.split(',')[i]+":"+id[i]);
+
+
+
+
+    }
+
+
+    }
+
+
+
+}
+
+
+}
+
+
+<!--*******-->
+function getImageTransfert(value)
+{
+if (value!="ImageTransfer"){
+alert("choose an imageTrasfer Object please")
+}
+else
+{
+document.getElementById("file").style.visibility="visible";
+document.getElementById("active").style.visibility="visible";
+
+}
+}
+
+function getActiveFirmware(value)
+{
+if (value!="ActiveAPPFirmware"){
+alert("choose an ActiveAPPFirmware Object please")
+}
+else
+{
+document.getElementById("spa").style.visibility="visible";
+document.getElementById("version").style.visibility="visible";
+document.getElementById("firmwareV").style.visibility="visible";
+
+}
+}
+function getFirmwareVersionSignature(value)
+{
+if (value!="ActiveAPPfirmwareversion_crc")
+{
+alert("Choose an ActiveAPPfirmwareVersion_CRC please")
+}
+else
+
+{
+document.getElementById("spaC").style.visibility="visible";
+document.getElementById("crc").style.visibility="visible";
+document.getElementById("b").style.visibility="visible";
+
+}
+
+}
+
+function Controle(value)
+{
+
+if(value.length!=8)
+{
+alert("Signature must contain 8 caracters")
+document.getElementById('crc').value="";
+}
+<!--else if(value.length==8)-->
+<!--{-->
+ <!--&lt;!&ndash;for (var i = 0; i < value.length; i++)&ndash;&gt;-->
+ <!--&lt;!&ndash;{&ndash;&gt;-->
+ <!--&lt;!&ndash;var patt1 = /[A-Fa-f0-9]/g;&ndash;&gt;-->
+ <!--&lt;!&ndash;var result=value[i].match(patt1);&ndash;&gt;-->
+<!--&lt;!&ndash;if (result ==null)&ndash;&gt;-->
+<!--&lt;!&ndash;{&ndash;&gt;-->
+<!--&lt;!&ndash;alert("please re-enter an ACSII signature");&ndash;&gt;-->
+<!--&lt;!&ndash;document.getElementById('crc').value="";&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+ <!--&lt;!&ndash;}&ndash;&gt;-->
+
+
+<!--}-->
+
+}
 
 </script>
 

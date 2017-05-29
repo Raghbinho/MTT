@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2011-12-12T14:30:00">
+<!--5.11-->
+  <object api="DLMS" name="LTE-FW-Location">
+    <dlmsObject logicalName="0;65;44;0;0;255" classId="1" classVersion="0"/>
+    <description>LTE FW Location</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;65;44;0;0;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+       <octetstring name="IPaddress" editable="true" edition="asciiText" type-of-codage="Decoded as ASCII" size="15" default="53;50;46;49;55;46;49;52;50;46;54;50;58;56;48;"/>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dictionnary version="1.0" creationDate="11:55 05/04/2016">
+<!-- 5.4 -->
+  <object api="DLMS" name="ActivityCalendar">
+    <dlmsObject logicalName="0;0;13;0;0;255" classId="20" classVersion="0"/>
+    <description>This object contains the parameters to manage tariff computation depending on current date and time.</description>
+    <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>     
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;13;0;0;255;"/>
+    </attribute>
+	<attribute id="2" name="calendar_name_active" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="calendar_name_active" editable="true" type-of-codage="Decoded as ASCII" size="2" default="48;49;"/>
+    </attribute>
+    <attribute id="3" name="season_profile_active" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="season_profile_active" min="1" max="12" size="1">
+        <struct name="entry" size="3">
+          <octetstring name="season_profile_name" editable="false" type-of-codage="Decoded as Decimal" size="1" default="0;"/>
+          <octetstring name="season_start" editable="true" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;1;1;255;0;0;0;0;255;196;0;"/>
+          <octetstring name="week_name" editable="false" type-of-codage="Decoded as Decimal" size="1" default="0;"/>
+        </struct>
+      </array>
+    </attribute>
+    <attribute id="4" name="week_profile_table_active" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="week_profile_table_active" min="1" max="12" size="1">
+        <struct name="entry" size="8">
+          <octetstring name="week_profile_name" editable="false" type-of-codage="Decoded as Decimal" size="1" default="0;"/>
+          <unsigned8 name="monday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="tuesday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="wednesday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="thursday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="friday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="saturday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="sunday" editable="false" min="0" max="35" default="0"/>
+        </struct>
+      </array>
+    </attribute>
+    <attribute id="5" name="day_profile_table_active" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="day_profile_table_active" min="1" max="36" size="1">
+        <struct name="entry" size="2">
+          <unsigned8 name="day_id" editable="false" min="0" max="35" default="0"/>
+          <array name="subentries" min="1" max="24" size="1">
+            <struct name="subentry" size="3">
+              <octetstring name="start_time" editable="false" edition="time" type-of-codage="Decoded as Decimal" size="4" default="0;0;0;0;"/>
+              <octetstring name="script_logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;10;0;100;255;"/>
+              <unsigned16 name="script_selector" editable="false" min="0" max="65535" default="1"/>
+            </struct>
+          </array>
+        </struct>
+      </array>
+    </attribute>
+    <attribute id="6" name="calendar_name_passive" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <!--
+      <octetstring name="calendar_name_passive" editable="true" type-of-codage="Decoded as ASCII" size="16" default="68;101;102;97;117;108;116;32;99;97;108;101;110;100;97;114;"/>
+      -->
+      <octetstring name="calendar_name_passive" editable="true" type-of-codage="Decoded as ASCII" size="2" default="48;50;"/>
+    </attribute>
+    <attribute id="7" name="season_profile_passive" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="season_profile_passive" min="1" max="12" size="1">
+        <struct name="entry" size="3">
+          <octetstring name="season_profile_name" editable="false" type-of-codage="Decoded as Decimal" size="1" default="0;"/>
+          <octetstring name="season_start" editable="true" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;1;1;255;0;0;0;0;255;196;0;"/>
+          <octetstring name="week_name" editable="true" type-of-codage="Decoded as Decimal" size="1" default="0;"/>
+        </struct>
+      </array>
+    </attribute>
+    <attribute id="8" name="week_profile_table_passive" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="week_profile_table_passive" min="1" max="12" size="3">
+        <struct name="entry" size="8">
+          <octetstring name="week_profile_name" editable="false" type-of-codage="Decoded as Decimal" size="1" default="0;"/>
+          <unsigned8 name="monday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="tuesday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="wednesday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="thursday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="friday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="saturday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="sunday" editable="false" min="0" max="35" default="0"/>
+        </struct>
+		<struct name="entry" size="8">
+          <octetstring name="week_profile_name" editable="false" type-of-codage="Decoded as Decimal" size="1" default="1;"/>
+          <unsigned8 name="monday" editable="false" min="0" max="35" default="1"/>
+          <unsigned8 name="tuesday" editable="false" min="0" max="35" default="1"/>
+          <unsigned8 name="wednesday" editable="false" min="0" max="35" default="1"/>
+          <unsigned8 name="thursday" editable="false" min="0" max="35" default="1"/>
+          <unsigned8 name="friday" editable="false" min="0" max="35" default="1"/>
+          <unsigned8 name="saturday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="sunday" editable="false" min="0" max="35" default="0"/>
+        </struct>
+		<struct name="entry" size="8">
+          <octetstring name="week_profile_name" editable="false" type-of-codage="Decoded as Decimal" size="1" default="2;"/>
+          <unsigned8 name="monday" editable="false" min="0" max="35" default="2"/>
+          <unsigned8 name="tuesday" editable="false" min="0" max="35" default="2"/>
+          <unsigned8 name="wednesday" editable="false" min="0" max="35" default="2"/>
+          <unsigned8 name="thursday" editable="false" min="0" max="35" default="2"/>
+          <unsigned8 name="friday" editable="false" min="0" max="35" default="2"/>
+          <unsigned8 name="saturday" editable="false" min="0" max="35" default="0"/>
+          <unsigned8 name="sunday" editable="false" min="0" max="35" default="0"/>
+        </struct>
+      </array>
+    </attribute>
+    <attribute id="9" name="day_profile_table_passive" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="day_profile_table_passive" min="1" max="36" size="3">
+        <struct name="entry" size="2">
+          <unsigned8 name="day_id" editable="false" min="0" max="35" default="0"/>
+          <array name="subentries" min="1" max="24" size="1">
+            <struct name="subentry" size="3">
+              <octetstring name="start_time" editable="true" edition="time" type-of-codage="Decoded as Decimal" size="4" default="0;0;0;0;"/>
+              <octetstring name="script_logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;10;0;100;255;"/>
+              <unsigned16 name="script_selector" editable="false" min="0" max="65535" default="1"/>
+            </struct>
+          </array>
+        </struct>
+		<struct name="entry" size="2">
+          <unsigned8 name="day_id" editable="false" min="0" max="35" default="1"/>
+          <array name="subentries" min="1" max="24" size="3">
+            <struct name="subentry" size="3">
+              <octetstring name="start_time" editable="true" edition="time" type-of-codage="Decoded as Decimal" size="4" default="0;0;0;0;"/>
+              <octetstring name="script_logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;10;0;100;255;"/>
+              <unsigned16 name="script_selector" editable="false" min="0" max="65535" default="1"/>
+            </struct>
+			<struct name="subentry" size="3">
+              <octetstring name="start_time" editable="true" edition="time" type-of-codage="Decoded as Decimal" size="4" default="7;0;0;0;"/>
+              <octetstring name="script_logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;10;0;100;255;"/>
+              <unsigned16 name="script_selector" editable="false" min="0" max="65535" default="2"/>
+            </struct>
+			<struct name="subentry" size="3">
+              <octetstring name="start_time" editable="true" edition="time" type-of-codage="Decoded as Decimal" size="4" default="21;0;0;0;"/>
+              <octetstring name="script_logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;10;0;100;255;"/>
+              <unsigned16 name="script_selector" editable="false" min="0" max="65535" default="1"/>
+            </struct>
+          </array>
+        </struct>
+		<struct name="entry" size="2">
+          <unsigned8 name="day_id" editable="false" min="0" max="35" default="2"/>
+          <array name="subentries" min="1" max="24" size="3">
+            <struct name="subentry" size="3">
+              <octetstring name="start_time" editable="true" edition="time" type-of-codage="Decoded as Decimal" size="4" default="0;0;0;0;"/>
+              <octetstring name="script_logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;10;0;100;255;"/>
+              <unsigned16 name="script_selector" editable="false" min="0" max="65535" default="1"/>
+            </struct>
+			<struct name="subentry" size="3">
+              <octetstring name="start_time" editable="true" edition="time" type-of-codage="Decoded as Decimal" size="4" default="7;0;0;0;"/>
+              <octetstring name="script_logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;10;0;100;255;"/>
+              <unsigned16 name="script_selector" editable="false" min="0" max="65535" default="2"/>
+            </struct>
+			<struct name="subentry" size="3">
+              <octetstring name="start_time" editable="true" edition="time" type-of-codage="Decoded as Decimal" size="4" default="23;0;0;0;"/>
+              <octetstring name="script_logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;10;0;100;255;"/>
+              <unsigned16 name="script_selector" editable="false" min="0" max="65535" default="1"/>
+            </struct>
+          </array>
+        </struct>
+      </array>
+    </attribute>
+    <attribute id="10" name="activate_passive_calendar_time" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>     
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+<!-- <octetstring name="activate_passive_calendar_time" editable="true" edition="ActivatePassiveCalendarTime" type-of-codage="Decoded as Decimal" size="12" default="255;255;255;255;255;255;255;255;255;128;0;255;"/> -->
+      <octetstring name="activate_passive_calendar_time" editable="true" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;255;255;255;255;255;255;255;128;0;255;"/>
+    </attribute>
+    <!-- execute -->
+    <method id="1" name="activate_passive_calendar" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="activate_passive_calendar" editable="true" min="0" max="0" default="0"/>
+    </method>
+    <method id="2" name="activate_passive_calendar" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="activate_passive_calendar" editable="true" min="0" max="0" default="0"/>
+    </method>
+    
+  </object>
+</dictionnary>

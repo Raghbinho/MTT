@@ -1,0 +1,127 @@
+<script>
+    <Action id="Step3.1_init_firmware_transfer">
+        <data_link name="DLMS_ANY1"/>
+        <function>InitFirmwareUpgrade</function>
+        <ParamAsXml>
+            <InitFirmwareUpgrade>
+                <purpose>Initial APP firmware transferring</purpose>
+                <values>
+                    <value1 description="obj_name">ImageTransfer</value1>
+                    <value2 description="dest_dat">mysite2.rar</value2>
+                </values>
+                <checks>
+                    <checks1 type="execute_result">True</checks1>
+                </checks>
+            </InitFirmwareUpgrade>
+        </ParamAsXml>
+        <result>
+            <ok ret="ok"/>
+            <default ret="nok"/>
+        </result>
+    </Action>
+    <Action id="Step3.2_check_image_transfer_status">
+        <data_link name="DLMS_ANY1"/>
+        <function>ReadRequest</function>
+        <ParamAsXml>
+            <ReadRequest>
+                <purpose>Get status of image transfer</purpose>
+                <Object>
+                    <ObjectName>ImageTransfer</ObjectName>
+                    <AttributeId>6</AttributeId>
+                </Object>
+                <Checks>
+                    <Checks1 type="getting_result">
+                        <enumerated value="1"/>
+                    </Checks1>
+                </Checks>
+            </ReadRequest>
+        </ParamAsXml>
+        <result>
+            <ok ret="ok"/>
+            <default ret="nok"/>
+        </result>
+    </Action>
+    <Action id="Step3.3_download_APP_firmware">
+        <data_link name="DLMS_ANY1"/>
+        <function>FirmwareUpgrade</function>
+        <ParamAsXml>
+            <FirmwareUpgrade>
+                <purpose>Download APP firmware</purpose>
+                <values>
+                    <value1 description="obj_name">ImageTransfer</value1>
+                    <value2 description="dest_dat">mysite2.rar</value2>
+                    <value3 description="pos_start">0</value3>
+                    <value4 description="pos_end">0</value4>
+                </values>
+                <Checks>
+                    <Checks1 type="execute_result">True</Checks1>
+                </Checks>
+            </FirmwareUpgrade>
+        </ParamAsXml>
+        <result>
+            <ok ret="ok"/>
+            <default ret="nok"/>
+        </result>
+        <function>FirmwareActive</function>
+    </Action>
+    <Action id="Step3.4_active_APP_firmware">
+        <data_link name="DLMS_ANY1"/>
+        <ParamAsXml>
+            <FirmwareActive>
+                <purpose>Active the destination firmware version</purpose>
+                <values>
+                    <value1 description="obj_name">ImageTransfer</value1>
+                </values>
+                <Checks>
+                    <Checks1 type="execute_result">True</Checks1>
+                </Checks>
+            </FirmwareActive>
+        </ParamAsXml>
+        <result>
+            <ok ret="ok"/>
+            <default ret="nok"/>
+        </result>
+    </Action>
+    <Action id="Step3.5_get_current_APP_firmware">
+        <data_link name="DLMS_ANY1"/>
+        <function>ReadRequest</function>
+        <ParamAsXml>
+            <ReadRequest>
+                <purpose>get current APP firmware version</purpose>
+                <Object>
+                    <ObjectName>ActiveAPPFirmware</ObjectName>
+                    <AttributeId>2</AttributeId>
+                </Object>
+                <Checks>
+                    <Checks1 test_key_value="key_visiblestring" type="getting_result">0.2</Checks1>
+                </Checks>
+            </ReadRequest>
+        </ParamAsXml>
+        <result>
+            <ok ret="ok"/>
+            <default ret="nok"/>
+        </result>
+    </Action>
+    <Action id="Step3.6_GetFirmwareVersionSignature1">
+        <data_link name="DLMS_ANY1"/>
+        <function>ReadRequest</function>
+        <ParamAsXml>
+            <ReadRequest>
+                <purpose>get Firmware Version Signature1</purpose>
+                <Object>
+                    <ObjectName>ActiveAPPfirmwareversion_crc</ObjectName>
+                    <AttributeId>2</AttributeId>
+                </Object>
+                <Checks>
+                    <Checks1 type="getting_result">
+                        <octetstring name="value" size="8" value="42;45;43;42;31;31;41;33;"/>
+                    </Checks1>
+                </Checks>
+            </ReadRequest>
+        </ParamAsXml>
+        <result>
+            <ok ret="ok"/>
+            <default ret="nok"/>
+        </result>
+    </Action>
+</script>

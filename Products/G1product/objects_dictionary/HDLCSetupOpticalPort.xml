@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2011-12-12T14:30:00">
+<!-- 5.11-->
+  <object api="DLMS" name="HDLCSetup-OpticalPort">
+    <dlmsObject logicalName="0;0;22;0;0;255" classId="23" classVersion="1"/>
+    <description>IEC HDLC setup Optical port</description>
+    <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;22;0;0;255;"/>
+    </attribute>
+    <attribute id="2" name="comm_speed" type="enumerated">
+      <dlmsAttribute allowMultipleReferences="true">
+      <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <enumerated name="comm_speed" min="0" max="4294967295" default="5">
+        <enum code="0" description="300"/>
+        <enum code="1" description="600"/>
+        <enum code="2" description="1200"/>
+        <enum code="3" description="2400"/>
+        <enum code="4" description="4800"/>
+        <enum code="5" description="9600"/>
+        <enum code="6" description="19200"/>
+        <enum code="7" description="38400"/>
+        <enum code="8" description="57600"/>
+        <enum code="9" description="115200"/>
+      </enumerated>
+    </attribute>
+
+    <attribute id="3" name="window_size_transmit" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="true">
+      <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned8 name="window_size_transmit" min="1" max="255" default="1"/>
+    </attribute>
+
+    <attribute id="4" name="window_size_receive" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="true">
+      <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned8 name="window_size_receive" min="1" max="255" default="1"/>
+    </attribute>
+
+    <attribute id="5" name="max_info_field_lenght_transmit" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="true">
+      <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned16 name="max_info_field_lenght_transmit" min="128" max="65535" default="128"/>
+    </attribute>
+
+    <attribute id="6" name="max_info_field_lenght_receive" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="true">
+      <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned16 name="max_info_field_lenght_receive" min="128" max="65535" default="128"/>
+    </attribute>
+
+    <attribute id="7" name="inter_octet_time_out" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="true">
+      <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned16 name="inter_octet_time_out" min="0" max="65535" default="25"/>
+    </attribute>
+
+    <attribute id="8" name="inactivity_time_out" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="true">
+      <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned16 name="inactivity_time_out" min="0" max="65535" default="120"/>
+    </attribute>
+
+    <attribute id="9" name="device_address" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="true">
+      <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned16 name="device_address" min="0" max="65535" default="17"/>
+    </attribute>
+    
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2016-02-25T14:30:00">
+	<object api="DLMS" name="PushSetupInterval_1">
+		<dlmsObject logicalName="0;0;25;9;0;255" classId="40" classVersion="ERROR"/>
+		<description>Push setup - Interval_1
+		</description>
+		<attribute id="1" name="logical_name  " type="octetstring" editable="true">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;25;9;0;255;"/>
+		</attribute>
+		<attribute id="2" name="push_object_list" type="array">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+      <array name="TCP_message" editable="true" size-min="0" size-max="255" size="0"/>
+      <!-- <octetstring name="value" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="17" default="83;84;84;84;84;49;50;51;52;53;54;55;56;57;48;49;52;"/>
+			<array name="push_object_list" size-min="0" size-max="*" editable="true">
+				<struct name="capture_object_definition" size="4" editable="true">
+					<unsigned16 name="class_id" editable="true"/>
+					<octetstring name="logical_name" size="0;0;96;1;1;255" editable="false"/>
+					<integer8 name="attribute_index" editable="true"/>
+					<unsigned16 name="data_index" editable="true"/>
+        </struct>
+        <struct name="capture_object_definition" size="4" editable="true">
+					<unsigned16 name="class_id" editable="true"/>
+					<octetstring name="logical_name" size="0;0;15;0;4;255" editable="false"/>
+					<integer8 name="attribute_index" editable="true"/>
+					<unsigned16 name="data_index" editable="true"/>
+				</struct>
+				
+			</array> test octet string empty -->
+    </attribute>
+		<attribute id="3" name="send_destination_and_method" type="struct">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<struct name="send_destination_and_method" size="3" editable="true">
+				<enumerated name="transport_service" editable="true"/>
+				<octetstring name="destination" size="0" editable="true"/>
+				<enumerated name="message" editable="true"/>
+			</struct>
+		</attribute>
+		<attribute id="4" name="communication_window" type="array">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<array name="communication_window" size-min="0" size-max="*" editable="true">
+				<struct name="window_element" size="2" editable="true">
+					<octetstring name="start_time" size="12" editable="true"/>
+					<octetstring name="end_time" size="12" editable="true"/>
+				</struct>
+			</array>
+		</attribute>
+		<attribute id="5" name="randomisation_start_interval" type="unsigned16">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned16 name="randomisation_start_interval" size="0" default="0" editable="true"/>
+		</attribute>
+		<attribute id="6" name="number_of_retries" type="unsigned8">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned8 name="number_of_retries" editable="true"/>
+		</attribute>
+		<attribute id="7" name="repetition_delay" type="unsigned16">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned16 name="repetition_delay" editable="true"/>
+		</attribute>
+		<method id="1" name="push" type="integer8">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<integer8 name="push" size="0" default="0" editable="false"/>
+		</method>
+	</object>
+</dictionnary>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="18:13 04/04/2016">
+<!-- 5.8 -->
+  <object api="DLMS" name="MBusDiagnostic1">
+    <dlmsObject logicalName="0;4;24;9;1;255" classId="77" classVersion="0"/>
+    <description>M-BUS Diagnostic_Channel4</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>    
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;4;24;9;1;255;"/>
+    </attribute>
+    <attribute id="2" name="received-signal-strength" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>  
+      </dlmsAttribute>
+      <unsigned8 name="received-signal-strength" editable="false" min="0" max="255" default="0"/>
+    </attribute>
+    <attribute id="3" name="channel_Id" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+      </dlmsAttribute>
+      <unsigned8 name="channel_Id" editable="false" min="0" max="255" default="0"/>
+    </attribute>
+    <attribute id="4" name="link_status" type="enumerated">
+	  <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+        <enumerated name="link_status" editable="false" min="0" max="255" default="0"/>   
+    </attribute>
+    <attribute id="5" name="broadcast_frames_counter" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+      </dlmsAttribute>
+      <array name="broadcast_frames_counter" min="1" max="16" size="0"/>
+    </attribute>
+    <attribute id="6" name="transmissions_counter" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/> 
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="transmissions_counter" min="0" max="4294967295" default="0"/>
+    </attribute>
+    <attribute id="7" name="FCS_OK_frames_counter" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/> 
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="FCS_OK_frames_counter" min="0" max="4294967295" default="0"/>
+    </attribute>    
+    <attribute id="8" name="FCS_NOK_frames_counter" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/> 
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="FCS_NOK_frames_counter" min="0" max="4294967295" default="0"/>
+    </attribute>
+    <attribute id="9" name="capture_time" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/> 
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <struct name="value" size="2">
+        <unsigned8 name="attribute_id" editable="true" min="0" max="255" default="0"/>
+        <octetstring name="time_stamp" editable="true" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;255;255;255;255;255;255;0;128;0;255;"/> 
+      </struct> 
+    </attribute>
+    <method id="1" name="reset" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="reset" editable="true" min="-128" max="127" default="0"/>
+    </method>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

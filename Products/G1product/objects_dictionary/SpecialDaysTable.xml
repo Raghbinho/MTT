@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="12:08 05/04/2016">
+	<object api="DLMS" name="SpecialDaysTableImportedPower">
+		<dlmsObject logicalName="0;0;11;0;0;255" classId="11" classVersion="0"/>
+		<description>SpecialDaysTable</description>
+		<attribute id="1" name="logical_name" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;11;0;0;255;"/>
+		</attribute>
+		<attribute id="2" name="entries" type="array">
+			<dlmsAttribute allowMultipleReferences="true">
+		  <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>  
+      <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<array name="entries" size-min="0" size-max="30" size="30">
+				<struct name="entry" size="3" editable="true">
+					<unsigned16 name="index" editable="true" min="0" max="30" default="0"/>
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default ="255;255;1;1;255;" /><!-- type-of-codage="255;255;1;1;255;"/>-->
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>
+				</struct>
+				<struct name="entry" size="3" editable="true">
+					<unsigned16 name="index" editable="true" min="0" max="30" default="1"/>
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="255;255;4;27;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>
+				</struct>
+				<struct name="entry" size="3" editable="true">
+					<unsigned16 name="index" editable="true" min="0" max="30" default="2"/>
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="255;255;12;25;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>
+				</struct>
+				<struct name="entry" size="3" editable="true">
+					<unsigned16 name="index" editable="true" min="0" max="30" default="3"/>
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="255;255;12;26;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>
+				</struct>
+				<struct name="entry" size="3" editable="true">
+					<unsigned16 name="index" editable="true" min="0" max="30" default="4"/>
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;222;4;21;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="5"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;222;5;29;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="6"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;222;6;9;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="7"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;223;4;6;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="8"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;223;5;14;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="9"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;223;5;25;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="10"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;224;3;28;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="11"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;224;5;5;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="12"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;224;5;16;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="13"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;225;4;17;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="14"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;225;5;25;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="15"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;225;6;5;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="16"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;226;4;2;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="17"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;226;5;10;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="18"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;226;5;21;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="19"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;227;4;22;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="20"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;227;5;30;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="21"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;227;6;10;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="22"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;228;4;13;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="23"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;228;5;21;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="24"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;228;5;31;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="25"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;229;4;5;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="26"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;229;5;13;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="27"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;229;5;24;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="28"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;230;4;18;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>                                  
+				</struct>                                                                                     
+				<struct name="entry" size="3" editable="true">                                                
+					<unsigned16 name="index" editable="true" min="0" max="30" default="29"/>                                 
+					<octetstring name="specialday_date" size="5" editable="true" edition="date" default="7;230;5;26;255;"/>
+					<unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>
+				</struct>
+		  </array>
+		</attribute>
+    
+    <method id="1" name="insert" type="struct">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+            <struct name="entry" size="3" editable="true">                                                
+				<unsigned16 name="index" editable="true" min="0" max="30" default="0"/>                                 
+				<octetstring name="specialday_date" size="5" editable="true" edition="date" default="255;255;1;1;255;"/>
+			    <unsigned8 name="day_id" editable="true" min="0" max="9" default="0"/>
+			</struct>
+		</method>
+		<method id="2" name="delete" type="unsigned16">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+      <unsigned16 name="activate_passive_calendar" editable="true" min="0" max="0" default="0"/>
+		</method>
+	</object>
+</dictionnary>

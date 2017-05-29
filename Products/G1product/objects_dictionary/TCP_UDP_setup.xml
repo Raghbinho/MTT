@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="12:06 01/04/2016">
+	<object api="DLMS" name="UdpSetup">
+		<dlmsObject logicalName="0;0;25;0;0;255" classId="41" classVersion="0"/>
+		<description>This object gives the UDP port used to communicate to the DLMS application stack.
+		</description>
+		<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;25;0;0;255;"/>
+    </attribute>
+    <attribute id="2" name="UDP_port" type="unsigned16">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned16 name="UDP_port" size="0" default="4059" editable="false" min="0" max="65535"/>
+		</attribute>
+		<attribute id="3" name="IP_reference" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<octetstring name="IP_reference" size="6" default="0;0;25;1;0;255;" editable="true"/>
+      <!--     taille de ladresse IP de reference pas coherente size attendu 4  		-->
+		</attribute>
+    <attribute id="4" name="MSS" type="unsigned16">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned16 name="MSS" size="0" default="576" editable="true" min="40" max="65535"/>
+		</attribute>
+    <attribute id="5" name="nb_of_sim_conn" type="unsigned8">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned8 name="nb_of_sim_conn" size="0" default="1" editable="false" min="0" max="255"/>
+      <!-- valeur 1 au carre selon spec-->
+		</attribute>
+    <attribute id="6" name="inactivity_time_out" type="unsigned16">
+			<dlmsAttribute allowMultipleReferences="false">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+			</dlmsAttribute>
+			<unsigned16 name="inactivity_time_out" size="0" default="300" editable="true" min="0" max="65535"/>
+		</attribute>
+	</object>
+</dictionnary>

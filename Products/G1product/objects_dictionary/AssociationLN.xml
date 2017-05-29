@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2011-12-12T14:30:00">
+<!-- 5.1 -->
+  <object api="DLMS" name="Association LN">
+    <dlmsObject logicalName="0;0;40;0;0;255" classId="15" classVersion="1"/>
+    <description>This object models the current application association established between the meter and the client.</description>
+    <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>     
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;40;0;0;255;"/>
+    </attribute>
+    <attribute id="2" name="object_list" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <array name="object_list" min="0" max="9999">
+        <struct name="object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="0"/>
+          <unsigned8 name="version" min="0" max="255" default="0"/>
+          <octetstring name="logical_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="255;255;255;255;255;255;"/>
+          <struct name="access_rights" size="2">
+            <array name="attributes_access" min="0" max="9999">
+              <struct name="attribute_access" size="3">
+                <integer8 name="attribute_id" min="-128" max="127" default="0"/>
+                <enumerated name="access_mode" editable="false" min="0" max="6" default="0">
+                  <enum code="0" description="NO_ACCESS"/>
+                  <enum code="1" description="READ_ONLY"/>
+                  <enum code="2" description="WRITE_ONLY"/>
+                  <enum code="3" description="READ_AND_WRITE"/>
+                  <enum code="4" description="AUTHENTICATED_READ_ONLY"/>
+                  <enum code="5" description="AUTHENTICATED_WRITE_ONLY"/>
+                  <enum code="6" description="AUTHENTICATED_READ_AND_WRITE"/>
+                </enumerated>
+                <null name="access_selectors"/>
+              </struct>
+            </array>
+            <array name="method_access" min="0" max="9999">
+              <struct name="method_access" size="2">
+                <integer8 name="method_id" min="-128" max="127" default="0"/>
+                <enumerated name="access_mode" editable="false" min="0" max="2" default="0">
+                  <enum code="0" description="NO_ACCESS"/>
+                  <enum code="1" description="ACCESS"/>
+                  <enum code="2" description="AUTHENTICATED_ACCESS"/>
+                </enumerated>
+              </struct>
+            </array>
+          </struct>
+        </struct>
+      </array>
+    </attribute>
+    <attribute id="3" name="associated_partners_id" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>      
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <struct name="associated_partners_id" size="2">
+        <integer8 name="client_SAP" min="0" max="127" default="0"/>
+        <unsigned16 name="server_SAP" min="0" max="16383" default="0"/>
+      </struct>
+    </attribute>
+    <attribute id="4" name="application_context_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="application_context_name" editable="false" type-of-codage="Decoded as Decimal" size="7" default="255;255;255;255;255;255;255;"/>
+    </attribute>
+    <attribute id="5" name="xDLMS_context_info" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>    
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <struct name="xDLMS_context_info" size="6">
+        <bitstring name="conformance" editable="false" type-of-codage="Decoded as Decimal" size="24" default="001A1F"/>
+        <unsigned16 name="max_receive_pdu_size" min="0" max="65535" default="1024"/>
+        <unsigned16 name="max_send_pdu_size" min="0" max="65535" default="1024"/>
+        <unsigned8 name="dlms_version_number" min="0" max="255" default="2"/>
+        <integer8 name="quality_of_service " min="-127" max="127" default="0"/>
+        <octetstring name="cyphering_info" editable="false" type-of-codage="Decoded as Decimal" size="6" default="255;255;255;255;255;255;"/>
+      </struct>
+    </attribute>
+    <attribute id="6" name="authentication_mechanism_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="authentication_mechanism_name" editable="false" type-of-codage="Decoded as Decimal" size="6" default="255;255;255;255;255;255;"/>
+    </attribute>    
+    <attribute id="7" name="LLS_secret" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="true" multicast="false"/>    
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="LLS_secret" editable="false" type-of-codage="Decoded as Decimal" size="8" default="255;255;255;255;255;255;255;255;"/>
+    </attribute>   
+    <attribute id="8" name="association_status" type="enumerated">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <enumerated name="association_status" editable="false" min="0" max="2" default="0">
+        <enum code="0" description="NON_ASSOCIATED"/>
+        <enum code="1" description="ASSOCIATION_PENDING"/>
+        <enum code="2" description="ASSOCIATED"/>
+      </enumerated>
+    </attribute>    
+	<attribute id="9" name="security_setup_reference" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="security_setup_reference" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;43;0;0;255;"/>
+    </attribute>
+  <!--  -->
+	<method id="1" name="Reply_to_HLS_authentication" type="octetstring">
+	    <dlmsAttribute allowMultipleReferences="false">
+	        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>
+	        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+	        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+	    </dlmsAttribute>
+		<octetstring name="Reply_to_HLS_authentication" editable="false" type-of-codage="Decoded as Decimal" size="17" default="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;" />
+	</method>
+	<method id="2" name="Change_HLS_secret" type="octetstring">
+	    <dlmsAttribute allowMultipleReferences="false">
+	        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>
+	        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+	        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+	    </dlmsAttribute>
+		<octetstring name="Change_HLS_secret" editable="false" type-of-codage="Decoded as Decimal" size="8" default="255;255;255;255;255;255;255;255;"/>
+	</method>	
+  </object>
+</dictionnary>

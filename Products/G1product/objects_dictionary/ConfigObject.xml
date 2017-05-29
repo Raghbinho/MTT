@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2011-12-12T14:30:00">
+<!-- 5.2 -->
+  <object api="DLMS" name="ConfigObject">
+    <dlmsObject logicalName="0;1;94;31;3;255" classId="1" classVersion="0"/>
+    <description>ConfigObject</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;1;94;31;3;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <struct name="value" size="1">
+          <bitstring name="Flags" editable="true" size="16" default="0200"/>
+      </struct>                                                                                                                          
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

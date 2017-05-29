@@ -3,7 +3,7 @@
     <function>WriteRequest</function>
     <paramAsXml>
         <WriteRequest>
-            <purpose>purpose1</purpose>
+            <purpose>purpose0</purpose>
             <object>
                 <objectName>file1</objectName>
                 <AttributID>6</AttributID>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2015-08-15T14:30:00">
+	<object api="DLMS" name="InstantaneousreapparentPower(S-)Total">
+		<dlmsObject logicalName="1;0;10;7;0;255" classId="3" classVersion="0"/>
+		<description>InstantaneousapparentPower(Q-)total</description>
+		<attribute id="1" name="logical_name" type="octetstring">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+                <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+                <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="1;0;10;7;0;255;"/>
+		</attribute>
+		<attribute id="2" name="value" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+                <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+                <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<unsigned32 name="value" editable="false" default ="0"/>
+		</attribute>
+		<attribute id="3" name="scaler_unit" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <struct name="scaler_unit" size="2">
+        <integer8 name="scaler" editable="false" min="0" max="0" default="0"/>
+        <enumerated name="unit" editable="false" min="28" max="28" default="28">
+          <enum code="28" description="VA"/>
+        </enumerated>
+      </struct>
+    </attribute>
+  </object>
+</dictionnary>

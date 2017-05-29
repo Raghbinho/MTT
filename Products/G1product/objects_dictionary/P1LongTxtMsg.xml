@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="15:43 04/04/2016">
+  <object api="DLMS" name="P1LongTxtMsg">
+    <dlmsObject logicalName="0;0;96;13;0;255" classId="1" classVersion="0"/>
+    <description>P1 Long Text Message </description>
+	  <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;96;13;0;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="value" editable="true" edition="asciiText" type-of-codage="Decoded as ASCII" size="0"/>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="14:39 01/04/2016">
+  <object api="DLMS" name="AMR_Profile_Status_Code_E_meter">
+    <dlmsObject logicalName="0;0;96;10;2;255" classId="1" classVersion="0"/>
+    <description>AMR_Profile_Status_Code_E_meter</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>      
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;96;10;2;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned8 name="value" editable="false" min="0" max="255" default="0">
+        <bitmask value="0x01"> <enum code="1" description="Critical error"/> </bitmask>
+        <bitmask value="0x02"> <enum code="1" description="Clock invalid"/> </bitmask>
+        <bitmask value="0x04"> <enum code="1" description="Data invalid"/> </bitmask>
+        <bitmask value="0x08"> <enum code="1" description="Daylight Saving"/> </bitmask>
+        <bitmask value="0x10"> <enum code="1" description="NA"/> </bitmask>
+        <bitmask value="0x20"> <enum code="1" description="Clock adjusted"/> </bitmask>
+        <bitmask value="0x40"> <enum code="1" description="NA"/> </bitmask>
+        <bitmask value="0x80"> <enum code="1" description="Power down"/> </bitmask>
+      </unsigned8>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="12:06 01/04/2016">
+	<object api="DLMS" name="IpV4Setup">
+		<dlmsObject logicalName="0;0;25;1;0;255" classId="42" classVersion="0"/>
+		<description>This object holds the necessary parameters to set up the IPv4 network layer.
+		</description>
+		<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;25;1;0;255;"/>
+    </attribute>
+    <attribute id="2" name="DL-reference" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="DL_reference port" editable="true" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;25;3;0;255;"/>
+    </attribute>
+    <attribute id="3" name="IP_address" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<unsigned32 name="IP_address" min="0" max="4294967295" default="0" editable="true"/>
+		</attribute>
+		<attribute id="4" name="multicast_IP_address" type="array">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<array name="multicast_IP_address" size-min="0" size-max="20" size="1">
+				<unsigned32 name="IP_address" min="0" max="4294967295" default="0" editable="true"/>
+			</array>
+		</attribute>
+		<attribute id="5" name="IP-options" type="array">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+                <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<array name="IP-options" size-min="0" size-max="255" size="0">
+			  <!-- <struct name="IP_options_element" size="3">
+                <unsigned8 name="IP-Option-Type" editable="true" min="0" max="255" default="130"/>
+                <unsigned8 name="IP-Option-Length" editable="true" min="0" max="255" default="11"/>
+                <octetstring name="IP-Option-Data" editable="true" type-of-codage="Decoded as Decimal" size="6" default="0;0;0;0;0;0;"/>
+              </struct> -->
+      </array>
+		</attribute>
+    <attribute id="6" name="subnet_mask" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<unsigned32 name="subnet_mask" min="0" max="4294967295" default="0" editable="true"/>
+		</attribute>
+    <attribute id="7" name="gateway_IP_address" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<unsigned32 name="gateway_IP_address" min="0" max="4294967295" default="0" editable="true"/>
+		</attribute>
+    <attribute id="8" name="use_DHCP_flag" type="boolean">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<boolean name="use_DHCP_flag" min="0" max="1" default="1" editable="true"/>
+		</attribute>
+    <attribute id="9" name="primary_DNS_address" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<unsigned32 name="primary_DNS_address" min="0" max="4294967295" default="0" editable="true"/>
+		</attribute>
+    <attribute id="10" name="secondary_DNS_address" type="unsigned32">
+			<dlmsAttribute allowMultipleReferences="true">
+				<association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+				<association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+			</dlmsAttribute>
+			<unsigned32 name="secondary_DNS_address" min="0" max="4294967295" default="0" editable="true"/>
+		</attribute>
+  </object>
+</dictionnary>

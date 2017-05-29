@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="12:13 04/04/2016">
+<!-- 5.8 -->
+  <object api="DLMS" name="MBusSetupDev1">
+    <dlmsObject logicalName="00;01;24;1;0;255" classId="72" classVersion="1"/>
+    <description>M-Bus Client setup channel 1</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="00;01;24;1;0;255;"/>
+    </attribute>
+    <attribute id="2" name="mbus_port_reference" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="mbus_port_reference" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="00;00;24;06;00;255;"/>
+    </attribute>
+    <attribute id="3" name="capture_definition" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+	  <array name="capture_objects" min="0" max="6" size="1"> 
+        <struct name="capture_definition_element" size="2">
+		  <octetstring editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" name="data_information_block" default=""/>
+          <octetstring editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" name="value_information_block" default=""/>
+		</struct>
+	  </array>
+    </attribute>
+    <attribute id="4" name="capture_period" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned32 name="capture_period" min="0" max="4294967295" default="0"/>
+    </attribute>
+    <attribute id="5" name="primary_address" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned8 name="primary_address" min="0" max="255" default="0"/>
+    </attribute>
+    <attribute id="6" name="ID_num" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned32 name="ID_num" min="0" max="4294967295" default="0"/>
+    </attribute>
+    <attribute id="7" name="manufacture_id" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned16 name="manufacture_id" min="0" max="65535" default="0"/>
+    </attribute>
+    <attribute id="8" name="version" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned8 name="version" min="0" max="255" default="0"/>
+    </attribute>
+    <attribute id="9" name="device_type" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned8 name="device_type" min="0" max="255" default="0"/>
+    </attribute>
+    <attribute id="10" name="access_num" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned8 name="access_num" min="0" max="255" default="0"/>
+    </attribute>
+    <attribute id="11" name="status" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned8 name="status" min="0" max="255" default="0"/>
+    </attribute>
+    <attribute id="12" name="alarm" type="unsigned8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned8 name="alarm" min="0" max="255" default="0"/>
+    </attribute>
+    <attribute id="13" name="config" type="unsigned16">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned16 name="config" min="0" max="65535" default="99"/>
+    </attribute>      
+    <attribute id="14" name="encryp_key_status" type="enumerated">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <enumerated name="encryp_key_status" editable="false" min="0" max="4" default="0">
+        <enum code="0" description="no_encryp_key"/>
+        <enum code="1" description="encryp_key_set"/>        
+        <enum code="2" description="encryp_key_transfer"/>
+        <enum code="3" description="encryp_key_set_and_transfer"/>
+        <enum code="4" description="encryp_key_in_use"/>  
+        <!--<enum code="5" description="no_encryp_key"/>
+        <enum code="6" description="encryption_key set but not in use by E-meter"/>        
+        <enum code="7" description="encryp_key_transfer"/>
+        <enum code="8" description="encryption_key set and trans-ferred to G-meter and in use by E-meter"/>
+        <enum code="9" description="encryption_key set and in use by E and G-meter"/> -->        
+      </enumerated>
+    </attribute> 
+	
+	
+    <attribute id="255" name="FUAK status" type="enumerated">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <enumerated name="encryp_key_status" editable="false" min="0" max="3" default="0">
+        <enum code="0" description="FUAK status unknown"/>
+        <enum code="1" description="FUAK received by E-meter"/>        
+        <enum code="2" description="FUAK accepted by G-meter"/>
+        <enum code="3" description="FUAK revoked by G-meter"/>          
+      </enumerated>
+    </attribute>     
+
+  <method id="2" name="deinstall" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="deinstall" editable="true" min="-128" max="127" default="0"/>
+  </method>
+	<method id="3" name="capture" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="capture" editable="true" min="-128" max="127" default="0"/>
+  </method>
+  <method id="4" name="reset_alarm" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="reset_alarm" editable="true" min="-128" max="127" default="0"/>
+  </method>  
+    <!-- <method id="5" name="synch_clock" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="synch_clock" editable="true" min="-128" max="127" default="0"/>
+  </method> -->
+	<method id="7" name="set_encryption_key" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="set_encryption_key" editable="true" min="-128" max="127" default="0"/>
+  </method>
+  <method id="8" name="transfer_key" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="transfer_key" editable="true" min="-128" max="127" default="0"/>
+  </method>
+  <method id="255" name="transfer_FUAK" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="transfer_FUAK" editable="true" min="-128" max="127" default="0"/>
+  </method>
+  <method id="254" name="Detail_Info_Version" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>        
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <integer8 name="Detail_Info_Version" editable="true" min="-128" max="127" default="0"/>
+  </method>
+
+
+
+  
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

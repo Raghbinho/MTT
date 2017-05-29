@@ -1,1 +1,20 @@
-<action description="" id=""><data_link name="DLMS_ANY1" /><function>ReadRequest</function><paramAsXml><ReadRequest><purpose /><object><objectName>file1</objectName><AttributID>5</AttributID></object><checks><checks1 type="execute_result"><octetstring name="daylight_savings_begin" value="" /></checks1></checks></ReadRequest></paramAsXml><result><ok ret="ok" /><default ret="nok" /></result></action>
+<action description="f" id="f">
+    <data_link name="DLMS_ANY1"/>
+    <function>ActionRequest</function>
+    <paramAsXml>
+        <ActionRequest>
+            <purpose>f</purpose>
+            <object>
+                <objectName>Clock</objectName>
+                <methodID>image_activate</methodID>
+            </object>
+            <checks>
+                <checks1 type="execute_result">False</checks1>
+            </checks>
+        </ActionRequest>
+    </paramAsXml>
+    <result>
+        <ok ret="ok"/>
+        <default ret="nok"/>
+    </result>
+</action>

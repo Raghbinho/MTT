@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="13:34 04/04/2016">
+<!-- 5.7 -->
+  <object api="DLMS" name="AlarmRegister">
+    <dlmsObject logicalName="0;0;97;98;0;255" classId="1" classVersion="0"/>
+    <description>contains alarms set by the meter</description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;97;98;0;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="unsigned64">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>  
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <unsigned64 name="value" editable="false" min="0" max="18446744073709551616" default="0">
+        <bitmask value="0x00000001"> <enum code="1" description="Clock Invalid"/> </bitmask>
+        <bitmask value="0x00000002"> <enum code="1" description="Replace battery"/> </bitmask>
+        <bitmask value="0x00000004"> <enum code="1" description="Power Up"/> </bitmask>
+        <bitmask value="0x00000100"> <enum code="1" description="Program memory error"/> </bitmask>
+        <bitmask value="0x00000200"> <enum code="1" description="RAM memory error"/> </bitmask>
+        <bitmask value="0x00000400"> <enum code="1" description="NV memory error"/> </bitmask>
+        <bitmask value="0x00000800"> <enum code="1" description="Measure System error"/> </bitmask>
+        <bitmask value="0x00001000"> <enum code="1" description="Watchdog error"/> </bitmask>
+        <bitmask value="0x00002000"> <enum code="1" description="Fraud attempt"/> </bitmask>
+        <bitmask value="0x00010000"> <enum code="1" description="Communication error M-Bus channel 1"/> </bitmask>
+        <bitmask value="0x00020000"> <enum code="1" description="Communication error M-Bus channel 2"/> </bitmask>
+        <bitmask value="0x00040000"> <enum code="1" description="Communication error M-Bus channel 3"/> </bitmask>
+        <bitmask value="0x00080000"> <enum code="1" description="Communication error M-Bus channel 4"/> </bitmask>
+        <bitmask value="0x00100000"> <enum code="1" description="Fraud attempt M-Bus channel 1"/> </bitmask>
+        <bitmask value="0x00200000"> <enum code="1" description="Fraud attempt M-Bus channel 2"/> </bitmask>
+        <bitmask value="0x00400000"> <enum code="1" description="Fraud attempt M-Bus channel 3"/> </bitmask>
+        <bitmask value="0x00800000"> <enum code="1" description="Fraud attempt M-Bus channel 4"/> </bitmask>
+        <bitmask value="0x01000000"> <enum code="1" description="New M-Bus device discovered channel 1"/> </bitmask>
+        <bitmask value="0x02000000"> <enum code="1" description="New M-Bus device discovered channel 2"/> </bitmask>
+        <bitmask value="0x04000000"> <enum code="1" description="New M-Bus device discovered channel 3"/> </bitmask>
+        <bitmask value="0x08000000"> <enum code="1" description="New M-Bus device discovered channel 4"/> </bitmask>
+      </unsigned64>
+    </attribute>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->

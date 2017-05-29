@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2011-12-12T14:30:00">
+<!-- 5.8 -->
+  <object api="DLMS" name="LoadProfileDefinable">
+    <dlmsObject logicalName="0;1;94;31;6;255" classId="7" classVersion="1"/>
+    <description>This object contains the data for the load profiles definable </description>
+	<attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>      
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;1;94;31;6;255;"/>
+    </attribute>
+    <attribute id="2" name="buffer" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>      
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <getOptions dateSelectionSupport="true"/>
+      <array name="buffer" size="1">
+         <struct name="entry" size="1">
+				 <octetstring name="clock" editable="false" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="255;255;255;255;255;255;255;255;255;80;00;255;"/>          
+         </struct>
+      </array>
+    </attribute>
+    <attribute id="3" name="capture_objects" type="array">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>   
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/>      
+      </dlmsAttribute>
+      <array name="capture_objects" min="1" max="22" size="7">
+        <struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="8"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="0;0;1;0;0;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+        <struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="3"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="1;0;32;7;00;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+        <struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="3"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="1;0;32;25;0;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+        <struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="3"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="1;0;52;7;0;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+        <struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="3"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="1;0;52;25;0;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+        <struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="3"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="1;0;72;7;0;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+        <struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="3"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="1;0;72;25;0;255;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="2"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct>
+      </array>
+    </attribute>
+    <attribute id="4" name="capture_period" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="capture_period" min="0" max="4294967295" default="600"/>
+    </attribute>
+    <attribute id="5" name="sort_method" type="enumerated">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>       
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <enumerated name="sort_method" editable="false" min="1" max="6" default="1">
+        <enum code="1" description="fifo (first in first out)"/>
+        <!--
+        <enum code="2" description="lifo (last in first out)"/>
+        <enum code="3" description="largest"/>
+        <enum code="4" description="smallest"/>
+        <enum code="5" description="nearest_to_zero"/>
+        <enum code="6" description="farest_from_zero"/>
+        -->
+      </enumerated>    
+    </attribute>
+    <attribute id="6" name="sort_object" type="struct">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>      
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+		<struct name="capture_object" size="4">
+          <unsigned16 name="class_id" min="0" max="65535" default="0"/>
+          <octetstring name="obis_code" editable="false" type-of-codage="Decoded as Decimal" size="6" default="00;00;00;00;00;00;"/>
+          <integer8 name="attribute_index" editable="false" min="-128" max="127" default="0"/>
+          <unsigned16 name="data_index" editable="false" min="0" max="65535" default="0"/>
+        </struct> 
+      
+        
+    </attribute>
+    <attribute id="7" name="entries_in_use" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>     
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="entries_in_use" min="0" max="4294967295" default="0"/>
+    </attribute>
+    <attribute id="8" name="profile_entries" type="unsigned32">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get/Set" unicast="true" broadcast="false" multicast="false"/>      
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <unsigned32 name="profile_entries" min="0" max="960" default="960"/>
+    </attribute>
+    <method id="1" name="reset" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>     
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <integer8 name="reset" editable="true" min="-128" max="127" default="0"/>
+    </method>
+	<method id="2" name="capture" type="integer8">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Action" unicast="true" broadcast="false" multicast="false"/>     
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="pre" id="102" operations="-" unicast="true" broadcast="false" multicast="false"/> 
+      </dlmsAttribute>
+      <integer8 name="capture" editable="true" min="-128" max="127" default="0"/>
+    </method>
+  </object>
+</dictionnary>
+<!--  END OF FILE -->
