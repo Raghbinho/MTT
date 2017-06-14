@@ -6,8 +6,9 @@
 <head>
 
     <style>
+    /*<!--.col-lg-4{position:relative;min-height:1px;padding-left:0px;padding-right:0px;width:27%}-->*/
          .col-md-9 {
-    width: 73%;
+    width: 65%;
     .classInput{
            width: 50%;
           }
@@ -23,13 +24,14 @@
     <script src="../static/js/easyTree.min.js"></script>
     <!--<script src="../static/js/bootstrap.min.js"></script>-->
     <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+    <link rel="script" href="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"/>
 </head>
 <body>
 {% csrf_token %}
 <p class="bs-component">
 <div class="row">
     <div class="container">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <div class="panel panel-primary">
                 <center>
                     <h3 class="text-success">Objects list</h3>
@@ -239,6 +241,13 @@
 </div>
 </p>
 <script src="../static/js/generateDictionary.js"></script>
+ <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>-->
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script>
 $(document).ready(
 
@@ -306,8 +315,11 @@ var json = JSON.stringify(tagId)
           url: "/update/",
           data:  { 'parameter[]' : json , csrfmiddlewaretoken:'{{csrf_token}}' },
             success: function(result) {
-            alert('success');
-            }
+                    bootbox.alert({
+                        message: "<center><h1>Dictionary Updated!</h1></center>",
+                        size: 'small'
+                    });
+                 }
         });
 }
 
@@ -400,6 +412,7 @@ document.getElementById('primaryButton').click();
 product = document.getElementById("DictionaryClass").options[document.getElementById("DictionaryClass").selectedIndex].text;
 classNum = document.getElementById("DictionaryClassNum").options[document.getElementById("DictionaryClassNum").selectedIndex].text;
 obisCode = document.getElementById("obisCode").value;
+<!--alert(obisCode);-->
 Description = document.getElementById("Descrip").value;
 version = document.getElementById("dictVersion").value;
 textareaContent2  = $("#textareaContent2").text();
@@ -413,7 +426,7 @@ $("#DownloadButton").attr('data-target', '#myModal');
           type: "POST",
           cache: true,
           url: "/generateXML/",
-          data:  { methods1 : methods, checks : choices, product : product, classNum : classNum, textareaContent3: textareaContent3 },
+          data:  { methods1 : methods, checks : choices, product : product, obisCode : obisCode, Description : Description, version : version, classNum : classNum, textareaContent3: textareaContent3 },
             success: function(result) {
 
             $("#generated textarea").html(result);

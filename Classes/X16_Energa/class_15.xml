@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <class id="11" version="0">
-    <description>SpecialDaysTableRelay3</description>
+    <description>ActiveSpecialDaysTable</description>
     <attributes>
         <attribute id="1" name="logical_name" type="octetstring" size="6"></attribute>
-        <attribute id="2" name="entries" type="octetstring" size="6"></attribute>
+        <attribute id="2" name="entries" type="array" size="6"></attribute>
     </attributes>
+    <methods>
+    </methods>
 </class>

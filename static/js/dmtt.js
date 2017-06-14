@@ -70,7 +70,7 @@ $(document).ready(function() {
           $('.progress').css('width', count + "%");
           count += 0.05;
            document.getElementById("demo").innerHTML = Math.round(count) +"%";
-           $("#textarea ").html('Evolution of execution : '+ Math.floor( count )+'% ...');
+           $("#textarea ").html('Please make sure that FTT and DMTT share the same "resources_locked.xml"if you want to run multiple FTTs or multiples DMTTs or DMTT/FTT mixture at the same time.');
           }
           else if(count > 99){
           count = 0;

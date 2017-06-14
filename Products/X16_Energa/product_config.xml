@@ -1,0 +1,35 @@
+<Product device_type="device_type" name="X16_Enexis">
+    <serial_number value="123456789" />
+    <software_version value="1" />
+    <manufacturer value="h" />
+    <description value="Clock" />
+    <equipement_identifier value="1" />
+    <meterIP value="192.68.0.1" />
+    <meterPort value="80" />
+    <server_adress value="127.0.0.1" />
+    <firmware name="FirmwareName" />
+    <TCP>
+        <TCP_timeout value="500" />
+    </TCP>
+    <HDLC>
+        <HDLC_timeout value="300" />
+        <HDLC_maxTransmit value="400" />
+        <HDLC_maxReceive value="400" />
+        <HDLC_adress value="1" />
+        <baudrate value="9600" />
+    </HDLC>
+    <ModeE adress="1" />
+    <clientAdress>
+        <client adress="1" associationName="MNGT" />
+        <client adress="2" associationName="READING" />
+        <client adress="3" associationName="FW" />
+        <client adress="4" associationName="HAN" />
+        <client adress="16" associationName="public" />
+    </clientAdress>
+    <masterKey value="" />
+    <globalEncryptionKey value="000000000000000000000000000000" />
+    <authentificationKey value="111111111111111111111111111111" />
+    <LlsAuthentification value="222222222222222222222222222222" />
+    <HlsSecret value="3333333333333333333333333333" />
+
+</Product>

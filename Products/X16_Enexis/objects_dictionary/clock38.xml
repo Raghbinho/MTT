@@ -1,0 +1,42 @@
+<dictionnary creationDate="2017-06-14T13:23:00.327000" version="0">
+  <object api="DLMS" name="Clock">
+    <attributes>
+      <attribute id="1" name="logical_name" size="6" type="octetstring">
+        <association name="Public" operations="_" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+      <attribute id="2" name="time" size="6" type="octetstring">
+        <association name="Public" operations="_" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+      <attribute id="3" name="time_zone" size="6" type="integer16">
+        <association name="Public" operations="_" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+      <attribute id="4" name="status" size="6" type="unsigned8">
+        <association name="Public" operations="_" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+      <attribute id="5" name="daylight_savings_begin" size="6" type="octetstring">
+        <association name="Public" operations="_" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+      <attribute id="6" name="daylight_savings_end" size="6" type="octetstring">
+        <association name="Public" operations="_" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+      <attribute id="7" name="daylight_savings_deviation" size="6" type="unsigned8">
+        <association name="Public" operations="Action" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+      <attribute id="8" name="daylight_savings_enabled" size="6" type="boolean">
+        <association name="Public" operations="_" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+      <attribute id="9" name="clock_base" size="6" type="enumerated">
+        <association name="Public" operations="_" />
+        <association name="Preestablished" operations="_" />
+      </attribute>
+    </attributes>
+  </object>
+</dictionnary>

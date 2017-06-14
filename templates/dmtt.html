@@ -5,7 +5,19 @@
     <link href="{% static 'css/dmtt.css' %}" rel="stylesheet">
     <script src="../static/js/dmtt.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <style>
+        tbody {
+        background-image: url("static/images/Newsroom_background_smartmeters.jpg");
+        background-repeat: no-repeat;
+        background-size: 90% 1110px;
+        background-position: right;
+        margin-top: 5px;
+    }
+
+
+    </style>
 </head>
+<body>
 <div class="container">
     <div class="row form-group">
         <div class="panel panel-info">
@@ -45,7 +57,8 @@
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <label class="control-label" for="Interface">Inetrface</label>
-                                    <select id="Interface" name="Interface" class="form-control" onchange="javascript: interfaceChoice();">
+                                    <select id="Interface" name="Interface" class="form-control"
+                                            onchange="javascript: interfaceChoice();">
                                         <option value="1">Select Interface</option>
                                         <option value="1">HDLC</option>
                                         <option value="1">VALID_DC</option>
@@ -61,7 +74,8 @@
                         <td data-name="desc">
                             <div class="col-md-8">
                                 <div class="form-group" id="idChoice">
-                                    <label class="control-label" for="PortInvisible" style="display:none">Port</label><!--style="display:none"-->
+                                    <label class="control-label" for="PortInvisible" style="display:none">Port</label>
+                                    <!--style="display:none"-->
                                     <select id="PortInvisible" name="Port" class="form-control" style="display:none">
                                         <option selected>Select Port</option>
                                         {% for x in tree1.port %}
@@ -154,15 +168,15 @@
                     <tr>
                         <td colspan="2">
                             <label class="control-label">&nbsp;</label>
-                            <!--<div class="col-md-12">-->
-                                <!--<div class="progress" width="20">-->
-                                    <!--<div class="progress-bar progress-bar-striped active" role="progressbar"-->
-                                         <!--aria-valuenow="45"-->
-                                         <!--aria-valuemin="0" aria-valuemax="100" style="width: 100%">-->
-                                        <!--<h4 class="modal-title" id="myModalLabel"><p id="demo"></p>%</h4>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
+                            <div class="col-md-12">
+                                <div class="progress" width="20">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                         aria-valuenow="45"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <h4 class="modal-title" id="myModalLabel"><p id="demo"></p>%</h4>
+                                    </div>
+                                </div>
+                            </div>
                             <br>
                             <h4>
                                 <div class="thisClass">Double click on result window to lock or unlock output</div>
@@ -172,9 +186,11 @@
                 </table>
             </form>
         </div>
-        <textarea id="textarea" class="form-control animated" placeholder="Execution Log" rows="8" cols="50" readonly="readonly"></textarea>
+        <textarea id="textarea" class="form-control animated" placeholder="Execution Log" rows="8" cols="50"
+                  readonly="readonly"></textarea>
     </div>
 </div>
+</body>
 <script>
       function f(){
     function getCookie(name) {
@@ -235,5 +251,7 @@ $(document).on('change','#productName',function(){
     <!--event.target.setCustomValidity('Name tester should be six-letter word begin with letter "g"');-->
 <!--}-->
 
+
 </script>
+
 {% endblock %}

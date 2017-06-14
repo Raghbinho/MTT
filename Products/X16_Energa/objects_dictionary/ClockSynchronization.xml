@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionnary version="1.1" creationDate="2011-12-12T14:30:00">
+<!-- 5.3 -->
+  <object api="DLMS" name="ClockSynchronization">
+    <dlmsObject logicalName="0;0;96;2;12;255" classId="1" classVersion="0"/>
+    <description>Clock Synchronization</description>
+    <attribute id="1" name="logical_name" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="READING" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="FW" id="3" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="HAN" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="logical_name" editable="false" edition="asciiText" type-of-codage="Decoded as ASCII" size="6" default="0;0;96;2;12;255;"/>
+    </attribute>
+    <attribute id="2" name="value" type="octetstring">
+      <dlmsAttribute allowMultipleReferences="false">
+        <association name="MNGT" id="1" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="READING" id="2" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="FW" id="3" operations="-" unicast="true" broadcast="false" multicast="false"/>
+        <association name="HAN" id="4" operations="Get" unicast="true" broadcast="false" multicast="false"/>
+        <association name="public" id="16" operations="-" unicast="true" broadcast="false" multicast="false"/>
+      </dlmsAttribute>
+      <octetstring name="value" editable="false" edition="datetime" type-of-codage="Decoded as Decimal" size="12" default="7;208;1;1;6;1;0;15;255;128;0;0;"/>
+    </attribute>
+  </object>
+</dictionnary>

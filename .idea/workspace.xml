@@ -2,35 +2,299 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff0a6901-f48d-4279-8f63-75c8c984165d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/XMLFilesMethod/filenameM0.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/X16_Energa/class_8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/ClockSynchronization.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel1_C_Mode .xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/EMeterFModfied/EMeterFModfied.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/EMeterFModfied1/EMeterFModfied1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/ENEO/ENEO.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/G1product.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AMRProfileStatusCodeEmeter.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AMRProfileStatusCodeMBus1Gaz.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AMRProfileStatusCodeMBus2Gaz.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AMRProfileStatusCodeMBus3Gaz.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AMRProfileStatusCodeMBus4Gaz.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveAPPFirmware.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveAPPfirmwareversion_crc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveEnergyRegister_ExportT1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveEnergyRegister_ExportT2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveEnergyRegister_ExportTotal.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveEnergyRegister_ImportT1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveEnergyRegister_ImportT2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveEnergyRegister_ImportTotal.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveLTEFirmwareVersion.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveLTEFirmwareVersion_CRC.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveMTRFirmwareVersion.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveMTRFirmwareVersion_CRC.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveUSBFirmware.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActiveUSBfirmwareversion_CRC.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ActivityCalendar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AdminP3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AlarmFilter.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AlarmRegister.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AssociationLN.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageCurrent_L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageCurrent_L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageCurrent_L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel1_C_Mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel1_T_Mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel2_C_Mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel2_T_Mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel3_C_Mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel3_T_Mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel4_C_Mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageNumberOfMissedMessage_C1_Channel4_T_Mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageVoltageL1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageVoltageL2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageVoltageL3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageactivePower(P+)L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageactivePower(P+)L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageactivePower(P+)L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageactivePower(P-)L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageactivePower(P-)L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AverageactivePower(P-)L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AveragereactivePower(Q+)L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AveragereactivePower(Q+)L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AveragereactivePower(Q+)L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AveragereactivePower(Q-)L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AveragereactivePower(Q-)L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/AveragereactivePower(Q-)L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/BillingPeriodData.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/BillingPeriodsAndProfiles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Clock.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ClockShiftLimit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ComSessionLog.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/CommunicationSessionEventLogCode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ConfigObject.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ConnectionWDGTimerP3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/CosemLogicalDeviceName.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/CurrentlyActiveTariff.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DailyLoadProfileStatusGmeter1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DailyLoadProfileStatusGmeter2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DailyLoadProfileStatusGmeter3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DailyLoadProfileStatusGmeter4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DailyLoadProfilesStatusEmeter.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Dataofbillingperiod1Monthlybillingvalueschannel1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Dataofbillingperiod1Monthlybillingvalueschannel2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Dataofbillingperiod1Monthlybillingvalueschannel3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Dataofbillingperiod1Monthlybillingvalueschannel4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DeviceID1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DeviceID2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DeviceID5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DisplayReadOutAlternate.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DisplayReadOutGenernal.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DisplayReadOutService.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/DurationLongPowerFailureAnyPhase.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ErrorRegister.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/EventCounterComLog.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/EventCounterEMeterRead.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/EventCounterGMeterRead.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/EventCounterIntervalDataE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/EventCounterIntervalDataG.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/FraudDetectionLogCode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/FraudEventLog.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/GSMDiagnostic.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/GenernalLocalPortReadOut.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/HDLCSetupOpticalPort.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/IPv4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ImageTransfer.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousCurrent.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousCurrent_P1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousCurrent_P2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousCurrent_P3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousVoltage_P1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousVoltage_P2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousVoltage_P3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePower(P+)L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePower(P+)L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePower(P+)L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePower(P+)Total.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePower(P-)L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePower(P-)L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePower(P-)L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePower(P-)Total.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousactivePowerTotal.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(Q+)L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(Q+)L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(Q+)L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(Q+)Total.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(Q-)L1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(Q-)L2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(Q-)L3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(Q-)Total.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(S+)Total.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InstantaneousreactivePower(S-)Total.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/InvocationCounter.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/IpV6Setup.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LTEConnection_rejection.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LTEImageTransfer.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LTEModemsetup.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LTEMonitoring.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LTEMonitoring_profile.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LTEPing_address.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LTE_FW_Location.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LTE_FW_downloadTime.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LoadProfile1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LoadProfile2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LoadProfileDefinable.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LoadProfilePeriod2Channel1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LoadProfilePeriod2Channel2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LoadProfilePeriod2Channel3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LoadProfilePeriod2Channel4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/LongPowerFailureCounterAnyPhase.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBus5MinuteReadDev1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBus5MinuteReadDev2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBus5MinuteReadDev3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBus5MinuteReadDev4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusConfigDev1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusConfigDev2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusConfigDev3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusConfigDev4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusDiagnostic1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusDiagnostic2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusDiagnostic3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusDiagnostic4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusEventLogChannel1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusEventLogChannel2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusEventLogChannel3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusEventLogChannel4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusEventLogCode1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusEventLogCode2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusEventLogCode3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusEventLogCode4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusHourReadDev1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusHourReadDev2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusHourReadDev3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusHourReadDev4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusImageTransfer1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusImageTransfer2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusImageTransfer3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusImageTransfer4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusMasterLoadProfilePeriod1Ch1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusMasterLoadProfilePeriod1Ch2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusMasterLoadProfilePeriod1Ch3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusMasterLoadProfilePeriod1Ch4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusSetupDev1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusSetupDev2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusSetupDev3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBusSetupDev4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBus_DeviceID1C1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBus_DeviceID1C2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBus_DeviceID1C3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/MBus_DeviceID1C4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Monthly_billing_status_E_meter.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Monthly_billing_status_G_meter1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Monthly_billing_status_G_meter2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Monthly_billing_status_G_meter3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Monthly_billing_status_G_meter4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/NumberOfMissedMessageC1_Channel_1_C_mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/NumberOfMissedMessageC1_Channel_1_T_mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/NumberOfMissedMessageC1_Channel_2_C_mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/NumberOfMissedMessageC1_Channel_2_T_mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/NumberOfMissedMessageC1_Channel_3_C_mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/NumberOfMissedMessageC1_Channel_3_T_mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/NumberOfMissedMessageC1_Channel_4_C_mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/NumberOfMissedMessageC1_Channel_4_T_mode.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/P0LocalPortSetup.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/P1DSMRportVersion.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/P1LongTxtMsg.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PPPsetup.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PVSwellvoltageCounterPhase1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PVSwellvoltageCounterPhase2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PVSwellvoltageCounterPhase3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PVVoltageSagsCounterPhase1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PVVoltageSagsCounterPhase2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PVVoltageSagsCounterPhase3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PhyRandomisationObject.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PowerFailureCounterAnyPhase.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PowerFailureEventLog.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PowerQualityProfile1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PowerQualityProfile2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Power_Quality_Profile1_Status.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Power_Quality_Profile2_Status.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PushScriptTable.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PushSetupAlarm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/PushSetupscheduler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/RegisterActivation.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/RegisterMonitor.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/SapAssignment.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/SecuritySetupClient.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ShortVoltageSags1CounterPhase1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ShortVoltageSags1CounterPhase2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ShortVoltageSags1CounterPhase3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/SingleActionScheduler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/SpecialDaysTable.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/StandardEventLog.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/StandardEventLogCodeGeneral.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/SwellVoltageCounterPhase1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/SwellvoltageCounterPhase2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/SwellvoltageCounterPhase3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/TCP_UDP_setup.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/TariffScriptTable.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ThresholdForPVVoltageSags.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ThresholdForPVVoltageSwell.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ThresholdForShortVoltageSags.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ThresholdForVoltageSags.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/ThresholdForVoltageSwell.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/TimeThresholdForLongPowerFailure.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/TimeThresholdForPVVoltageSags.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/TimeThresholdForPVVoltageSwell.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/TimeThresholdForShortVoltageSags.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/TimeThresholdForVoltageSags.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/TimeThresholdForVoltageSwell.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/VoltageQualityEventLog.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/VoltageSags1CounterPhase1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/VoltageSags1CounterPhase2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/VoltageSags1CounterPhase3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/Voltage_quality_event_log_code.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/file1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/G1product/objects_dictionary/file2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/MyFile.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/nameee.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/ok.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/X29_Enexis/EMeterF.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/X29_LUX/EMeterF.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/g/g.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/new meter/new meter.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/newMeter/newMeter.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/nouveau/nouveau.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Products/produit/produit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TEMPORARYFILE/result.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/images/6.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/images/banner2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/images/cimg01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/images/csm_ANGACOM_36907b5d60.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MTT.iml" afterPath="$PROJECT_DIR$/.idea/MTT.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/X16_Enexis/class_8.xml" afterPath="$PROJECT_DIR$/Classes/X16_Enexis/class_8.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/X29_Enexis/class_15.xml" afterPath="$PROJECT_DIR$/Classes/X29_Enexis/class_15.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/X29_LUX/class_11.xml" afterPath="$PROJECT_DIR$/Classes/X29_LUX/class_11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/X29_LUX/class_15.xml" afterPath="$PROJECT_DIR$/Classes/X29_LUX/class_15.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/X29_LUX/class_8.xml" afterPath="$PROJECT_DIR$/Classes/X29_LUX/class_8.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTT/urls.py" afterPath="$PROJECT_DIR$/MTT/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/EMeterFModfied1/EMeterFModfied1.xml" afterPath="$PROJECT_DIR$/Products/EMeterFModfied1/EMeterFModfied1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/G1product/G1product.xml" afterPath="$PROJECT_DIR$/Products/G1product/G1product.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/Clock.xml" afterPath="$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/Clock.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/clock2.xml" afterPath="$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/clock2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/X29_LUX/objects_dictionary/Clock.xml" afterPath="$PROJECT_DIR$/Products/X29_LUX/objects_dictionary/Clock.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_0.xml" afterPath="$PROJECT_DIR$/TestCases/test_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_10.xml" afterPath="$PROJECT_DIR$/TestCases/test_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_11.xml" afterPath="$PROJECT_DIR$/TestCases/test_11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_12.xml" afterPath="$PROJECT_DIR$/TestCases/test_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_13.xml" afterPath="$PROJECT_DIR$/TestCases/test_13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_14.xml" afterPath="$PROJECT_DIR$/TestCases/test_14.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_3.xml" afterPath="$PROJECT_DIR$/TestCases/test_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_8.xml" afterPath="$PROJECT_DIR$/TestCases/test_8.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCases/test_9.xml" afterPath="$PROJECT_DIR$/TestCases/test_9.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polls/admin.py" afterPath="$PROJECT_DIR$/polls/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/X29_Enexis/objects_dictionary/ex.xml" afterPath="$PROJECT_DIR$/Products/X29_Enexis/objects_dictionary/ex.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/X29_Enexis/objects_dictionary/this.xml" afterPath="$PROJECT_DIR$/Products/X29_Enexis/objects_dictionary/this.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/X29_Enexis/product_config.xml" afterPath="$PROJECT_DIR$/Products/X29_Enexis/product_config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Products/X29_LUX/objects_dictionary/ActiveEnergyExport.xml" afterPath="$PROJECT_DIR$/Products/X29_LUX/objects_dictionary/ActiveEnergyExport.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polls/views.py" afterPath="$PROJECT_DIR$/polls/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/dmtt.js" afterPath="$PROJECT_DIR$/static/js/dmtt.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/generateDictionary.js" afterPath="$PROJECT_DIR$/static/js/generateDictionary.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/script.js" afterPath="$PROJECT_DIR$/static/js/script.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/DictionnaryObject.html" afterPath="$PROJECT_DIR$/templates/DictionnaryObject.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dmtt.html" afterPath="$PROJECT_DIR$/templates/dmtt.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/list.html" afterPath="$PROJECT_DIR$/templates/list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/listProduct.html" afterPath="$PROJECT_DIR$/templates/listProduct.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/listTestCases.html" afterPath="$PROJECT_DIR$/templates/listTestCases.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/welcome.html" afterPath="$PROJECT_DIR$/templates/welcome.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/X29_Enexis/class_11.xml" afterPath="$PROJECT_DIR$/Classes/X16_Energa/class_11.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/X29_Enexis/class_8.xml" afterPath="$PROJECT_DIR$/Classes/X16_Energa/class_15.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Products/X16_Enexis/EMeterF.xml" afterPath="$PROJECT_DIR$/Products/X16_Energa/product_config.xml" />
     </list>
     <ignored path="mysite2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,8 +317,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/polls/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="1703" column="53" lean-forward="false" selection-start-line="1703" selection-start-column="53" selection-end-line="1703" selection-end-column="53" />
+            <state relative-caret-position="952">
+              <caret line="111" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -62,62 +326,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listProduct.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/listProduct.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="72" column="106" lean-forward="false" selection-start-line="72" selection-start-column="95" selection-end-line="72" selection-end-column="106" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="listTestCases.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/listTestCases.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="72" column="97" lean-forward="false" selection-start-line="72" selection-start-column="89" selection-end-line="72" selection-end-column="97" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DictionnaryObject.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/DictionnaryObject.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2499">
-              <caret line="174" column="28" lean-forward="false" selection-start-line="174" selection-start-column="28" selection-end-line="174" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TC_Firmware2.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/TC_Firmware2.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1536">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="70" lean-forward="false" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
+            <state relative-caret-position="527">
+              <caret line="317" column="20" lean-forward="false" selection-start-line="317" selection-start-column="20" selection-end-line="320" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generateDictionary.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/generateDictionary.js">
+      <file leaf-file-name="clock38.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/clock38.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="70" column="41" lean-forward="false" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+            <state relative-caret-position="119">
+              <caret line="7" column="62" lean-forward="false" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="95" lean-forward="false" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
+              <folding>
+                <element signature="n#style#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#1;n#form#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#tr#1;n#table#1;n#form#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,28 +362,38 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="867">
+              <caret line="51" column="59" lean-forward="false" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/manage.py">
+      <file leaf-file-name="class_15.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/X16_Enexis/class_15.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/welcome.html">
+      <file leaf-file-name="class_11.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/X16_Enexis/class_11.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class_8.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/X16_Enexis/class_8.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -164,36 +411,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>temp</find>
-      <find>passwor</find>
-      <find>tempo</find>
-      <find>welco</find>
-      <find>welcome</find>
-      <find>ip ad</find>
-      <find>add dictiona</find>
-      <find>classCheckbox1</find>
-      <find>rotating-item</find>
-      <find>navbar</find>
-      <find>nav</find>
-      <find>navbar-brand</find>
-      <find>jumbotron</find>
-      <find>getName</find>
-      <find>upda</find>
-      <find>update</find>
-      <find>validate(</find>
-      <find>jjj</find>
-      <find>generate</find>
-      <find>pree</find>
-      <find>classes</find>
-      <find>EMeterF</find>
-      <find>testcase</find>
-      <find>TESTCASES</find>
-      <find>alert</find>
-      <find>easygui</find>
-      <find>edit</find>
+      <find>messages</find>
+      <find>generatem</find>
+      <find>++</find>
       <find>alert(</find>
-      <find>editTest(</find>
-      <find>editProduct</find>
+      <find>ET.par</find>
+      <find>hidden</find>
+      <find>browse</find>
+      <find>brows</find>
+      <find>csm</find>
+      <find>execution</find>
+      <find>ProductList</find>
+      <find>PRODUCTS</find>
+      <find>DictionaryClass</find>
+      <find>pathasso</find>
+      <find>parse</find>
+      <find>pathassoc</find>
+      <find>'id'</find>
+      <find>id</find>
+      <find>generateXML</find>
+      <find>obisCode</find>
+      <find>top</find>
+      <find>subelement</find>
+      <find>&lt;class</find>
+      <find>inf</find>
+      <find>home</find>
+      <find>info</find>
+      <find>current</find>
+      <find>update</find>
+      <find>tree</find>
+      <find>listtreeFfunction</find>
     </findStrings>
     <replaceStrings>
       <replace>subItem</replace>
@@ -211,24 +458,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/js/bootstrap.min.js" />
-        <option value="$PROJECT_DIR$/Products/X16_Enexis/EMeterF.xml" />
-        <option value="$PROJECT_DIR$/TEMPORARYFILE/6.xml" />
-        <option value="$PROJECT_DIR$/TEMPORARYFILE/1.xml" />
-        <option value="$PROJECT_DIR$/static/js/script.js" />
-        <option value="$PROJECT_DIR$/templates/home.html" />
-        <option value="$PROJECT_DIR$/static/js/scriptTest.js" />
-        <option value="$PROJECT_DIR$/Products/G1product/objects_dictionary/file2.xml" />
-        <option value="$PROJECT_DIR$/file.xml" />
-        <option value="$PROJECT_DIR$/Products/G1product/objects_dictionary/file1.xml" />
-        <option value="$PROJECT_DIR$/templates/attributes.html" />
-        <option value="$PROJECT_DIR$/TestCases/test_16.xml" />
-        <option value="$PROJECT_DIR$/TestCases/test_17.xml" />
-        <option value="$PROJECT_DIR$/TestCases/test_27.xml" />
-        <option value="$PROJECT_DIR$/TestCases/test_6.xml" />
-        <option value="$PROJECT_DIR$/TestCases/test_7.xml" />
-        <option value="$PROJECT_DIR$/TestCases/test_9.xml" />
-        <option value="$PROJECT_DIR$/TestCases/test_3.xml" />
         <option value="$PROJECT_DIR$/TestCases/test_8.xml" />
         <option value="$PROJECT_DIR$/TestCases/test_10.xml" />
         <option value="$PROJECT_DIR$/TestCases/test_11.xml" />
@@ -244,32 +473,50 @@
         <option value="$PROJECT_DIR$/templates/list1.html" />
         <option value="$PROJECT_DIR$/Products/X29_Enexis/EMeterF.xml" />
         <option value="$PROJECT_DIR$/Products/X29_LUX/EMeterF.xml" />
-        <option value="$PROJECT_DIR$/templates/dmtt.html" />
-        <option value="$PROJECT_DIR$/MTT/urls.py" />
-        <option value="$PROJECT_DIR$/static/js/dmtt.js" />
         <option value="$PROJECT_DIR$/TestCases/test_24.xml" />
         <option value="$PROJECT_DIR$/templates/test.html" />
         <option value="$PROJECT_DIR$/static/js/infinite-rotator.js" />
         <option value="$PROJECT_DIR$/static/css/infinite_rotator.css" />
         <option value="$PROJECT_DIR$/static/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/Classes/X16_Enexis/class_8.xml" />
+        <option value="$PROJECT_DIR$/TestCases/TC_Firmware2.xml" />
+        <option value="$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/Clock.xml" />
+        <option value="$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/ClockSynchronization.xml" />
+        <option value="$PROJECT_DIR$/Products/X16_Energa/product_config.xml" />
+        <option value="$PROJECT_DIR$/Classes/X16_Energa/class_8.xml" />
+        <option value="$PROJECT_DIR$/MTT/urls.py" />
+        <option value="$PROJECT_DIR$/Products/X29_Enexis/product_config.xml" />
+        <option value="$PROJECT_DIR$/templates/DictionnaryObject.html" />
+        <option value="$PROJECT_DIR$/polls/XMLFile/filename0.xml" />
+        <option value="$PROJECT_DIR$/polls/XMLFilesMethod/filenameM2.xml" />
+        <option value="$PROJECT_DIR$/polls/XMLFilesMethod/filenameM5.xml" />
+        <option value="$PROJECT_DIR$/static/js/script.js" />
+        <option value="$PROJECT_DIR$/MTT/settings.py" />
         <option value="$PROJECT_DIR$/static/js/generateDictionary.js" />
-        <option value="$PROJECT_DIR$/templates/list.html" />
+        <option value="$PROJECT_DIR$/templates/listProduct.html" />
+        <option value="$PROJECT_DIR$/static/js/dmtt.js" />
+        <option value="$PROJECT_DIR$/templates/listTestCases.html" />
+        <option value="$PROJECT_DIR$/templates/dmtt.html" />
         <option value="$PROJECT_DIR$/templates/welcome.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/templates/listTestCases.html" />
-        <option value="$PROJECT_DIR$/templates/DictionnaryObject.html" />
-        <option value="$PROJECT_DIR$/TestCases/TC_Firmware2.xml" />
-        <option value="$PROJECT_DIR$/templates/listProduct.html" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/Classes/X29_LUX/class_15.xml" />
+        <option value="$PROJECT_DIR$/Classes/X29_LUX/class_8.xml" />
+        <option value="$PROJECT_DIR$/Classes/X29_LUX/class_11.xml" />
+        <option value="$PROJECT_DIR$/Classes/X29_Enexis/class_15.xml" />
+        <option value="$PROJECT_DIR$/Classes/X29_Enexis/class_11.xml" />
+        <option value="$PROJECT_DIR$/Classes/X16_Energa/class_11.xml" />
+        <option value="$PROJECT_DIR$/Classes/X16_Energa/class_15.xml" />
+        <option value="$PROJECT_DIR$/Classes/X16_Enexis/class_8.xml" />
         <option value="$PROJECT_DIR$/polls/views.py" />
+        <option value="$PROJECT_DIR$/templates/list.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="54" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1874" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -308,6 +555,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -316,7 +564,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MTT_Background" />
+              <option name="myItemId" value="PFE-version7.0 - Copie" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -326,7 +574,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MTT_Background" />
+              <option name="myItemId" value="PFE-version7.0 - Copie" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -334,9 +582,112 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MTT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PFE-version7.0 - Copie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="X29_LUX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MTT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PFE-version7.0 - Copie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="X29_LUX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="objects_dictionary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MTT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PFE-version7.0 - Copie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MTT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PFE-version7.0 - Copie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="X16_Enexis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MTT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PFE-version7.0 - Copie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MTT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PFE-version7.0 - Copie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="X16_Energa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -360,21 +711,22 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="963" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\G507919\Desktop\PFE-version7.0 - Copie\Classes" />
+      <recent name="D:\Users\G507919\Desktop\PFE-version7.0 - Copie\Products\X16_Energa" />
       <recent name="D:\Users\G507919\Desktop\PFE-version6.1\Classes" />
       <recent name="D:\Users\G507919\Desktop\PFE-version3.0\Products\X29_LUX" />
       <recent name="D:\Users\G507919\Desktop\PFE-version3.0\Products\X29_Enexis" />
-      <recent name="D:\Users\G507919\Desktop\PFE-version3.0\Classes\X29_LUX" />
-      <recent name="D:\Users\G507919\Desktop\PFE-version3.0\Classes\X29_Enexis" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\G507919\Desktop\PFE-version7.0 - Copie\polls" />
       <recent name="D:\Users\G507919\Desktop\PFE\Products\X16_Enexis" />
       <recent name="D:\Users\G507919\Desktop\PFE\Classes\X16_Enexis" />
       <recent name="D:\Users\G507919\Desktop\PFE\Classes" />
       <recent name="D:\Users\G507919\Desktop\PFE" />
-      <recent name="D:\Users\G507919\Desktop\PFE\Products" />
     </key>
   </component>
   <component name="RunManager" selected="Python.manage">
@@ -640,17 +992,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13277134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13235295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49578503" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3409091" sideWeight="0.41095892" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22186147" sideWeight="0.81454164" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29112554" sideWeight="0.6164383" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3409091" sideWeight="0.5890411" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38589212" sideWeight="0.2630719" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22095436" sideWeight="0.8110022" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28941908" sideWeight="0.6002179" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38589212" sideWeight="0.7369281" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24585062" sideWeight="0.4912854" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24585062" sideWeight="0.48910674" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39915523" sideWeight="0.49791667" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -659,7 +1011,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.71594507" sideWeight="0.8197917" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32987553" sideWeight="0.80991286" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -717,312 +1069,313 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/polls/tests.py">
+    <entry file="file://$PROJECT_DIR$/Classes/X16_Energa/class_0.xml" />
+    <entry file="file://$PROJECT_DIR$/polls/XMLFile/filename0.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3011">
+          <caret line="2739" column="21" lean-forward="false" selection-start-line="2739" selection-start-column="21" selection-end-line="2739" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polls/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/list1.html" />
-    <entry file="file://$PROJECT_DIR$/templates/attributes.html">
+    <entry file="file://$PROJECT_DIR$/MTT/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="44" lean-forward="false" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="108" />
+        <state relative-caret-position="358">
+          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/nameee.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/polls/admin.py">
+    <entry file="file://$PROJECT_DIR$/templates/success.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X29_LUX/objects_dictionary/llllllllll.xml" />
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/Products/X29_Enexis/objects_dictionary/Clock.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/X29_Enexis/class_8.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/X16_Enexis/class_15.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X29_Enexis/EMeterF.xml" />
-    <entry file="file://$PROJECT_DIR$/Products/X29_LUX/EMeterF.xml" />
-    <entry file="file://$PROJECT_DIR$/Products/X29_Enexis/objects_dictionary/this.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="56" lean-forward="true" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/dffffdfddfgsqdfgq.xml" />
-    <entry file="file://$PROJECT_DIR$/templates/admin.html" />
-    <entry file="file://$PROJECT_DIR$/templates/dmtt.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="54" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/test_24.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/test_23.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/Clock.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/polls/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/test.html" />
-    <entry file="file://$PROJECT_DIR$/polls/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/polls/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/infinite_rotator.js" />
-    <entry file="file://$PROJECT_DIR$/static/css/easyTree.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/infinite_rotator.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/vertical_navbar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/simple-sidebar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="130" column="23" lean-forward="true" selection-start-line="130" selection-start-column="23" selection-end-line="130" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/infobulle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85017">
-          <caret line="5001" column="0" lean-forward="false" selection-start-line="4957" selection-start-column="0" selection-end-line="5001" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/dmtt.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/MyFile.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/infinite-rotator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/dmtt.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="133" column="76" lean-forward="false" selection-start-line="133" selection-start-column="72" selection-end-line="133" selection-end-column="76" />
+        <state relative-caret-position="17">
+          <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/listTestCases.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="90" column="15" lean-forward="true" selection-start-line="90" selection-start-column="15" selection-end-line="90" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/welcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="64" lean-forward="false" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/generateDictionary.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dmtt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="76" lean-forward="false" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/listProduct.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="150" column="91" lean-forward="false" selection-start-line="150" selection-start-column="91" selection-end-line="150" selection-end-column="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MTT/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="30" column="45" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="45" />
+        <state relative-caret-position="782">
+          <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/EMeterF.xml" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-762174762/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="4600" column="26" lean-forward="true" selection-start-line="4600" selection-start-column="26" selection-end-line="4600" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/clock36.xml" />
+    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/cfg.xml" />
+    <entry file="file://$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/uji.xml" />
+    <entry file="file://$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/clock33.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="55" lean-forward="false" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Products/X16_Energa/product_config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/ClockSynchronization.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="15" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/DLLs/_ctypes.pyd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/DLLs/_bsddb.pyd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/DictionnaryObject.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" column="66" lean-forward="true" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/Clock.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Products/X16_Energa/objects_dictionary/clock37.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polls/XMLFile/filename3.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polls/XMLFilesMethod/filenameM4.xml" />
+    <entry file="file://$PROJECT_DIR$/polls/XMLFilesMethod/filenameM5.xml" />
+    <entry file="file://$PROJECT_DIR$/polls/XMLFilesMethod/filenameM6.xml" />
+    <entry file="file://$PROJECT_DIR$/polls/XMLFilesMethod/filenameM3.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/X29_LUX/class_8.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Products/X29_LUX/objects_dictionary/.xml" />
+    <entry file="file://$PROJECT_DIR$/Classes/X29_LUX/class_15.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/X29_LUX/class_11.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/X29_Enexis/class_11.xml" />
+    <entry file="file://$PROJECT_DIR$/Classes/X29_Enexis/class_8.xml" />
+    <entry file="file://$PROJECT_DIR$/Classes/X16_Enexis/class_15.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/X16_Enexis/class_11.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/X29_Enexis/class_15.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/X16_Energa/class_8.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="100" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/X16_Energa/class_15.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/X16_Energa/class_11.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="38" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/X16_Enexis/class_8.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        <state relative-caret-position="255">
+          <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/generateDictionary.js">
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" column="41" lean-forward="false" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/clock2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/clock3.xml" />
-    <entry file="file://$PROJECT_DIR$/templates/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="70" lean-forward="false" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="15" column="95" lean-forward="false" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
+          <folding>
+            <element signature="n#style#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#1;n#form#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#tr#1;n#table#1;n#form#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="867">
+          <caret line="51" column="59" lean-forward="false" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/Products/X16_Enexis/objects_dictionary/clock38.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="62" lean-forward="false" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
+    <entry file="file://$PROJECT_DIR$/templates/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/TC_Firmware2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1536">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/DictionnaryObject.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2499">
-          <caret line="174" column="28" lean-forward="false" selection-start-line="174" selection-start-column="28" selection-end-line="174" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/listTestCases.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="72" column="97" lean-forward="false" selection-start-line="72" selection-start-column="89" selection-end-line="72" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/listProduct.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="72" column="106" lean-forward="false" selection-start-line="72" selection-start-column="95" selection-end-line="72" selection-end-column="106" />
+        <state relative-caret-position="527">
+          <caret line="317" column="20" lean-forward="false" selection-start-line="317" selection-start-column="20" selection-end-line="320" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/polls/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="1703" column="53" lean-forward="false" selection-start-line="1703" selection-start-column="53" selection-end-line="1703" selection-end-column="53" />
+        <state relative-caret-position="952">
+          <caret line="111" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>

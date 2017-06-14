@@ -1,34 +1,26 @@
 <?xml version="1.0" ?>
-<Product name="X16_Enexis" device_type="device_type">
-    <serial_number value="123456789"/>
-    <software_version value="1"/>
-    <manufacturer value="h"/>
-    <description value="Clock"/>
-    <equipement_identifier value="1"/>
-    <meterIP value="192.68.0.1"/>
-    <meterPort value="80"/>
-    <server_adress value="127.0.0.1"/>
-    <firmware name="FirmwareName"/>
-    <TCP>
-        <TCP_timeout value="500"/>
-    </TCP>
-    <HDLC>
-        <HDLC_timeout value="300"/>
-        <HDLC_maxTransmit value="400"/>
-        <HDLC_maxReceive value="400"/>
-        <HDLC_adress value="1"/>
-        <baudrate value="9600"/>
-    </HDLC>
-    <ModeE adress="1"/>
-    <clientAdress>
-        <client adress="1" associationName="MNGT"/>
-        <client adress="16" associationName="public"/>
-        <client adress="102" associationName="pre"/>
-    </clientAdress>
-    <masterKey value=""/>
-    <globalEncryptionKey value="000000000000000000000000000000"/>
-    <authentificationKey value="111111111111111111111111111111"/>
-    <LlsAuthentification value="222222222222222222222222222222"/>
-    <HlsSecret value="3333333333333333333333333333"/>
-
+<Product deviceType="E-Meter" name="G1product"><SerialNumber value="Gserial" />
+     <softwareVersion value="softG" />
+     <manufacturer value="sagemG" />
+     <description value="GproductGmeter" />
+     <equipement_identifier value="identifiantG" />
+     <MeterIP value="127.0.0.1" />
+     <MeterPort value="8080" />
+     <ServerAdress adress="@G" />
+     <firmware value="association.PNG" />
+     <TCP><TCP_timeout value="TcpTO" />
+     </TCP><HDLC>
+         <HDLC_timeout value="HDLCTO" />
+         <HDLC_maxTransmit value="HDLCmaxT" />
+         <HDLC_maxReceive value="HDLCmaxR" />
+         <HDLC_Adress adress="HDLCAdress" />
+         <Baudrate value="baudrate" />
+     </HDLC><ModeE adress="modeG" />
+     <ClientAdress>
+         <client adress="1" associationName="Public" /></ClientAdress>
+     <MasterKey value="Mg1" />
+     <GlobalKey value="    g1              " />
+     <AuthentificationKey value="aukey" />
+     <LLSAuthentification value="llsa" />
+     <HLS_Secret value="hls1" />
 </Product>

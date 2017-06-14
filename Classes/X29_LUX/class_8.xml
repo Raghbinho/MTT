@@ -13,6 +13,5 @@
         <attribute id="9" name="clock_base" 				type="enumerated" size="6"></attribute>
     </attributes>
     <methods>
-        <method id="1" name="Reset"></method>
     </methods>
 </class>

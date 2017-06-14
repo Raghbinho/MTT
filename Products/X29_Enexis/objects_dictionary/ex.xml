@@ -1,11 +1,10 @@
-<?xml version="1.0" ?>
 <TrdCaptRpt RptID="10000001" TransTyp="0">
 	
     
 	<association Txt1="XXXXX" operations="get">
 		
         
-		<Pty ID="XXXXX" R="1"/>
+		<Pty ID="XXXXX" R="1" />
 		
     
 	</association>
@@ -14,7 +13,7 @@
 	<association Side="1" Txt1="XXXXX">
 		
         
-		<Pty ID="XXXXX" R="1"/>
+		<Pty ID="XXXXX" R="1" />
 		
     
 	</association>
@@ -23,7 +22,7 @@
 	<association Side="1" Txt1="XXXXX">
 		
         
-		<Pty ID="XXXXX" R="1"/>
+		<Pty ID="XXXXX" R="1" />
 		
     
 	</association>
@@ -32,7 +31,7 @@
 	<association Side="1" Txt1="XXXXX">
 		
         
-		<Pty ID="XXXXX" R="1"/>
+		<Pty ID="XXXXX" R="1" />
 		
     
 	</association>

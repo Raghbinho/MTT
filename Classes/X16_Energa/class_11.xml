@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <class id="11" version="0">
-    <description>Association LN</description>
+    <description>CurrentAssociationLN</description>
     <attributes>
         <attribute id="1" name="logical_name" type="octetstring" size="6"></attribute>
         <attribute id="2" name="object_list" type="array" size="6"></attribute>
         <attribute id="3" name="associated_partners_id" type="struct" size="6"></attribute>
-        <attribute id="4" name="application_context_name" type="struct" size="6"></attribute>
+        <attribute id="4" name="application_context_name" type="octetstring" size="6"></attribute>
         <attribute id="5" name="xDLMS_context_info" type="struct" size="6"></attribute>
         <attribute id="6" name="authentication_mechanism_name" type="octetstring" size="6"></attribute>
         <attribute id="7" name="LLS_secret" type="octetstring" size="6"></attribute>
@@ -13,7 +13,6 @@
         <attribute id="9" name="security_setup_reference" type="octetstring" size="6"></attribute>
     </attributes>
     <methods>
-        <method id="1" name="security_setup_reference" type="octetstring" size="6"></method>
-        <method id="2" name="Change_HLS_secret" type="octetstring" size="6"></method>
+        <method id="1" name="Reply_to_HLS_authentication" type="octetstring"/>
     </methods>
 </class>

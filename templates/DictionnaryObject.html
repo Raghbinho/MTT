@@ -11,7 +11,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <script src="../static/js/jquery.min.js"></script>
-<script src="../static/js/bootstrap.min.js"></script>
+<!--<script src="../static/js/bootstrap.min.js"></script>-->
 <script src="../static/js/easyTree.min.js"></script>
 <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
 
@@ -172,12 +172,12 @@
 
 
         <!--*************************************************************-->
-        <div class="col-md-5" id="objectDict" width="75%">
+        <div class="col-md-5" id="objectDict" width="75%" style="visibility:hidden;">
             <div class=" panel-default">
                 <div class="panel-body">
 
                     <div class="modal-content modal-smll" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content" >
                              <table class="table"><tr><td>
                              <form name="generateTestCaseFirmware" id="generateTestCaseFirmware" action="/Tc_Firmware" method="post" enctype="multipart/form-data">{% csrf_token %}
                              <td id="a"  style="visibility:hidden;">
@@ -353,6 +353,8 @@ check=document.getElementById('check').value;
 if(check=="2")
 {
 document.getElementById('a').style= 'visible';
+
+document.getElementById('objectDict').style= 'visible';
 }
   var ListMngt="";
   var listAvailAttGet=''
@@ -431,6 +433,7 @@ $.ajax({
           success: function(result) {
 
 check=document.getElementById('check').value;
+
 method_id=result.method_id;
 
  associationSelected =document.getElementById('AssociationName').value;
@@ -438,7 +441,11 @@ if (check=="1")
 {
 
 document.getElementById("f").style.visibility="visible";
-document.getElementById("a").style.visibility="hidden"
+document.getElementById("a").style.visibility="hidden";
+
+document.getElementById("objectDict").style.visibility="hidden";
+
+
 ch=result.stat;
 
  attName = document.getElementById('attName');
@@ -449,7 +456,477 @@ MNGT=result.MNGT;
 pre=result.pre;
 public=result.public;
 operation = document.getElementById('operationS');
+if (associationSelected=="Local Management")
+{
 
+
+  <!--****pour afficher la liste des attributs adéquate-->
+
+    listAs=result.ch1
+    listMeth=result.ch2
+
+    nbatt=result.nbatt
+    nbmeth=result.nbmeth
+    listAssociation=listAs.split("\n")
+    nb=nbChar(listAs,"\n");
+
+    listAssociationM=listMeth.split("\n")
+    nba=parseInt(nbatt)
+    nbm=parseInt(nbmeth)
+    resM=nba+nbm
+    LesMethodes=''
+
+     for(var i =nba ,l =resM ; i<l;i++ )
+    {
+       LesMethodes=LesMethodes.concat(listAssociationM[i])
+        LesMethodes=LesMethodes.concat('\n')
+
+    }
+    methods=LesMethodes.split('\n')
+
+    for(var i = 0 ,l = nb; i<l;i++ )
+
+
+    {
+
+
+       index=listAssociation[i].indexOf("=")
+        <!--alert(listAssociation[i])-->
+
+       att_name=listAssociation[i].substr(0,index)
+
+       indexx=listAssociation[i].indexOf("|")
+       association_op=listAssociation[i].substr(index+1)
+       association=association_op.split("|")
+
+
+
+       op_avai=(association[3].split(':'))[1]
+
+
+
+
+
+
+       if ((op_avai.indexOf("Get"))!=-1)
+       {
+       listAvailAttGet=listAvailAttGet.concat(att_name);
+       listAvailAttGet=listAvailAttGet.concat(',');
+
+       }
+
+
+
+       if ((op_avai.indexOf("Set"))!=-1)
+       {
+
+
+       listAvailAttSet=listAvailAttSet.concat(att_name);
+       listAvailAttSet=listAvailAttSet.concat(',');
+
+       }
+
+       else if ((op_avai.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+       }
+       else {
+
+       }
+
+
+
+
+
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avai.indexOf(operation.options[z].value)!=-1)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+
+    }
+
+
+<!--****Les methods-->
+
+for(var i = 0 ,l = nbm; i<l;i++ )
+
+
+    {
+
+
+       index=methods[i].indexOf("=")
+
+
+       meth_name=methods[i].substr(0,index)
+
+       indexx=methods[i].indexOf("|")
+       association_op=methods[i].substr(index+1)
+       association=association_op.split("|")
+
+       op_avaiM=(association[3].split(':'))[1]
+
+      if ((op_avaiM.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+
+       }
+       else{}
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avaiM==operation.options[z].value)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+}
+
+
+
+
+
+
+    <!--fin-->
+
+
+}
+<!--*****-->
+if (associationSelected=="Local Reading")
+{
+
+
+  <!--****pour afficher la liste des attributs adéquate-->
+
+    listAs=result.ch1
+    listMeth=result.ch2
+
+    nbatt=result.nbatt
+    nbmeth=result.nbmeth
+    listAssociation=listAs.split("\n")
+    nb=nbChar(listAs,"\n");
+
+    listAssociationM=listMeth.split("\n")
+    nba=parseInt(nbatt)
+    nbm=parseInt(nbmeth)
+    resM=nba+nbm
+    LesMethodes=''
+
+     for(var i =nba ,l =resM ; i<l;i++ )
+    {
+       LesMethodes=LesMethodes.concat(listAssociationM[i])
+        LesMethodes=LesMethodes.concat('\n')
+
+    }
+    methods=LesMethodes.split('\n')
+
+    for(var i = 0 ,l = nb; i<l;i++ )
+
+
+    {
+
+
+       index=listAssociation[i].indexOf("=")
+        <!--alert(listAssociation[i])-->
+
+       att_name=listAssociation[i].substr(0,index)
+
+       indexx=listAssociation[i].indexOf("|")
+       association_op=listAssociation[i].substr(index+1)
+       association=association_op.split("|")
+
+
+
+       op_avai=(association[4].split(':'))[1]
+
+
+
+
+
+
+       if ((op_avai.indexOf("Get"))!=-1)
+       {
+       listAvailAttGet=listAvailAttGet.concat(att_name);
+       listAvailAttGet=listAvailAttGet.concat(',');
+
+       }
+
+
+
+       if ((op_avai.indexOf("Set"))!=-1)
+       {
+
+
+       listAvailAttSet=listAvailAttSet.concat(att_name);
+       listAvailAttSet=listAvailAttSet.concat(',');
+
+       }
+
+       else if ((op_avai.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+       }
+       else {
+
+       }
+
+
+
+
+
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avai.indexOf(operation.options[z].value)!=-1)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+
+    }
+
+
+<!--****Les methods-->
+
+for(var i = 0 ,l = nbm; i<l;i++ )
+
+
+    {
+
+
+       index=methods[i].indexOf("=")
+
+
+       meth_name=methods[i].substr(0,index)
+
+       indexx=methods[i].indexOf("|")
+       association_op=methods[i].substr(index+1)
+       association=association_op.split("|")
+
+       op_avaiM=(association[4].split(':'))[1]
+
+      if ((op_avaiM.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+
+       }
+       else{}
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avaiM==operation.options[z].value)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+}
+
+
+
+
+
+
+    <!--fin-->
+
+
+}
+
+
+
+<!--****-->
+if (associationSelected=="Local Pairing")
+{
+
+     <!--****pour afficher la liste des attributs adéquate-->
+
+    listAs=result.ch1
+    listMeth=result.ch2
+
+    nbatt=result.nbatt
+    nbmeth=result.nbmeth
+    listAssociation=listAs.split("\n")
+    nb=nbChar(listAs,"\n");
+
+    listAssociationM=listMeth.split("\n")
+    nba=parseInt(nbatt)
+    nbm=parseInt(nbmeth)
+    resM=nba+nbm
+    LesMethodes=''
+
+     for(var i =nba ,l =resM ; i<l;i++ )
+    {
+       LesMethodes=LesMethodes.concat(listAssociationM[i])
+        LesMethodes=LesMethodes.concat('\n')
+
+    }
+    methods=LesMethodes.split('\n')
+
+    for(var i = 0 ,l = nb; i<l;i++ )
+
+
+    {
+
+
+       index=listAssociation[i].indexOf("=")
+        <!--alert(listAssociation[i])-->
+
+       att_name=listAssociation[i].substr(0,index)
+
+       indexx=listAssociation[i].indexOf("|")
+       association_op=listAssociation[i].substr(index+1)
+       association=association_op.split("|")
+
+
+       op_avai=(association[5].split(':'))[1]
+
+
+
+
+
+
+       if ((op_avai.indexOf("Get"))!=-1)
+       {
+       listAvailAttGet=listAvailAttGet.concat(att_name);
+       listAvailAttGet=listAvailAttGet.concat(',');
+
+       }
+
+
+
+       if ((op_avai.indexOf("Set"))!=-1)
+       {
+
+
+       listAvailAttSet=listAvailAttSet.concat(att_name);
+       listAvailAttSet=listAvailAttSet.concat(',');
+
+       }
+
+       else if ((op_avai.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+       }
+       else {
+
+       }
+
+
+
+
+
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avai.indexOf(operation.options[z].value)!=-1)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+
+    }
+
+
+<!--****Les methods-->
+
+for(var i = 0 ,l = nbm; i<l;i++ )
+
+
+    {
+
+
+       index=methods[i].indexOf("=")
+
+
+       meth_name=methods[i].substr(0,index)
+
+       indexx=methods[i].indexOf("|")
+       association_op=methods[i].substr(index+1)
+       association=association_op.split("|")
+
+       op_avaiM=(association[5].split(':'))[1]
+
+      if ((op_avaiM.indexOf("Action"))!=-1)
+       {
+       listAvailMethAction=listAvailMethAction.concat(meth_name);
+       listAvailMethAction=listAvailMethAction.concat(',');
+
+
+       }
+       else{}
+
+
+        for(var z = 1 ,a = operation.options.length; z<a;z++ )
+        {
+
+
+           if(op_avaiM==operation.options[z].value)
+           {
+           document.getElementById(operation.options[z].value).disabled = false;
+           }
+
+
+        }
+
+}
+
+
+
+
+
+
+    <!--fin-->
+
+
+
+
+
+
+
+}
+<!--****-->
 
 if (associationSelected=="MNGT")
 {
@@ -894,6 +1371,7 @@ else if (check=="2")
 
 {
 
+document.getElementById("objectDict").style.visibility="visible";
 
 
 
@@ -901,7 +1379,7 @@ else if (check=="2")
 else
 
 {
-alert(check)
+document.getElementById("objectDict").style.visibility="hidden";
 document.getElementById("f").style.visibility="visible";
 document.getElementById("a").style.visibility="hidden"
 <!--    sans droitdddddddddddddddddd -->

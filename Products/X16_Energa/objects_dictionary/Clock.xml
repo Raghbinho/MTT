@@ -1,0 +1,19 @@
+<class id="8" version="0">
+  <description>Clock</description>
+  <attributes>
+    <attribute id="2" name="logical_name" size="6" type="octetstring">
+      <association name="MNGT" operations="_" />
+      <association name="READING" operations="_" />
+      <association name="FW" operations="_" />
+      <association name="HAN" operations="_" />
+      <association name="public" operations="_" />
+    </attribute>
+    <attribute id="2" name="value" size="6" type="octetstring">
+      <association name="MNGT" operations="_" />
+      <association name="READING" operations="Get/Set" />
+      <association name="FW" operations="Get" />
+      <association name="HAN" operations="_" />
+      <association name="public" operations="_" />
+    </attribute>
+  </attributes>
+</class>

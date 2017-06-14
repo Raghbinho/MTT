@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<class id="1" version="">
+	<description>clock</description>
+	<attributes>
+		<attribute id="1" name="logical_name" size="6" type="octet-string"/>
+		<attribute id="1" name="reset" size="" type="double-long-unsigned"/>
+	</attributes>
+	<methodes>
+		<method id="2" name="action" size="6" type="utf8-string"/>
+	</methodes>
+</class>

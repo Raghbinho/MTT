@@ -9,7 +9,7 @@
       <association name="Public" operations="Get" />
       <association name="Preestablished" operations="Set" />
     </attribute>
-    <attribute id="6" name="daylight_savings_end" size="6" type="octetstring" />
+    <attribute id="7" name="daylight_savings_end" size="6" type="octetstring" />
     <attribute id="7" name="daylight_savings_deviation" size="6" type="unsigned8" />
     <attribute id="8" name="daylight_savings_enabled" size="6" type="boolean" />
     <attribute id="9" name="clock_base" size="6" type="enumerated" />

@@ -145,6 +145,7 @@ try {
 
 
         $('input#methodsubmit').click(function(){
+        alert()
         idselect2++;
 
         idsize2++;
@@ -230,7 +231,6 @@ try {
  function GetSelectedTextValue(attributeType) {
         var selectedText = attributeType.options[attributeType.selectedIndex].innerHTML;
         var selectedValue = attributeType.value;
-        alert("Selected Text: " + selectedText + " Value: " + selectedValue);
 
         if (selectedValue=="array")
 
@@ -298,7 +298,6 @@ try {
 //        var selectedValue = attributeTypeArray.value;
 //        if (selectedValue=="structure")
 //        {
-//        alert("Selected Text structure: " + selectedText );
 //        document.getElementById("cellSize").disabled = true;
 ////        addTable();
 //
@@ -370,17 +369,13 @@ function GetStructureSize(value,val)
 {
 
 val1=val;
-alert('id '+ $(val).prop('id'))
 
     nbElement=value;
   ch = ch.concat(nbElement.toString());
   ch=ch.concat("-");
-//   alert("ch"+(ch));
 
 //   listCh[countCh]=ch;
    listCh.push(ch);
-
-//    alert (nbElement);
 
 
 
@@ -532,10 +527,7 @@ alert('id '+ $(val).prop('id'))
 
 // document.getElementById("hidden").value = ch;
 
-// alert("listch"+document.getElementById("hidden").value );
 
-
- alert("list"+listCh);
 
     return false;
     }
@@ -544,20 +536,15 @@ alert('id '+ $(val).prop('id'))
  function GetArraySize(value,val)
   {
 //  indice=0;
-alert('id '+ $(val).prop('id'))
 nbappel=0;
  nbremove=0;
 tab[nbappel-1]=nbappel;
 nbappel++;
 nb_btn_clicked=0;
        idsi=$(this).attr('id');
-       alert("identifiant"+ idsi );
-
-//       alert("this is idt ")
 //       textsize=$(this);
 
      sel=document.getElementById("attributeType-"+idsize).value;
-     alert("sel"+sel);
 
 
      attrSize=value;
@@ -565,7 +552,6 @@ nb_btn_clicked=0;
 
 
    myArray[nbappel-1]=attrSize;
-   alert("myArray"+myArray[nbappel-1]);
 
 
 //     *****************************************************
@@ -593,13 +579,11 @@ if(nbremove==myArray[nbappel-2])
      {
 
 //      $("#BtnAddCell").prop("disabled",true);
-       alert("Select Type before");
      }
  if (attrSize =="Select type" )
      {
 
 //      $("#BtnAddCell").prop("disabled",true);
-       alert("Select Type before");
      }
 
      if (sel != "Select type" )
@@ -617,7 +601,6 @@ if(nbremove==myArray[nbappel-2])
 
 }
 
-     alert("this is attribute"+attrSize);
 
      return false;
    }
@@ -654,7 +637,6 @@ if(nbremove==myArray[nbappel-2])
 //{
 //
 //    nbElement=value;
-//    alert (nbElement);
 //    for (var i=0; i<nbElement; i++)
 //    {
 //    element = $('<tr>'+
@@ -694,11 +676,8 @@ function addStructureSize()
 {
 
 nbclicstructure++;
-alert("nbclic"+nbclicstructure);
 
-alert(nb);
 //indice++;
-alert("indice"+indice)
   element = $('<tr style="border-bottom: 1px solid LightSteelBlue;"  id="'+(nb)+'">'+
                     '<td></td><td></td>'+
                     '<td >'+
@@ -751,12 +730,10 @@ $(element).insertAfter( $("#"+nb ) );
 
 
 //function test(){
-//   alert("test");
 ////    var doc = document.implementation.createDocument ('http://www.w3.org/1999/xhtml', 'html', null);
 ////    var body = document.createElementNS('http://www.w3.org/1999/xhtml', 'body');
 ////    body.setAttribute('id', 'abc');
 ////    doc.documentElement.appendChild(body);
-////    alert(doc.getElementById('abc')); // [object HTMLBodyElement];
 ////        var xmlDoc = document.implementation.createDocument(null, 'root', null);
 ////
 ////        var foo = xmlDoc.createElement('foo');
@@ -765,21 +742,18 @@ $(element).insertAfter( $("#"+nb ) );
 ////        xmlDoc.documentElement.appendChild(foo);
 ////
 ////        console.log(xmlDoc);
-////        alert("XML created");
 //
 ////var fso = new ActiveXObject("Scripting.FileSystemObject");
 ////// 2=overwrite, true=create if not exist, 0 = ASCII
 ////varFileObject = fso.OpenTextFile("Bibliothèques\Documents", 2, true,0);
 ////varFileObject.write("File handling in Javascript");
 ////varFileObject.close();
-////alert("file is created");
 //
 ////var XML = new XMLWriter();
 ////XML.BeginNode("Foo");
 ////XML.Attrib("Bar", "Some Value");
 ////XML.EndNode();
 ////XML.Node("MyNode", "My Value");
-////alert("xml created");
 ////var doc = document.implementation.createDocument(null, "report", null);
 //
 ////  if (document.implementation.createDocument &&
@@ -796,12 +770,10 @@ $(element).insertAfter( $("#"+nb ) );
 ////
 ////                var serializer = new XMLSerializer();
 ////
-////                alert (serializer.serializeToString (xmlDoc));
 ////
 ////})
 ////            }
 ////            else {
-////                alert ("Your browser does not support this example");
 ////            }
 //
 //function generateXML(){
@@ -870,7 +842,6 @@ $(element).insertAfter( $("#"+nb ) );
 //);
 //
 //
-//    alert($root.html());
 //}
 //generateXML();
 //
@@ -884,27 +855,21 @@ nbclicstructure=0;
  var selected = $(this).find("option:selected").val();
     cpt=$(this).prop('id');
     idt=$(this).attr('id');
-    alert('id'+cpt)
 //    ids=idsi.attr('id');
 
-// alert("this is att modif"+textsize.value);
 
   att=document.getElementById("attributesize-"+idselect).value;
-
- alert("att"+att);
 
  if (($(this).find("option:selected").val()=="unsigned" ))
 
 {
 cpt=$(this).prop('id');
-alert($(this).find("option:selected").val());
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -922,15 +887,12 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="null-data" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
-alert('cpt'+cpt);
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -946,7 +908,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="boolean" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -954,7 +915,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -970,7 +930,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="double-long-unsigned" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -979,7 +938,6 @@ $("#attributesize-"+afterComma).prop("disabled",true);
 
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -998,7 +956,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="bcd" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1006,7 +963,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1024,7 +980,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="integer" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1032,7 +987,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1049,7 +1003,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="long" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1057,7 +1010,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1076,7 +1028,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="long-unsigned" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1084,7 +1035,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1101,7 +1051,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="long64" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1109,7 +1058,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1126,7 +1074,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="long64-unsigned" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1134,7 +1081,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1153,7 +1099,6 @@ if (($(this).find("option:selected").val()=="enum" ))
 
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1161,7 +1106,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1176,7 +1120,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="float32" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1184,7 +1127,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1200,7 +1142,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="float64" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1209,7 +1150,6 @@ $("#attributesize-"+afterComma).prop("disabled",true);
 
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1225,7 +1165,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="date-time" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1233,7 +1172,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1249,7 +1187,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="date" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1257,7 +1194,6 @@ var afterComma = cpt.substr(cpt.indexOf("-") + 1)
 $("#attributesize-"+afterComma).prop("disabled",true);
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1275,7 +1211,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="time" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1284,7 +1219,6 @@ $("#attributesize-"+afterComma).prop("disabled",true);
 
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1302,7 +1236,6 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="double-long" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt=$(this).prop('id');
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
@@ -1311,7 +1244,6 @@ $("#attributesize-"+afterComma).prop("disabled",true);
 
 if(nb_btn_clicked>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSize-"+(afterComma)).prop("disabled",true);
 
@@ -1328,13 +1260,11 @@ $("#elementsize-"+(afterComma)).prop("disabled",true);
   if (selected=="array" |selected=="CHOICE" | selected=="compact array")
   {
 
-alert("idselect"+idselect);
 //indice++;
 //
 
 //   if (attrSize!="" & selected=="array")
 //      {
-//      alert("ok");
 //      $("#BtnAddCell").prop("disabled",false);
 //      }
 
@@ -1398,19 +1328,16 @@ alert("idselect"+idselect);
 //**********************************************************
   if (att== '' & selected=="array")
       {
-        alert("vide");
 //      $("#BtnAddCell").prop("disabled",true);
 
       }
       if (att== '')
-        alert("att is null");
 //        $("#BtnAddCell").prop("disabled",true);
       {
 
       }
 if (att != '')
 {
-   alert("!= ");
   $("#BtnAddCell").prop("disabled",false);
  }
 //$("#BtnAddCell").prop("disabled",true);
@@ -1432,7 +1359,6 @@ if (selected=="structure")
 nbe=0
 
 var afterComma = cpt.substr(cpt.indexOf("-") + 1)
-alert("after"+afterComma);
 $("#cellSize-"+afterComma).prop("disabled",true);
 $("#elementsize-"+(afterComma)).prop("disabled",true);
 $("#attributesize-"+afterComma).prop("disabled",true);
@@ -1468,7 +1394,6 @@ nb++;
 
 
 //$('#table_class').on('click', 'input[type="button"]', function () {
-//    alert("button size");
 //
 //
 //    var nbElement=""
@@ -1514,18 +1439,15 @@ nb++;
 //})
 
 // $('#structuresize').on('input',function(e){
-//     alert('Changed!')
 //    });
 //******************************gget the text changed
 
 //$("input[name='structuresize']").on("change",function(){
 //
-//   alert("change");
 //});
 //$('#form1').on('change', ' input[type=text]', function(){
 //
 // nbElement=$(this).val();
-//    alert (nbElement);
 //    for (var i=0; i<nbElement; i++)
 //    {
 //            element = $('<tr>'+
@@ -1562,7 +1484,6 @@ nb++;
 
 
 //s=document.getElementById("cellSize").value;
-//alert("s"+s);
 
         att=document.getElementById("attributesize-"+idselect).value;
 //      for (var i = 0;i<nbappel; i++) {
@@ -1571,11 +1492,9 @@ nb++;
 
 
 
-            alert("attr clicked");
 //            if (nbremove >0 )
 //            {
 //
-//            alert("nbremove!=0");
 //            nb_btn_clicked=attrSize-nbremove;
 //            nbremove=0;
 //             }
@@ -1612,14 +1531,7 @@ nb_btn_clicked=0;
 
 
 
-            alert("nb_btn_clicked avant"+nb_btn_clicked);
-
-
             nb_btn_clicked++;
-
-
-
-             alert("apres"+nb_btn_clicked);
                      if (att=="" )
                      {
 //                      $("#BtnAddCell").prop("disabled",true);
@@ -1680,7 +1592,6 @@ nb_btn_clicked=0;
                   '<td><input class="btn btn-danger"type="button" value="Remove" onclick="remove(this)" ></td></tr>');
 //
 //             indice++;
-             alert("indice"+indice);
 
 
              $(value).closest('tr').after(element);
@@ -1693,7 +1604,6 @@ nb_btn_clicked=0;
 
 
   else {
-                 alert("Depassed Attribute Size");
 
                  depasse++;
 
@@ -1703,7 +1613,6 @@ nb_btn_clicked=0;
 
                      if (attrSize==nb_btn_clicked )
                  {
-                    alert("desactiver");
 
 //                  $("#BtnAddCell").prop("disabled",true);
                  }
@@ -1752,8 +1661,6 @@ attrSize=value;
         $("#BtnAddCell").prop("disabled",false);
                 nbremove++;
 
-                alert("nbremove"+nbremove);
-
 
 
 
@@ -1789,8 +1696,6 @@ attrSize=value;
         $("#BtnAddCell2").prop("disabled",false);
                 nbremove2++;
 
-                alert("nbremove2"+nbremove2);
-
 
 
 
@@ -1823,26 +1728,19 @@ nbappel2=0;
  nbremove2=0;
 tab2[nbappel2-1]=nbappel2;
 nbappel2++;
-alert('id '+ $(val).prop('id'))
 methodSize=value;
-     alert("methodsize"+methodSize)
 //nb_btn_clickedMethod=0;
 //       idsi=$(this).attr('id');
-//       alert("identifiant"+ idsi );
 
-//       alert("this is idt ")
 //       textsize=$(this);
 
      sel=document.getElementById("methodType-"+idselect2).value;
-     alert("sel"+sel);
-
 
 
 
 
 
    myArray2[nbappel2-1]=methodSize;
-   alert("myArray2"+myArray2[nbappel2-1]);
 
 
 //     *****************************************************
@@ -1879,13 +1777,11 @@ nb_btn_clickedMethod=0;
      {
 
 //      $("#BtnAddCell2").prop("disabled",true);
-       alert("Select Type before");
      }
  if (sel =="Select type" )
      {
 
 //      $("#BtnAddCell2").prop("disabled",true);
-       alert("Select Type before");
      }
 
      if (sel != "Select type" )
@@ -1903,7 +1799,6 @@ nb_btn_clickedMethod=0;
 
 }
 
-     alert("this is methodsize" +methodSize);
 
      return false;
    }
@@ -1927,7 +1822,6 @@ nb_btn_clickedMethod=0;
 //        {
 //             if (value=="array" |value=="CHOICE" | value=="compact array")
 //  {
-//                alert("method "+value);
 //                nb_btn_clickedMethod=0;
 //
 //              element = $('<tr style="border-bottom: 1px solid LightSteelBlue;"><td width="300px"></td><td width="300px" >' +
@@ -1982,7 +1876,6 @@ nb_btn_clickedMethod=0;
 //                if (value=="structure")
 //
 //                {
-//                alert("method"+value);
 //                nb++;
 //
 //
@@ -2018,7 +1911,6 @@ nb_btn_clickedMethod=0;
 //        {
 //
 //            nb_btn_clickedMethod++;
-//            alert("nombre de clic methode"+nb_btn_clickedMethod);
 //
 //
 //
@@ -2073,7 +1965,6 @@ nb_btn_clickedMethod=0;
 //               }
 //  if (nb_btn_clickedMethod > methodSize )
 //  {
-//  alert("you must be careful");
 //  }
 // }
 
@@ -2084,18 +1975,14 @@ nbselect2=0;
 nbselect2++;
  var selected = $(this).find("option:selected").val();
 
-alert("idselect2"+(idselect2))
 // *********************modif
 
  cpt2=$(this).prop('id');
     idt=$(this).attr('id');
 //    ids=idsi.attr('id');
 
-// alert("this is att modif"+textsize.value);
 
   att=document.getElementById("methodsize-"+idselect2).value;
-
- alert("att"+att);
 
  if (($(this).find("option:selected").val()=="unsigned" ))
 
@@ -2108,7 +1995,6 @@ var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2126,15 +2012,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="null-data" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2151,15 +2034,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="boolean" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2176,15 +2056,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="double-long" ))
 
 {
-alert($(this).find("option:selected").val());
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2201,15 +2078,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="double-long-unsigned" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2225,15 +2099,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="bcd" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2250,15 +2121,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="integer" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2274,15 +2142,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="long" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2299,15 +2164,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="unsigned" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2324,15 +2186,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="long-unsigned" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2348,15 +2207,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="long64" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2373,15 +2229,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="long64-unsigned" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2398,15 +2251,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="enum" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2422,15 +2272,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="float32" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2446,15 +2293,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="float64" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2471,15 +2315,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="date-time" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2496,15 +2337,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="date" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2521,15 +2359,12 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 if (($(this).find("option:selected").val()=="time" ))
 
 {
-alert('null');
 cpt2=$(this).prop('id');
-alert('cpt'+cpt2);
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
 
 $("#methodsize-"+afterComma2).prop("disabled",true);
 if(nb_btn_clickedMethod>=1)
 {
-//alert("cell"+document.getElementById("cellSize-"+afterComma+1).value);
 
 $("#cellSizeMethod-"+(afterComma2)).prop("disabled",true);
 
@@ -2602,19 +2437,16 @@ $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 
 if (att== '' & selected=="array")
       {
-        alert("vide");
 //      $("#BtnAddCell2").prop("disabled",true);
 
       }
       if (att== '')
-        alert("att is null");
 //        $("#BtnAddCell2").prop("disabled",true);
       {
 
       }
 if (att != '')
 {
-   alert("!= ");
   $("#BtnAddCell2").prop("disabled",false);
  }
 
@@ -2625,10 +2457,8 @@ if (att != '')
 if (selected=="structure")
 
 {
-//alert(selected);
 nb++;
 var afterComma2 = cpt2.substr(cpt2.indexOf("-") + 1)
-alert("after"+afterComma2);
 $("#cellSizeMethod-"+afterComma2).prop("disabled",true);
 $("#elementsizemethod-"+(afterComma2)).prop("disabled",true);
 $("#methodsize-"+afterComma2).prop("disabled",true);
@@ -2672,7 +2502,6 @@ function addCellMethod(value)
 indice2++;
 
 //s=document.getElementById("cellSize").value;
-//alert("s"+s);
 
         att=document.getElementById("methodsize-"+idselect2).value;
 //      for (var i = 0;i<nbappel; i++) {
@@ -2680,11 +2509,9 @@ indice2++;
 //      }
 
 
-            alert("method clicked"+att);
 //            if (nbremove >0 )
 //            {
 //
-//            alert("nbremove!=0");
 //            nb_btn_clicked=attrSize-nbremove;
 //            nbremove=0;
 //             }
@@ -2734,7 +2561,6 @@ nbremove2=0;
 
 if ($("#check").length==0)
 {
-alert("aucun ligne");
 test=true;
 }
 //if(test==true & nbremove2!=0)
@@ -2742,14 +2568,10 @@ test=true;
 //nb_btn_clickedMethod=0;
 //}
 
-            alert("nb_btn_clickedMethod avant"+nb_btn_clickedMethod);
 
 
             nb_btn_clickedMethod++;
 
-
-
-             alert("apres"+nb_btn_clickedMethod);
                      if (att=="" )
                      {
 //                      $("#BtnAddCell2").prop("disabled",true);
@@ -2759,10 +2581,6 @@ test=true;
 //                     $("#BtnAddCell2").prop("disabled",true);
                      }
 
-
-
-
-           alert("methodsize"+methodSize+"nb_btn"+nb_btn_clickedMethod)
            if (nb_btn_clickedMethod <= methodSize ){
              element = $('<tr style="border-bottom: 1px solid LightSteelBlue; id="check"><td ></td><td  >' +
                     '</td>'+
@@ -2811,7 +2629,6 @@ test=true;
 
 
              else {
-                 alert("Depassed Method Size");
 
                  depasse++;
 
@@ -2821,7 +2638,6 @@ test=true;
 
                      if (methodSize==nb_btn_clickedMethod )
                  {
-                    alert("desactiver");
 
 //                  $("#BtnAddCell2").prop("disabled",true);
                  }
@@ -2880,7 +2696,6 @@ test=true;
                      { nb_btn_clickedMethod=0;}
             }
          methodSize=value;
-         alert("methodsize"+methodSize)
 
 if (nbremove2 !=0 & nbremove2 < methodSize)
 
@@ -2922,9 +2737,7 @@ nb_btn_clickedMethod=myArray2[nbappel2-2]-nbremove2;
 
 //     document.getElementById("cellSizeMethod").disabled = true;
 id=$(val).prop('id');
-alert("id de structuresize"+id);
     nbElement2=value;
-    alert ("GetStructureSizeMethod"+nbElement2);
 //    ***************************
 
   ch2 = ch2.concat(nbElement2.toString());

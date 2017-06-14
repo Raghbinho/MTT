@@ -5,21 +5,37 @@
 </head>
 {% block content %}
 <head>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-<script src="../static/js/jquery.min.js"></script>
-<!--<script src="../static/js/bootstrap.min.js"></script>-->
-<script src="../static/js/easyTree.min.js"></script>
-<link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/dmtt.css' %}" rel="stylesheet">
+    <script src="../static/js/dmtt.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="../static/js/jquery.min.js"></script>
+    <!--<script src="../static/js/bootstrap.min.js"></script>-->
+    <script src="../static/js/easyTree.min.js"></script>
+    <link href="{% static 'css/easyTree.min.css' %}" rel="stylesheet">
+    <style>
+           .col-md-9 {
+                width: 70%;
+                .classInput{
+                       width: 50%;
+                      }
+                      .classCheckbox{
+                          text-align: center;
+                          }
+                      .classCheckbox1{
+                        text-align: center;
+                        }
+
+        </style>
 
 </head>
 
 <div class="container">
-      <div class="row">
+    <div class="row">
 
-            <!--******************************************************-->
-<div class="col-lg-3">
+        <!--******************************************************-->
+        <div class="col-lg-3">
             <div class="panel panel-primary">
                 <center>
                     <h3 class="text-success">Product list</h3>
@@ -39,9 +55,9 @@
                                     <li>
                                         {% if d.children %}
                                         {% endif %}
-                                      <a id="{{item.name}}\\{{d.name}}" class="text-muted"
-                                                   data-toggle="collapse"
-                                                   onclick="m(this.id);href='#display';">{{ d.name }}</a>
+                                        <a id="{{item.name}}\\{{d.name}}" class="text-muted"
+                                           data-toggle="collapse"
+                                           onclick="m(this.id);href='#display';">{{ d.name }}</a>
                                     </li>
                                     {% endfor %}
                                 </ul>
@@ -63,17 +79,18 @@
                 </div>
             </div>
         </div>
-             <div class="col-md-9" id="divDisplay">
+        <div class="col-md-9" id="divDisplay">
             <div class=" panel-default">
                 <div class="panel-body">
                     <div class="collapse menu" id="display" tabindex="-1" role="dialog" aria-labelledby="">
                         <div class="modal-content modal-lg" role="document">
                             <div class="modal-content" id="textareaContent">
 
-                                    <form name="editFormProduct" id="EditFormProduct" action="/editProduct" method="post" enctype="multipart/form-data">{% csrf_token %}
-                                        <div id="f">
-                                        </div>
-                                    </form>
+                                <form name="editFormProduct" id="EditFormProduct" action="/editProduct" method="post"
+                                      enctype="multipart/form-data">{% csrf_token %}
+                                    <div id="f">
+                                    </div>
+                                </form>
 
                             </div>
                         </div>
@@ -86,8 +103,8 @@
             <div class=" panel-default">
                 <div class="panel-body">
                     <div class="collapse menu" id="menu" tabindex="-1" role="dialog" aria-labelledby="" width="75%">
-                        <div class="modal-content modal-smll" role="document" >
-                            <div class="modal-content" >
+                        <div class="modal-content modal-smll" role="document">
+                            <div class="modal-content">
 
                                 <div class="modal-header" id="content">
                                     <button type='button' class='close'
@@ -97,365 +114,375 @@
                                     <center>
 
                                     </center>
-     <form name="productForm" id="formP" action="/generateProduct" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
+                                    <form name="productForm" id="formP" action="/generateProduct" method="post"
+                                          enctype="multipart/form-data">
+                                        {% csrf_token %}
+
+                                        <table class="table" border="1px">
+                                            <tr>
+                                                <h3><span class="label label-primary">General Settings</span></h3>
+                                            </tr>
+
+                                            <td>
+                                                <label>
+                                                    Device Type
+                                                </label>
+
+                                            </td>
+                                            <td>
+                                                <select class="form-control" name="deviceType">
+                                                    <option value="Select Device Type" selected="selected">Select type
+                                                    </option>
+                                                    <option value="E-Meter">E-Meter</option>
+                                                    <option value="G-Meter">G-Meter</option>
+
+                                                </select>
+                                            </td>
+
+
+                                            <td>
+                                                <label>
+                                                    Firmware
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <div class="col-md-8">
+                                                <!--<input class="form-control" type="text" required  name="filenameG" id="filenameG">-->
+                                                    <div class="input-group image-preview">
+                                                        <input type="text" class="form-control image-preview-filename"
+                                                               disabled="disabled">
+                                                        <span class="input-group-btn">
+                                                                <button type="button"
+                                                                        class="btn btn-default image-preview-clear"
+                                                                        style="display:none;">
+                                                                <span class="glyphicon glyphicon-remove"></span> Clear
+                                                                </button>
+                                                                <div class="btn btn-default image-preview-input">
+                                                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                                                    <span class="image-preview-input-title">Browse</span>
+                                                                    <input type="file" name="firmware"/>
+                                                                </div>
+                                                            </span>
+                                                    </div>
+                                                </div>
 
-                    <table class="table"  border="1px" >
-                    <tr>
-                        <h3> <span class="label label-primary">General Settings</span></h3>
-                    </tr>
+                                            </td>
+
+
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        Product Name
+                                                    </label>
 
-                        <td >
-                           <label>
-                           Device Type
-                           </label>
+                                                </td>
+
+
+                                                <td>
+                                                    <input class="form-control" type="text" name="productName"
+                                                           id="productName">
 
-                        </td>
-                        <td>
-                            <select  class="form-control"  name="deviceType" >
-                                <option value="Select Device Type" selected="selected">Select type</option>
-                                <option value="E-Meter">E-Meter</option>
-                                <option value="G-Meter">G-Meter</option>
 
-                            </select>
-                        </td>
+                                                </td>
 
 
-                         <td>
-                            <label>
-                            Firmware
-                            </label>
-                         </td>
-                        <td>
-                             <input class="form-control" type="text" required  name="filenameG" id="filenameG">
-                             <input type="file"  name="firmware"/>
-                         </td>
-
-
-
-
-                        <tr>
-                            <td>
-                            <label>
-                            Product Name
-                            </label>
-
-                            </td>
-
-
-                         <td>
-                              <input class="form-control" type="text" name="productName" id="productName">
-
-
-                         </td>
-
-
-
-
-                            <td >
-                            <label>
-                            TCP Timeout
-                            </label>
-                            </td>
-
-                            <td>
-                              <input class="form-control" type="text" name="tcpTimeout">
-
-                            </td>
-                        </tr>
-
-                        <tr>
-                        <td>
-                            <label>
-                            Serial Number
-                            </label>
-
-                        </td>
-
-
-                            <td>
-
-                               <input class="form-control" type="text" name="serialNumber">
-
-                            </td>
-
-
-
-                            <td>
-                           <label>
-                           HDLC Timeout
-                           </label></td>
-                            <td>
-                            <input class="form-control" type="text" name="hdlcTimeout">
-                            </td>
-
-                    </tr>
-
-                       <tr>
-                           <td>
-                           <label>
-                           Equipement Identifier
-                           </label></td>
-                        <td>
-                            <input class="form-control" type="text" name="softwareVersion">
-                        </td>
-
-
-
-                           <td>
-                           <label>
-                           Software version
-                           </label>
-
-
-                           </td>
-                           <td>
-                               <input class="form-control" type="text" name="equipementIdentifier">
-
-                           </td>
-
-
-
-
-                       </tr>
-
-
-                        <tr>
-
-                            <td>
-                            <label>
-                            Manufacturer
-                            </label></td>
-
-                            <td>
-                                <input class="form-control" type="text" name="Manufacturer">
-                        </td>
-
-                            <td>
-                            <label>
-                            HDLC MaxReceive
-                            </label></td>
-                            <td>
-                            <input class="form-control" type="text" name="hdlcMaxReceive">
-                            </td>
-                        </tr>
-
-                        <tr>
-
-                            <td>
-                            <label>
-                            Description
-                            </label></td>
-                            <td>
-                            <input class="form-control" type="text" name="description">
-
-                            </td>
-
-
-                            <td>
-                            <label>
-                            Baudrate
-                            </label></td>
-                            <td>
-                            <input class="form-control" type="text" name="baudrate">
-                             </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                          <label>
-                           Meter IP
-                           </label></td>
-
-                            <td>
-                            <input class="form-control" type="text" name="meterIP">
-                            </td>
-
-                             <td >
-                             <label>
-                            HDLC Adress
-                             </label></td>
-                            <td>
-                            <input class="form-control" type="text" name="hdlcAdress">
-                         </td>
-                        </tr>
-
-                        <tr>
-
-                           <td>
-                            <label>
-                            Server Adress
-                            </label></td><td>
-                            <input class="form-control" type="text" name="serverAdress">
-                        </td>
-
-
-                            <td >
-                           <label>
-                           ModeE Adress
-                           </label>
-
-
-
-                                <label class="checkbox-inline"><input type="checkbox" value="modeEchecked"></label>
-                            </td>
-                         <td>
-                              <input class="form-control" type="text" name="modeEadress">
-                         </td>
-                        </tr>
-
-
-                        <tr>
-                            <td>
-                            <label>
-                            Meter Port
-                            </label></td><td>
-                            <input class="form-control" type="text" name="meterPort">
-                        </td>
-
-                             <td>
-                           <label>
-                            HDLC MaxTransmit
-                            </label></td>
-                           <td>
-                            <input class="form-control" type="text" name="hdlcMaxTransmit">
-                        </td>
-
-
-
-                        </tr>
-                    </table>
-<center>
-            <table style="width:500px"  border="1px" id="TableClient1">
-
-
-                    <tr>
-
-                        <h3><span class="label label-primary">Client Adress <input  type="button" class="btn btn-info" value="+" onclick="addClient();" id="addClient">
+                                                <td>
+                                                    <label>
+                                                        TCP Timeout
+                                                    </label>
+                                                </td>
+
+                                                <td>
+                                                        <input class="form-control" type="text" name="tcpTimeout">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        Serial Number
+                                                    </label>
+
+                                                </td>
+
+
+                                                <td>
+
+                                                    <input class="form-control" type="text" name="serialNumber">
+
+                                                </td>
+
+
+                                                <td>
+                                                    <label>
+                                                        HDLC Timeout
+                                                    </label></td>
+                                                <td>
+                                                        <input class="form-control" type="text" name="hdlcTimeout">
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        Equipement Identifier
+                                                    </label></td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="softwareVersion">
+                                                </td>
+
+
+                                                <td>
+                                                    <label>
+                                                        Software version
+                                                    </label>
+
+
+                                                </td>
+                                                <td>
+                                                        <input class="form-control" type="text"
+                                                               name="equipementIdentifier">
+                                                </td>
+
+
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td>
+                                                    <label>
+                                                        Manufacturer
+                                                    </label></td>
+
+                                                <td>
+                                                    <input class="form-control" type="text" name="Manufacturer">
+                                                </td>
+
+                                                <td>
+                                                    <label>
+                                                        HDLC MaxReceive
+                                                    </label></td>
+                                                <td>
+                                                        <input class="form-control" type="text" name="hdlcMaxReceive">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>
+                                                    <label>
+                                                        Description
+                                                    </label></td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="description">
+
+                                                </td>
+
+
+                                                <td>
+                                                    <label>
+                                                        Baudrate
+                                                    </label></td>
+                                                <td>
+                                                        <input class="form-control" type="text" name="baudrate">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        Meter IP
+                                                    </label></td>
+
+                                                <td>
+                                                    <input class="form-control" type="text" name="meterIP">
+                                                </td>
+
+                                                <td>
+                                                    <label>
+                                                        HDLC Adress
+                                                    </label></td>
+                                                <td>
+                                                        <input class="form-control" type="text" name="hdlcAdress">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>
+                                                    <label>
+                                                        Server Adress
+                                                    </label></td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="serverAdress">
+                                                </td>
+
+
+                                                <td>
+                                                    <label>
+                                                        ModeE Adress
+                                                    </label>
+
+
+                                                    <label class="checkbox-inline"><input type="checkbox"
+                                                                                          value="modeEchecked"></label>
+                                                </td>
+                                                <td>
+                                                        <input class="form-control" type="text" name="modeEadress">
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        Meter Port
+                                                    </label></td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="meterPort">
+                                                </td>
+
+                                                <td>
+                                                    <label>
+                                                        HDLC MaxTransmit
+                                                    </label></td>
+                                                <td>
+                                                        <input class="form-control" type="text" name="hdlcMaxTransmit">
+                                                </td>
+
+
+                                            </tr>
+                                        </table>
+                                        <center>
+                                            <table style="width:500px" border="1px" id="TableClient1">
+
+
+                                                <tr>
+
+                                                    <h3><span class="label label-primary">Client Adress <input
+                                                            type="button" class="btn btn-info" value="+"
+                                                            onclick="addClient();" id="addClient">
                         </span></h3>
 
-                    </tr>
+                                                </tr>
 
 
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <center><label>
+                                                            Client Adress
+                                                        </label>
+                                                        </center>
+
+                                                    </td>
+
+                                                    <td>
+                                                        <center><label>
+                                                            Association Name
+                                                        </label>
+                                                        </center>
+                                                    </td>
+                                                    <td></td>
+
+                                                </tr>
+                                            </table>
+                                        </center>
 
 
-                     <tr>
-                         <td></td>
-                       <td>
-                           <center><label>
-                          Client Adress
-                           </label>
-                           </center>
+                                        <table class="table" border="1px" id="SecurityTable">
+                                            <tr>
 
-                       </td>
+                                                <h3><span class="label label-primary">Security Settings
+                        </span></h3>
 
-                       <td>
-                            <center><label>
-                          Association Name
-                           </label>
-                           </center>
-                       </td>
-                         <td></td>
-
-                    </tr>
-            </table></center>
+                                            </tr>
 
 
-                    <table class="table"  border="1px" id="SecurityTable">
-                         <tr>
-
-                        <h3><span class="label label-primary">Security Settings
-                        </span> </h3>
-
-                    </tr>
-
-
-
-                     <tr>
-                       <td>
-                           <center><h4><span class="label label-default">
+                                            <tr>
+                                                <td>
+                                                    <center><h4><span class="label label-default">
                             Master Key
                            </span>
-                           </h4></center>
-                       </td>
-                       <td>
-                            <center>
-                           <input class="form-control" type="text" name="masterKey">
+                                                    </h4></center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <input class="form-control" type="text" name="masterKey">
 
-                           </center>
-                       </td>
+                                                    </center>
+                                                </td>
 
-                       <td>
-                           <center><h4><span class="label label-default">
+                                                <td>
+                                                    <center><h4><span class="label label-default">
                             Global Encryption Key
                            </span>
-                           </h4></center>
-                       </td>
-                       <td>
-                            <center>
-                           <input class="form-control" type="text" name="globalKey">
-                           </center>
-                       </td>
+                                                    </h4></center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <input class="form-control" type="text" name="globalKey">
+                                                    </center>
+                                                </td>
 
 
-                       <td>
-                           <center><h4><span class="label label-default">
+                                                <td>
+                                                    <center><h4><span class="label label-default">
                             Authentification Key
                            </span>
-                           </h4> </center>
-                       </td>
-                       <td>
-                            <center>
-                           <input class="form-control" type="text" name="authentificationKey">
-                            </span>
-                           </center>
-                       </td>
-                     </tr>
-                        <tr>
+                                                    </h4></center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <input class="form-control" type="text"
+                                                               name="authentificationKey">
+                                                        </span>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                            <tr>
 
 
-
-                       <td>
-                           <center><h4><span class="label label-default">
+                                                <td>
+                                                    <center><h4><span class="label label-default">
                            HLS Secret
                            </span>
-                           </h4> </center>
-                       </td>
-                       <td>
-                            <center><label>
-                           <input class="form-control" type="text" name="hlsSecret">
-                           </label>
-                           </center>
-                       </td>
+                                                    </h4></center>
+                                                </td>
+                                                <td>
+                                                    <center><label>
+                                                        <input class="form-control" type="text" name="hlsSecret">
+                                                    </label>
+                                                    </center>
+                                                </td>
 
 
-
-                       <td>
-                           <center><h4><span class="label label-default">
+                                                <td>
+                                                    <center><h4><span class="label label-default">
                            LLS Authentification Value
                            </span>
-                           </h4></center>
-                       </td>
-                       <td>
-                            <center><label>
-                           <input class="form-control" type="text" name="llsAuth">
-                           </label>
-                           </center>
-                       </td>
-                     </tr>
-                    </table></center>
+                                                    </h4></center>
+                                                </td>
+                                                <td>
+                                                    <center><label>
+                                                        <input class="form-control" type="text" name="llsAuth">
+                                                    </label>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        </center>
 
 
+                                        <tr>
+                                            <center><input class="btn btn-success" type="submit" id="generateProduct"
+                                                           value="Generate"></center>
+                                        </tr>
 
 
-
-
-                    <tr><center> <input class="btn btn-success" type = "submit" id = "generateProduct" value = "Generate"></center></tr>
-
-
-
-
-      </form>
+                                    </form>
 
                                     <!--********************-->
 
@@ -469,12 +496,11 @@
         </div>
 
 
-            <!--*************************************************************-->
+        <!--*************************************************************-->
 
-        </div>
     </div>
 </div>
-
+</div>
 
 
 <!--<script src="/static/js/jquery.min.js"></script>-->
@@ -673,10 +699,26 @@ element='<center><table class="table"  border="1px" >'+
 '</td>'+
 '<td>'+
 '<label>Firmware</label></td>'+
- '<td>'+
-' <input class="form-control" type="text" required  name="filename" id="file"  value='+result.firmware+'><input type="hidden" name="OldFirmware" id="nb" value='+ result.firmware +'>'+
-'<span class="btn btn-default btn-file"><span></span><input type="file"  name="firmware" onchange="get_filename(this);" /></span>'+
-'</td>'+
+'<td>'+
+
+    ' <div class="col-md-8">'+
+        ' <div class="input-group image-preview">'+
+            ' <input type="text" class="form-control image-preview-filename"  value='+result.firmware+' name="filename" id="file" >'+
+             '<span class="input-group-btn">'+
+                     '<button type="button" class="btn btn-default image-preview-clear" style="display:none;">'+
+                     '<span class="glyphicon glyphicon-remove"></span> Clear </button>'+
+                     '<div class="btn btn-default image-preview-input">'+
+                         '<span class="glyphicon glyphicon-folder-open"></span>'+
+                         '<span class="image-preview-input-title">Browse</span>'+
+                         '<input type="hidden" name="OldFirmware" id="nb" value='+ result.firmware +'>'+
+                         '<input type="file" name="firmware" onchange="get_filename(this);" />'+
+                     '</div>'+
+                 '</span>'+
+         '</div>'+
+     '</div>'+
+
+
+ '</td>'+
 '<tr>'+
 '<td><label>Product Name</label></td>'+
 ' <td>'+
@@ -862,6 +904,8 @@ function GetClientAdress(value)
         window.onload = init();
     })(jQuery)
     <!--**********************************************-->
+
+
 
 
 </script>

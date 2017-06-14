@@ -1,15 +1,23 @@
 <?xml version="1.0"?>
 <class id="11" version="0">
-	<description>Clock</description>
+	<description>CurrentAssociation</description>
     <attributes>
         <attribute id="1" name="logical_name" 				type="octetstring" size="6"></attribute>
-        <attribute id="2" name="time" 						type="octetstring" size="6"></attribute>
-        <attribute id="3" name="time_zone" 					type="integer16" size="6"></attribute>
-        <attribute id="4" name="status" 					type="unsigned8" size="6"></attribute>
-        <attribute id="5" name="daylight_savings_begin" 	type="octetstring" size="6"></attribute>
-        <attribute id="6" name="daylight_savings_end"   	type="octetstring" size="6"></attribute>
-        <attribute id="7" name="daylight_savings_deviation" type="unsigned8" size="6"></attribute>
-        <attribute id="8" name="daylight_savings_enabled"   type="boolean" size="6"></attribute>
-        <attribute id="9" name="clock_base" 				type="enumerated" size="6"></attribute>
+        <attribute id="2" name="object_list" 						type="octetstring" size="6"></attribute>
+        <attribute id="4" name="associated_partners_id" 					type="unsigned8" size="6"></attribute>
+        <attribute id="5" name="application_context_name" 	type="octetstring" size="6"></attribute>
+        <attribute id="6" name="xDLMS_context_info"   	type="octetstring" size="6"></attribute>
+        <attribute id="7" name="authentication_mechanism_name" type="octetstring" size="6"></attribute>
+        <attribute id="8" name="secret"   type="octetstring" size="6"></attribute>
+        <attribute id="9" name="association_status" 				type="octetstring" size="6"></attribute>
+        <attribute id="3" name="security_setup_reference" 			type="octetstring" size="6"></attribute>
+
     </attributes>
+    <methods>
+        <method id="3" name="reply_to_HLS_authentication" 		type="integer8" size="6"></method>
+        <method id="3" name="change_HLS_secret" 			type="integer8" size="6"></method>
+        <method id="3" name="add_object" 			type="integer8" size="6"></method>
+        <method id="3" name="remove_object" 			type="integer8" size="6"></method>
+
+    </methods>
 </class>

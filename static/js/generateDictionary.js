@@ -13,7 +13,7 @@ var html = [
     '<option>15</opton>',
      '</select>',
      '</div></td>',
-    '<td><div class="col-xs-2 col-md-2"><label for="obisCode">Obis Code</label><form action="#" id="obisCodeForm"><input class="form-control" id="obisCode" name="obisCode" type="text" style="height:40;" pattern="[a-f0-9]{12}++(?<!\ff)$" title="Obis code should contain 6 octet"  required/><input type="submit" id="primaryButton" style="display: none;"></form></div></td>',
+    '<td><div class="col-xs-2 col-md-2"><label for="obisCode">Obis Code</label><input class="form-control" id="obisCode" name="obisCode" type="text" style="height:40;" pattern="[a-f0-9]{12}++(?<!\ff)$" title="Obis code should contain 6 octet"  required/><input type="submit" id="primaryButton" style="display: none;"></div></td>',
     '<td><div class="col-xs-2 col-md-2" id="Description"><label for="Description">Description</label><input class="form-control" id="Descrip" type="text" style="height:40;" readonly="readonly" ></div></td>',
      '<td><div class="col-xs-2 col-md-2" id="Version"><label for="Version">Version</label><input class="form-control" id="dictVersion" type="text" style="height:40;" readonly="readonly"></div></td><br ><br ><br ><br >',
      '<td><div id="textareaContent2" class="table-responsive"></div></td>',
